@@ -24,8 +24,7 @@
 
 
 
-<div class="content" style="margin-left: 20%;
-margin-right: 20%;">
+<div class="content" style="margin-left: 20%;margin-right: 20%;">
 
 
   <!-- <h1>contents here</h1> -->

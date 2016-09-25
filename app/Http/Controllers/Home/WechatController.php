@@ -13,6 +13,7 @@ class WechatController extends CommonController{
 
   private $appid='wx65dabb801b9106ee';
   private $secret = '7def82058bb02bc9c37eba828ba74b6c';
+  private $i=0;
 
   private function getRandStr($num){
     $chars='qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM';
@@ -36,6 +37,8 @@ class WechatController extends CommonController{
     // dd($timeNow - $tokenData->created_at->getTimeStamp());
     if (($timeNow - $tokenData->created_at->getTimeStamp())>3000)
     {
+
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url_token);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -43,12 +46,14 @@ class WechatController extends CommonController{
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $output = curl_exec($ch);
     curl_close($ch);
-    $data['data_name']='access_token';
+
     $output = json_decode($output);
+
+    $data['data_name']='access_token';
     $data['data']=$output->access_token;
-    // dd($data);
     Data::create($data);
     return $output->access_token;
+
   }else{
     return $tokenData->data;
   }
@@ -57,20 +62,19 @@ class WechatController extends CommonController{
   public function wechat_data(){
 
     $access_token = $this->getToken();
+    // dd($access_token);
 
     $noncestr = $this->getRandStr(15);
     $timestamp = time();
 
     // var_dump($noncestr);
     // exit();
-    $url = 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='. $access_token .'&type=jsapi';
+    $url = 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='.$access_token.'&type=jsapi';
     $ret_json = file_get_contents($url);
+    // dd($ret_json);
     //ret return data show the wechat sending ok or not
     $ret = json_decode($ret_json);
-
-
-
-    $_SESSION['jsapi_ticket'] = $ret-> ticket;
+    $_SESSION['jsapi_ticket'] = $ret->ticket;
 
     $strvalue = 'jsapi_ticket='.$_SESSION['jsapi_ticket'].'&noncestr='.$noncestr.'&timestamp='.$timestamp.'&url=http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $signature = sha1($strvalue);
