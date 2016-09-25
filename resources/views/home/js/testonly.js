@@ -1,27 +1,5 @@
 <script type="text/javascript">
-   var url = window.location.href;
-   var articleId = "";
-   var shareTitle="明日医疗资讯";
-   var shareImgUrl="";
-   var userinfo = localStorage.getItem("_userinfo");
-   var timestamp;
-   var noncestr;
-   var signature;
-   //获取签名
-    $.ajax({
-      type: "GET",
-      url: "WeixinshareController/Api/Inteface/getSignature",
-      //data:{timestamp:timestamp,noncestr:noncestr,url:url},
-      data:{url:url},
-      success: function(data){
-        var objData=JSON.parse(data);
-        timestamp=objData.timestamp;
-        noncestr=objData.noncestr;
-        signature=objData.signature;
-         console.log(objData);
-         wxShare();
-      }
-     });
+   
    function wxShare(){
    wx.config({
     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
