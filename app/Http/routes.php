@@ -14,7 +14,9 @@ Route::group(['middleware' => []], function () {
 
 
     Route::get('/','Home\IndexController@index');
-    Route::get('/test','Home\IndexController@test');
+    Route::get('/test','Home\TestController@index');
+    Route::get('/test2','Home\TestController@index2');
+
 
 
 
@@ -25,9 +27,12 @@ Route::group(['middleware' => []], function () {
 
 
     Route::get('/a/{art_id}','Home\IndexController@article');
-    // Route::any('admin/login', 'Admin\LoginController@login');
-    // Route::get('admin/code', 'Admin\LoginController@code');
+    Route::any('admin/login', 'Admin\LoginController@login');
+    Route::get('admin/code', 'Admin\LoginController@code');
 
+
+    //share function
+    Route::any('share','Home\ShareController@index');
 
 });
 
@@ -59,4 +64,19 @@ Route::group(['middleware' => ['admin.login'],'prefix'=>'admin','namespace'=>'Ad
     Route::any('config/changecontent', 'ConfigController@changeContent');
     Route::resource('config','ConfigController');
 
+    // Route::resource('self_media','SelfMediaController');
   });
+
+
+
+
+
+//Route::any('admin/info', 'Admin\IndexController@info');
+
+
+
+
+
+
+//Route::get('admin/code','Admin\LoginController@code');
+//Route::any('admin','Admin\LoginController@index');

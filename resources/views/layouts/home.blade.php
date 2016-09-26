@@ -21,7 +21,6 @@
 </header>
 
 @section('content')
-
 <h3>
   <p>最新<span>文章</span></p>
 </h3>
