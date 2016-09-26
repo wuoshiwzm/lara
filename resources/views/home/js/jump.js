@@ -1,11 +1,19 @@
-alert("test");
-function jumpFrame(){
+
+
+
+
+function jumpFrame(info){
+
+  // alert(info);
+
   layer.open({
   type: 2,
   title: 'layer mobile页',
   shadeClose: true,
   shade: 0.8,
-  area: ['380px', '90%'],
-  content: 'http://layer.layui.com/mobile/' //iframe的url
+  area: ['500px', '75%'],
+  content: 'share' //iframe的url
 });
+
+
 }
