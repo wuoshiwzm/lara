@@ -7,13 +7,6 @@ use App\Http\Model\Category;
 
 class IndexController extends CommonController
 {
-
-
-
-  public function test(){
-
-    echo "test";
-  }
   public function index(){
 
     $allCates = (new Category)->frontCate();

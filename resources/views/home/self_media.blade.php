@@ -2,8 +2,6 @@
 
 
 
-
-
 <body onload="time()">
 <!-- data for weixin share -->
   <input type="hidden" id="timestamp" value={{$timestamp}}>
@@ -53,12 +51,15 @@
          <div class="zi_con">
              <div class="zicon-left">
 
+               <!-- wechat share loading -->
                <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" charset="utf-8"></script>
+
+               <!-- jiathis share js loading -->
                <script type="text/javascript" src="{{asset('resources/views/home/js/share.js')}}"></script>
-               <a href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f='http://v.t.sina.com.cn/share/share.php?appkey=真实的appkey',u=z||d.location,p=['&url=',e(u),'&title=',e(t||d.title),'&source=',e(r),'&sourceUrl=',e(l),'&content=',c||'gb2312','&pic=',e(p||'')].join('');function%20a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=440,height=430,left=',(s.width-440)/2,',top=',(s.height-430)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,'','','图片链接|默认为空','{{$timestamp}}','内容链接|默认当前页location','页面编码gb2312|utf-8默认gb2312'));">分享至微博</a>
 
 
-               <wb:share-button addition="number" type="button" ralateUid="6016036905"></wb:share-button>
+               <!-- weibo share -->
+               <!-- <wb:share-button addition="number" type="button" ralateUid="6016036905"></wb:share-button> -->
                   <h1 onclick="test()"> here the js </h1>
                         @include('layouts.widget.newsinput')
                         <div class="lis">

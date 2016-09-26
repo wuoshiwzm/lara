@@ -8,8 +8,6 @@
 
 @section('content')
 
-
- 
 <div class="banner">
   <section class="box">
     <ul class="texts">
