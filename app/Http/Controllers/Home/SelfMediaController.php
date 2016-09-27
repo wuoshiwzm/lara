@@ -20,14 +20,14 @@ class SelfMediaController extends CommonController
     // dd($self_medias);
     // dd($self_media);
 
-    $wechatData = (new WechatController)->wechat_data();
+    // $wechatData = (new WechatController)->wechat_data();
     // dd($wechatData);
     // dd($wechatData);
     return view('home/self_media')
-    ->with('self_medias',$self_medias)
-    ->with('timestamp',$wechatData['timestamp'])
-    ->with('nonceStr',$wechatData['noncestr'])
-    ->with('signature',$wechatData['signature']);
+    ->with('self_medias',$self_medias);
+    // ->with('timestamp',$wechatData['timestamp'])
+    // ->with('nonceStr',$wechatData['noncestr'])
+    // ->with('signature',$wechatData['signature']);
   }
 
   public function add(){

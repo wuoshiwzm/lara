@@ -4,9 +4,9 @@
 
 <body onload="time()">
 <!-- data for weixin share -->
-  <input type="hidden" id="timestamp" value={{$timestamp}}>
-  <input type="hidden" id="nonceStr" value={{$nonceStr}}>
-  <input type="hidden" id="signature" value={{$signature}}>
+  <input type="hidden" id="timestamp" value=>
+  <input type="hidden" id="nonceStr" value=>
+  <input type="hidden" id="signature" value=>
 
 
 
@@ -42,9 +42,6 @@
     </div>
 
 
-
-
-
      <div class="zi">
          <div class="title_zi">
          </div>
@@ -60,7 +57,11 @@
 
                <!-- weibo share -->
                <!-- <wb:share-button addition="number" type="button" ralateUid="6016036905"></wb:share-button> -->
-                  <h1 onclick="test()"> here the js </h1>
+
+                <!-- <a href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f='http://v.t.sina.com.cn/share/share.php?appkey=真实的appkey',u=z||d.location,p=['&url=',e(u),'&title=',e(t||d.title),'&source=',e(r),'&sourceUrl=',e(l),'&content=',c||'gb2312','&pic=',e(p||'')].join('');function%20a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=440,height=430,left=',(s.width-440)/2,',top=',(s.height-430)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,'','','图片链接|默认为空','test','内容链接|默认当前页location','页面编码gb2312|utf-8默认gb2312'));">分享至微博</a> -->
+
+
+
                         @include('layouts.widget.newsinput')
                         <div class="lis">
                     <ul>
@@ -145,37 +146,18 @@
                       <div class="fie_right">
                           <p class="name"><a href="#"><span style="color:#FF6600">{{$v->user_name}}</span></a></p>
                           <p class="datae"><span> {{$v->created_at}}</span> <span>来自{{$v->user_name}}</span>
-                            <span style="float:right;">
-                              <!-- JiaThis Button BEGIN -->
-                                  <script "text/javascript">
-                                  var jiathis_config = {
-                                    url: "http://www.yourdomain.com",
-                                    title: "自定义网页标题 #话题#",
-                                    summary:"分享的文本摘要"
-                                  }
-                                  </script>
-                                  <span id="ckepop">
-                                  <span class="jiathis_txt">分享到：</span>
-
-                                  <a class="jiathis_button_weixin">微信分享</a>
-                                  <a class="jiathis_button_tsina">新浪微博</a>
-                                  <!-- <a class="jiathis_button_douban"></a> -->
-                                  <a class="jiathis_button_qzone" >QQ空间</a>
-                                  <a class="jiathis_button_tools_1"></a>
-                                  <a class="jiathis_button_tools_2"></a>
-
-                                  </span>
-                                  <script type="text/javascript" src="http://v2.jiathis.com/code/jia.js" charset="utf-8"></script>
-                                  <!-- JiaThis Button END -->
-                                </span>
+                            <h1><span onclick="jumpFrame({{$v->id}})">
+                              点击分享送红包啦!
+                              </span>
+                            </h1>
 
 
                           </p>
                           <p class="nei">
                           <span>
-                            {!!   $v->content !!}
+                            {!! $v->content !!}
                           </span>
-                                <img src="{{asset('resources/views/home/images/photos.jpg')}}" alt="名字名字名字名字名字名字名字">
+
                                 <img src="{{asset('resources/views/home/images/photos.jpg')}}" alt="11111111111111">
                           </p>
                       </div>
@@ -230,7 +212,7 @@
      </div>
 
 @include('layouts.footer')
-
+@include('layouts.widget.jump')
 
 
 

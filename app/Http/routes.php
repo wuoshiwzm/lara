@@ -14,8 +14,6 @@ Route::group(['middleware' => []], function () {
 
 
     Route::get('/','Home\IndexController@index');
-    Route::get('/test','Home\TestController@index');
-    Route::get('/test2','Home\TestController@index2');
 
 
 
@@ -33,6 +31,7 @@ Route::group(['middleware' => []], function () {
 
     //share function
     Route::any('share','Home\ShareController@index');
+    Route::any('share/test','Home\ShareController@test');
 
 });
 

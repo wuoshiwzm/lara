@@ -14,6 +14,10 @@ class LoginController extends CommonController
 {
     public function login()
     {
+      if(session('user')){
+        return redirect('admin');
+      }
+
         if ($input = Input::except('_token')) {
             // dd($input);
             $code = new \Code;
@@ -57,7 +61,7 @@ class LoginController extends CommonController
     public function quit()
     {
         session(['user'=>null]);
-        return redirect('admin/login');
+        return redirect('');
     }
 
 }
