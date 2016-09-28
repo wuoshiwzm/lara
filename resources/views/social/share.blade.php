@@ -40,8 +40,7 @@
     @elseif($status == 1)
     not sign in please <a href="{{url('admin/login')}}" target="_blank">sing in</a> first!
 
-    <a href="javascript:history.go(-1);">already login refresh</a>
-
+    <a href="javascript:history.go(0);">already login refresh</a>
 
     @endif
 

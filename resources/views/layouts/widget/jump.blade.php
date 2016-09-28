@@ -7,7 +7,7 @@ $.post('{{url('share/test')}}',{'_token':"{{csrf_token()}}",'id':id}, function(d
   // echo data;
 });
 
-/*
+
 layer.open({
   type: 2,
   title: 'layer mobile页',
@@ -16,7 +16,7 @@ layer.open({
   area: ['500px', '75%'],
   content: 'share' //iframe的url
 });
-*/
+
 
 
 }

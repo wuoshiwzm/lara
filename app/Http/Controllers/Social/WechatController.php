@@ -11,8 +11,8 @@ use App\Http\Controllers\Home\CommonController;
 class WechatController extends CommonController{
 
 
-  private $appid='wx65dabb801b9106ee';
-  private $secret = '7def82058bb02bc9c37eba828ba74b6c';
+  private $appid='wx260619ea73a4b130';
+  private $secret = '469536da8d67cd9df2cdde5609ffefaf';
 
   private function getRandStr($num){
     $chars='qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM';
@@ -79,11 +79,9 @@ class WechatController extends CommonController{
       'timestamp'=>$timestamp,
       'noncestr'=>$noncestr,
       'signature'=>$signature];
-    // var_dump($strvalue);
-    // die();
-    return $res;
+      // var_dump($strvalue);
+      // die();
+      return $res;
   }
-
-
 
 }

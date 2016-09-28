@@ -30,8 +30,8 @@ Route::group(['middleware' => []], function () {
 
 
     //share function
-    Route::any('share','Home\ShareController@index');
-    Route::any('share/test','Home\ShareController@test');
+    Route::any('share','Social\ShareController@index');
+    // Route::any('share/test','Social\ShareController@test');
 
 });
 

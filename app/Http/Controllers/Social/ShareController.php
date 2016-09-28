@@ -1,29 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Social;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-
 use App\Http\Requests;
-use App\Http\Controllers\Home\CommonController;
+use App\Http\Controllers\Social\CommonController;
 use App\Http\Model\SelfMedia;
 
 class ShareController extends CommonController
 {
     function index($id=1){
+      echo "test";
+
       //already sign in
       if(session('user')){
         $status=0;
-        return view('home.share')
-        ->with('status',$status);
       }
       else{
         //not sign in
         $status=1;
-        return view('home.share')
-        ->with('status',$status);
       }
+      return view('social.share')
+      ->with('status',$status);
 
     }
 

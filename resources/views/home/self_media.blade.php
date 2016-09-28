@@ -4,10 +4,6 @@
 
 <body onload="time()">
 <!-- data for weixin share -->
-  <input type="hidden" id="timestamp" value=>
-  <input type="hidden" id="nonceStr" value=>
-  <input type="hidden" id="signature" value=>
-
 
 
  <input type="hidden"  class="session_user"  value=
