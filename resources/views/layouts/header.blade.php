@@ -34,9 +34,8 @@
 <script type="text/javascript" src="{{asset('resources/views/home/js/common.js')}}"></script>
 <script type="text/javascript" src="{{asset('resources/views/home/js/page.js')}}"></script>
 <script type="text/javascript" src="{{asset('resources/org/layer/layer.js')}}"></script>
-<!-- <script type="text/javascript">
-var searchid = 5;
-</script> -->
+
+
 
 
 </head>

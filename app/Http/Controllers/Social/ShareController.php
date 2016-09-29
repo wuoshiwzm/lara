@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Social;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Social\CommonController;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
-use App\Http\Controllers\Social\CommonController;
 use App\Http\Model\SelfMedia;
+use Illuminate\Support\Facades\View;
+
+
+
+
 
 class ShareController extends CommonController
 {
@@ -26,8 +30,9 @@ class ShareController extends CommonController
 
     }
 
-    function test(){
+    function content(){
       $input=Input::all();
+      // dd($input);
       $id = $input['id'];
       return SelfMedia::where('id',$id)->get();
 

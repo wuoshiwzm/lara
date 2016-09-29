@@ -1,12 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Social;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use App\Http\Model\Data;
-use App\Http\Requests;
-use App\Http\Controllers\Home\CommonController;
+use App\Http\Controllers\Social\CommonController;
 
 class WechatController extends CommonController{
 
@@ -55,7 +52,9 @@ class WechatController extends CommonController{
   }
   }
 
-  public function wechat_data(){
+
+  // get the info sharing need
+  public function shareData(){
 
     $access_token = $this->getToken();
 
@@ -83,5 +82,7 @@ class WechatController extends CommonController{
       // die();
       return $res;
   }
+
+
 
 }

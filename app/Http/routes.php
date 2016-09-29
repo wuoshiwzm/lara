@@ -30,8 +30,11 @@ Route::group(['middleware' => []], function () {
 
 
     //share function
-    Route::any('share','Social\ShareController@index');
-    // Route::any('share/test','Social\ShareController@test');
+    Route::get('share','Social\ShareController@index');
+    //need ajax here, so method is 'any'
+    Route::any('share/content','Social\ShareController@content');
+
+    Route::any('testpay','Pay\WechatPayController@index');
 
 });
 
