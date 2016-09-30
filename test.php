@@ -1,6 +1,7 @@
 <?php
 
 echo "test";
-asdfasdf
+
+test;
 
  ?>
