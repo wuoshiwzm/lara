@@ -11,18 +11,17 @@ class WechatPayController extends WechatController{
 
 
 
-  
+
 
 
   function index(){
     $g = $this->getToken();
-
     $url = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=".$g;
 
 
 
     $arr = [
-
+      "expire_seconds": 604800,
         "action_name"=>"QR_LIMIT_SCENE",
         "action_info"=>["scene"=>["scene_str"=> "123","scene_id"=>123]]
     ];
