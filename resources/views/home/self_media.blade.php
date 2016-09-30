@@ -4,10 +4,6 @@
 
 <body onload="time()">
 <!-- data for weixin share -->
-  <input type="hidden" id="timestamp" value=>
-  <input type="hidden" id="nonceStr" value=>
-  <input type="hidden" id="signature" value=>
-
 
 
  <input type="hidden"  class="session_user"  value=
@@ -52,7 +48,7 @@
                <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" charset="utf-8"></script>
 
                <!-- jiathis share js loading -->
-               <script type="text/javascript" src="{{asset('resources/views/home/js/share.js')}}"></script>
+               <!-- <script type="text/javascript" src="{{asset('resources/views/home/js/share.js')}}"></script> -->
 
 
                <!-- weibo share -->
