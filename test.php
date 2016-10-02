@@ -2,6 +2,6 @@
 
 echo "test";
 
-test;
+test2-10-2;
 
  ?>
