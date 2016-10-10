@@ -15,12 +15,14 @@ class SelfMediaController extends CommonController
 
 
   public function index(){
+
+     
     $self_medias = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')->get();
     // dd($self_medias);
 
     // $wechatData = (new WechatController)->wechat_data();
     // dd($wechatData);
-    
+
     return view('home/self_media')
     ->with('self_medias',$self_medias);
   }

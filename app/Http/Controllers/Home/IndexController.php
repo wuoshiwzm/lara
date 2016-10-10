@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Home;
 use App\Http\Model\Navs;
 use App\Http\Model\Article;
-use App\http\Model\Links;
+use App\Http\Model\Links;
 use App\Http\Model\Category;
 
 class IndexController extends CommonController
