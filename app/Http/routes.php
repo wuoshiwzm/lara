@@ -66,6 +66,10 @@ Route::group(['middleware' => ['admin.login'],'prefix'=>'admin','namespace'=>'Ad
     Route::any('config/changecontent', 'ConfigController@changeContent');
     Route::resource('config','ConfigController');
 
+
+
+    Route::resource('media','MediaController');
+
     // Route::resource('self_media','SelfMediaController');
   });
 
