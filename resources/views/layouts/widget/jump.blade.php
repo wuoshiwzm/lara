@@ -10,7 +10,7 @@ $.post('{{url('share/content')}}',{'_token':"{{csrf_token()}}",'id':id}, functio
 
 layer.open({
   type: 2,
-  title: 'layer mobile页',
+  title: '分享得红包啦！',
   shadeClose: true,
   shade: 0.8,
   area: ['500px', '75%'],
