@@ -11,7 +11,12 @@ class WechatController extends CommonController{
   private $appid='wx260619ea73a4b130';
   private $secret = '469536da8d67cd9df2cdde5609ffefaf';
 
-  private function getRandStr($num){
+
+  public function test(){
+    echo "test-wechatcontroller";
+  }
+
+  public function getRandStr($num){
     $chars='qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM';
     $pass ='';
     for($i=0;$i<$num;$i++){
@@ -74,6 +79,13 @@ class WechatController extends CommonController{
     $strvalue = 'jsapi_ticket='.$_SESSION['jsapi_ticket'].'&noncestr='.$noncestr.'&timestamp='.$timestamp.'&url=http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $signature = sha1($strvalue);
     // echo "ticket:".$ret-> ticket;
+    // echo "<hr>";
+    // echo "noncestr:".$noncestr;
+    // echo "<hr>";
+    // echo "$timestamp :".$timestamp;
+    // echo "<hr>";
+    // echo "$signature :".$signature;
+    // die();
     $res=[
       'timestamp'=>$timestamp,
       'noncestr'=>$noncestr,

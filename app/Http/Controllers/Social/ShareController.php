@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 use App\Http\Model\SelfMedia;
 use Illuminate\Support\Facades\View;
+use App\Http\Controllers\Social\WechatController;
 
 
 
@@ -14,8 +15,12 @@ use Illuminate\Support\Facades\View;
 
 class ShareController extends CommonController
 {
-    function index($id=1){
-      echo "test";
+
+
+
+
+    function index(){
+      // echo "test";
 
       //already sign in
       if(session('user')){
@@ -25,9 +30,19 @@ class ShareController extends CommonController
         //not sign in
         $status=1;
       }
-      return view('social.share')
-      ->with('status',$status);
+      // dd($wechat);
+      $wechat = new WechatController;
+      $wechat=$wechat->shareData() ;
+      // dd($wechat);
 
+      return view('social.share')
+      ->with('status',$status)
+      ->with('wechat',$wechat);
+
+    }
+
+    function index2(){
+      return view('social.share2');
     }
 
     function content(){
