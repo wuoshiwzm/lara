@@ -1,3 +1,13 @@
+/*!
+ * Distpicker v@VERSION
+ * https://github.com/fengyuanchen/distpicker
+ *
+ * Copyright (c) 2014-@YEAR Fengyuan Chen
+ * Released under the MIT license
+ *
+ * Date: @DATE
+ */
+
 (function (factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as anonymous module.

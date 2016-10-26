@@ -157,17 +157,23 @@ input[type='checkbox'] {
 }
 
 select {
-	font-size: 12px;
+	font-size: 15px;
 	border-collapse: collapse;
 	padding: 0 5px;
-	height: 25px;
-	line-height: 25px
+	height: 30px;
+	/*line-height: 25px;*/
+	letter-spacing: 1px;
+	border-radius: 3px;
+	width: 100%;
 }
 
 select option {
 	padding: 3px 5px;
-	font-size: 12px;
-	vertical-align: middle
+	font-size: 15px;
+	height: 30px;
+	letter-spacing: 1px;
+	border-radius: 3px;
+	vertical-align: middle;
 }
 
 input[type='submit'],

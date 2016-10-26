@@ -19,7 +19,7 @@ class ShareController extends CommonController
 
 
 
-    function index($id=1){
+    function index(){
       // echo "test";
 
       //already sign in
@@ -30,15 +30,19 @@ class ShareController extends CommonController
         //not sign in
         $status=1;
       }
-
+      // dd($wechat);
       $wechat = new WechatController;
       $wechat=$wechat->shareData() ;
-      dd($wechat);
+      // dd($wechat);
 
       return view('social.share')
       ->with('status',$status)
       ->with('wechat',$wechat);
 
+    }
+
+    function index2(){
+      return view('social.share2');
     }
 
     function content(){

@@ -29,7 +29,9 @@
 				<ul class="sub_menu">
 
 					<li><a href="{{url('admin/navs')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>网站首页</a></li>
-					<li><a href="{{url('admin/category')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>媒体信息管理</a></li>
+					<li><a href="{{url('admin/category')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>媒体信息理</a></li>
+					<li><a href="{{url('admin/category1')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>活动策划管理</a></li>
+					<li><a href="{{url('admin/category2')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>创意设计管理</a></li>
 						<li><a   target="main"><i class="fa fa-fw fa-list-ul"></i>轮播图</a></li>
 						<li><a   target="main"><i class="fa fa-fw fa-list-ul"></i>媒体资源管理</a></li>
 						<li><a   target="main"><i class="fa fa-fw fa-list-ul"></i>广告位管理</a></li>

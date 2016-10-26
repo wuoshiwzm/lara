@@ -13,7 +13,8 @@
 Route::group(['middleware' => []], function () {
 
 
-    Route::get('/','Home\IndexController@index');
+    Route::get('/','Home\SelfMediaController@index');
+    // Route::get('check','Home\SelfMediaController@index');
 
 
 
@@ -31,11 +32,16 @@ Route::group(['middleware' => []], function () {
 
     //share function
     Route::get('share','Social\ShareController@index');
-    
+    Route::get('share2','Social\ShareController@index2');
+
     //need ajax here, so method is 'any'
     Route::any('share/content','Social\ShareController@content');
-
     Route::any('testpay','Pay\WechatPayController@index');
+
+    //register
+    Route::resource('register','Home\RegisterController');
+
+    Route::any('upload', 'Admin\CommonController@upload');
 
 });
 
@@ -49,9 +55,16 @@ Route::group(['middleware' => ['admin.login'],'prefix'=>'admin','namespace'=>'Ad
     Route::get('quit', 'LoginController@quit');
     Route::any('pass', 'IndexController@pass');
 
+    //register user
+
+
+
     Route::any('cate/changeorder', 'CategoryController@changeOrder');
     Route::resource('category','CategoryController');
+    Route::resource('category1','CategoryController1');
+    Route::resource('category2','CategoryController2');
     Route::resource('article','ArticleController');
+    Route::resource('company','CompanyController');
     Route::any('upload', 'CommonController@upload');
 
     Route::resource('self_media','SelfMediaController');
@@ -71,19 +84,4 @@ Route::group(['middleware' => ['admin.login'],'prefix'=>'admin','namespace'=>'Ad
 
     Route::resource('media','MediaController');
 
-    // Route::resource('self_media','SelfMediaController');
   });
-
-
-
-
-
-//Route::any('admin/info', 'Admin\IndexController@info');
-
-
-
-
-
-
-//Route::get('admin/code','Admin\LoginController@code');
-//Route::any('admin','Admin\LoginController@index');

@@ -58,7 +58,7 @@
 									 </td>
 									 			<script src="{{asset('resources/org/ChinaAddress/js/distpicker.data.js')}}"></script>
 												<script src="{{asset('resources/org/ChinaAddress/js/distpicker.js')}}"></script>
-												<script src="{{asset('resources/org/ChinaAddress/js/main.js')}}js"></script>
+												<script src="{{asset('resources/org/ChinaAddress/js/main.js')}}"></script>
 												<script>
 												$("#distpicker2").distpicker({
 													province: "---- 所在省 ----",
