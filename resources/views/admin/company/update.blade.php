@@ -45,30 +45,22 @@
 
 
       	 <div class="result_wrap">
-      			 <form action="{{url('register')}}" method="post" role="form">
-
+      			 <form action="{{url('admin/company/'.$comInfo['company_id'])}}" method="post" role="form">
+               <input type="hidden" name="_method" value="put">
 
       				 {{csrf_field()}}
       					 <table class="add_tab">
-      							 <tbody>
-
-
-
-
-
-
-
-
-
-
-      <!--company info   -->
-      <?php //var_dump($comInfo); ?>
+        							 <tbody>
+                         <!--company info   -->
+                         <!-- <?php //var_dump($comInfo); ?> -->
       									 <tr class="company">
       											<th><i class="require">*</i>企业名称：</th>
       											<td>
       													<input type="text" class="lg" name="company_name" value="{{$comInfo['company_name']}}">
       											</td>
       									</tr>
+
+
 
       									<tr class="company">
       										 <th><i class="require">*</i>营业执照：</th>
@@ -103,17 +95,14 @@
     											</style>
 
 
-      										<input   type="hidden" size="50" name="company_cert">
-      										<input id="file_upload" name="file_upload" type="file" multiple="true" onclick="showimg()">
-                          <img id="media_thumb_img" src="{{url($comInfo['company_cert'])}}" style="max-height:200px">
+      										<input   type="hidden" size="50" name="company_cert" value="{{$comInfo['company_cert']}}">
+      										<input id="file_upload" name="file_upload" type="file" multiple="true"
+                          <h1> </h1>
+                          <img id="media_thumb_img" src="{{url($comInfo['company_cert'])}}"  style="max-height:200px">
 
-                          <script>
-                          function showimg(){
-                            $("#img_thumb").attr('src',$("#thumb_path"));
-                          }
-                          </script>
                         </td>
       								 </tr>
+
 
       								 <tr class="company">
       									 <th><i class="require">*</i>企业地址：</th>
@@ -165,7 +154,7 @@
                                         continue;
                                       }
 
-                                      echo '<option value='.$v['ind_num'].">".$v['ind_name'].'</option>';
+                                      echo '<option value='.$v['ind_id'].">".$v['ind_name'].'</option>';
 
                                     }
                                    ?>
@@ -176,8 +165,8 @@
       									<tr class="company">
       											<th>公司介绍：</th>
       											<td>
-      													<textarea type="text" name="company_info">
-                                {{$comInfo['company_info']}}</textarea>
+      													<textarea type="text" name="company_desc">
+                                {{$comInfo['company_desc']}}</textarea>
       											</td>
       									</tr>
 

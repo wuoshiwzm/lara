@@ -46,12 +46,12 @@ class RegisterController extends CommonController{
   // 添加分类提交 POST   register    register.store
   public function store(){
     $input = Input::except('_token');
-    // dd($input);
+    dd($input);
     if($input['user_class']==1){
 
       //for the personal user registeration
       $rules=[
-        'user_name'=>'required',
+        'user_name'=>'required|regex:/\w/',
         'user_pass'=>'required|min:6|same:user_repass',
         'user_repass'=>'required|min:6',
         'user_email'=>'required|email',
@@ -59,6 +59,7 @@ class RegisterController extends CommonController{
       ];
       $message=[
         'user_name.required'=>'用户名填写错误',
+        'user_name.regex'=>'用户名只能使用字母数字与特殊符号',
         'user_pass.required'=>'密码未填写',
         'user_pass.min'=>'密码最少6位',
         'user_pass.same'=>'两次输入密码不同',
@@ -116,7 +117,7 @@ class RegisterController extends CommonController{
         'company_add2'=>'required',
         // 'company_add3'=>'required',
         'company_contact'=>'required|min:1|max:22',
-        'company_tel'=>'required|min:8|max:22',
+        'company_tel'=>'required|min:7|max:22',
         'company_ind'=>'required',
             ];
       $message=[
@@ -136,6 +137,8 @@ class RegisterController extends CommonController{
         // 'company_add3.required'=>'请公司地址所属区',
         'company_contact.required'=>'请填写公司联系人',
         'company_tel.required'=>'请填空正确的公司联系电话',
+        'company_tel.min:7'=>'请填空正确的公司联系电话',
+        'company_tel.max:22'=>'请填空正确的公司联系电话',
         'company_ind.required'=>'请选择公司所属行业',
 
       ];

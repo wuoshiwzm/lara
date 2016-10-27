@@ -14,6 +14,7 @@ Route::group(['middleware' => []], function () {
 
 
     Route::get('/','Home\SelfMediaController@index');
+    Route::get('test','Home\SupplierController@index');
     // Route::get('check','Home\SelfMediaController@index');
 
 

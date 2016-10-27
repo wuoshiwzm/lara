@@ -13,18 +13,19 @@ use Illuminate\Support\Facades\Validator;
 
 class CompanyController extends CommonController{
   function index(){
-    // echo "companycontroller";
-    // dd(session('user')['user_id']);
+
+    if(session('company_id')){
     //company info
     $comInfo = Company::where('user_id',session('user')['user_id'])->first();
-    // dd(session('user'));
+    //industry info
     $ind = Industry::get();
 
-    // dd($ind);
-    // die();
     return view('admin.company.update')
     ->with('comInfo',$comInfo)
     ->with('ind',$ind);
+  }else{
+    return view('admin');
+  }
 
 
   }
@@ -32,20 +33,21 @@ class CompanyController extends CommonController{
 
 
 
-  // GET|HEAD   编辑分类  | admin/category/{category}/edit
+  // GET|HEAD   编辑分类  | admin/company/{company}/edit
   public function edit($cate_id){
-    $field = Category::find($cate_id);
-    $data = Category::where('cate_pid',0)->get();
-    return view('admin.category.edit',compact('field','data'));
+
+
   }
 
   //PUT|PATCH     | admin/category/{category}
-  public function update($cate_id){
+  public function update($company_id){
     $input = Input::except('_method','_token');
-    $result = Category::where('cate_id',$cate_id)->update($input);
+
+    $result = Company::where('company_id',$company_id)->update($input);
 
     if($result){
-      return redirect('admin/category');
+
+      return view('admin/info');
     }else{
       return back()->with('errors','分类信息更新失败');
     }
@@ -54,22 +56,7 @@ class CompanyController extends CommonController{
 
 
   public function changeOrder(){
-    $input = Input::all();
-    $cate = Category::find($input['cate_id']);
-    $cate->cate_order=$input['cate_order'];
-    $result =   $cate->update();
-    if($result){
-      $data=[
-        'status'=>0,
-        'msg'=>'更改排序 成功！',
-      ];
-    }else{
-      $data=[
-        'status'=>1,
-        'msg'=>'更改排序 失败！',
-      ];
-    }
-    return $data;
+
   }
 
 
@@ -138,15 +125,6 @@ class CompanyController extends CommonController{
     }
     return $data;
   }
-
-
-
-
-
-
-
-
-
 
 
 
