@@ -1,0 +1,1 @@
+document.write("<a href=\"http://www.admaimai.com/Stratagem/RedirectURL.aspx?i=1&u=http://www.51ade.com/fuwushang.html\" target=\"_blank\"><img width=\"230\" height=\"149\" src=\"http://image1.admaimai.com/UpLoadFiles/OurAD/20169893414522.jpg\" border=\"0\"></a>");

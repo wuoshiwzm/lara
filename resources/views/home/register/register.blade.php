@@ -189,7 +189,7 @@
 									<tr class="company">
 											<th><i class="require">*</i>电话：</th>
 											<td>
-													<input type="text" name="company_tel">
+												<input type="text" name="company_tel">
 											</td>
 									</tr>
 
@@ -200,7 +200,7 @@
 													<option value="" selected="selected">---请选择企业所属行业---</option>
 													<?php
 														foreach($ind as $k=>$v){
-															echo '<option value='.$v['ind_num'].">".$v['ind_name'].'</option>';
+															echo '<option value='.$v['ind_id'].">".$v['ind_name'].'</option>';
 														}
 													 ?>
 												 </select>
@@ -210,7 +210,7 @@
 									<tr class="company">
 											<th>公司介绍：</th>
 											<td>
-													<textarea type="text" name="company_info"></textarea>
+													<textarea type="text" name="company_desc"></textarea>
 											</td>
 									</tr>
 

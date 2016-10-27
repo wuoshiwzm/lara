@@ -1,0 +1,1 @@
+﻿document.write("<a href=\"http://www.admaimai.com/Freeway/\" target=\"_blank\"><img width=\"231\" height=\"149\" src=\"http://image1.admaimai.com/UpLoadFiles/OurAD/201612615561819.jpg\" border=\"0\"></a>");
