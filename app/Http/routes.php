@@ -22,6 +22,8 @@ Route::group(['middleware' => []], function () {
 
     // Route::get('/cate/{cate_id}','Home\IndexController@cate');
     Route::get('/cate/{cate_id}','Home\IndexController@cate');
+    Route::get('/cate1/{cate_id}','Home\IndexController@cate1');
+    Route::get('/cate2/{cate_id}','Home\IndexController@cate2');
     Route::get('/self_media','Home\SelfMediaController@index');
     Route::post('/self_media/add','Home\SelfMediaController@add');
 
@@ -61,10 +63,24 @@ Route::group(['middleware' => ['admin.login'],'prefix'=>'admin','namespace'=>'Ad
 
 
     Route::any('cate/changeorder', 'CategoryController@changeOrder');
+    Route::any('cate/changearticleadd', 'CategoryController@changearticleadd');
     Route::resource('category','CategoryController');
-    Route::resource('category1','CategoryController1');
-    Route::resource('category2','CategoryController2');
     Route::resource('article','ArticleController');
+    Route::any('article/cre/{cate_id}','ArticleController@cre');
+
+
+    Route::any('cate1/changeorder', 'CategoryController1@changeOrder');
+    Route::any('cate1/changearticleadd', 'CategoryController1@changearticleadd');
+    Route::resource('category1','CategoryController1');
+    Route::resource('article1','ArticleController1');
+    Route::any('article1/cre/{cate_id}','ArticleController1@cre');
+
+    Route::any('cate2/changeorder', 'CategoryController2@changeOrder');
+    Route::any('cate2/changearticleadd', 'CategoryController2@changearticleadd');
+    Route::resource('category2','CategoryController2');
+    Route::resource('article2','ArticleController2');
+    Route::any('article2/cre/{cate_id}','ArticleController2@cre');
+
     Route::resource('company','CompanyController');
     Route::any('upload', 'CommonController@upload');
 

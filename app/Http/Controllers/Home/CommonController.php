@@ -20,10 +20,10 @@ class CommonController extends Controller
       $hot = Article::orderBy('art_view','desc')->take(5)->get();
 
       //8 the latest articles
-      $new=Article::orderBy('art_time','desc')->take(8)->get();
+      // $new=Article::orderBy('art_time','desc')->take(8)->get();
 
       view::share('navs',$navs);
       view::share('hot',$hot);
-      view::share('new',$new);
+      // view::share('new',$new);
     }
 }

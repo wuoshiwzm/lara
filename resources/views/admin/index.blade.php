@@ -24,22 +24,32 @@
 	<!--左侧导航 开始-->
 	<div class="menu_box">
 		<ul>
+
+			<li></li>
 			<li>
 				<h3><i class="fa fa-fw fa-clipboard"></i>网站管理</h3>
 				<ul class="sub_menu">
 
 					<li><a href="{{url('admin/navs')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>网站首页</a></li>
-					<li><a href="{{url('admin/category')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>媒体信息理</a></li>
-					<li><a href="{{url('admin/category1')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>活动策划管理</a></li>
-					<li><a href="{{url('admin/category2')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>创意设计管理</a></li>
-						<li><a   target="main"><i class="fa fa-fw fa-list-ul"></i>轮播图</a></li>
-						<li><a   target="main"><i class="fa fa-fw fa-list-ul"></i>媒体资源管理</a></li>
-						<li><a   target="main"><i class="fa fa-fw fa-list-ul"></i>广告位管理</a></li>
-						<li><a   target="main"><i class="fa fa-fw fa-list-ul"></i>公司展示</a></li>
-						<!-- <li><a href="{{url('admin/article')}}" target="main"><i class="fa fa-fw fa-list-alt"></i>文章管理</a></li>
-					<li><a href="{{url('admin/category')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>分类管理</a></li>
-					<li><a href="{{url('admin/article/create')}}" target="main"><i class="fa fa-fw fa-image"></i>添加文章</a></li>
-					<li><a href="{{url('admin/category/create')}}" target="main"><i class="fa fa-fw fa-plus-square"></i>添加分类</a></li> -->
+					<li><a href="{{url('admin/category')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>媒体分类</a></li>
+					<li><a href="{{url('admin/category1')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>设计分类</a></li>
+					<li><a href="{{url('admin/category2')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>策划分类</a></li>
+						<li><a target="main"><i class="fa fa-fw fa-list-ul"></i>轮播图</a></li>
+						<li><a target="main"><i class="fa fa-fw fa-list-ul"></i>媒体资源管理</a></li>
+						<li><a target="main"><i class="fa fa-fw fa-list-ul"></i>广告位管理</a></li>
+						<li><a target="main"><i class="fa fa-fw fa-list-ul"></i>公司展示</a></li>
+
+				</ul>
+			</li>
+
+			<li>
+				<h3><i class="fa fa-fw fa-clipboard"></i>资源上传</h3>
+				<ul class="sub_menu">
+
+					<li><a href="{{url('admin/article')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>媒体资源</a></li>
+					<li><a href="{{url('admin/article1')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>设计资源</a></li>
+					<li><a href="{{url('admin/article2')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>策划资源</a></li>
+
 				</ul>
 			</li>
 
@@ -112,7 +122,7 @@
 
 	<!--主体部分 开始-->
 	<div class="main_box">
-		<iframe src="{{url('admin/info')}}" frameborder="0" width="100%" height="100%" name="main"></iframe>
+		<iframe src="" frameborder="0" width="100%" height="100%" name="main"></iframe>
 	</div>
 	<!--主体部分 结束-->
 

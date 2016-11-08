@@ -17,10 +17,6 @@ class Category extends Model
     protected $frontCate = [];
 
 
-    protected function test(){
-      echo "test";
-    }
-
 public function ccates(){
   $catess = $this->orderBy('cate_order','asc')->get();
   return $catess;
