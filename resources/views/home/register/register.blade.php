@@ -53,9 +53,6 @@
 					 <table class="add_tab">
 							 <tbody>
 
-
-
-
 									 <tr>
 											 <th><i class="require">*</i>用户名：</th>
 											 <td>

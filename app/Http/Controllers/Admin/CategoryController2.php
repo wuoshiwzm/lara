@@ -7,27 +7,35 @@ use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 use App\Http\Model\Category2;
+use App\Http\Model\Articleadd2;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryController2 extends CommonController
 {
-    // 分类列表GET|HEAD                       | admin/category2                 | admin.category2.index
+    // 分类列表GET|HEAD                       | admin/Category2                 | admin.Category2.index
     public function index(){
 
         $categorys = (new Category2)->adminCate();
-        return view('admin.category2.index')->with('data',$categorys);
+
+        $articleadd = Articleadd2::all();
+        // dd($articleadd);
+        return view('admin.category2.index')
+        ->with('data',$categorys)
+        ->with('articleadd',$articleadd);
     }
 
-    // GET|HEAD   编辑分类  | admin/category2/{category2}/edit
+    // GET|HEAD   编辑分类  | admin/Category2/{Category2}/edit
     public function edit($cate_id){
       $field = Category2::find($cate_id);
+      // dd($field);
       $data = Category2::where('cate_pid',0)->get();
       return view('admin.category2.edit',compact('field','data'));
     }
 
-    //PUT|PATCH     | admin/category2/{category2}
+    //PUT|PATCH     | admin/Category2/{Category2}
     public function update($cate_id){
       $input = Input::except('_method','_token');
+      dd($input);
       $result = Category2::where('cate_id',$cate_id)->update($input);
 
       if($result){
@@ -59,8 +67,32 @@ class CategoryController2 extends CommonController
     }
 
 
+    public function changearticleadd(){
+      $input = Input::except('_token');
 
-    // 添加分类提交 POST   admin/category2    admin.category2.store
+       $cate = Category2::find($input['cate_id']);
+       $cate->cate_articleadd_id=$input['articleadd'];
+       $result = $cate->update();
+// dd($cate);
+
+      if($result){
+        $data=[
+          'status'=>0,
+          'msg'=>'更改成功！',
+        ];
+      }else{
+        $data=[
+          'status'=>1,
+          'msg'=>'更改失败！',
+        ];
+      }
+      return $data;
+    }
+
+
+
+
+    // 添加分类提交 POST   admin/Category2    admin.Category2.store
     public function store(){
       $input = Input::except('_token');
 
@@ -86,7 +118,7 @@ class CategoryController2 extends CommonController
   }
 
 
-    //  添加分类GET|HEAD     | admin/category2/create
+    //  添加分类GET|HEAD     | admin/Category2/create
     public function create(){
       // $data = Category2::where('cate_pid',0)->get();
        $data = Category2::get();
@@ -94,21 +126,14 @@ class CategoryController2 extends CommonController
     return view('admin/category2/add',compact('data',$data));
     }
 
-    // GET|HEAD         | admin/category2/{category2}
+    // GET|HEAD         | admin/Category2/{Category2}
     public function show(){
 
     }
 
-    //DELETE    删除分类 | admin/category2/{category2}
+    //DELETE    删除分类 | admin/Category2/{Category2}
     public function destroy($cate_id){
 
-      // $test = Category2::where('cate_pid',$cate_id)->count();
-      // if($test){
-      //   return $data=[
-      //     'status'=>1,
-      //     'msg'=>'有子分类 不能删除！',
-      //   ];
-      // }
       $result = Category2::where('cate_id',$cate_id)->delete();
       Category2::where('cate_pid',$cate_id)->update(['cate_pid'=>0]);
       if($result){

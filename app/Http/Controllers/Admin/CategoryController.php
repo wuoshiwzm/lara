@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 use App\Http\Model\Category;
+use App\Http\Model\Articleadd;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends CommonController
@@ -15,7 +16,12 @@ class CategoryController extends CommonController
     public function index(){
 
         $categorys = (new Category)->adminCate();
-        return view('admin.category.index')->with('data',$categorys);
+
+        $articleadd = Articleadd::all();
+        // dd($articleadd);
+        return view('admin.category.index')
+        ->with('data',$categorys)
+        ->with('articleadd',$articleadd);
     }
 
     // GET|HEAD   编辑分类  | admin/category/{category}/edit
@@ -57,6 +63,30 @@ class CategoryController extends CommonController
       }
       return $data;
     }
+
+
+    public function changearticleadd(){
+      $input = Input::except('_token');
+
+      // dd($input);
+       $cate = Category::find($input['cate_id']);
+       $cate->cate_articleadd_id=$input['articleadd'];
+       $result = $cate->update();
+
+      if($result){
+        $data=[
+          'status'=>0,
+          'msg'=>'更改成功！',
+        ];
+      }else{
+        $data=[
+          'status'=>1,
+          'msg'=>'更改失败！',
+        ];
+      }
+      return $data;
+    }
+
 
 
 
