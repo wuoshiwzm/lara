@@ -46,7 +46,7 @@ class RegisterController extends CommonController{
   // 添加分类提交 POST   register    register.store
   public function store(){
     $input = Input::except('_token');
-    dd($input);
+    // dd($input);
     if($input['user_class']==1){
 
       //for the personal user registeration

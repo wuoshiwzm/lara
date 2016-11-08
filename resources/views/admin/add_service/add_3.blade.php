@@ -48,6 +48,9 @@
 				 <input type="hidden" value="{{$cate_id}}" name="cate_id">
 				 <!-- <input  value="{{$cate_name}}" name="cate_name"> -->
 				 <input type="hidden" value=1 name="art_type">
+				 <input type="hidden" name="area_add1" value="全线">
+				 <input type="hidden" name="area_add2" value="">
+				 <input type="hidden" name="area_add3" value="">
 
 				 {{csrf_field()}}
 					 <table class="add_tab">

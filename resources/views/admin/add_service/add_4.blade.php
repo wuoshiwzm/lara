@@ -137,8 +137,7 @@
 									 <tr>
 											 <th width="120">public_最早投放时间：</th>
 											 <td>
-												 控件控件控件控件控件控件
-												 <input type="date" name="art_startdate">
+												 <input type="text" placeholder="最早投放时间" name="art_startdate" class="laydate-icon md" onclick="laydate()">
 											 </td>
 									 </tr>
 

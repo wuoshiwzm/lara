@@ -50,21 +50,18 @@
 							 <tbody>
 
 								 <tr>
-										<th>public_资源得分：</th>
+										<th>public_资源标题：</th>
 										<td>
-												<input type="text" class="lg" name="art_title">
+												<input type="text" class="lg" name="art_title" value="{{old('art_title')}}">
 
 										</td>
 								</tr>
 
 								 <tr>
 										 <th>public_资源标题：</th>
-										 <td>
-												 <input type="text" class="lg" name="art_title">
 
-										 </td>
 								 </tr>
-
+<!--
 								 <tr>
 										 <th width="120">public_资源分类：</th>
 										 <td>
@@ -74,7 +71,7 @@
 
 													 </p>
 										 </td>
-								 </tr>
+								 </tr> -->
 
 								 <tr>
 									 	 <th> public_发布人：</th>
@@ -90,12 +87,12 @@
 													 <select  name="art_form"  >
 
 														 <option selected="selected" >请选择</option>
-														 <option value="喷绘">喷绘</option>
-														 <option value="视频">视频</option>
-														 <option value="图片">图片</option>
-														 <option value="语音">语音</option>
-														 <option value="文字">文字</option>
-														 <option value="灯箱">灯箱</option>
+														 <option value="喷绘" <?php if(old('art_form') == '喷绘') echo "selected = 'select'" ?>>喷绘</option>
+														 <option value="视频" <?php if(old('art_form') == '视频') echo "selected = 'select'" ?>>视频</option>
+														 <option value="图片" <?php if(old('art_form') == '图片') echo "selected = 'select'" ?>>图片</option>
+														 <option value="语音" <?php if(old('art_form') == '语音') echo "selected = 'select'" ?>>语音</option>
+														 <option value="文字" <?php if(old('art_form') == '文字') echo "selected = 'select'" ?>>文字</option>
+														 <option value="灯箱" <?php if(old('art_form') == '灯箱') echo "selected = 'select'" ?>>灯箱</option>
 													 </select>
 											 </td>
 									 </tr>
@@ -141,8 +138,7 @@
 									 <tr>
 											 <th width="120">public_最早投放时间：</th>
 											 <td>
-												 控件控件控件控件控件控件
-												 <input type="date" name="art_startdate">
+												 <input type="text" placeholder="最早投放时间" name="art_startdate" class="laydate-icon md" onclick="laydate()">
 											 </td>
 									 </tr>
 
@@ -248,7 +244,7 @@
 								 <tr>
 										 <th>发行频率：</th>
 										 <td>
-												 <input type="text" class="md" name="np_frequency ">期　　　
+												 <input type="text" class="md" name="np_frequency">期　　　
 												 <input type="radio" name="art_price_unit" value="1" checked="checked">每日
 												 <input type="radio" name="art_price_unit" value="7">每周
 												 <input type="radio" name="art_price_unit" value="14">每双周

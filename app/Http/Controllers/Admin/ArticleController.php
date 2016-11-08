@@ -46,13 +46,17 @@ class ArticleController extends CommonController
 
     // 添加分类提交 POST   admin/category    admin.category.store
     public function store(){
-      dd(Input::all());
-
-
+      // return back()->withInput();
       $input = Input::except('_token');
-      $input['art_time']= time();
-
-
+      //make area add
+      $input['art_area']=$input['area_add1'].$input['area_add2'].$input['area_add3'];
+      unset($input['area_add1']);
+      unset($input['area_add2']);
+      unset($input['area_add3']);
+      if(!isset($input['area_add1'])){
+        $input['art_area'] = '全国';
+      }
+      // dd($input);
       if($input){
         $rules=[
           'art_title'=>'required',

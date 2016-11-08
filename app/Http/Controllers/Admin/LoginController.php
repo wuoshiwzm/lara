@@ -27,9 +27,6 @@ class LoginController extends CommonController
            return redirect('admin');
        }
 
-
-
-
         if ($input = Input::except('_token')) {
             // dd($input);
             $code = new \Code;
