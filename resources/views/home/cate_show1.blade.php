@@ -4,7 +4,7 @@
 <div class="top">
 <div class="wrappersy">
     <div class="logo">
-        <a href="http://bq.com/sell/list.php?catid=216"><img src="{{asset('resources/views/home/images/logo.jpg')}}"></a>
+        <a href=""><img src="{{asset('resources/views/home/images/logo.jpg')}}"></a>
     </div>
     <div class="top_right">
 
@@ -35,7 +35,7 @@ margin-right: 20%;">
   <!-- the value passed from controller: allChild  allCates -->
     @foreach($allCates as $k=>$v)
       @foreach($v as $a=>$b)
-      <a href="{{url('cate/'.$b->cate_id)}}">
+      <a href="{{url('cate1/'.$b->cate_id)}}">
         @if($b['cate_id']==$cate_id)
           <span style="color:red">
         @endif
@@ -49,10 +49,11 @@ margin-right: 20%;">
     @endforeach
   </div>
 
-
   <div class="bloglist left">
+    <?php dd($data); ?>
     @foreach($data as $k=>$v)
     <h3>{{$v->art_title}}</h3>
+ 
 
     <figure><img src="{{url($v->art_thumb)}}"></figure>
     <ul>
@@ -64,7 +65,6 @@ margin-right: 20%;">
     <div class="page">
     {!!$data->links()!!}
     </div>
-
 
 </div>
 

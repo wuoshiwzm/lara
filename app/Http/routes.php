@@ -12,23 +12,22 @@
 */
 Route::group(['middleware' => []], function () {
 
-
     Route::get('/','Home\SelfMediaController@index');
     Route::get('test','Home\SupplierController@index');
-    // Route::get('check','Home\SelfMediaController@index');
 
-
-
-
-    // Route::get('/cate/{cate_id}','Home\IndexController@cate');
     Route::get('/cate/{cate_id}','Home\IndexController@cate');
+    Route::get('/cate','Home\IndexController@dcate');
     Route::get('/cate1/{cate_id}','Home\IndexController@cate1');
+    Route::get('/cate1','Home\IndexController@dcate1');
     Route::get('/cate2/{cate_id}','Home\IndexController@cate2');
+    Route::get('/cate2','Home\IndexController@dcate2');
     Route::get('/self_media','Home\SelfMediaController@index');
     Route::post('/self_media/add','Home\SelfMediaController@add');
 
 
     Route::get('/a/{art_id}','Home\IndexController@article');
+    Route::get('/a1/{art_id}','Home\IndexController@article1');
+    Route::get('/a2/{art_id}','Home\IndexController@article2');
     Route::any('admin/login', 'Admin\LoginController@login');
     Route::get('admin/code', 'Admin\LoginController@code');
 

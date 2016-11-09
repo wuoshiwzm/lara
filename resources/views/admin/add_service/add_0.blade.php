@@ -200,6 +200,12 @@
 										 </td>
 								 </tr>
 
+ 								 <tr>
+ 									 <th>简介</th>
+ 									 <td>
+ 										 <textarea name="art_description" class="lg">{{old('art_description')}}</textarea>
+ 									 </td>
+ 								 </tr>
 									<tr>
  								 		<th>public_详细内容及板块报价图：</th>
  								 		 <td>
