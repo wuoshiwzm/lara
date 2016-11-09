@@ -10,19 +10,4 @@ function checkandshow(a,b){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>

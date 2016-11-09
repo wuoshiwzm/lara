@@ -63,10 +63,18 @@
 
 										</td>
 								</tr>
+
+								<tr>
+										<th> public_发布人：</th>
+										<td>
+										<input type="text"  class="lg" value="{{$company_name}}" name="art_editor">
+									 </td>
+								</tr>
+
 								 <tr>
 										<th>public_种类：</th>
 										<td>
-												<select class="md" name=" art_type">
+												<select class="lg" name=" art_type">
 													<option value="logo设计（图形，图文，文字，英文，餐饮，网站/logo）">logo设计（图形，图文，文字，英文，餐饮，网站/logo）</option>
 													<option value="标志设计（  企业，产品，公司/logo ， 商标）">标志设计（  企业，产品，公司/logo ， 商标）</option>
 													<option value="宣传品设计（宣传册，DM,画册，折页，彩页，手册，海报，台历，名片，工作牌，易拉宝，广告）">宣传品设计（宣传册，DM,画册，折页，彩页，手册，海报，台历，名片，工作牌，易拉宝，广告）</option>
@@ -76,7 +84,13 @@
 								<tr>
 									 <th>public_价格(元)：</th>
 									 <td>
-											 <input type="text" class="md" name="art_price">元
+
+										 <select class="md" id="art_price" onchange="checkandshow('#art_price','#art_price_show')">
+											 <option >请选择</option>
+											 <option value="0">固定价格</option>
+											 <option value="1">浮动价格</option>
+										 </select>
+											 <input type="text" class="md" name="art_price" id="art_price_show" style="display:none">元
 
 									 </td>
 							 </tr>
@@ -189,4 +203,5 @@
 					 </table>
 			 </form>
 	 </div>
+	 @include('layouts.tools.serviceaddjs')
 @endsection

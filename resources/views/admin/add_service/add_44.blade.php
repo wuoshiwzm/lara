@@ -1,7 +1,7 @@
 
 @extends('layouts.admin')
 @section('content')
-<!-- 包装设计 -->
+公关
 	 <!--面包屑导航 开始-->
 	 <div class="crumb_warp">
 			 <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
@@ -50,48 +50,46 @@
 							 <tbody>
 
 								 <tr>
-										<th>public_资源得分：</th>
-										<td>
-												<input type="text" class="lg" name="">
-
-										</td>
-								</tr>
-								 <tr>
 										<th>public_资源标题：</th>
 										<td>
 												<input type="text" class="lg" name="art_title">
 
 										</td>
 								</tr>
-								 <tr>
-										<th>public_种类：</th>
-										<td>
-												<select class="md" name=" art_type">
 
-													<option selected="selected">请选择</option>
-													<option value="礼盒">礼盒</option>
-													<option value="食品">食品</option>
-													<option value="包装">包装</option>
-													<option value="特产">特产</option>
-													<option value="农产品">农产品</option>
-													<option value="认证">认证</option>
-													<option value="产品">产品</option>
-													<option value="商品">商品</option>
-												</select>
+								 <tr>
+										<th>public_公关服务类型：</th>
+										<td>
+											上限为五个...
+											<hr>
+											<input type="checkbox" name="art_type" value="交际型">交际型
+											<input type="checkbox" name="art_type" value="宣传型">宣传型
+											<input type="checkbox" name="art_type" value="危机型">危机型
+											<input type="checkbox" name="art_type" value="战术型">战术型
+											<input type="checkbox" name="art_type" value="社会型">社会型
+											<input type="checkbox" name="art_type" value="服务型">服务型
+											<input type="checkbox" name="art_type" value="征询型">征询型
+											<input type="checkbox" name="art_type" value="维系型">维系型
+											<input type="checkbox" name="art_type" value="建设型">建设型
+											<input type="checkbox" name="art_type" value="防御型">防御型
+											<input type="checkbox" name="art_type" value="进攻型">进攻型
+											<input type="checkbox" name="art_type" value="互联网">互联网
+											<input type="checkbox" name="art_type" value="新闻型">新闻型
+
 										</td>
 								</tr>
 								<tr>
 									<th>public_价格(元)：</th>
-								 <td>
+									<td>
 
-									 <select class="md" id="art_price" onchange="checkandshow('#art_price','#art_price_show')">
-										 <option >请选择</option>
-										 <option value="0">固定价格</option>
-										 <option value="1">浮动价格</option>
-									 </select>
-										 <input type="text" class="md" name="art_price" id="art_price_show" style="display:none">元
+										<select class="md" id="art_price" onchange="checkandshow('#art_price','#art_price_show')">
+											<option >请选择</option>
+											<option value="0">固定价格</option>
+											<option value="1">浮动价格</option>
+										</select>
+											<input type="text" class="md" name="art_price" id="art_price_show" style="display:none">元
 
-								 </td>
+									</td>
 							 </tr>
 								<tr>
 									 <th>public_预计完工周期（天）：</th>
@@ -115,7 +113,6 @@
 											 </select>
 									 </td>
 							 </tr>
-
 							 <tr>
 								<th>public_缩略图：</th>
 								<td>
@@ -188,7 +185,6 @@
 									</script>
 								 </td>
 						 </tr>
-
 
 									<tr>
 											 <th></th>

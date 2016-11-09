@@ -1,7 +1,7 @@
 
 @extends('layouts.admin')
 @section('content')
-<!-- 包装设计 -->
+企业营销
 	 <!--面包屑导航 开始-->
 	 <div class="crumb_warp">
 			 <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
@@ -50,48 +50,72 @@
 							 <tbody>
 
 								 <tr>
-										<th>public_资源得分：</th>
-										<td>
-												<input type="text" class="lg" name="">
-
-										</td>
-								</tr>
-								 <tr>
 										<th>public_资源标题：</th>
 										<td>
 												<input type="text" class="lg" name="art_title">
 
 										</td>
 								</tr>
-								 <tr>
-										<th>public_种类：</th>
-										<td>
-												<select class="md" name=" art_type">
 
-													<option selected="selected">请选择</option>
-													<option value="礼盒">礼盒</option>
-													<option value="食品">食品</option>
-													<option value="包装">包装</option>
-													<option value="特产">特产</option>
-													<option value="农产品">农产品</option>
-													<option value="认证">认证</option>
-													<option value="产品">产品</option>
-													<option value="商品">商品</option>
-												</select>
+								 <tr>
+										<th>public_优势行业：</th>
+										<td>
+											上限为五个...
+											<hr>
+											<input type="checkbox" name="art_type" value="计算机软件/硬件">计算机软件/硬件
+											<input type="checkbox" name="art_type" value="计算机服务">计算机服务
+											<input type="checkbox" name="art_type" value="通信设备/运营">通信设备/运营
+											<input type="checkbox" name="art_type" value="快消品">快消品
+											<input type="checkbox" name="art_type" value="食品">食品
+											<input type="checkbox" name="art_type" value="乳制品">乳制品
+											<input type="checkbox" name="art_type" value="家居">家居
+											<input type="checkbox" name="art_type" value="办公用品及设备">办公用品及设备
+											<input type="checkbox" name="art_type" value="汽车">汽车
+											<input type="checkbox" name="art_type" value="地产">地产
+											<input type="checkbox" name="art_type" value="教育培训">教育培训
+											<input type="checkbox" name="art_type" value="餐饮">餐饮
+											<input type="checkbox" name="art_type" value="旅游/酒店">旅游/酒店
+											<input type="checkbox" name="art_type" value="美容/保健">美容/保健
+											<input type="checkbox" name="art_type" value="互联网">互联网
+											<input type="checkbox" name="art_type" value="电子商务">电子商务
+											<input type="checkbox" name="art_type" value="金融证券">金融证券
+											<input type="checkbox" name="art_type" value="保险">保险
+											<input type="checkbox" name="art_type" value="电子产品">电子产品
+											<input type="checkbox" name="art_type" value="母婴">母婴
+											<input type="checkbox" name="art_type" value="服饰">服饰
+											<input type="checkbox" name="art_type" value="医药">医药
+											<input type="checkbox" name="art_type" value="网络游戏">网络游戏
+											<input type="checkbox" name="art_type" value="电子技术半导体集成电路">电子技术半导体集成电路
+											<input type="checkbox" name="art_type" value="仪表仪器工业自动化">仪表仪器工业自动化
+											<input type="checkbox" name="art_type" value="会计审计">会计审计
+											<input type="checkbox" name="art_type" value="银行">银行
+											<input type="checkbox" name="art_type" value="信托">信托
+											<input type="checkbox" name="art_type" value="担保">担保
+											<input type="checkbox" name="art_type" value="拍卖典当">拍卖典当
+											<input type="checkbox" name="art_type" value="贸易进出口">贸易进出口
+											<input type="checkbox" name="art_type" value="批发零售">批发零售
+											<input type="checkbox" name="art_type" value="医疗设备器械">医疗设备器械
+											<input type="checkbox" name="art_type" value="影视媒体艺术文化传播">影视媒体艺术文化传播
+											<input type="checkbox" name="art_type" value="印刷包装">印刷包装
+											<input type="checkbox" name="art_type" value="建筑建材工程">建筑建材工程
+											<input type="checkbox" name="art_type" value="物业管理商业中心">物业管理商业中心
+											<input type="checkbox" name="art_type" value="中介/租赁服务">中介/租赁服务
+											<input type="checkbox" name="art_type" value="生活服务">生活服务
+											<input type="checkbox" name="art_type" value="新能源">新能源
 										</td>
 								</tr>
 								<tr>
 									<th>public_价格(元)：</th>
-								 <td>
+									<td>
 
-									 <select class="md" id="art_price" onchange="checkandshow('#art_price','#art_price_show')">
-										 <option >请选择</option>
-										 <option value="0">固定价格</option>
-										 <option value="1">浮动价格</option>
-									 </select>
-										 <input type="text" class="md" name="art_price" id="art_price_show" style="display:none">元
+										<select class="md" id="art_price" onchange="checkandshow('#art_price','#art_price_show')">
+											<option >请选择</option>
+											<option value="0">固定价格</option>
+											<option value="1">浮动价格</option>
+										</select>
+											<input type="text" class="md" name="art_price" id="art_price_show" style="display:none">元
 
-								 </td>
+									</td>
 							 </tr>
 								<tr>
 									 <th>public_预计完工周期（天）：</th>
@@ -115,7 +139,6 @@
 											 </select>
 									 </td>
 							 </tr>
-
 							 <tr>
 								<th>public_缩略图：</th>
 								<td>
@@ -188,7 +211,6 @@
 									</script>
 								 </td>
 						 </tr>
-
 
 									<tr>
 											 <th></th>

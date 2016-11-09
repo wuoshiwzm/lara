@@ -1,7 +1,7 @@
 
 @extends('layouts.admin')
 @section('content')
-<!-- 包装设计 -->
+印刷
 	 <!--面包屑导航 开始-->
 	 <div class="crumb_warp">
 			 <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
@@ -66,32 +66,27 @@
 								 <tr>
 										<th>public_种类：</th>
 										<td>
-												<select class="md" name=" art_type">
-
-													<option selected="selected">请选择</option>
-													<option value="礼盒">礼盒</option>
-													<option value="食品">食品</option>
-													<option value="包装">包装</option>
-													<option value="特产">特产</option>
-													<option value="农产品">农产品</option>
-													<option value="认证">认证</option>
-													<option value="产品">产品</option>
-													<option value="商品">商品</option>
+												<select class="md" name="art_type">
+													<option >请选择</option>
+													<option value="纸制品">纸制品</option>
+													<option value="塑料制品">塑料制品</option>
+													<option value="工艺品">工艺品</option>
+													<option value="其他">其他</option>
 												</select>
 										</td>
 								</tr>
 								<tr>
 									<th>public_价格(元)：</th>
-								 <td>
+									<td>
 
-									 <select class="md" id="art_price" onchange="checkandshow('#art_price','#art_price_show')">
-										 <option >请选择</option>
-										 <option value="0">固定价格</option>
-										 <option value="1">浮动价格</option>
-									 </select>
-										 <input type="text" class="md" name="art_price" id="art_price_show" style="display:none">元
+										<select class="md" id="art_price" onchange="checkandshow('#art_price','#art_price_show')">
+											<option >请选择</option>
+											<option value="0">固定价格</option>
+											<option value="1">浮动价格</option>
+										</select>
+											<input type="text" class="md" name="art_price" id="art_price_show" style="display:none">元
 
-								 </td>
+									</td>
 							 </tr>
 								<tr>
 									 <th>public_预计完工周期（天）：</th>
@@ -115,7 +110,6 @@
 											 </select>
 									 </td>
 							 </tr>
-
 							 <tr>
 								<th>public_缩略图：</th>
 								<td>
@@ -188,7 +182,6 @@
 									</script>
 								 </td>
 						 </tr>
-
 
 									<tr>
 											 <th></th>

@@ -1,7 +1,7 @@
 
 @extends('layouts.admin')
 @section('content')
-<!-- 包装设计 -->
+培训/管理
 	 <!--面包屑导航 开始-->
 	 <div class="crumb_warp">
 			 <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
@@ -50,48 +50,57 @@
 							 <tbody>
 
 								 <tr>
-										<th>public_资源得分：</th>
-										<td>
-												<input type="text" class="lg" name="">
-
-										</td>
-								</tr>
-								 <tr>
 										<th>public_资源标题：</th>
 										<td>
 												<input type="text" class="lg" name="art_title">
 
 										</td>
 								</tr>
-								 <tr>
-										<th>public_种类：</th>
-										<td>
-												<select class="md" name=" art_type">
 
-													<option selected="selected">请选择</option>
-													<option value="礼盒">礼盒</option>
-													<option value="食品">食品</option>
-													<option value="包装">包装</option>
-													<option value="特产">特产</option>
-													<option value="农产品">农产品</option>
-													<option value="认证">认证</option>
-													<option value="产品">产品</option>
-													<option value="商品">商品</option>
-												</select>
+								 <tr>
+										<th>public_优势服务：</th>
+										<td>
+
+											<input type="checkbox" name="art_type" value="时间管理" >时间管理
+											<input type="checkbox" name="art_type" value="团队精神" >团队精神
+											<input type="checkbox" name="art_type" value="营销技巧" >营销技巧
+											<input type="checkbox" name="art_type" value="客户服务技巧" >客户服务技巧
+											<input type="checkbox" name="art_type" value="沟通技巧" >沟通技巧
+											<input type="checkbox" name="art_type" value="项目管理" >项目管理
+											<input type="checkbox" name="art_type" value="薪酬设计" >薪酬设计
+											<input type="checkbox" name="art_type" value="领导艺术情节" >领导艺术情节
+											<input type="checkbox" name="art_type" value="战略性人力资源公司管理培训" >战略性人力资源公司管理培训
+											<input type="checkbox" name="art_type" value="综合管理" >综合管理
+											<input type="checkbox" name="art_type" value="职业素养" >职业素养
+											<input type="checkbox" name="art_type" value="商务礼仪" >商务礼仪
+											<input type="checkbox" name="art_type" value="执行力" >执行力
+											<input type="checkbox" name="art_type" value="资本运营" >资本运营
+											<input type="checkbox" name="art_type" value="职业心态" >职业心态
+											<input type="checkbox" name="art_type" value="团队建设" >团队建设
+											<input type="checkbox" name="art_type" value="服务营销" >服务营销
+											<input type="checkbox" name="art_type" value="店面管理" >店面管理
+											<input type="checkbox" name="art_type" value="员工激励" >员工激励
+											<input type="checkbox" name="art_type" value="心理辅导" >心理辅导
+											<input type="checkbox" name="art_type" value="人脉管理" >人脉管理
+											<input type="checkbox" name="art_type" value="商业机密" >商业机密
+											<input type="checkbox" name="art_type" value="法律服务" >法律服务
+											<input type="checkbox" name="art_type" value="劳动合同" >劳动合同
+											<input type="checkbox" name="art_type" value="生产管理" >生产管理
+
 										</td>
 								</tr>
 								<tr>
 									<th>public_价格(元)：</th>
-								 <td>
+									<td>
 
-									 <select class="md" id="art_price" onchange="checkandshow('#art_price','#art_price_show')">
-										 <option >请选择</option>
-										 <option value="0">固定价格</option>
-										 <option value="1">浮动价格</option>
-									 </select>
-										 <input type="text" class="md" name="art_price" id="art_price_show" style="display:none">元
+										<select class="md" id="art_price" onchange="checkandshow('#art_price','#art_price_show')">
+											<option >请选择</option>
+											<option value="0">固定价格</option>
+											<option value="1">浮动价格</option>
+										</select>
+											<input type="text" class="md" name="art_price" id="art_price_show" style="display:none">元
 
-								 </td>
+									</td>
 							 </tr>
 								<tr>
 									 <th>public_预计完工周期（天）：</th>
@@ -115,7 +124,6 @@
 											 </select>
 									 </td>
 							 </tr>
-
 							 <tr>
 								<th>public_缩略图：</th>
 								<td>
@@ -188,7 +196,6 @@
 									</script>
 								 </td>
 						 </tr>
-
 
 									<tr>
 											 <th></th>

@@ -82,10 +82,17 @@
 										</td>
 								</tr>
 								<tr>
-									 <th>public_价格(元)：</th>
-									 <td>
-											 <input type="text" class="md" name="art_price">元
-									 </td>
+									<th>public_价格(元)：</th>
+ 								 <td>
+
+ 									 <select class="md" id="art_price" onchange="checkandshow('#art_price','#art_price_show')">
+ 										 <option >请选择</option>
+ 										 <option value="0">固定价格</option>
+ 										 <option value="1">浮动价格</option>
+ 									 </select>
+ 										 <input type="text" class="md" name="art_price" id="art_price_show" style="display:none">元
+
+ 								 </td>
 							 </tr>
 								<tr>
 									 <th>public_预计完工周期（天）：</th>

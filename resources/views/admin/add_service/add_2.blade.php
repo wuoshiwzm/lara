@@ -76,7 +76,6 @@
 													 <p>
 														 对应上传资料格式：
 														{{$articleadd_name}}
-
 													 </p>
 										 </td>
 								 </tr>

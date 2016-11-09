@@ -46,10 +46,9 @@ class ArticleController1 extends CommonController
 
     // 添加分类提交 POST   admin/Category1    admin.Category1.store
     public function store(){
-      dd(Input::all());
+      // dd(Input::all());
 
       $input = Input::except('_token');
-      $input['art_time']= time();
 
 
       if($input){

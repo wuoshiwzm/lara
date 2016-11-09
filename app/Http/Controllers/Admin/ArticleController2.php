@@ -27,7 +27,7 @@ class ArticleController2 extends CommonController
 
       $categorys = (new Category2)->adminCate();
       // die('pls call cre function!');
-      return view('admin.add_service.choose_cate1',compact('categorys'));
+      return view('admin.add_service.choose_cate2',compact('categorys'));
     }
 
 
@@ -35,9 +35,9 @@ class ArticleController2 extends CommonController
       //get the id for the info form
       $cate_articleadd_id = Category2::where('cate_id',$cate_id)->select('cate_articleadd_id')->first()['cate_articleadd_id'];
       $cate_name= Category2::where('cate_id',$cate_id)->select('cate_name')->first()['cate_name'];
-      $articleadd_name =Articleadd1::where('articleadd_id',$cate_articleadd_id)->first()['articleadd_name'];
+      $articleadd_name =Articleadd2::where('articleadd_id',$cate_articleadd_id)->first()['articleadd_name'];
       $company_name = Company::where('user_id',session('company_id'))->first()['company_name'];
-
+      // dd($cate_articleadd_id);
       return view('admin.add_service.add_'.$cate_articleadd_id,compact('cate_name','articleadd_name','cate_id','company_name'));
     }
 

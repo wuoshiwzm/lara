@@ -1,7 +1,7 @@
 
 @extends('layouts.admin')
 @section('content')
-<!-- 包装设计 -->
+网站设计
 	 <!--面包屑导航 开始-->
 	 <div class="crumb_warp">
 			 <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
@@ -66,17 +66,15 @@
 								 <tr>
 										<th>public_种类：</th>
 										<td>
-												<select class="md" name=" art_type">
-
-													<option selected="selected">请选择</option>
-													<option value="礼盒">礼盒</option>
-													<option value="食品">食品</option>
-													<option value="包装">包装</option>
-													<option value="特产">特产</option>
-													<option value="农产品">农产品</option>
-													<option value="认证">认证</option>
-													<option value="产品">产品</option>
-													<option value="商品">商品</option>
+												<select class="md" name="art_type">
+													<option selected="select">请选择</option>
+													<option value="网站总体设计">网站总体设计</option>
+													<option value="前端开发">前端开发</option>
+													<option value="后端开发">后端开发</option>
+													<option value="移动端开发">移动端开发</option>
+													<option value="UI设计">UI设计</option>
+													<option value="网站优化">网站优化</option>
+													<option value="网站推广">网站推广</option>
 												</select>
 										</td>
 								</tr>
@@ -115,7 +113,6 @@
 											 </select>
 									 </td>
 							 </tr>
-
 							 <tr>
 								<th>public_缩略图：</th>
 								<td>
@@ -188,7 +185,6 @@
 									</script>
 								 </td>
 						 </tr>
-
 
 									<tr>
 											 <th></th>
