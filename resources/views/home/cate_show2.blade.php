@@ -53,7 +53,7 @@ margin-right: 20%;">
     <?php //dd($data); ?>
     @foreach($data as $k=>$v)
     <h3>{{$v->art_title}}</h3>
-    <?php dd($v); ?>
+    <?php //dd($v); ?>
 
     <figure><img src="{{url($v->art_thumb)}}"></figure>
     <ul>

@@ -50,10 +50,10 @@ margin-right: 20%;">
   </div>
 
   <div class="bloglist left">
-    <?php dd($data); ?>
+    <?php //dd($data); ?>
     @foreach($data as $k=>$v)
     <h3>{{$v->art_title}}</h3>
- 
+
 
     <figure><img src="{{url($v->art_thumb)}}"></figure>
     <ul>

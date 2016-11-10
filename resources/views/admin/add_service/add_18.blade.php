@@ -198,4 +198,5 @@ VI设计
 					 </table>
 			 </form>
 	 </div>
+	 	 @include('layouts.tools.serviceaddjs')
 @endsection

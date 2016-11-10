@@ -196,4 +196,5 @@
 					 </table>
 			 </form>
 	 </div>
+	 	 @include('layouts.tools.serviceaddjs')
 @endsection
