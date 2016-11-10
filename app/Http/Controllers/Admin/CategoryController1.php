@@ -134,13 +134,13 @@ class CategoryController1 extends CommonController
     //DELETE    删除分类 | admin/Category1/{Category1}
     public function destroy($cate_id){
 
-      // $test = Category1::where('cate_pid',$cate_id)->count();
-      // if($test){
-      //   return $data=[
-      //     'status'=>1,
-      //     'msg'=>'有子分类 不能删除！',
-      //   ];
-      // }
+      $test = Category1::where('cate_pid',$cate_id)->count();
+      if($test){
+        return $data=[
+          'status'=>1,
+          'msg'=>'有子分类 不能删除！',
+        ];
+      }
       $result = Category1::where('cate_id',$cate_id)->delete();
       Category1::where('cate_pid',$cate_id)->update(['cate_pid'=>0]);
       if($result){

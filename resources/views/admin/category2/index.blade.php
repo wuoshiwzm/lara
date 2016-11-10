@@ -128,7 +128,7 @@ function delCate(cate_id){
 					layer.msg(data.msg, {icon: 1});
 				}
 				else{
-					layer.msg(data.msg, {icon: 1});
+					layer.msg(data.msg, {icon: 2});
 				}
 			});
 	},function(){

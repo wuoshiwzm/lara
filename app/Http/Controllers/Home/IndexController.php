@@ -12,15 +12,11 @@ use App\Http\Model\Category2;
 class IndexController extends CommonController
 {
   public function index(){
-
     $allCates = (new Category)->frontCate();
-
     //the  6 article most views
     $pics = Article::orderBy('art_view','desc')->take(6)->get();
-
     //list for pics and article with pagination
     $data=Article::orderBy('art_time','desc')->paginate(10);
-
     //the latest articles
 
     //the links
@@ -46,11 +42,17 @@ class IndexController extends CommonController
     return $this->cate2($cate_id);
   }
 
-  public function cate($cate_id = null){
+  public function cate($cate_id){
 
     //highlight the  cate you choose
+    $Cates = (new Category)->ccates();
+
     $allCates = (new Category)->frontCate();
+    // dd($allCates);
+
+
     $allChild = (new Category)->scanChild($cate_id);
+    // dd($allChild);
     array_shift($allChild);
 
     //the  4 article most views
