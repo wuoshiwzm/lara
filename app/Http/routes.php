@@ -13,7 +13,8 @@
 Route::group(['middleware' => []], function () {
 
     Route::get('/','Home\SelfMediaController@index');
-    Route::get('test','Home\SupplierController@index');
+
+    Route::get('test','Home\IndexController@test');
 
     Route::get('/cate/{cate_id}','Home\IndexController@cate');
     Route::get('/cate','Home\IndexController@dcate');

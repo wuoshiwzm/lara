@@ -35,7 +35,7 @@ class CategoryController1 extends CommonController
     //PUT|PATCH     | admin/Category1/{Category1}
     public function update($cate_id){
       $input = Input::except('_method','_token');
-      dd($input);
+      // dd($input);
       $result = Category1::where('cate_id',$cate_id)->update($input);
 
       if($result){

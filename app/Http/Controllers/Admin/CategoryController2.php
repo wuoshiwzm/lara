@@ -35,7 +35,7 @@ class CategoryController2 extends CommonController
     //PUT|PATCH     | admin/Category2/{Category2}
     public function update($cate_id){
       $input = Input::except('_method','_token');
-      dd($input);
+      // dd($input);
       $result = Category2::where('cate_id',$cate_id)->update($input);
 
       if($result){
@@ -134,7 +134,7 @@ class CategoryController2 extends CommonController
     //DELETE    删除分类 | admin/Category2/{Category2}
     public function destroy($cate_id){
 
-      $test = Category1::where('cate_pid',$cate_id)->count();
+      $test = Category2::where('cate_pid',$cate_id)->count();
       if($test){
         return $data=[
           'status'=>1,

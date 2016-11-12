@@ -11,6 +11,12 @@ use App\Http\Model\Category2;
 
 class IndexController extends CommonController
 {
+
+  public function test(){
+    echo "test";
+  }
+
+
   public function index(){
     $allCates = (new Category)->frontCate();
     //the  6 article most views
@@ -27,17 +33,16 @@ class IndexController extends CommonController
   }
 
   public function dcate(){
-
     $cate_id = Category::first()->cate_id;
     return $this->cate($cate_id);
   }
-  public function dcate1(){
 
+  public function dcate1(){
     $cate_id = Category1::first()->cate_id;
     return $this->cate1($cate_id);
   }
-  public function dcate2(){
 
+  public function dcate2(){
     $cate_id = Category2::first()->cate_id;
     return $this->cate2($cate_id);
   }
@@ -45,18 +50,19 @@ class IndexController extends CommonController
   public function cate($cate_id){
 
     //highlight the  cate you choose
-    $Cates = (new Category)->ccates();
+    $cates = (new Category)->ccates();
 
     $allCates = (new Category)->frontCate();
-    // dd($allCates);
-
 
     $allChild = (new Category)->scanChild($cate_id);
-    // dd($allChild);
-    array_shift($allChild);
+    $childId = [];
+    foreach ($allChild as $k => $v) {
+      $childId[]=$v['cate_id'];
+    }
+    $data = Article::whereIn('cate_id',$childId)->orderBy('art_view','desc')->paginate(10);
+    //the 4 article most views
 
-    //the  4 article most views
-    $data = Article::where('cate_id',$cate_id)->orderBy('art_view','desc')->paginate(10);
+
     // the child categorys
     $submenu = Category::where('cate_pid',$cate_id)->get();
 
@@ -72,11 +78,13 @@ class IndexController extends CommonController
     //highlight the  cate you choose
     $allCates = (new Category1)->frontCate();
     $allChild = (new Category1)->scanChild($cate_id);
-    array_shift($allChild);
+    // array_shift($allChild);
+    $childId = [];
+    foreach ($allChild as $k => $v) {
+      $childId[]=$v['cate_id'];
+    }
+    $data = Article::whereIn('cate_id',$childId)->orderBy('art_view','desc')->paginate(10);
 
-
-    //the  4 article most views
-    $data = Article1::where('cate_id',$cate_id)->orderBy('art_view','desc')->paginate(10);
     // the child categorys
     $submenu = Category1::where('cate_pid',$cate_id)->get();
 
@@ -93,10 +101,12 @@ class IndexController extends CommonController
     //highlight the  cate you choose
     $allCates = (new Category2)->frontCate();
     $allChild = (new Category2)->scanChild($cate_id);
-    array_shift($allChild);
+    $childId = [];
+    foreach ($allChild as $k => $v) {
+      $childId[]=$v['cate_id'];
+    }
+    $data = Article::whereIn('cate_id',$childId)->orderBy('art_view','desc')->paginate(10);
 
-    //the  4 article most views
-    $data = Article2::where('cate_id',$cate_id)->orderBy('art_view','desc')->paginate(10);
     // the child categorys
     $submenu = Category2::where('cate_pid',$cate_id)->get();
 
