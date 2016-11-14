@@ -15,7 +15,7 @@ class LoginController extends CommonController
 {
     public function login()
     {
-
+      // dd(Input::all());
       if(session('user')){
             if(session('company_id')){
                return redirect('admin');
@@ -28,7 +28,6 @@ class LoginController extends CommonController
        }
 
         if ($input = Input::except('_token')) {
-            // dd($input);
             $code = new \Code;
 
             $_code = $code->get();
@@ -37,17 +36,12 @@ class LoginController extends CommonController
             }
 
             $user = User::where('user_name',$input['user_name'])->first();
-
             if(!$user){
               return back()->with('msg', '用户名或密码错误！');
             }
 
-            // die(Crypt::encrypt($input['user_pass']));
-            // die(Crypt::decrypt('eyJpdiI6Ilp3dFRoRm5UT0ZVdExIZWN3TUpRS0E9PSIsInZhbHVlIjoiN1Q2YTA5b1BiUGFWYkZRem9JdCtcL3c9PSIsIm1hYyI6ImJhYjVjNGFhNzgzMDdmZmExMGRkYWYyOWEwMjBlOGM4YjZmNjI4MjhkNWZkMDM5OTQ2M2JhMzBkNWIwNWYyY2EifQ=='));
-
 
             $test =  $user->user_pass;
-            // die($test);
             if ($user->user_name!=$input['user_name']
                 || Crypt::decrypt($user->user_pass) != $input['user_pass']
             ) {

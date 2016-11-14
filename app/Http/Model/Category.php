@@ -16,7 +16,7 @@ class Category extends Model
     protected $res = [];
     protected $frontCate = [];
 
-//return all the categorys
+
 public function ccates(){
   $catess = $this->orderBy('cate_order','asc')->get();
   return $catess;
@@ -71,13 +71,12 @@ function isChild($ele){
 
 // function scanChild(){} for parent , use this function to scan all children under that parent
 public function scanChild($cate_id){
-    //find the element with the cate_id as passed
+
     $cate_ele = $this->where('cate_id',$cate_id)->first();
 
     for($i=0;$i<$this->round;$i++){
       $cate_ele['prefix'].="--->";
     }
-    // dd($cate_ele);
     $cate_ele['_cate_name']=$cate_ele['prefix'].$cate_ele['cate_name'];
     // echo $cate_ele['_cate_name'];
 
@@ -85,7 +84,6 @@ public function scanChild($cate_id){
     //initialize the model
     $cates = $this->where('cate_pid',$cate_id)->orderBy('cate_order')->get();
 
-    // return;
     //loop to find Child on
     foreach($cates as $k=>$v){
         // judge if the element is parent
@@ -144,7 +142,7 @@ return $this->frontCate;
 
 
 
-//get all the children categorys
+
 public function frontCate(){
   $arr=[];
   $cates = $this->where('cate_pid',0)->orderBy('cate_order','asc')->get();
