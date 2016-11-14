@@ -28,7 +28,11 @@ class IndexController extends CommonController
         return view('admin.person_index');
         // break;
       }
-      // die();
+      die();
+      return view('admin.index');
+      // echo 234;
+      // $test=DB::connection()->getPdo();
+      // dd($test);
 
     }
 

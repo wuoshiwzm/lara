@@ -13,8 +13,7 @@
 Route::group(['middleware' => []], function () {
 
     Route::get('/','Home\SelfMediaController@index');
-
-    Route::get('test','Home\IndexController@test');
+    Route::get('test','Home\SupplierController@index');
 
     Route::get('/cate/{cate_id}','Home\IndexController@cate');
     Route::get('/cate','Home\IndexController@dcate');
@@ -43,10 +42,8 @@ Route::group(['middleware' => []], function () {
 
     //register
     Route::resource('register','Home\RegisterController');
-    Route::any('upload', 'Admin\CommonController@upload');
 
-    //hongbao api callback
-    Route::get('hongbaocall','Pay\Wx\Hongbao\HongbaoController@index');
+    Route::any('upload', 'Admin\CommonController@upload');
 
 });
 
@@ -62,12 +59,14 @@ Route::group(['middleware' => ['admin.login'],'prefix'=>'admin','namespace'=>'Ad
 
     //register user
 
-    //for admin user
+
+
     Route::any('cate/changeorder', 'CategoryController@changeOrder');
     Route::any('cate/changearticleadd', 'CategoryController@changearticleadd');
     Route::resource('category','CategoryController');
     Route::resource('article','ArticleController');
     Route::any('article/cre/{cate_id}','ArticleController@cre');
+
 
     Route::any('cate1/changeorder', 'CategoryController1@changeOrder');
     Route::any('cate1/changearticleadd', 'CategoryController1@changearticleadd');
@@ -80,22 +79,6 @@ Route::group(['middleware' => ['admin.login'],'prefix'=>'admin','namespace'=>'Ad
     Route::resource('category2','CategoryController2');
     Route::resource('article2','ArticleController2');
     Route::any('article2/cre/{cate_id}','ArticleController2@cre');
-
-
-
-    //for company user
-
-    Route::resource('carticle','CompanyArticleController');
-    Route::any('carticle/cre/{cate_id}','CompanyArticleController@cre');
-
-    Route::resource('carticle1','CompanyArticleController1');
-    Route::any('carticle1/cre/{cate_id}','CompanyArticleController1@cre');
-
-    Route::resource('carticle2','CompanyArticleController2');
-    Route::any('carticle2/cre/{cate_id}','CompanyArticleController2@cre');
-
-
-
 
     Route::resource('company','CompanyController');
     Route::any('upload', 'CommonController@upload');
