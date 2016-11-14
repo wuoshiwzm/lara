@@ -46,7 +46,7 @@ Route::group(['middleware' => []], function () {
     Route::any('upload', 'Admin\CommonController@upload');
 
     //hongbao api callback
-    
+    Route::get('hongbaocall','Pay\Wx\Hongbao\HongbaoController@index');
 
 });
 
