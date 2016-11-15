@@ -50,7 +50,6 @@ Route::group(['middleware' => []], function () {
 
     Route::any('upload', 'Admin\CommonController@upload');
 
-
 });
 
 
