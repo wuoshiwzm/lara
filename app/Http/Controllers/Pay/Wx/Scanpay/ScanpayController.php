@@ -60,8 +60,7 @@ class ScanpayController extends Controller
     public function callback(){
 
       dd(file_get_contents("php://input") );
-      public function NotifyProcess($data, &$msg)
-      {
+
         //echo "处理回调";
         Log::DEBUG("call back:" . json_encode($data));
 
@@ -92,7 +91,6 @@ class ScanpayController extends Controller
         $this->SetData("result_code", "SUCCESS");
         $this->SetData("err_code_des", "OK");
         return true;
+
       }
-      }
-    }
-}
+  }
