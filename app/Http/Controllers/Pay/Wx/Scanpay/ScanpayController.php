@@ -46,7 +46,7 @@ class ScanpayController extends Controller
 
         $url = $result["code_url"];
 
-        $file = File::where('id', $file_id)->first();
+        $file = \File::where('id', $file_id)->first();
         if (!empty($file)) {
             $file->out_trade_no = $out_trade_no;
             $file->save();
