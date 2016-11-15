@@ -25,11 +25,6 @@ class ScanpayController extends Controller
       $url = $this->getQrcode(1);
       echo '<img src = '.$url.'>';
     }
-
-
-
-    //注意引入文件的路径
-    // public function getQrcode(Request $request)
     public function getQrcode($mount)
     {
         // $file_id = $request->input('file_id', '');

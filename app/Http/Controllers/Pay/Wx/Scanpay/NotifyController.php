@@ -23,15 +23,12 @@ class NotifyController extends Controller
       // $postObj = simplexml_load_string ( $postdata, 'SimpleXMLElement', LIBXML_NOCDATA );
       // $trade_state =$_GET ["trade_state"];//支付状态
       // $out_trade_no = $_GET ["out_trade_no"];//订单号
-      PayNotifyCallBack::notifyReceive();
+      // PayNotifyCallBack::notifyReceive();
       // $disk = Storage::disk('wxpay');
       // $contents = $disk->append('wxpay.txt',' ');
 
     }
 }
-
-
-
 
 
 class PayNotifyCallBack extends \WxPayNotify
@@ -43,10 +40,9 @@ class PayNotifyCallBack extends \WxPayNotify
     $logHandler= new \CLogFileHandler(storage_path()."/app/wxpay/".date('Y-m-d').'.log');
     $log = \Log::Init($logHandler, 15);
 
-
-    Log::DEBUG("begin notify!");
-    $notify = new NativeNotifyCallBack();
-    $notify->Handle(true);
+    \Log::DEBUG("begin notify");
+    $notify = new PayNotifyCallBack();
+    $notify->Handle(false);
   }
 	//查询订单
 	public function Queryorder($transaction_id)
