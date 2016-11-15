@@ -21,7 +21,7 @@ class NotifyController extends Controller
       // $out_trade_no = $_GET ["out_trade_no"];//订单号
       //
       // $disk = Storage::disk('wxpay');
-      $contents = $disk->append('wxpay.txt',$postdata);
+      $contents = $disk->append('wxpay.txt','$postdata');
 
 
       // \Log::DEBUG("begin notify");
