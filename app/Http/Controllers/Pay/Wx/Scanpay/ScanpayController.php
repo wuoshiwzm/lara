@@ -46,11 +46,11 @@ class ScanpayController extends Controller
 
         $url = $result["code_url"];
 
-        $file = \File::where('id', $file_id)->first();
-        if (!empty($file)) {
-            $file->out_trade_no = $out_trade_no;
-            $file->save();
-        }
+        // $file = \File::where('id', $file_id)->first();
+        // if (!empty($file)) {
+        //     $file->out_trade_no = $out_trade_no;
+        //     $file->save();
+        // }
         //这段是把out_trade_no和要处理的订单关联起来
         return "http://paysdk.weixin.qq.com/example/qrcode.php?data=" . $url;
     }
