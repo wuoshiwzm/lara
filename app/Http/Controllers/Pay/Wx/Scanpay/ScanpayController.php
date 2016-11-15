@@ -24,7 +24,17 @@ class ScanpayController extends Controller
       $url = $this->getQrcode(1);
       // $url = 'ww.baidu.com';
       echo '<img src = '.$url.'>';
-      var_dump($res);
+
+      if($res )
+      $this->loop($res);
+    }
+
+    public function loop($t){
+      if(!$t){
+        $this->loop($t);
+      }
+      var_dump($t);
+
     }
 
     //注意引入文件的路径
