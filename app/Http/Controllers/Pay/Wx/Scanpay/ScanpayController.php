@@ -19,6 +19,8 @@ require_once app_path()."/Http/Wxpay/example/log.php";
 require_once app_path()."/Http/Wxpay/lib/WxPay.Api.php";
 require_once app_path()."/Http/Wxpay/example/WxPay.NativePay.php";
 
+$logHandler= new CLogFileHandler(storage_path()."/wxpay/".date('Y-m-d').'.log');
+$log = Log::Init($logHandler, 15);
 
 
 class ScanpayController extends Controller
@@ -26,7 +28,6 @@ class ScanpayController extends Controller
 
     function index(){
       $url = $this->getQrcode(1);
-      // $url = 'ww.baidu.com';
       echo '<img src = '.$url.'>';
     }
 
@@ -49,8 +50,9 @@ class ScanpayController extends Controller
         $input->SetTime_start(date("YmdHis"));
         $input->SetTime_expire(date("YmdHis", time() + 600));
         $input->SetGoods_tag("test");
-        $input->SetNotify_url("http://adbangbang/scanpay_callback");
         //这里设置支付成功后的回调接口，不能有参数。
+        $input->SetNotify_url("http://adbangbang/scanpay_callback");
+
         $input->SetTrade_type("NATIVE");
         $input->SetProduct_id("123456789");
         $result = $notify->GetPayUrl($input);
