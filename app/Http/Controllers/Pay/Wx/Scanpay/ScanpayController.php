@@ -19,23 +19,13 @@ require_once app_path()."/Http/Wxpay/example/WxPay.NativePay.php";
 class ScanpayController extends Controller
 {
 
-    public $res ;
     function index(){
       $url = $this->getQrcode(1);
       // $url = 'ww.baidu.com';
       echo '<img src = '.$url.'>';
-
-      if($res )
-      $this->loop($res);
     }
 
-    public function loop($t){
-      if(!$t){
-        $this->loop($t);
-      }
-      var_dump($t);
 
-    }
 
     //注意引入文件的路径
     // public function getQrcode(Request $request)
@@ -72,14 +62,13 @@ class ScanpayController extends Controller
 
     }
 
-    public function callback($data, &$msg){
+    public function callback(){
       // \Log::DEBUG("call back:" . json_encode($data));
 
-      $res1 =  file_get_contents("php://input");
-      return $res = $res;
-      // $res = "test";
+      $res =  file_get_contents("php://input");
       $disk = Storage::disk('wxpay');
-      $contents = Storage::disk('wxpay')->get('wxpay.txt');
+      // $contents = $disk->get('file.jpg')
+      // $contents = Storage::disk('wxpay')->get('wxpay.txt');
       $contents = $disk->append('wxpay.txt',$res);
 
       // dd($contents);
