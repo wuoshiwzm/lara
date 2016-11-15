@@ -18,8 +18,9 @@ require_once app_path()."/Http/Wxpay/example/WxPay.NativePay.php";
 class ScanpayController extends Controller
 {
     function index(){
-      $url = $this->getQrcode();
-      echo "<img src = '"$url"'>";
+      // $url = $this->getQrcode();
+      $url = 'ww.baidu.com';
+      echo '<img src = '.$url.'>';
     }
 
     //注意引入文件的路径
