@@ -60,7 +60,7 @@ class ScanpayController extends Controller
 
     public function callback(){
       $res =  file_get_contents("php://input");
-      $res = "test";
+      // $res = "test";
       $disk = Storage::disk('wxpay');
       $contents = Storage::disk('wxpay')->get('wxpay.txt');
       // $contents = Storage::get('wxpay.txt');
@@ -68,7 +68,7 @@ class ScanpayController extends Controller
       $contents = $disk->get('wxpay.txt');
 
       dd($contents);
-      die($contents);
+      die();
 
 
 
