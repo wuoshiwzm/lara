@@ -11,17 +11,10 @@ use Illuminate\Support\Facades\Storage;
  *获取付款二维码url的参数
  *
  */
- // include_once("../conf/WxPay.pub.config.php");
- //    include_once("../lib/CommonUtilPub.php");
- //
-require_once app_path()."/Http/Wxpay/example/log.php";
-require_once app_path()."notify.php";
+
 require_once app_path()."/Http/Wxpay/lib/WxPay.Api.php";
 require_once app_path()."/Http/Wxpay/example/WxPay.NativePay.php";
 
-
-$logHandler= new \CLogFileHandler(storage_path()."/app/wxpay/".date('Y-m-d').'.log');
-$log = Log::Init($logHandler, 15);
 
 class ScanpayController extends Controller
 {
