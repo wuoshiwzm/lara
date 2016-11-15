@@ -44,9 +44,10 @@ Route::group(['middleware' => []], function () {
     Route::resource('register','Home\RegisterController');
 
 
-    //hongbao api callback
-    Route::get('hongbao','Pay\Wx\Hongbao\HongbaoController@index');
+    //wx pay Route
+    // Route::get('hongbao','Pay\Wx\Hongbao\HongbaoController@index');
     Route::get('scanpay','Pay\Wx\Scanpay\ScanpayController@index');
+    // Route::get('scanpaytest','Pay\Wx\Scanpay\native.php');
 
     Route::any('upload', 'Admin\CommonController@upload');
 
