@@ -71,7 +71,7 @@ class ScanpayController extends Controller
 
     }
 
-    public function callback($data, &$msg){
+    public function callback(){
 
 
       $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
