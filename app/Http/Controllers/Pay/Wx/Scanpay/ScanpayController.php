@@ -19,12 +19,12 @@ require_once app_path()."/Http/Wxpay/example/log.php";
 require_once app_path()."/Http/Wxpay/lib/WxPay.Api.php";
 require_once app_path()."/Http/Wxpay/example/WxPay.NativePay.php";
 
-$logHandler= new CLogFileHandler(storage_path()."/wxpay/".date('Y-m-d').'.log');
-$log = Log::Init($logHandler, 15);
+
 
 
 class ScanpayController extends Controller
 {
+
 
     function index(){
       $url = $this->getQrcode(1);
@@ -70,6 +70,8 @@ class ScanpayController extends Controller
     }
 
     public function callback($data, &$msg){
+      $logHandler= new \CLogFileHandler(storage_path()."/wxpay/".date('Y-m-d').'.log');
+      $log = Log::Init($logHandler, 15);
       //echo "处理回调";
       Log::DEBUG("call back:" . json_encode($data));
 
