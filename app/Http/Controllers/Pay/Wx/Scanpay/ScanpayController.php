@@ -73,19 +73,15 @@ class ScanpayController extends Controller
 
     public function callback($data, &$msg){
 
-      //echo "处理回调";
-      Log::DEBUG("call back:" . json_encode($data));
 
-
-      Log::DEBUG("begin notify!");
-      $notify = new NativeNotifyCallBack();
-      $notify->Handle(true);
+      $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+      $postStr = json_encode($postStr);
 
       $res =  file_get_contents("php://input");
       $disk = Storage::disk('wxpay');
       // $contents = $disk->get('file.jpg')
       // $contents = Storage::disk('wxpay')->get('wxpay.txt');
-      $contents = $disk->append('wxpay.txt',$res);
+      $contents = $disk->append('wxpay.txt',$postStr);
 
       // dd($contents);
       die();
