@@ -60,6 +60,7 @@ class ScanpayController extends Controller
 
     public function callback(){
       $res =  file_get_contents("php://input");
+      $res = "test";
       $disk = Storage::disk('wxpay');
       $contents = Storage::disk('wxpay')->get('wxpay.txt');
       // $contents = Storage::get('wxpay.txt');
