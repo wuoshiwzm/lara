@@ -20,15 +20,15 @@ require_once app_path()."/Http/Wxpay/lib/WxPay.Api.php";
 require_once app_path()."/Http/Wxpay/example/WxPay.NativePay.php";
 
 
-
+$logHandler= new \CLogFileHandler(storage_path()."/app/wxpay/".date('Y-m-d').'.log');
+$log = \Log::Init($logHandler, 15);
 
 class ScanpayController extends Controller
 {
 
 
     function index(){
-      $logHandler= new \CLogFileHandler(storage_path()."/wxpay/".date('Y-m-d').'.log');
-      $log = Log::Init($logHandler, 15);
+
       $url = $this->getQrcode(1);
       echo '<img src = '.$url.'>';
     }
