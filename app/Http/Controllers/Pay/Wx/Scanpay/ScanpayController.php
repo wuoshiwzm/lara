@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Storage;
  // include_once("../conf/WxPay.pub.config.php");
  //    include_once("../lib/CommonUtilPub.php");
  //
-	include_once(app_path()."/Http/Wxpay/lib/Log.php");
-	include_once(app_path()."/Http/Wxpay/lib/WxpayServerPub.php");
-
-
+require_once app_path()."/Http/Wxpay/lib/example/Log.php";
+// require_once app_path()."/Http/Wxpay/lib/WxpayServerPub.php";
 require_once app_path()."/Http/Wxpay/lib/WxPay.Api.php";
 require_once app_path()."/Http/Wxpay/example/WxPay.NativePay.php";
 
