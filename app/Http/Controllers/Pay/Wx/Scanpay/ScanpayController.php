@@ -36,7 +36,7 @@ class ScanpayController extends Controller
         $input->SetBody("这里写这是什么服务项目的支付");
         $input->SetAttach("ljm");
         $input->SetOut_trade_no($out_trade_no);
-        $input->SetTotal_fee("600");
+        $input->SetTotal_fee("6");
         $input->SetTime_start(date("YmdHis"));
         $input->SetTime_expire(date("YmdHis", time() + 600));
         $input->SetGoods_tag("test");
