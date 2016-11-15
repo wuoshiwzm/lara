@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Storage;
  //    include_once("../lib/CommonUtilPub.php");
  //
 require_once app_path()."/Http/Wxpay/example/log.php";
-// require_once app_path()."/Http/Wxpay/lib/WxpayServerPub.php";
+require_once app_path()."notify.php";
 require_once app_path()."/Http/Wxpay/lib/WxPay.Api.php";
 require_once app_path()."/Http/Wxpay/example/WxPay.NativePay.php";
 
 
 $logHandler= new \CLogFileHandler(storage_path()."/app/wxpay/".date('Y-m-d').'.log');
-$log = \Log::Init($logHandler, 15);
+$log = Log::Init($logHandler, 15);
 
 class ScanpayController extends Controller
 {
@@ -71,17 +71,21 @@ class ScanpayController extends Controller
 
     }
 
-    public function callback(){
+    public function callback($data, &$msg){
+
+      //echo "处理回调";
+      Log::DEBUG("call back:" . json_encode($data));
 
 
-      $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-      $postStr = json_encode($postStr);
+
+
+
 
       $res =  file_get_contents("php://input");
       $disk = Storage::disk('wxpay');
       // $contents = $disk->get('file.jpg')
       // $contents = Storage::disk('wxpay')->get('wxpay.txt');
-      $contents = $disk->append('wxpay.txt',$postStr);
+      $contents = $disk->append('wxpay.txt',$res);
 
       // dd($contents);
       die();
