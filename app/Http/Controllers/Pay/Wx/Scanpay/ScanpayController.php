@@ -18,14 +18,14 @@ require_once app_path()."/Http/Wxpay/example/WxPay.NativePay.php";
 class ScanpayController extends Controller
 {
     function index(){
-      $url = $this->getQrcode();
+      $url = $this->getQrcode(1);
       // $url = 'ww.baidu.com';
       echo '<img src = '.$url.'>';
     }
 
     //注意引入文件的路径
     // public function getQrcode(Request $request)
-    public function getQrcode()
+    public function getQrcode($mount)
     {
         // $file_id = $request->input('file_id', '');
         // $out_trade_no = WxPayConfig::MCHID . date("YmdHis") . $file_id;
@@ -33,10 +33,10 @@ class ScanpayController extends Controller
         //我的out_trade_no是这么做的 由于我的file_id（就是我的商家订单）是唯一的，所以无论如何这个结果都是唯一的
         $notify = new \NativePay();
         $input = new \WxPayUnifiedOrder();
-        $input->SetBody("这里写这是什么服务项目的支付");
-        $input->SetAttach("ljm");
+        $input->SetBody("支付无穷大");
+        $input->SetAttach("L");
         $input->SetOut_trade_no($out_trade_no);
-        $input->SetTotal_fee("6");
+        $input->SetTotal_fee("$mount");
         $input->SetTime_start(date("YmdHis"));
         $input->SetTime_expire(date("YmdHis", time() + 600));
         $input->SetGoods_tag("test");
