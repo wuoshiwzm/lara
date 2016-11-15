@@ -48,7 +48,7 @@ Route::group(['middleware' => []], function () {
     // Route::get('hongbao','Pay\Wx\Hongbao\HongbaoController@index');
     Route::get('scanpay','Pay\Wx\Scanpay\ScanpayController@index');
     // Route::get('scanpay_callback','Pay\Wx\Scanpay\ScanpayController@callback');
-    Route::get('scanpay_callback','Pay\Wx\Scanpay\NotifyController@index');
+    Route::get('scanpay_callback2','Pay\Wx\Scanpay\NotifyController@index');
 
     // Route::get('scanpaytest','Pay\Wx\Scanpay\native.php');
 
