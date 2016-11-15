@@ -58,8 +58,8 @@ class ScanpayController extends Controller
         return "http://paysdk.weixin.qq.com/example/qrcode.php?data=" . $url;
     }
 
-    public function callback(){
-      Log::DEBUG("call back:" . json_encode($data));
+    public function callback($data, &$msg){
+      \Log::DEBUG("call back:" . json_encode($data));
       $res =  file_get_contents("php://input");
       // $res = "test";
       $disk = Storage::disk('wxpay');
