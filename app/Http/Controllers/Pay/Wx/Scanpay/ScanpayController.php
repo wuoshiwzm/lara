@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Storage;
  *获取付款二维码url的参数
  *
  */
+ // include_once("../conf/WxPay.pub.config.php");
+ //    include_once("../lib/CommonUtilPub.php");
+ //
+	include_once(app_path()."/Http/Wxpay/lib/Log.php");
+	include_once(app_path()."/Http/Wxpay/lib/WxpayServerPub.php");
+
+
 require_once app_path()."/Http/Wxpay/lib/WxPay.Api.php";
 require_once app_path()."/Http/Wxpay/example/WxPay.NativePay.php";
 
@@ -62,8 +69,14 @@ class ScanpayController extends Controller
 
     }
 
-    public function callback(){
-      // \Log::DEBUG("call back:" . json_encode($data));
+    public function callback($data, &$msg){
+      //echo "处理回调";
+      Log::DEBUG("call back:" . json_encode($data));
+
+      $notify = new WxpayServerPub();
+    	//存储微信的回调
+    	$xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+    	$notify->saveData($xml);
 
       $res =  file_get_contents("php://input");
       $disk = Storage::disk('wxpay');
