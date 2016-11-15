@@ -15,15 +15,25 @@ require_once app_path().'/Http/Wxpay/example/log.php';
 class NotifyController extends Controller
 {
     public function index(){
-      \Log::DEBUG("begin notify");
-      $notify = new PayNotifyCallBack();
-      $notify->Handle(false);
+      $postdata = file_get_contents("php://input");
+      $postObj = simplexml_load_string ( $postdata, 'SimpleXMLElement', LIBXML_NOCDATA );
+      $trade_state =$_GET ["trade_state"];//支付状态
+      $out_trade_no = $_GET ["out_trade_no"];//订单号
+
+      $disk = Storage::disk('wxpay');
+      $contents = $disk->append('wxpay.txt',$out_trade_no);
+
+
+      // \Log::DEBUG("begin notify");
+      // $notify = new PayNotifyCallBack();
+      // $notify->Handle(false);
     }
 }
 
 
 class PayNotifyCallBack extends \WxPayNotify
 {
+  
 	//查询订单
 	public function Queryorder($transaction_id)
 	{
