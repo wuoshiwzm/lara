@@ -16,12 +16,12 @@ class NotifyController extends Controller
 {
     public function index(){
       $postdata = file_get_contents("php://input");
-      $postObj = simplexml_load_string ( $postdata, 'SimpleXMLElement', LIBXML_NOCDATA );
-      $trade_state =$_GET ["trade_state"];//支付状态
-      $out_trade_no = $_GET ["out_trade_no"];//订单号
-
-      $disk = Storage::disk('wxpay');
-      $contents = $disk->append('wxpay.txt',$out_trade_no);
+      // $postObj = simplexml_load_string ( $postdata, 'SimpleXMLElement', LIBXML_NOCDATA );
+      // $trade_state =$_GET ["trade_state"];//支付状态
+      // $out_trade_no = $_GET ["out_trade_no"];//订单号
+      //
+      // $disk = Storage::disk('wxpay');
+      $contents = $disk->append('wxpay.txt',$postdata);
 
 
       // \Log::DEBUG("begin notify");
