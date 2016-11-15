@@ -76,10 +76,10 @@ class ScanpayController extends Controller
       //echo "处理回调";
       Log::DEBUG("call back:" . json_encode($data));
 
-      $notify = new WxpayServerPub();
-    	//存储微信的回调
-    	$xml = $GLOBALS['HTTP_RAW_POST_DATA'];
-    	$notify->saveData($xml);
+
+      Log::DEBUG("begin notify!");
+      $notify = new NativeNotifyCallBack();
+      $notify->Handle(true);
 
       $res =  file_get_contents("php://input");
       $disk = Storage::disk('wxpay');
