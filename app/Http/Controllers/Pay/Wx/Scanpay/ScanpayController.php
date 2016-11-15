@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Pay\Wx\Scanpay;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 /**
  *GET localhost/youge/blog/public/File/getQrcode
@@ -58,6 +59,17 @@ class ScanpayController extends Controller
     }
 
     public function callback(){
+      $res =  file_get_contents("php://input");
+      $disk = Storage::disk('wxpay');
+      $contents = Storage::disk('wxpay')->get('wxpay.txt');
+      // $contents = Storage::get('wxpay.txt');
+      $contents = $disk->put('wxpay.txt',$res);
+      $contents = $disk->get('wxpay.txt');
+
+      dd($contents);
+      die($contents);
+
+
 
       dd(file_get_contents("php://input") );
 
