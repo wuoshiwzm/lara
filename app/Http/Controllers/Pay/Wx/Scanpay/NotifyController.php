@@ -33,7 +33,7 @@ class NotifyController extends Controller
 
 class PayNotifyCallBack extends \WxPayNotify
 {
-  
+
 	//查询订单
 	public function Queryorder($transaction_id)
 	{
