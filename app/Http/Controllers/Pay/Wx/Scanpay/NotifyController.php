@@ -23,16 +23,11 @@ class NotifyController extends Controller
       // $postObj = simplexml_load_string ( $postdata, 'SimpleXMLElement', LIBXML_NOCDATA );
       // $trade_state =$_GET ["trade_state"];//支付状态
       // $out_trade_no = $_GET ["out_trade_no"];//订单号
-      //
 
       PayNotifyCallBack::notifyReceive();
-      $disk = Storage::disk('wxpay');
-      $contents = $disk->append('wxpay.txt',' ');
+      // $disk = Storage::disk('wxpay');
+      // $contents = $disk->append('wxpay.txt',' ');
 
-
-      // \Log::DEBUG("begin notify");
-      // $notify = new PayNotifyCallBack();
-      // $notify->Handle(false);
     }
 }
 
