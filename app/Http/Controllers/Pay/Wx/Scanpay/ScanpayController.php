@@ -52,7 +52,7 @@ class ScanpayController extends Controller
         $input->SetProduct_id("123456789");
         $result = $notify->GetPayUrl($input);
 
-        dd($input);
+        // dd($input);
 
         $url = $result["code_url"];
 
