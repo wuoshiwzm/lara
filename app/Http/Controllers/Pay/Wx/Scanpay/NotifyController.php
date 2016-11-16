@@ -15,13 +15,16 @@ require_once app_path().'/Http/Wxpay/example/log.php';
 
 
 
-
-
 class NotifyController extends Controller
 {
     public function index(){
 
-      $file = file_get_contents("php://input");
+      $postStr = file_get_contents("php://input");
+      $msg = array();
+      $msg = (array)simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+
+
+      $file = $msg['out_trade_no'];
       $disk = Storage::disk('wxpay');
       $contents = $disk->append('wxpay.txt',$file);
 
