@@ -26,7 +26,7 @@ class NotifyController extends Controller
 
       $file = $msg['out_trade_no'];
       $disk = Storage::disk('wxpay');
-      $contents = $disk->append('wxpay.txt',$file);
+      $contents = $disk->append('wxpay.txt',$postStr);
 
     }
 }
