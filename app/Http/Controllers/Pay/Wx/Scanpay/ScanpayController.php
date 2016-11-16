@@ -21,19 +21,43 @@ class ScanpayController extends Controller
 
 
     function index(){
-      $url = $this->getQrcode(1,1);
+      $url = $this->getQrcode(1,'test');
       echo '<img src = '.$url.'>';
     }
     public function getQrcode($mount,$username)
     {
+
+
+/*
+      <xml><appid><![CDATA[wx260619ea73a4b130]]></appid>
+      <attach><![CDATA[L]]></attach>
+      <bank_type><![CDATA[CMB_DEBIT]]></bank_type>
+      <cash_fee><![CDATA[1]]></cash_fee>
+      <fee_type><![CDATA[CNY]]></fee_type>
+      <is_subscribe><![CDATA[Y]]></is_subscribe>
+      <mch_id><![CDATA[1396303202]]></mch_id>
+      <nonce_str><![CDATA[luokm3pp2co2dlt2v9nt10sstmj3pula]]></nonce_str>
+      <openid><![CDATA[oe72EwqRljlpSX3I9tNK2aIwzSWc]]></openid>
+      <out_trade_no><![CDATA[139630320220161116205302]]></out_trade_no>
+      <result_code><![CDATA[SUCCESS]]></result_code>
+      <return_code><![CDATA[SUCCESS]]></return_code>
+      <sign><![CDATA[D016584E3C6B550982AF2B4BFB581EBF]]></sign>
+      <time_end><![CDATA[20161116205319]]></time_end>
+      <total_fee>1</total_fee>
+      <trade_type><![CDATA[NATIVE]]></trade_type>
+      <transaction_id><![CDATA[4001912001201611169939140993]]></transaction_id>
+      </xml>
+
+*/
+
         // $file_id = $request->input('file_id', '');
         // $out_trade_no = WxPayConfig::MCHID . date("YmdHis") . $file_id;
-        $out_trade_no = $username. date("YmdHis");
+        $out_trade_no = date("YmdHis");
         //我的out_trade_no是这么做的 由于我的file_id（就是我的商家订单）是唯一的，所以无论如何这个结果都是唯一的
         $notify = new \NativePay();
         $input = new \WxPayUnifiedOrder();
         $input->SetBody("支付无穷大");
-        $input->SetAttach("L");
+        $input->SetAttach($username);
         $input->SetOut_trade_no($out_trade_no);
         $input->SetTotal_fee("$mount");
         $input->SetTime_start(date("YmdHis"));
