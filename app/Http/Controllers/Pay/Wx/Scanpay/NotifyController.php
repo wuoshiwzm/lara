@@ -22,7 +22,6 @@ class NotifyController extends Controller
     public function index(){
 
       $file = file_get_contents("php://input");
-      // PayNotifyCallBack::notifyReceive();
       $disk = Storage::disk('wxpay');
       $contents = $disk->append('wxpay.txt',$file);
 
