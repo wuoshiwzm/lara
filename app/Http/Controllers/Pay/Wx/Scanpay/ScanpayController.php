@@ -21,15 +21,17 @@ class ScanpayController extends Controller
 
 
     function index(){
+      
+
 
       $url = $this->getQrcode(1);
       echo '<img src = '.$url.'>';
     }
-    public function getQrcode($mount)
+    public function getQrcode($mount,$username)
     {
         // $file_id = $request->input('file_id', '');
         // $out_trade_no = WxPayConfig::MCHID . date("YmdHis") . $file_id;
-        $out_trade_no = \WxPayConfig::MCHID . date("YmdHis");
+        $out_trade_no = $username. date("YmdHis");
         //我的out_trade_no是这么做的 由于我的file_id（就是我的商家订单）是唯一的，所以无论如何这个结果都是唯一的
         $notify = new \NativePay();
         $input = new \WxPayUnifiedOrder();
