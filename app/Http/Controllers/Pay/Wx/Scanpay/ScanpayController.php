@@ -30,7 +30,6 @@ class ScanpayController extends Controller
 
     function setPayment(){
       $amount  =  Input::get('amount');
-            // return $amount;
       $url = $this->getQrcode($amount,'test');
       $url ="<img src=$url>";
 

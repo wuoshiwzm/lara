@@ -46,7 +46,7 @@ class NotifyController extends Controller
 
       $postStr = file_get_contents("php://input");
 
-      
+
       $payment = array();
       $msg = (array)simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
 
@@ -61,7 +61,7 @@ class NotifyController extends Controller
       //if the payment_out_trade_no already existed
       $num = Payment::wherer('payment_out_trade_no',$payment['payment_out_trade_no'])->count();
       //if $num == 0 , means there is no such order. them write to databaese
-      if(!num){
+      if(!$num){
         Payment::create($payment);
       }
 
