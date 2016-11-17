@@ -24,13 +24,13 @@ class ScanpayController extends Controller
 
 
     function index(){
-      // dd(\Session::get('user'));
       return view('admin.payment.wxpay');
     }
 
     function setPayment(){
       $amount  =  Input::get('amount');
-      $url = $this->getQrcode($amount,'test');
+      $username = \Session::get('user')->user_name;
+      $url = $this->getQrcode($amount,$username);
       $url ="<img src=$url>";
 
       return $url;
