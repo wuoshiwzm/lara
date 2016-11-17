@@ -24,6 +24,7 @@ class ScanpayController extends Controller
 
 
     function index(){
+
       return view('admin.payment.wxpay');
     }
 
