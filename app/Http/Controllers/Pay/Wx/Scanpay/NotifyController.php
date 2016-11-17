@@ -50,6 +50,7 @@ class NotifyController extends Controller
 
 
       $payment = array();
+      $msg = array();
       $msg = (array)simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
 
 
