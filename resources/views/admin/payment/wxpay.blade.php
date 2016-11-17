@@ -14,10 +14,10 @@
 </head>
 <body>
 
-	<!----- /start-services---->
+
 			 <div id="services" class="Services">
 	 			<div class="container">
-	 					<div class="service-head">
+	 					<div>
 	 						<h2>定制您的分享推广方案，从此轻松做分享经济时代的赢家！</h2>
 	 					</div>
 		 			<div class="service-grids">
@@ -36,10 +36,6 @@
 			 					<i class="icon3"> </i>
 			 					<h3>1000元/400条</h3>
 			 				</div>
-			 				<div class="col-md-3 service-grid" onclick="pay(100)">
-			 					<i class="icon4"> </i>
-			 					<h3>100元/1条</h3>
-			 				</div>
 
               <div class="col-md-3 service-grid" onclick="pay(1)">
                 <i class="icon4"> </i>
@@ -49,8 +45,7 @@
 		 			</div>
 	 			</div>
 			 </div>
-	<!----- //End-services---->
-		<!----- /start-footer---->
+
 				<div class="footer">
 						<div class="container">
 							<div class="copy-right">
