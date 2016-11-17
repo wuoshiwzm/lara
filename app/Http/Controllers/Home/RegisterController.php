@@ -51,13 +51,15 @@ class RegisterController extends CommonController{
 
       //for the personal user registeration
       $rules=[
-        'user_name'=>'required|regex:/\w/',
+        'user_name'=>'required|regex:/\w/|unique:user,user_name',
         'user_pass'=>'required|min:6|same:user_repass',
         'user_repass'=>'required|min:6',
         'user_email'=>'required|email',
 
       ];
       $message=[
+
+        'user_name.unique'=>'用户名已经使用',
         'user_name.required'=>'用户名填写错误',
         'user_name.regex'=>'用户名只能使用字母数字与特殊符号',
         'user_pass.required'=>'密码未填写',

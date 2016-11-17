@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Input;
 
+
+use App\Http\Model\Payment;
 /**
  *GET localhost/youge/blog/public/File/getQrcode
  *
@@ -29,7 +31,6 @@ class ScanpayController extends Controller
     function setPayment(){
       $amount  =  Input::get('amount');
             // return $amount;
-      $username =
       $url = $this->getQrcode($amount,'test');
       $url ="<img src=$url>";
 
@@ -37,29 +38,6 @@ class ScanpayController extends Controller
     }
     public function getQrcode($mount,$username)
     {
-
-
-        /*
-        <xml><appid><![CDATA[wx260619ea73a4b130]]></appid>
-        <attach><![CDATA[test]]></attach>
-        <bank_type><![CDATA[CMB_DEBIT]]></bank_type>
-        <cash_fee><![CDATA[1]]></cash_fee>
-        <fee_type><![CDATA[CNY]]></fee_type>
-        <is_subscribe><![CDATA[Y]]></is_subscribe>
-        <mch_id><![CDATA[1396303202]]></mch_id>
-        <nonce_str><![CDATA[y4vlq5d2ch5jkvhjubfntxku11iml6cd]]></nonce_str>
-        <openid><![CDATA[oe72EwqRljlpSX3I9tNK2aIwzSWc]]></openid>
-        <out_trade_no><![CDATA[20161116223650]]></out_trade_no>
-        <result_code><![CDATA[SUCCESS]]></result_code>
-        <return_code><![CDATA[SUCCESS]]></return_code>
-        <sign><![CDATA[8673D684673B99FE4C2B7207A90E1AEF]]></sign>
-        <time_end><![CDATA[20161116223708]]></time_end>
-        <total_fee>1</total_fee>
-        <trade_type><![CDATA[NATIVE]]></trade_type>
-        <transaction_id><![CDATA[4001912001201611169947747945]]></transaction_id>
-        </xml>
-
-        */
 
         // $file_id = $request->input('file_id', '');
         // $out_trade_no = WxPayConfig::MCHID . date("YmdHis") . $file_id;
