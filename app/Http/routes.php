@@ -60,6 +60,7 @@ Route::group(['middleware' => []], function () {
 
 Route::group(['middleware' => ['admin.login']], function () {
   Route::get('scanpay','Pay\Wx\Scanpay\ScanpayController@index');
+  Route::any('set_payment','Pay\Wx\Scanpay\ScanpayController@setPayment');
 });
 
 

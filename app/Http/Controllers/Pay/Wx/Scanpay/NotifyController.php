@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Model\Payment;
 
 ini_set('date.timezone','Asia/Shanghai');
 error_reporting(E_ERROR);
@@ -18,28 +19,28 @@ require_once app_path().'/Http/Wxpay/example/log.php';
 class NotifyController extends Controller
 {
 
-/*
+    /*
 
-<xml><appid><![CDATA[wx260619ea73a4b130]]></appid>
-<attach><![CDATA[L]]></attach>
-<bank_type><![CDATA[CMB_DEBIT]]></bank_type>
-<cash_fee><![CDATA[1]]></cash_fee>
-<fee_type><![CDATA[CNY]]></fee_type>
-<is_subscribe><![CDATA[Y]]></is_subscribe>
-<mch_id><![CDATA[1396303202]]></mch_id>
-<nonce_str><![CDATA[luokm3pp2co2dlt2v9nt10sstmj3pula]]></nonce_str>
-<openid><![CDATA[oe72EwqRljlpSX3I9tNK2aIwzSWc]]></openid>
-<out_trade_no><![CDATA[139630320220161116205302]]></out_trade_no>
-<result_code><![CDATA[SUCCESS]]></result_code>
-<return_code><![CDATA[SUCCESS]]></return_code>
-<sign><![CDATA[D016584E3C6B550982AF2B4BFB581EBF]]></sign>
-<time_end><![CDATA[20161116205319]]></time_end>
-<total_fee>1</total_fee>
-<trade_type><![CDATA[NATIVE]]></trade_type>
-<transaction_id><![CDATA[4001912001201611169939140993]]></transaction_id>
-</xml>
+    <xml><appid><![CDATA[wx260619ea73a4b130]]></appid>
+    <attach><![CDATA[L]]></attach>
+    <bank_type><![CDATA[CMB_DEBIT]]></bank_type>
+    <cash_fee><![CDATA[1]]></cash_fee>
+    <fee_type><![CDATA[CNY]]></fee_type>
+    <is_subscribe><![CDATA[Y]]></is_subscribe>
+    <mch_id><![CDATA[1396303202]]></mch_id>
+    <nonce_str><![CDATA[luokm3pp2co2dlt2v9nt10sstmj3pula]]></nonce_str>
+    <openid><![CDATA[oe72EwqRljlpSX3I9tNK2aIwzSWc]]></openid>
+    <out_trade_no><![CDATA[139630320220161116205302]]></out_trade_no>
+    <result_code><![CDATA[SUCCESS]]></result_code>
+    <return_code><![CDATA[SUCCESS]]></return_code>
+    <sign><![CDATA[D016584E3C6B550982AF2B4BFB581EBF]]></sign>
+    <time_end><![CDATA[20161116205319]]></time_end>
+    <total_fee>1</total_fee>
+    <trade_type><![CDATA[NATIVE]]></trade_type>
+    <transaction_id><![CDATA[4001912001201611169939140993]]></transaction_id>
+    </xml>
 
-*/
+    */
 
     public function index(){
 
@@ -51,6 +52,8 @@ class NotifyController extends Controller
       $file = $msg['out_trade_no'];
       $disk = Storage::disk('wxpay');
       $contents = $disk->append('wxpay.txt',$postStr);
+
+      // save paying data in databases;
 
     }
 }
