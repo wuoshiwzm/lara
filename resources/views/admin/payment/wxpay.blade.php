@@ -63,6 +63,6 @@
 
 
 					<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-          <script type="text/javascript" src="{{asset('resources/views/payment/js/wx_setpayment.blade')}}"></script>
+          <script type="text/javascript" src="{{asset('resources/views/payment/js/wx_setpayment.blade.php')}}"></script>
 	</body>
 </html>
