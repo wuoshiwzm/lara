@@ -2,8 +2,8 @@
 <html>
 <head>
 <title>adBangBang 付款页面</title>
-<link href="{{url('resources/views/admin/payment/css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
-<link href="{{url('resources/views/admin/payment/css/style.css')}}" rel='stylesheet' type='text/css' />
+<link href="{{asset('resources/views/admin/payment/css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
+<link href="{{asset('resources/views/admin/payment/css/style.css')}}" rel='stylesheet' type='text/css' />
 
 <script type="text/javascript" src="{{asset('resources/views/admin/style/js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{asset('resources/org/layer/layer.js')}}"></script>
@@ -28,49 +28,25 @@
 			 					<h3>5000元/4000条</h3>
 			 				</div>
 
-              <script>
-
-              function pay(a){
-
-                // layer.open({
-                //   type: 2,
-                //   title: '付款请扫描以下二维码！',
-                //   shadeClose: true,
-                //   shade: 0.8,
-                //   area: ['500px', '50%'],
-                //   content: '{{url("set_payment/a")}}' //iframe的url
-                // });
-
-                $.post('{{url('set_payment')}}',{'_token':"{{csrf_token()}}",'amount':a}, function(data) {
-
-                  layer.open({
-                      type: 1,
-                      itle: '付款请扫描以下二维码！',
-                      shadeClose: true,
-                      shade: 0.8,
-                      area: ['500px', '50%'],
-                      content: data //注意，如果str是object，那么需要字符拼接。
-                    });
-                 });
-
-              }
 
 
-              </script>
-
-
-			 					<div class="col-md-3 service-grid">
+			 					<div class="col-md-3 service-grid" onclick="pay(4000)">
 			 					<i class="icon2"> </i>
 			 					<h3>4000元/2000条</h3>
 			 				</div>
-			 				<div class="col-md-3 service-grid">
+			 				<div class="col-md-3 service-grid" onclick="pay(1000)">
 			 					<i class="icon3"> </i>
 			 					<h3>1000元/400条</h3>
 			 				</div>
-			 				<div class="col-md-3 service-grid">
+			 				<div class="col-md-3 service-grid" onclick="pay(100)">
 			 					<i class="icon4"> </i>
 			 					<h3>100元/1条</h3>
 			 				</div>
+
+              <div class="col-md-3 service-grid" onclick="pay(1)">
+                <i class="icon4"> </i>
+                <h3>1分钱/什么也干不了</h3>
+              </div>
 		 				<div class="clearfix"> </div>
 		 			</div>
 	 			</div>
@@ -87,5 +63,6 @@
 
 
 					<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+          <script type="text/javascript" src="{{asset('resources/views/payment/js/wx_setpayment.blade')}}"></script>
 	</body>
 </html>
