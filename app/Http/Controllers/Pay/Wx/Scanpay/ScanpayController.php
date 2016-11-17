@@ -31,7 +31,8 @@ class ScanpayController extends Controller
             // return $amount;
       $username =
       $url = $this->getQrcode($amount,'test');
-      $url ='<img src = $url>';
+      $url ="<img src = $url>";
+      
       return $url;
     }
     public function getQrcode($mount,$username)
