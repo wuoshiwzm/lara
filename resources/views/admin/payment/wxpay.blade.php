@@ -28,8 +28,6 @@
 			 					<h3>5000元/4000条</h3>
 			 				</div>
 
-
-
 			 					<div class="col-md-3 service-grid" onclick="pay(4000)">
 			 					<i class="icon2"> </i>
 			 					<h3>4000元/2000条</h3>
@@ -72,10 +70,10 @@
 
               layer.open({
                   type: 1,
-                  itle: '付款请扫描以下二维码！',
+                  title: '付款请扫描以下二维码！',
                   shadeClose: true,
                   shade: 0.8,
-                  area: ['300px', '50%'],
+                  area: ['300px', '100%'],
                   content: data //注意，如果str是object，那么需要字符拼接。
                 });
              });
