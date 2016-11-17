@@ -45,6 +45,8 @@ class NotifyController extends Controller
     public function index(){
 
       $postStr = file_get_contents("php://input");
+      $disk = Storage::disk('wxpay');
+      $contents = $disk->append('wxpay.txt',$postStr);
 
 
       $payment = array();
@@ -64,15 +66,6 @@ class NotifyController extends Controller
       if(!$num){
         Payment::create($payment);
       }
-
-
-
-
-      $disk = Storage::disk('wxpay');
-      $contents = $disk->append('wxpay.txt',$postStr);
-
-      // save paying data in databases;
-
     }
 }
 
