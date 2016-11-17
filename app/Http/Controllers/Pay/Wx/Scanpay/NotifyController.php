@@ -44,7 +44,7 @@ class NotifyController extends Controller
     */
     private $mchid = '1396303202';
     public function index(){
-   
+
       $postStr = file_get_contents("php://input");
       $disk = Storage::disk('wxpay');
       $file = date('y-m-d').'.log';
