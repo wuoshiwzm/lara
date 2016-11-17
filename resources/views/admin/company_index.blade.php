@@ -80,8 +80,7 @@
 				<li>
 					<h3><i class="fa fa-fw fa-clipboard"></i><a   target="main">会员管理</a></h3>
 					<ul class="sub_menu">
-						<li><a  target="main"><i class="fa fa-fw fa-list-alt"></i>账户充值</a></li>
-						<li><a  target="main"><i class="fa fa-fw fa-list-ul"></i>账户提现</a></li>
+						<li><a  target="main" href="{{url('scanpay')}}"><i class="fa fa-fw fa-list-alt"></i>账户充值</a></li>
 						<li><a  target="main"><i class="fa fa-fw fa-image"></i>会员信息修改</a></li>
 						<li><a  target="main"><i class="fa fa-fw fa-plus-square"></i>密码修改 </a></li>
 					</ul>
