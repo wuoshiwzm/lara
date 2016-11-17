@@ -1,8 +1,8 @@
-//Æ½Ì¨Ò³Ç©ï¿½Ð»ï¿½Ð§ï¿½ï¿½
+//Æ½Ì¨Ò³Ç©ÇÐ»»Ð§¹û
 function setTab(name,cursel,n){
 	for(i=1;i<=n;i++){
 		var menu=$("#"+name+i);
-		var con=$("#con_"+name+"_"+i);
+		var con=$("#con_"+name+"_"+i);		
 		if(i==cursel)
 		{
 			$(menu).addClass("hover");
@@ -21,7 +21,7 @@ function setTab(name,cursel,n){
 
 
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½Ð§ï¿½ï¿½
+//ÆäËûÇÐ»»Ð§¹û
 function nTabs(thisObj,Num){
 if(thisObj.className == "active")return;
 var tabObj = thisObj.parentNode.id;
@@ -30,18 +30,18 @@ for(i=0; i <tabList.length; i++)
 {
 if (i == Num)
 {
-   thisObj.className = "active";
+   thisObj.className = "active"; 
       document.getElementById(tabObj+"_Content"+i).style.display = "block";
 }else{
-   tabList[i].className = "normal";
+   tabList[i].className = "normal"; 
    document.getElementById(tabObj+"_Content"+i).style.display = "none";
 }
+} 
 }
-}
 
 
 
-//Î¢ï¿½ï¿½Î¢ï¿½ï¿½
+//Î¢²©Î¢ÐÅ
 jQuery(function($) {
 	$(document).ready(function(){
 		var duilian = $("div.duilian");
@@ -56,10 +56,10 @@ jQuery(function($) {
 			topHeight = parseInt(topHeight);
 			$(window).scroll(function(){
 				var scrollTop = $(window).scrollTop();
-
+				
 				if(scrollTop > (bodyHeight - dlHeight))
 				{
-					return false;
+					return false;	
 				}
 				else
 				{
@@ -68,7 +68,7 @@ jQuery(function($) {
 						duilian.stop().animate({top:scrollTop + 50});
 					}
 					else
-					{
+					{	
 						duilian.stop().animate({top:topHeight});
 					}
 				}
@@ -83,7 +83,7 @@ jQuery(function($) {
 });
 
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë±¾Ð§ï¿½ï¿½ï¿½Þ¹ï¿½
+//Ìí¼ÓÊÂ¼þÏìÓ¦º¯ÊýµÄº¯Êý£¬Óë±¾Ð§¹ûÎÞ¹Ø
 function addEventSimple(obj,evt,fn){
  if(obj.addEventListener){
   obj.addEventListener(evt,fn,false);
@@ -92,39 +92,39 @@ function addEventSimple(obj,evt,fn){
  }
 }
 addEventSimple(window,'load',initScrolling);
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//±£´æÏëÒª¹ö¶¯µÄÈÝÆ÷
 var scrollingBox;
 var scrollingInterval;
-//ï¿½ï¿½ï¿½Ú¼ï¿½Â¼ï¿½Ç·ï¿½"ï¿½ï¿½ï¿½ï¿½Í·"ï¿½ï¿½Ò»ï¿½ï¿½
+//ÓÃÓÚ¼ÇÂ¼ÊÇ·ñ"¹öµ½Í·"¹ýÒ»´Î
 var reachedBottom=false;
-//ï¿½ï¿½Â¼ï¿½ï¿½Ò»ï¿½Î¹ï¿½ï¿½ï¿½Í·Ê±ï¿½ï¿½ï¿½ï¿½scrollTop
+//¼ÇÂ¼µÚÒ»´Î¹öµ½Í·Ê±ºòµÄscrollTop
 var bottom;
-//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
+//³õÊ¼»¯¹ö¶¯Ð§¹û
 function initScrolling(){
  scrollingBox = document.getElementById("scrollText");
- //ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¹Ø£ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½CSSï¿½ï¿½ï¿½Ã¡ï¿½
+ //ÑùÊ½ÉèÖÃ£¬Óë¹ö¶¯»ù±¾ÎÞ¹Ø£¬Ó¦¸ÃÓÃCSSÉèÖÃ¡£
  scrollingBox.style.height = "205px";
  scrollingBox.style.overflow = "hidden";
- //ï¿½ï¿½ï¿½ï¿½
+ //¹ö¶¯
  scrollingInterval = setInterval("scrolling()",50);
- //ï¿½ï¿½ï¿½ê»®ï¿½ï¿½Í£Ö¹ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
+ //Êó±ê»®¹ýÍ£Ö¹¹ö¶¯Ð§¹û
  scrollingBox.onmouseover = over;
- //ï¿½ï¿½ï¿½ê»®ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
- scrollingBox.onmouseout = out;
+ //Êó±ê»®³ö»Ø¸´¹ö¶¯Ð§¹û
+ scrollingBox.onmouseout = out; 
 }
-//ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
+//¹ö¶¯Ð§¹û
 function scrolling(){
- //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½,originï¿½ï¿½Ô­ï¿½ï¿½scrollTop
+ //¿ªÊ¼¹ö¶¯,originÊÇÔ­À´scrollTop
  var origin = scrollingBox.scrollTop++;
- //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½
+ //Èç¹ûµ½Í·ÁË
  if(origin == scrollingBox.scrollTop){
-  //ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½Ò»ï¿½Îµï¿½Í·
+  //Èç¹ûÊÇµÚÒ»´Îµ½Í·
   if(!reachedBottom){
    scrollingBox.innerHTML+=scrollingBox.innerHTML;
    reachedBottom=true;
    bottom=origin;
   }else{
-   //ï¿½Ñ¾ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ø¸ï¿½Í·ï¿½ï¿½Î²ï¿½ï¿½Ð§ï¿½ï¿½
+   //ÒÑ¾­µ½Í·¹ý£¬Ö»Ðè»Ø¸´Í·½ÓÎ²µÄÐ§¹û
    scrollingBox.scrollTop=bottom;
   }
  }
@@ -136,7 +136,7 @@ function out(){
  scrollingInterval = setInterval("scrolling()",50);
 }
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë±¾Ð§ï¿½ï¿½ï¿½Þ¹ï¿½
+//Ìí¼ÓÊÂ¼þÏìÓ¦º¯ÊýµÄº¯Êý£¬Óë±¾Ð§¹ûÎÞ¹Ø
 function addEventSimple(obj,evt,fn){
  if(obj.addEventListener){
   obj.addEventListener(evt,fn,false);
@@ -145,39 +145,39 @@ function addEventSimple(obj,evt,fn){
  }
 }
 addEventSimple(window,'load',initScrolling);
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//±£´æÏëÒª¹ö¶¯µÄÈÝÆ÷
 var scrollingBox;
 var scrollingInterval;
-//ï¿½ï¿½ï¿½Ú¼ï¿½Â¼ï¿½Ç·ï¿½"ï¿½ï¿½ï¿½ï¿½Í·"ï¿½ï¿½Ò»ï¿½ï¿½
+//ÓÃÓÚ¼ÇÂ¼ÊÇ·ñ"¹öµ½Í·"¹ýÒ»´Î
 var reachedBottom=false;
-//ï¿½ï¿½Â¼ï¿½ï¿½Ò»ï¿½Î¹ï¿½ï¿½ï¿½Í·Ê±ï¿½ï¿½ï¿½ï¿½scrollTop
+//¼ÇÂ¼µÚÒ»´Î¹öµ½Í·Ê±ºòµÄscrollTop
 var bottom;
-//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
+//³õÊ¼»¯¹ö¶¯Ð§¹û
 function initScrolling(){
  scrollingBox = document.getElementById("scrollText");
- //ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¹Ø£ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½CSSï¿½ï¿½ï¿½Ã¡ï¿½
+ //ÑùÊ½ÉèÖÃ£¬Óë¹ö¶¯»ù±¾ÎÞ¹Ø£¬Ó¦¸ÃÓÃCSSÉèÖÃ¡£
  scrollingBox.style.height = "205px";
  scrollingBox.style.overflow = "hidden";
- //ï¿½ï¿½ï¿½ï¿½
+ //¹ö¶¯
  scrollingInterval = setInterval("scrolling()",50);
- //ï¿½ï¿½ï¿½ê»®ï¿½ï¿½Í£Ö¹ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
+ //Êó±ê»®¹ýÍ£Ö¹¹ö¶¯Ð§¹û
  scrollingBox.onmouseover = over;
- //ï¿½ï¿½ï¿½ê»®ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
- scrollingBox.onmouseout = out;
+ //Êó±ê»®³ö»Ø¸´¹ö¶¯Ð§¹û
+ scrollingBox.onmouseout = out; 
 }
-//ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
+//¹ö¶¯Ð§¹û
 function scrolling(){
- //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½,originï¿½ï¿½Ô­ï¿½ï¿½scrollTop
+ //¿ªÊ¼¹ö¶¯,originÊÇÔ­À´scrollTop
  var origin = scrollingBox.scrollTop++;
- //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½
+ //Èç¹ûµ½Í·ÁË
  if(origin == scrollingBox.scrollTop){
-  //ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½Ò»ï¿½Îµï¿½Í·
+  //Èç¹ûÊÇµÚÒ»´Îµ½Í·
   if(!reachedBottom){
    scrollingBox.innerHTML+=scrollingBox.innerHTML;
    reachedBottom=true;
    bottom=origin;
   }else{
-   //ï¿½Ñ¾ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ø¸ï¿½Í·ï¿½ï¿½Î²ï¿½ï¿½Ð§ï¿½ï¿½
+   //ÒÑ¾­µ½Í·¹ý£¬Ö»Ðè»Ø¸´Í·½ÓÎ²µÄÐ§¹û
    scrollingBox.scrollTop=bottom;
   }
  }
@@ -192,10 +192,10 @@ function out(){
 
 
 // JavaScript Document
-var Speed = 1; //ï¿½Ù¶ï¿½(ï¿½ï¿½ï¿½ï¿½)
-var Space = 5; //Ã¿ï¿½ï¿½ï¿½Æ¶ï¿½(px)
-var PageWidth =250; //ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½
-var fill = 0; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»
+var Speed = 1; //ËÙ¶È(ºÁÃë)
+var Space = 5; //Ã¿´ÎÒÆ¶¯(px)
+var PageWidth =250; //·­Ò³¿í¶È
+var fill = 0; //ÕûÌåÒÆÎ»
 var MoveLock = false;
 var MoveTimeObj;
 var Comp = 0;
@@ -206,17 +206,17 @@ GetObj("ISL_Cont").onmouseover = function(){clearInterval(AutoPlayObj);}
 GetObj("ISL_Cont").onmouseout = function(){AutoPlay();}
 AutoPlay();
 function GetObj(objName){if(document.getElementById){return eval('document.getElementById("'+objName+'")')}else{return eval('document.all.'+objName)}}
-function AutoPlay(){ //ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
+function AutoPlay(){ //×Ô¶¯¹ö¶¯
  clearInterval(AutoPlayObj);
- AutoPlayObj = setInterval('ISL_GoDown();ISL_StopDown();',3000); //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+ AutoPlayObj = setInterval('ISL_GoDown();ISL_StopDown();',3000); //¼ä¸ôÊ±¼ä
 }
-function ISL_GoUp(){ //ï¿½ó·­¿ï¿½Ê¼
+function ISL_GoUp(){ //×ó·­¿ªÊ¼
  if(MoveLock) return;
  clearInterval(AutoPlayObj);
  MoveLock = true;
  MoveTimeObj = setInterval('ISL_ScrUp();',Speed);
 }
-function ISL_StopUp(){ //ï¿½ï¿½ï¿½ï¿½Í£Ö¹
+function ISL_StopUp(){ //×ó·­Í£Ö¹
  clearInterval(MoveTimeObj);
  if(GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0){
   Comp = fill - (GetObj('ISL_Cont').scrollLeft % PageWidth);
@@ -226,11 +226,11 @@ function ISL_StopUp(){ //ï¿½ï¿½ï¿½ï¿½Í£Ö¹
  }
  AutoPlay();
 }
-function ISL_ScrUp(){ //ï¿½ó·­¶ï¿½ï¿½ï¿½
+function ISL_ScrUp(){ //×ó·­¶¯×÷
  if(GetObj('ISL_Cont').scrollLeft <= 0){GetObj('ISL_Cont').scrollLeft = GetObj('ISL_Cont').scrollLeft + GetObj('List1').offsetWidth}
  GetObj('ISL_Cont').scrollLeft -= Space ;
 }
-function ISL_GoDown(){ //ï¿½Ò·ï¿½ï¿½ï¿½Ê¼
+function ISL_GoDown(){ //ÓÒ·­¿ªÊ¼
  clearInterval(MoveTimeObj);
  if(MoveLock) return;
  clearInterval(AutoPlayObj);
@@ -238,7 +238,7 @@ function ISL_GoDown(){ //ï¿½Ò·ï¿½ï¿½ï¿½Ê¼
  ISL_ScrDown();
  MoveTimeObj = setInterval('ISL_ScrDown()',Speed);
 }
-function ISL_StopDown(){ //ï¿½Ò·ï¿½Í£Ö¹
+function ISL_StopDown(){ //ÓÒ·­Í£Ö¹
  clearInterval(MoveTimeObj);
  if(GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0 ){
   Comp = PageWidth - GetObj('ISL_Cont').scrollLeft % PageWidth + fill;
@@ -248,14 +248,14 @@ function ISL_StopDown(){ //ï¿½Ò·ï¿½Í£Ö¹
  }
  AutoPlay();
 }
-function ISL_ScrDown(){ //ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
+function ISL_ScrDown(){ //ÓÒ·­¶¯×÷
  if(GetObj('ISL_Cont').scrollLeft >= GetObj('List1').scrollWidth){GetObj('ISL_Cont').scrollLeft = GetObj('ISL_Cont').scrollLeft - GetObj('List1').scrollWidth;}
  GetObj('ISL_Cont').scrollLeft += Space ;
 }
 function CompScr(){
  var num;
  if(Comp == 0){MoveLock = false;return;}
- if(Comp < 0){ //ï¿½ï¿½ï¿½ï¿½
+ if(Comp < 0){ //×ó·­
   if(Comp < -Space){
    Comp += Space;
    num = Space;
@@ -265,7 +265,7 @@ function CompScr(){
   }
   GetObj('ISL_Cont').scrollLeft -= num;
   setTimeout('CompScr()',Speed);
- }else{ //ï¿½Ò·ï¿½
+ }else{ //ÓÒ·­
   if(Comp > Space){
    Comp -= Space;
    num = Space;
@@ -308,43 +308,43 @@ $(function(){
 	var pagination = $('#pagination li');
 	var paginationwidth = $('#pagination').width();
 	$('#pagination').css('margin-left',(470-paginationwidth))
-
+	
 	pagination.eq(0).addClass('current')
-
+		
 	function ADDLI(){
 		//var lilicount = numpic + 1;
 		for(var i = 0; i <= numpic; i++){
 			ulcontent += '<li>' + '<a href="#">' + (i+1) + '</a>' + '</li>';
 		}
-
-		$('#slides').after(ulstart + ulcontent + ulend);
+		
+		$('#slides').after(ulstart + ulcontent + ulend);	
 	}
 
 	pagination.on('click',DOTCHANGE)
-
+	
 	function DOTCHANGE(){
-
+		
 		var changenow = $(this).index();
-
+		
 		$('#slides li').eq(nownow).css('z-index','900');
 		$('#slides li').eq(changenow).css({'z-index':'800'}).show();
 		pagination.eq(changenow).addClass('current').siblings('li').removeClass('current');
 		$('#slides li').eq(nownow).fadeOut(400,function(){$('#slides li').eq(changenow).fadeIn(500);});
 		nownow = changenow;
 	}
-
+	
 	pagination.mouseenter(function(){
 		inout = 1;
 	})
-
+	
 	pagination.mouseleave(function(){
 		inout = 0;
 	})
-
+	
 	function GOGO(){
-
+		
 		var NN = nownow+1;
-
+		
 		if( inout == 1 ){
 			} else {
 			if(nownow < numpic){
@@ -367,7 +367,13 @@ $(function(){
 		}
 		TT = setTimeout(GOGO, SPEED);
 	}
-
-	TT = setTimeout(GOGO, SPEED);
+	
+	TT = setTimeout(GOGO, SPEED); 
 
 })
+
+
+
+
+
+

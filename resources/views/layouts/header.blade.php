@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:wb="http://open.weibo.com/wb">
+<!-- <html xmlns:wb="http://open.weibo.com/wb"> -->
 <head>
 <meta charset="utf-8">
 <!--

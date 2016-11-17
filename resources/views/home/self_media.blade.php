@@ -34,9 +34,8 @@
 </div>
 </div>
     <div class="ny_banner">
-      <img src="{{asset('resources/views/home/images/banner.jpg')}}">
+      <!-- <img src="{{asset('resources/views/home/images/banner.jpg')}}"> -->
     </div>
-
 
      <div class="zi">
          <div class="title_zi">

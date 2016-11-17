@@ -18,18 +18,7 @@ class IndexController extends CommonController
 
 
   public function index(){
-    $allCates = (new Category)->frontCate();
-    //the  6 article most views
-    $pics = Article::orderBy('art_view','desc')->take(6)->get();
-    //list for pics and article with pagination
-    $data=Article::orderBy('art_time','desc')->paginate(10);
-    //the latest articles
-
-    //the links
-    $links = Links::orderBy('link_order','asc')->get();
-    // the config settings ...
-
-    return view('home/index',compact('allCates','pics','data','links'));
+    return view('home.index');
   }
 
   public function dcate(){

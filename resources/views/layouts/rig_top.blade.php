@@ -26,6 +26,6 @@
              document.getElementById("info1").innerHTML="今天是："+year+"年"+(month+1)+"月"+date+"日";
             }
         </script>
-        <iframe width="450" scrolling="no" height="18" frameborder="0" allowtransparency="true" src="{{asset('resources/views/home/js/index.html')}}"></iframe>
+        <!-- <iframe width="450" scrolling="no" height="18" frameborder="0" allowtransparency="true" src="{{asset('resources/views/home/js/index.html')}}"></iframe> -->
     </div>
 </div>
