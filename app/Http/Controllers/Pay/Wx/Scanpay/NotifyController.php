@@ -63,7 +63,7 @@ class NotifyController extends Controller
       //if the payment_out_trade_no already existed
       $num = Payment::wherer('payment_out_trade_no',$payment['payment_out_trade_no'])->count();
 
-      $disk->append('wxpay.txt',$num);
+      $disk->append('wxpay.txt',123);
       //if $num == 0 , means there is no such order. them write to databaese
       if(!$num){
         Payment::create($payment);
