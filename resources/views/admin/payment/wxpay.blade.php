@@ -73,7 +73,7 @@
                   title: '付款请扫描以下二维码！',
                   shadeClose: true,
                   shade: 0.8,
-                  area: ['300px', '100%'],
+                  area: ['300px', '30%'],
                   content: data //注意，如果str是object，那么需要字符拼接。
                 });
              });
