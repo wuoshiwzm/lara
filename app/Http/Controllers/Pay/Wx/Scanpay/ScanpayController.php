@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Input;
 
-
-use App\Http\Model\Payment;
 /**
  *GET localhost/youge/blog/public/File/getQrcode
  *
@@ -24,7 +22,6 @@ class ScanpayController extends Controller
 
 
     function index(){
-
       return view('admin.payment.wxpay');
     }
 
