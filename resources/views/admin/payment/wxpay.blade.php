@@ -63,6 +63,24 @@
 
 
 					<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-          <script type="text/javascript" src="{{asset('resources/views/payment/js/wx_setpayment.blade.php')}}"></script>
+
+          <!-- payment function -->
+          <script>
+          function pay(a){
+
+            $.post('{{url('set_payment')}}',{'_token':"{{csrf_token()}}",'amount':a}, function(data) {
+
+              layer.open({
+                  type: 1,
+                  itle: '付款请扫描以下二维码！',
+                  shadeClose: true,
+                  shade: 0.8,
+                  area: ['300px', '50%'],
+                  content: data //注意，如果str是object，那么需要字符拼接。
+                });
+             });
+
+          }
+          </script>
 	</body>
 </html>
