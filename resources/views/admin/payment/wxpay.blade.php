@@ -19,6 +19,7 @@
 	 			<div class="container">
 	 					<div>
 	 						<h2>定制您的分享推广方案，从此轻松做分享经济时代的赢家！</h2>
+							<h3>点击会弹出支付二维码！</h3>
 	 					</div>
 		 			<div class="service-grids">
 			 				<div class="col-md-3 service-grid">
