@@ -64,11 +64,7 @@ class NotifyController extends Controller
       $payment['payment_openid'] = $msg['openid'];
 
       //check how many he buy, and add the user_balance in table user use transaction
-      // if(){
-      //   DB::transaction(function () {
-      //
-      //   });
-      // }
+
 
       //if the payment_out_trade_no already existed
       $num = Payment::where('payment_out_trade_no',$payment['payment_out_trade_no'])->count();
