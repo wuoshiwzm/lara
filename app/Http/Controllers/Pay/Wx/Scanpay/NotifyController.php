@@ -46,7 +46,7 @@ class NotifyController extends Controller
 
       $postStr = file_get_contents("php://input");
       $disk = Storage::disk('wxpay');
-      $contents = $disk->append('wxpay.txt',$postStr);
+      // $contents = $disk->append('wxpay.txt',$postStr);
 
 
       $payment = array();
