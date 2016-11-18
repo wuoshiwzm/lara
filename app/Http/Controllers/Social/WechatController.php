@@ -12,6 +12,10 @@ class WechatController extends CommonController{
   private $secret = '469536da8d67cd9df2cdde5609ffefaf';
 
 
+  public function test(){
+    echo "test-wechatcontroller";
+  }
+
   public function getRandStr($num){
     $chars='qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM';
     $pass ='';
@@ -25,8 +29,10 @@ class WechatController extends CommonController{
   public function getToken(){
     //get token
     $url_token ="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$this->appid&secret=$this->secret";
-    // dd($url_token);
-
+    // echo $url_token;
+    // exit();
+    //get the ACCESS TOKEN by each 7000ms
+    // echo $url_token;
     $timeNow = time();
     $tokenData = Data::where('data_name','access_token')->orderBy('created_at','desc')->first();
     // dd($tokenData);
@@ -72,12 +78,20 @@ class WechatController extends CommonController{
 
     $strvalue = 'jsapi_ticket='.$_SESSION['jsapi_ticket'].'&noncestr='.$noncestr.'&timestamp='.$timestamp.'&url=http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $signature = sha1($strvalue);
-
+    // echo "ticket:".$ret-> ticket;
+    // echo "<hr>";
+    // echo "noncestr:".$noncestr;
+    // echo "<hr>";
+    // echo "$timestamp :".$timestamp;
+    // echo "<hr>";
+    // echo "$signature :".$signature;
+    // die();
     $res=[
       'timestamp'=>$timestamp,
       'noncestr'=>$noncestr,
       'signature'=>$signature];
-
+      // var_dump($strvalue);
+      // die();
       return $res;
   }
 
