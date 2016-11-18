@@ -72,7 +72,7 @@ class WechatController extends CommonController{
     $ret_json = file_get_contents($url);
     //ret return data show the wechat sending ok or not
     $ret = json_decode($ret_json);
-
+    dd($ret);
 
     $_SESSION['jsapi_ticket'] = $ret-> ticket;
 
