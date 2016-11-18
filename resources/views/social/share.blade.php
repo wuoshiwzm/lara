@@ -26,7 +26,7 @@
     	wx.ready(function () {
     		var shareData = {
     			title: '这里是分享标题',
-    			desc: '这里是发送给好友的时候的简介',
+    			desc: "{{$content}}",
     			link: 'http://baidu.com',
     			imgUrl: 'http://baidu.com/logo.jpg'
     		};

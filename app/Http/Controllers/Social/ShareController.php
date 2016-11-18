@@ -19,30 +19,36 @@ class ShareController extends CommonController
 
 
 
-    function index(){
-      // echo "test";
+    function index($media_id){
 
       //already sign in
-      if(session('user')){
-        $status=0;
-      }
-      else{
-        //not sign in
-        $status=1;
-      }
+      // if(session('user')){
+      //   $status=0;
+      // }
+      // else{
+      //   //not sign in
+      //   $status=1;
+      // }
       // dd($wechat);
+
+      //get content of the media info use parameter $media_id
+
+      $content = SelfMedia::where('id',$media_id)->first()->content;
+      // dd($content);
       $wechat = new WechatController;
       $wechat=$wechat->shareData() ;
       // dd($wechat);
 
       return view('social.share')
-      ->with('status',$status)
-      ->with('wechat',$wechat);
+      // ->with('status',$status)
+      ->with('wechat',$wechat)
+      ->with('content',$content);
 
     }
 
-    function index2(){
-      return view('social.share2');
+    function index2($media_id){
+      return view('social.share2')
+      ->with('media_id',$media_id);
     }
 
     function content(){

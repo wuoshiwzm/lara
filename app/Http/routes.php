@@ -32,8 +32,8 @@ Route::group(['middleware' => []], function () {
 
 
     //share function
-    Route::get('share','Social\ShareController@index');
-    Route::get('share2','Social\ShareController@index2');
+    Route::get('share/{media_id}','Social\ShareController@index');
+    Route::get('share2/{media_id}','Social\ShareController@index2');
 
     //need ajax here, so method is 'any'
     Route::any('share/content','Social\ShareController@content');
