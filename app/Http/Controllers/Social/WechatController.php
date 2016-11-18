@@ -29,10 +29,10 @@ class WechatController extends CommonController{
   public function getToken(){
     //get token
     $url_token ="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$this->appid&secret=$this->secret";
-    // echo $url_token;
-    // exit();
+    dd($url_token);
+
+
     //get the ACCESS TOKEN by each 7000ms
-    // echo $url_token;
     $timeNow = time();
     $tokenData = Data::where('data_name','access_token')->orderBy('created_at','desc')->first();
     // dd($tokenData);
@@ -75,7 +75,7 @@ class WechatController extends CommonController{
 
     $_SESSION['jsapi_ticket'] = $ret->ticket;
 
-    dd($ret->ticket);
+    // dd($ret->ticket);
     $strvalue = 'jsapi_ticket='.$_SESSION['jsapi_ticket'].'&noncestr='.$noncestr.'&timestamp='.$timestamp.'&url=http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $signature = sha1($strvalue);
 
