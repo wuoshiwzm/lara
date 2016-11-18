@@ -29,13 +29,12 @@ class WechatController extends CommonController{
   public function getToken(){
     //get token
     $url_token ="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$this->appid&secret=$this->secret";
-    dd($url_token);
-
+    // dd($url_token);
 
     //get the ACCESS TOKEN by each 7000ms
     $timeNow = time();
     $tokenData = Data::where('data_name','access_token')->orderBy('created_at','desc')->first();
-    // dd($tokenData);
+    dd($tokenData);
     // dd($timeNow - $tokenData->created_at->getTimeStamp());
     if (($timeNow - $tokenData->created_at->getTimeStamp())>3000)
     {
