@@ -29,7 +29,7 @@
 
         wx.onMenuShareTimeline({
             title: 'testtitle', // 分享标题
-            link: 'adbangbang.com', // 分享链接
+            link: 'adbangbang.com123', // 分享链接
             imgUrl: 'adbangbang.com/1.jpg', // 分享图标
             success: function () {
                 alert(1111);// 用户确认分享后执行的回调函数
@@ -38,7 +38,6 @@
               alert(222);  // 用户取消分享后执行的回调函数
             }
         });
-
 
 
 
