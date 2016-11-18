@@ -4,16 +4,6 @@
     <meta charset="utf-8">
     <title></title>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-  </head>
-
-
-  <body>
-    <h1>点击右上角分享吧！</h1>
-
-    <!-- @if($status==0) -->
-    <div>
-    <!-- already sign in -->
-    <!-- <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
     <script>
       wx.config({
           debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -25,7 +15,7 @@
       });
 
       wx.ready(function(){
-   
+
         wx.onMenuShareTimeline({
             title: 'testtitle', // 分享标题
             link: 'adbangbang.com', // 分享链接
@@ -37,7 +27,6 @@
               alert(222);  // 用户取消分享后执行的回调函数
             }
         });
-
 
 
          // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相
@@ -54,6 +43,17 @@
 
 
     </script>
+  </head>
+
+
+  <body>
+    <h1>点击右上角分享吧！</h1>
+
+    <!-- @if($status==0) -->
+    <div>
+    <!-- already sign in -->
+    <!-- <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+
 
     </div>
     <hr>
