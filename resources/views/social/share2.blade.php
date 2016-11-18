@@ -6,7 +6,7 @@
   </head>
   <body>
 <!-- link to adbangbang.com/share -->
-    <img src="{{asset('resources/views/home/images/share.png')}}">
+    <img src="{{asset('resources/views/social/sharepic.jpg')}}">
 
 
   </body>
