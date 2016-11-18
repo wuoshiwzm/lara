@@ -34,7 +34,7 @@ class WechatController extends CommonController{
     //get the ACCESS TOKEN by each 7000ms
     $timeNow = time();
     $tokenData = Data::where('data_name','access_token')->orderBy('created_at','desc')->first();
-    dd($tokenData);
+    // dd($tokenData);
     // dd($timeNow - $tokenData->created_at->getTimeStamp());
     if (($timeNow - $tokenData->created_at->getTimeStamp())>3000)
     {
@@ -48,7 +48,7 @@ class WechatController extends CommonController{
     $data['data_name']='access_token';
     $output = json_decode($output);
     $data['data']=$output->access_token;
-    // dd($data);
+    dd($data);
     Data::create($data);
     return $output->access_token;
   }else{
