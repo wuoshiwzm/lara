@@ -78,14 +78,7 @@ class WechatController extends CommonController{
     dd($ret->ticket);
     $strvalue = 'jsapi_ticket='.$_SESSION['jsapi_ticket'].'&noncestr='.$noncestr.'&timestamp='.$timestamp.'&url=http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $signature = sha1($strvalue);
-    // echo "ticket:".$ret-> ticket;
-    // echo "<hr>";
-    // echo "noncestr:".$noncestr;
-    // echo "<hr>";
-    // echo "$timestamp :".$timestamp;
-    // echo "<hr>";
-    // echo "$signature :".$signature;
-    // die();
+
     $res=[
       'timestamp'=>$timestamp,
       'noncestr'=>$noncestr,
