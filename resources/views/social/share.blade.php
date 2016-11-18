@@ -8,6 +8,14 @@
   <title>微信JS-SDK Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 
+</head>
+<body ontouchstart="">
+这个页面是demo页面。
+认证服务号已测试成功。
+记得现在后台设置已备案的安全域名。
+</body>
+
+
   <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
       <script>
       	wx.config({
@@ -34,14 +42,6 @@
       	  alert(res.errMsg);
       	});
   </script>
-
-</head>
-<body ontouchstart="">
-这个页面是demo页面。
-认证服务号已测试成功。
-记得现在后台设置已备案的安全域名。
-</body>
-
 
 
 </html>
