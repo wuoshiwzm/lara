@@ -6,6 +6,8 @@
   </head>
   <body>
 
-    <img src="{{asset('resources/views/home/images/share.png')}}">
+    <!-- <img src="{{asset('resources/views/home/images/share.png')}}"> -->
+  
+
   </body>
 </html>
