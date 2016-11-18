@@ -57,6 +57,22 @@ class WechatController extends CommonController{
   }
 
 
+  private function getTokenAnyway(){
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url_token);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $output = curl_exec($ch);
+    curl_close($ch);
+    $data['data_name']='access_token';
+    $output = json_decode($output);
+    $data['data']=$output->access_token;
+    // dd($data);
+    Data::create($data);
+    return $output->access_token;
+  }
+
   // get the info sharing need
   public function shareData(){
 
@@ -68,10 +84,18 @@ class WechatController extends CommonController{
     // exit();
     $url = 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='. $access_token .'&type=jsapi';
     $ret_json = file_get_contents($url);
-    dd($ret_json);
+
     //ret return data show the wechat sending ok or not
     $ret = json_decode($ret_json);
+if($ret['errcode'] != 0){
+  $access_token = $this->getTokenAnyway();
+  $noncestr = $this->getRandStr(15);
+  $timestamp = time();
+  $url = 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='. $access_token .'&type=jsapi';
+  $ret_json = file_get_contents($url);
+  $ret = json_decode($ret_json);
 
+}
     $_SESSION['jsapi_ticket'] = $ret->ticket;
 
     // dd($ret->ticket);
