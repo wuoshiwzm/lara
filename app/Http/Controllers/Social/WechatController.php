@@ -48,7 +48,7 @@ class WechatController extends CommonController{
     $data['data_name']='access_token';
     $output = json_decode($output);
     $data['data']=$output->access_token;
-    dd($data);
+    // dd($data);
     Data::create($data);
     return $output->access_token;
   }else{
@@ -61,7 +61,6 @@ class WechatController extends CommonController{
   public function shareData(){
 
     $access_token = $this->getToken();
-
     $noncestr = $this->getRandStr(15);
     $timestamp = time();
 
@@ -69,6 +68,7 @@ class WechatController extends CommonController{
     // exit();
     $url = 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='. $access_token .'&type=jsapi';
     $ret_json = file_get_contents($url);
+    dd($ret_json);
     //ret return data show the wechat sending ok or not
     $ret = json_decode($ret_json);
 
