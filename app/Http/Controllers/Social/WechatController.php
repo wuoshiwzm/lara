@@ -58,6 +58,7 @@ class WechatController extends CommonController{
 
 
   private function getTokenAnyway(){
+    $url_token ="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$this->appid&secret=$this->secret";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url_token);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
