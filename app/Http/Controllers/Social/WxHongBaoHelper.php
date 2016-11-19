@@ -151,7 +151,7 @@ class WxHongBaoHelper
 		curl_setopt($ch,CURLOPT_POST, 1);
 		curl_setopt($ch,CURLOPT_POSTFIELDS,$vars);
 		$data = curl_exec($ch);
-		dd($data);
+		// dd($data);
 		if($data){
 			curl_close($ch);
 			return $data;
