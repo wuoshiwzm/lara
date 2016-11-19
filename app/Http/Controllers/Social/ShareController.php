@@ -45,14 +45,6 @@ class ShareController extends CommonController
       }
 
 
-
-
-
-
-
-
-
-
       //get content of the media info use parameter $media_id
       $content = SelfMedia::where('id',$media_id)->first()->content;
 
@@ -79,19 +71,11 @@ class ShareController extends CommonController
       ->with('content',$content);
     }
 
-    //get use openid
-
-
-    private function http($url)
-    {
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        $output = curl_exec($ch);//输出内容
-        curl_close($ch);
-        return array($output);
+    //when share successed
+    function sharesuccess($media_id){
+      dd($media_id)
     }
+
+
+
 }

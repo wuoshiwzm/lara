@@ -19,7 +19,7 @@
 <!-- generate qr -->
 <div class="visible-print text-center">
   <?php //QrCode::size(450)->generate('baidu.com');  ?>
-    {!! QrCode::size(450)->generate('https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx520c15f417810387&redirect_uri='.$uri.'&response_type=code&scope=snsapi_base&state=123#wechat_redirect'); !!}
+    {!! QrCode::size(450)->generate('https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx260619ea73a4b130&redirect_uri='.$uri.'&response_type=code&scope=snsapi_base&state=123#wechat_redirect'); !!}
     <p>扫描上方二维码，分享得红包啦!</p>
 </div>
 
