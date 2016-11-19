@@ -34,6 +34,8 @@ Route::group(['middleware' => []], function () {
     //share function
     Route::get('share/{media_id}','Social\ShareController@index');
     Route::get('share2/{media_id}','Social\ShareController@index2');
+    Route::get('sharecontent/{media_id}','Social\ShareController@content');
+
 
     //need ajax here, so method is 'any'
     Route::any('share/content','Social\ShareController@content');
@@ -56,7 +58,13 @@ Route::group(['middleware' => []], function () {
 });
 
 
+//for the administraters login
+Route::group(['middleware' => ['boss.login']], function () {
 
+});
+
+
+//pay payments
 Route::group(['middleware' => ['admin.login']], function () {
   Route::get('scanpay','Pay\Wx\Scanpay\ScanpayController@index');
   Route::any('set_payment','Pay\Wx\Scanpay\ScanpayController@setPayment');

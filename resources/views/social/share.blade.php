@@ -25,7 +25,7 @@
     		var shareData = {
     			title: '这里是分享标题',
     			desc: "{{$content}}",
-    			link: 'http://baidu.com',
+    			link: 'http://adbangbang.com/sharecontent/'+{{$media_id}},
     			imgUrl: 'http://baidu.com/logo.jpg'
     		};
     		wx.onMenuShareAppMessage(shareData);

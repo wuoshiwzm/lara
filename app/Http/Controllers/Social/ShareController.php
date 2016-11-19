@@ -35,8 +35,6 @@ class ShareController extends CommonController
 
       $content = SelfMedia::where('id',$media_id)->first()->content;
 
-      dd($content);
-      // dd($content);
       $wechat = new WechatController;
       $wechat=$wechat->shareData() ;
       // dd($wechat);
@@ -54,11 +52,9 @@ class ShareController extends CommonController
       ->with('media_id',$media_id);
     }
 
-    function content(){
-      $input=Input::all();
-      // dd($input);
-      $id = $input['id'];
-      return SelfMedia::where('id',$id)->get();
-
+    function content($media_id){
+      $content = SelfMedia::where('id',$media_id)->first()->content;
+      return view('social.sharecontent')
+      ->with('content',$content);
     }
 }
