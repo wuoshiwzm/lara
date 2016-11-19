@@ -18,7 +18,6 @@ class ShareController extends CommonController
 
 
 
-
     function index($media_id){
 
       //already sign in
@@ -30,9 +29,31 @@ class ShareController extends CommonController
       //   $status=1;
       // }
       // dd($wechat);
+      $uri =
+      //get openid and media_id and save to database. we send redpack ,to check the database if the user is in it !
+
+      $APPID='wx260619ea73a4b130';
+      $SECRET='469536da8d67cd9df2cdde5609ffefaf';
+      $state='123';
+      $code='';
+      if($_GET['state']==$state){
+      $code = $_GET['code'];
+      $uinfo=file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$APPID."&secret=".$SECRET."&code=".$code."&grant_type=authorization_code");
+      $uinfo=(array)json_decode($uinfo);
+      dd($uinfo);
+      $openid=$uinfo['openid'];
+      }
+
+
+
+
+
+
+
+
+
 
       //get content of the media info use parameter $media_id
-
       $content = SelfMedia::where('id',$media_id)->first()->content;
 
       $wechat = new WechatController;
@@ -56,5 +77,21 @@ class ShareController extends CommonController
       $content = SelfMedia::where('id',$media_id)->first()->content;
       return view('social.sharecontent')
       ->with('content',$content);
+    }
+
+    //get use openid
+
+
+    private function http($url)
+    {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        $output = curl_exec($ch);//输出内容
+        curl_close($ch);
+        return array($output);
     }
 }

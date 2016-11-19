@@ -8,6 +8,8 @@
 </head>
 <body ontouchstart="">
 {!!$content!!}
+
+
 </body>
 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -29,6 +31,7 @@
     			imgUrl: "{{asset('resources/views/home/images/logo.jpg')}}",
           success: function () {
               // 用户确认分享后执行的回调函数
+              // 将此文章id 和 OPENID 存入数据库
           },
           cancel: function () {
             alert('cancel');
