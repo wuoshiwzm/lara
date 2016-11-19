@@ -7,9 +7,7 @@
   <link rel="stylesheet" href="{{url('resources/views/social/style.css')}}">
 </head>
 <body ontouchstart="">
-这个页面是demo页面。
-认证服务号已测试成功。
-记得现在后台设置已备案的安全域名。
+{{$content}}
 </body>
 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>

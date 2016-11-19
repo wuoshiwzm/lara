@@ -34,6 +34,8 @@ class ShareController extends CommonController
       //get content of the media info use parameter $media_id
 
       $content = SelfMedia::where('id',$media_id)->first()->content;
+
+      dd($content);
       // dd($content);
       $wechat = new WechatController;
       $wechat=$wechat->shareData() ;
@@ -42,7 +44,8 @@ class ShareController extends CommonController
       return view('social.share')
       // ->with('status',$status)
       ->with('wechat',$wechat)
-      ->with('content',$content);
+      ->with('content',$content)
+      ->with('media_id',$media_id);
 
     }
 
