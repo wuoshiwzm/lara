@@ -32,7 +32,7 @@
           success: function () {
               // 用户确认分享后执行的回调函数
               // 将此文章id 和 OPENID 存入数据库
-              window.location.href={{url('sharesuccess/2')}};
+              window.location.href="/sharesuccess/2";
               // window.location.href("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx260619ea73a4b130&redirect_uri=http://adbangbang.com/sharesuccess"+{{$media_id}}+"&response_type=code&scope=snsapi_base&state=123#wechat_redirect");
               //
           },
