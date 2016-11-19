@@ -29,20 +29,20 @@ class ShareController extends CommonController
       //   $status=1;
       // }
       // dd($wechat);
-      $uri =
-      //get openid and media_id and save to database. we send redpack ,to check the database if the user is in it !
-
-      $APPID='wx260619ea73a4b130';
-      $SECRET='469536da8d67cd9df2cdde5609ffefaf';
-      $state='123';
-      $code='';
-      if($_GET['state']==$state){
-      $code = $_GET['code'];
-      $uinfo=file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$APPID."&secret=".$SECRET."&code=".$code."&grant_type=authorization_code");
-      $uinfo=(array)json_decode($uinfo);
-      dd($uinfo);
-      $openid=$uinfo['openid'];
-      }
+      // $uri =
+      // //get openid and media_id and save to database. we send redpack ,to check the database if the user is in it !
+      //
+      // $APPID='wx260619ea73a4b130';
+      // $SECRET='469536da8d67cd9df2cdde5609ffefaf';
+      // $state='123';
+      // $code='';
+      // if($_GET['state']==$state){
+      // $code = $_GET['code'];
+      // $uinfo=file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$APPID."&secret=".$SECRET."&code=".$code."&grant_type=authorization_code");
+      // $uinfo=(array)json_decode($uinfo);
+      // dd($uinfo);
+      // $openid=$uinfo['openid'];
+      // }
 
 
       //get content of the media info use parameter $media_id
