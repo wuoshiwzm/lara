@@ -101,7 +101,7 @@ class ShareController extends CommonController
 
       $commonUtil = new CommonUtil();
       $wxHongBaoHelper = new WxHongBaoHelper();
-      // var_dump($_SERVER);
+      dd($_SERVER);
       dd($_SERVER["HTTP_CLIENTIP"]);
       // die();
       $wxHongBaoHelper->setParameter("nonce_str", $this->great_rand());//随机字符串，丌长于 32 位
