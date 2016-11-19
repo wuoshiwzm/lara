@@ -120,6 +120,8 @@ class ShareController extends CommonController
         ShareRec::create($shareinfo);
         //user's balance decrease by 2
         User::where('user_id',$user_id)->update(['user_balance'=>($user_balance - 2)]);
+
+        return view('social.redpack_sending');
       }
       //decrease the
 

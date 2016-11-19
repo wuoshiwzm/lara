@@ -28,7 +28,7 @@
 
     	wx.ready(function () {
     		var shareData = {
-    			title: '这里是分享标题',
+    			title: '这个秘密我只告诉你哦！',
     			desc: '无穷大分享 分享抢红包 分享有惊喜！',
     			link: 'http://adbangbang.com/sharecontent/'+{{$media_id}},
     			imgUrl: "{{asset('resources/views/home/images/logo.jpg')}}",

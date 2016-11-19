@@ -12,9 +12,7 @@ class WechatController extends CommonController{
   private $secret = '469536da8d67cd9df2cdde5609ffefaf';
 
 
-  public function test(){
-    echo "test-wechatcontroller";
-  }
+  
 
   public function getRandStr($num){
     $chars='qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM';
