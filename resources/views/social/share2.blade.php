@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="{{url('resources/views/social/style.css')}}">
+    <style media="screen">
+      .visible-print text-center{
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
 <!-- link to adbangbang.com/share -->
@@ -13,11 +18,10 @@
 <!-- generate qr -->
 <div class="visible-print text-center">
 
-    {!! QrCode::size(500)->generate('adbangbang.com/share/'.$media_id); !!}
-    <p>Scan me to return to the original page.</p>
+    {!! QrCode::size(450)->generate('adbangbang.com/share/'.$media_id); !!}
+    <p>扫描上方二维码，分享得红包啦!</p>
 </div>
 
-    <img src="{{asset('resources/views/social/share.png')}}">
 
 
   </body>

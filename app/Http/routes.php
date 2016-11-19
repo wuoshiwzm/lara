@@ -112,6 +112,6 @@ Route::group(['middleware' => ['admin.login'],'prefix'=>'admin','namespace'=>'Ad
 
 
 
-    Route::resource('media','MediaController');
+    // Route::resource('media','MediaController');
 
   });
