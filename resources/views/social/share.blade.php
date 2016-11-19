@@ -10,7 +10,7 @@
 {!!$content!!}
 <script type="text/javascript">
 
-window.open("http://www.w3school.com.cn")
+
 </script>
 
 </body>
@@ -35,9 +35,7 @@ window.open("http://www.w3school.com.cn")
           success: function () {
               // 用户确认分享后执行的回调函数
               // 将此文章id 和 OPENID 存入数据库
-              window.open('163.com','aa','');
-              // window.location.href("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx260619ea73a4b130&redirect_uri=http://adbangbang.com/sharesuccess"+{{$media_id}}+"&response_type=code&scope=snsapi_base&state=123#wechat_redirect");
-              //
+              window.open("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx260619ea73a4b130&redirect_uri=http://adbangbang.com/sharesuccess/"+{{$media_id}}+"&response_type=code&scope=snsapi_base&state=123#wechat_redirect");
           },
           cancel: function () {
             alert('cancel');
