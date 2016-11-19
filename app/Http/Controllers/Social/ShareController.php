@@ -67,18 +67,18 @@ class ShareController extends CommonController
       //share success and send redpack
 
 
-      $state='123';
-      $code='';
-
-      if($_GET['state']==$state){
-      $code = $_GET['code'];
-      $uinfo=file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->app_id."&secret=".$this->app_secret."&code=".$code."&grant_type=authorization_code");
-      $uinfo=(array)json_decode($uinfo);
-      $openid=$uinfo['openid'];
-      }
-      dd($openid);
+      // $state='123';
+      // $code='';
+      //
+      // if($_GET['state']==$state){
+      // $code = $_GET['code'];
+      // $uinfo=file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->app_id."&secret=".$this->app_secret."&code=".$code."&grant_type=authorization_code");
+      // $uinfo=(array)json_decode($uinfo);
+      // $openid=$uinfo['openid'];
+      // }
+      // dd($openid);
       //for test
-      $openid='1kjsdfs';
+      $openid='oe72EwqRljlpSX3I9tNK2aIwzSWc';
 
       //check if the people has share the media and get paid
       $res = ShareRec::where('openid',$openid)->where('media_id',$media_id)->first();
@@ -88,8 +88,10 @@ class ShareController extends CommonController
       }
 
       //has not share the content, sent redpack now
-    echo  $this->pay($openid,$db=null);
-
+      echo $payres =  $this->pay($openid,$db=null);
+      if($payres){
+        //write into database
+      }
 
     }
 
@@ -109,9 +111,9 @@ class ShareController extends CommonController
       $wxHongBaoHelper->setParameter("nick_name", '无穷大');//提供方名称
       $wxHongBaoHelper->setParameter("send_name", '无穷大红包部');//红包发送者名称
       $wxHongBaoHelper->setParameter("re_openid", $re_openid);//相对于医脉互通的openid
-      $wxHongBaoHelper->setParameter("total_amount", 1);//付款金额，单位分
-      $wxHongBaoHelper->setParameter("min_value", 1);//最小红包金额，单位分
-      $wxHongBaoHelper->setParameter("max_value", 11);//最大红包金额，单位分
+      $wxHongBaoHelper->setParameter("total_amount", 100);//付款金额，单位分
+      $wxHongBaoHelper->setParameter("min_value", 100);//最小红包金额，单位分
+      $wxHongBaoHelper->setParameter("max_value", 1000);//最大红包金额，单位分
       $wxHongBaoHelper->setParameter("total_num", 1);//红包収放总人数
       $wxHongBaoHelper->setParameter("wishing", '恭喜发财');//红包祝福诧
       $wxHongBaoHelper->setParameter("client_ip", $_SERVER["SERVER_ADDR"]);//调用接口的机器 Ip 地址
