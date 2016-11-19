@@ -101,8 +101,8 @@ class ShareController extends CommonController
 
       $commonUtil = new CommonUtil();
       $wxHongBaoHelper = new WxHongBaoHelper();
-      dd($_SERVER);
-      dd($_SERVER["HTTP_CLIENTIP"]);
+      // dd($_SERVER);
+      // dd($_SERVER["SERVER_ADDR"]);
       // die();
       $wxHongBaoHelper->setParameter("nonce_str", $this->great_rand());//随机字符串，丌长于 32 位
       $wxHongBaoHelper->setParameter("mch_billno", $this->app_mchid.date('YmdHis').rand(1000, 9999));//订单号
@@ -116,7 +116,7 @@ class ShareController extends CommonController
       $wxHongBaoHelper->setParameter("max_value", 11);//最大红包金额，单位分
       $wxHongBaoHelper->setParameter("total_num", 1);//红包収放总人数
       $wxHongBaoHelper->setParameter("wishing", '恭喜发财');//红包祝福诧
-      $wxHongBaoHelper->setParameter("client_ip", $_SERVER["HTTP_CLIENTIP"]);//调用接口的机器 Ip 地址
+      $wxHongBaoHelper->setParameter("client_ip", $_SERVER["SERVER_ADDR"]);//调用接口的机器 Ip 地址
       $wxHongBaoHelper->setParameter("act_name", '红包活动');//活劢名称
       $wxHongBaoHelper->setParameter("remark", '快来抢！');//备注信息
       $postXml = $wxHongBaoHelper->create_hongbao_xml();
