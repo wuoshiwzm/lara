@@ -2,12 +2,12 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>微信JS-SDK Demo</title>
+  <title>分享无穷大！</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
   <link rel="stylesheet" href="{{url('resources/views/social/style.css')}}">
 </head>
 <body ontouchstart="">
-{{$content}}
+{!!$content!!}
 </body>
 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
