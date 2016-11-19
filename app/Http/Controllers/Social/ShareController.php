@@ -72,7 +72,7 @@ class ShareController extends CommonController
 
       if($_GET['state']==$state){
       $code = $_GET['code'];
-      $uinfo=file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->appid."&secret=".$this->app_secret."&code=".$code."&grant_type=authorization_code");
+      $uinfo=file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->app_id."&secret=".$this->app_secret."&code=".$code."&grant_type=authorization_code");
       $uinfo=(array)json_decode($uinfo);
       $openid=$uinfo['openid'];
       }
