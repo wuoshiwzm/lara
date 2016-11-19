@@ -28,10 +28,10 @@
             link: 'http://adbangbang.com/sharecontent/'+{{$media_id}},
             imgUrl: "{{asset('resources/views/home/images/logo.jpg')}}"
             success: function () {
-                alert('shareit!');
+                // 用户确认分享后执行的回调函数
             },
             cancel: function () {
-                alert('cancel shareing!');
+                // 用户取消分享后执行的回调函数
             }
         });
 
