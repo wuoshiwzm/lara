@@ -64,7 +64,7 @@ class WxHongBaoHelper
 		// 9CF3B7"
 
 	protected function get_sign(){
-		define('PARTNERKEY',"LeonWechatOmasldkfqwiueryzxcmv57");
+		define('PARTNERKEY',"lihangzhaopingjizhenxing87871456");
 		try {
 			if (null == PARTNERKEY || "" == PARTNERKEY ) {
 				throw new SDKRuntimeException("密钥不能为空！" . "<br>");

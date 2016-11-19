@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 use App\Http\Model\SelfMedia;
 use App\Http\Model\ShareRec;
+use App\Http\Model\User;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Social\WechatController;
 include_once('WxHongBaoHelper.php');
@@ -66,32 +67,61 @@ class ShareController extends CommonController
     function sharesuccess($media_id){
       //share success and send redpack
 
+      $state='123';
+      $code='';
 
-      // $state='123';
-      // $code='';
-      //
-      // if($_GET['state']==$state){
-      // $code = $_GET['code'];
-      // $uinfo=file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->app_id."&secret=".$this->app_secret."&code=".$code."&grant_type=authorization_code");
-      // $uinfo=(array)json_decode($uinfo);
-      // $openid=$uinfo['openid'];
-      // }
+      if($_GET['state']==$state){
+      $code = $_GET['code'];
+      $uinfo=file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->app_id."&secret=".$this->app_secret."&code=".$code."&grant_type=authorization_code");
+      $uinfo=(array)json_decode($uinfo);
+      $openid=$uinfo['openid'];
+      }
+
+
       // dd($openid);
+
+      /* -----------------------redpack payment start-----------------------*/
       //for test
       $openid='oe72EwqRljlpSX3I9tNK2aIwzSWc';
 
-      //check if the people has share the media and get paid
+      //check if the sender's balance is enough for sharing
+      $user_id = SelfMedia::join('user','self_media.user_id','=','user.user_id')->where('media_id',$media_id)->first()->user_id;
+      $user_balance = SelfMedia::join('user','self_media.user_id','=','user.user_id')->where('media_id',$media_id)->first()->user_balance;
+
+      // the user's balance is less then 2
+      if($user_balance<=2){
+        return view('home.return_main')
+        ->with('content','此内容已经失效，请继续分享其他精彩内容吧！');
+      }
+
+      //check if the people has already share the media and get paid
       $res = ShareRec::where('openid',$openid)->where('media_id',$media_id)->first();
       // dd($res);
       if(ShareRec::where('openid',$openid)->where('media_id',$media_id)->first()){
-        return view('social/already_share');
+        return view('home.return_main')
+        ->with('content','您已经分享过该主题啦！去分享更多精彩内容吧！');
       }
 
-      //has not share the content, sent redpack now
-      echo $payres =  $this->pay($openid,$db=null);
-      if($payres){
-        //write into database
+      //check if the $media_id exist
+      if(!SelfMedia::where('media_id',$media_id)->first()){
+        return view('home.return_main')
+        ->with('content','该主题不存了， 请继续分享其他精彩内容吧！');
       }
+
+
+
+      /* -----------------------redpack sending-----------------------*/
+      $payres =  $this->pay($openid,$db=null);
+      // save to database blog_share_rec
+      if($payres =='SUCCESS'){
+        //write into database
+        $sharerec['openid'] = $openid;
+        $sharerec['media_id'] = $media_id;
+        ShareRec::create($shareinfo);
+        //user's balance decrease by 2
+        User::where('user_id',$user_id)->update(['user_balance'=>($user_balance - 2)]);
+      }
+      //decrease the
 
     }
 
