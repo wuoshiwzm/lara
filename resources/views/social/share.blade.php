@@ -26,7 +26,7 @@
     			title: '这里是分享标题',
     			desc: "{{$content}}",
     			link: 'http://adbangbang.com/sharecontent/'+{{$media_id}},
-    			imgUrl: 'http://baidu.com/logo.jpg'
+    			imgUrl: "{{asset('resources/views/home/images/logo.jpg')}}"
     		};
     		wx.onMenuShareAppMessage(shareData);
     		wx.onMenuShareTimeline(shareData);
