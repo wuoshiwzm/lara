@@ -79,7 +79,7 @@
                       <div class="fie_right">
                           <p class="name"><a href="#"><span style="color:#FF6600">{{$v->user_name}}</span></a></p>
                           <p class="datae"><span> {{$v->created_at}}</span> <span>来自{{$v->user_name}}</span>
-                            <a><h1><span onclick="jumpFrame({{$v->id}})">
+                            <a><h1><span onclick="jumpFrame({{$v->media_id}})">
                               点击分享送红包啦!
                               </span>
                             </h1>
