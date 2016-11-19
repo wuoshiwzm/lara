@@ -66,6 +66,7 @@ class ShareController extends CommonController
       $SECRET='469536da8d67cd9df2cdde5609ffefaf';
       $state='123';
       $code='';
+      dd($_GET);
       if($_GET['state']==$state){
       $code = $_GET['code'];
       $uinfo=file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$APPID."&secret=".$SECRET."&code=".$code."&grant_type=authorization_code");
