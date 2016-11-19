@@ -73,7 +73,7 @@ class ShareController extends CommonController
 
     //when share successed
     function sharesuccess($media_id){
-      dd($media_id)
+      dd($media_id);
     }
 
 
