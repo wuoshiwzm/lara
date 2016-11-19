@@ -67,21 +67,19 @@ class ShareController extends CommonController
       //share success and send redpack
 
 
-      // $state='123';
-      // $code='';
-      //
-      // if($_GET['state']==$state){
-      // $code = $_GET['code'];
-      // $uinfo=file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->appid."&secret=".$this->app_secret."&code=".$code."&grant_type=authorization_code");
-      // $uinfo=(array)json_decode($uinfo);
-      // $openid=$uinfo['openid'];
-      // }
-      //
+      $state='123';
+      $code='';
 
+      if($_GET['state']==$state){
+      $code = $_GET['code'];
+      $uinfo=file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->appid."&secret=".$this->app_secret."&code=".$code."&grant_type=authorization_code");
+      $uinfo=(array)json_decode($uinfo);
+      $openid=$uinfo['openid'];
+      }
+      dd($openid);
       //for test
-      $openid = '1kjsdfs';
+      $openid='1kjsdfs';
 
-      //check if the openid has share the same doc
       //check if the people has share the media and get paid
       $res = ShareRec::where('openid',$openid)->where('media_id',$media_id)->first();
       // dd($res);
@@ -120,15 +118,16 @@ class ShareController extends CommonController
       $wxHongBaoHelper->setParameter("act_name", '红包活动');//活劢名称
       $wxHongBaoHelper->setParameter("remark", '快来抢！');//备注信息
       $postXml = $wxHongBaoHelper->create_hongbao_xml();
-
+      // dd($postXml);
 
       $url = 'https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack';
 
       $responseXml = $wxHongBaoHelper->curl_post_ssl($url, $postXml);
-      // var_dump(htmlspecialchars($responseXml));
+      // dd($responseXml);
+      // dd(htmlspecialchars($responseXml));
       // die();
       $responseObj = simplexml_load_string($responseXml, 'SimpleXMLElement', LIBXML_NOCDATA);
-      // var_dump(htmlspecialchars($responseObj));
+      // dd(htmlspecialchars($responseObj));
       // die();
       return $responseObj->return_code;
 
