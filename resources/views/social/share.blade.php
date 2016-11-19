@@ -10,7 +10,7 @@
 {!!$content!!}
 <script type="text/javascript">
 
-window.open('163.com','aa','');
+window.open("http://www.w3school.com.cn")
 </script>
 
 </body>
