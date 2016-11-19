@@ -8,7 +8,10 @@
 </head>
 <body ontouchstart="">
 {!!$content!!}
+<script type="text/javascript">
 
+window.open('163.com','aa','');
+</script>
 
 </body>
 
