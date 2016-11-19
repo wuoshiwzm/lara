@@ -117,7 +117,7 @@ class ShareController extends CommonController
         //write into database
         $sharerec['openid'] = $openid;
         $sharerec['media_id'] = $media_id;
-        ShareRec::create($shareinfo);
+        ShareRec::create($sharerec);
         //user's balance decrease by 2
         User::where('user_id',$user_id)->update(['user_balance'=>($user_balance - 2)]);
 
