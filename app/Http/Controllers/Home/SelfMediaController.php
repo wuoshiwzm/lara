@@ -20,7 +20,7 @@ class SelfMediaController extends CommonController
   public function index(){
 
     //the city where the user is in
-    dd($this->getCity($_SERVER['REMOTE_ADDR']));
+    // dd($this->getCity($_SERVER['REMOTE_ADDR']));
     $countryNow = $this->getCity($_SERVER['REMOTE_ADDR'])->country;
     $provinceNow = $this->getCity($_SERVER['REMOTE_ADDR'])->province;
     $cityNow = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
