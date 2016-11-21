@@ -51,8 +51,9 @@ class SelfMediaController extends CommonController
     ->where('media_city',NULL)
     ->where('media_province',NULL)->get();
 
-    $self_medias = array_merge($self_medias_country->toArray(),$self_medias_city->toArray());
+    $self_medias = array_merge($self_medias_country->toArray(),$self_medias_city->toArray(),$self_medias_province->toArray());
 
+    // dd($self_medias);
     // $wechatData = (new WechatController)->wechat_data();
     // dd($wechatData);
     // dd($self_medias);
@@ -164,7 +165,6 @@ class SelfMediaController extends CommonController
 }
 
   private function getCity($ip){
-    $ip = '59.48.207.1';
     header("content-type:text/html;charset=utf-8");
     date_default_timezone_set("Asia/Shanghai");
     error_reporting(0);
