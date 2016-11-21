@@ -85,7 +85,7 @@
                         </p>
                           <p class="nei">
                           <span>
-                            {!! $v->content !!}
+                            {!! $v->media_content !!}
                           </span>
 
                                 <img src="{{asset('resources/views/home/images/photos.jpg')}}" alt="11111111111111">
