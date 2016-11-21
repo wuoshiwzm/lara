@@ -82,8 +82,7 @@
                             </h1>
                           </a>
 
-
-                          </p>
+                        </p>
                           <p class="nei">
                           <span>
                             {!! $v->content !!}

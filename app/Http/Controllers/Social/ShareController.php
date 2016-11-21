@@ -53,6 +53,13 @@ class ShareController extends CommonController
     }
 
     function index2($media_id){
+      //the city where the user is in
+      $city = $this->getCity($_SERVER['REMOTE_ADDR']);
+
+      //the city and province where the news request
+      
+      SelfMedia::where('media_id',$media_id)->get();
+
       return view('social.share2')
       ->with('media_id',$media_id);
     }
@@ -180,6 +187,20 @@ class ShareController extends CommonController
           $t1 .= $str[$j];
       }
       return $t1;
+  }
+
+  private function getCity($ip){
+    header("content-type:text/html;charset=utf-8");
+    date_default_timezone_set("Asia/Shanghai");
+    error_reporting(0);
+    // 根据IP判断城市
+
+    $url ="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=$ip";
+    $address = file_get_contents($url);
+    return $address_arr =  json_decode($address);
+
+    //返回对象，需要转换为数组
+    // return $address_arr = json_decode($address);　
   }
 
 

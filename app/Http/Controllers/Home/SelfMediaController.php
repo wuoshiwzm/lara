@@ -19,30 +19,26 @@ class SelfMediaController extends CommonController
 
   public function index(){
 
-
+    //the city where the user is in
+    $cityNow = $this->getCity($_SERVER['REMOTE_ADDR']);
+    dd($cityNow);
+    //the city and province where the news request
     $self_medias = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')->where('user_balance','>',2)->get();
-    // dd($self_medias);
+
+
     // dd($self_medias);
 
     // $wechatData = (new WechatController)->wechat_data();
     // dd($wechatData);
-
+    // dd($self_medias);
     return view('home.self_media')
     ->with('self_medias',$self_medias);
   }
 
   public function add(){
     $input=Input::all();
-
-
-    $media_province = Input::get('media_province ');
-    $media_city = Input::get('media_city');
-    $city = $this->getCity($_SERVER['REMOTE_ADDR']);
-
-
+    //check if the user is login
     $user = session('user');
-
-
     if(!$user){
       //0 means user need to login
       $data=[
@@ -74,6 +70,9 @@ class SelfMediaController extends CommonController
 
       $res['user_id'] = $user['user_id'];
       $res['content'] = $input['content'];
+      $res['media_province'] = $input['media_province'];
+      $res['media_city'] = $input['media_city'];
+
       SelfMedia::create($res);
       return $data;
     }
@@ -83,19 +82,7 @@ class SelfMediaController extends CommonController
 
   }
 
-  public function getCity($ip){
-    header("content-type:text/html;charset=utf-8");
-    date_default_timezone_set("Asia/Shanghai");
-    error_reporting(0);
-    // 根据IP判断城市
 
-    $url ="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=$ip";
-    $address = file_get_contents($url);
-    return $address_arr =  json_decode($address);
-
-    //返回对象，需要转换为数组
-    // return $address_arr = json_decode($address);　
-  }
 
 
   function curl_get_contents($url,array $post_data=array(),$verbose=false,$ref_url=false,$cookie_location=false,$return_transfer=true)
@@ -150,6 +137,20 @@ class SelfMediaController extends CommonController
 
   	curl_close($pointer);
 }
+
+  private function getCity($ip){
+    header("content-type:text/html;charset=utf-8");
+    date_default_timezone_set("Asia/Shanghai");
+    error_reporting(0);
+    // 根据IP判断城市
+
+    $url ="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=$ip";
+    $address = file_get_contents($url);
+    return $address_arr =  json_decode($address);
+
+    //返回对象，需要转换为数组
+    // return $address_arr = json_decode($address);　
+  }
 
 
 
