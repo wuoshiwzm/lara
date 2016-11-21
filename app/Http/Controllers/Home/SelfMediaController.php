@@ -20,17 +20,38 @@ class SelfMediaController extends CommonController
   public function index(){
 
     //the city where the user is in
+    // dd($this->getCity($_SERVER['REMOTE_ADDR']));
+    $countryNow = $this->getCity($_SERVER['REMOTE_ADDR'])->country;
+    $provinceNow = $this->getCity($_SERVER['REMOTE_ADDR'])->province;
     $cityNow = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
-  //   +"country": "中国"
-  // +"province": "陕西"
-  // +"city": "西安"
 
-    dd($cityNow);
     //the city and province where the news request
-    $self_medias = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')->where('user_balance','>',2)->get();
+
+    //1.the city column is empty and the province column is filled means to check the province
+    $self_medias_province = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
+    ->where('user_balance','>',2)
+    ->where('media_city',NULL)
+    ->where('media_province','!=',NULL)
+    ->where('media_province','like','%'.$provinceNow.'%')
+    ->get();
 
 
-    // dd($self_medias);
+    //2.the city column is filled and the province column is filled   means the media is tobe checked iwth city and province
+    $self_medias_city = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
+    ->where('user_balance','>',2)
+    ->where('media_city','!=',NULL)
+    ->where('media_province','!=',NULL)
+    ->where('media_province','like','%'.$provinceNow.'%')
+    ->where('media_city','like','%'.$cityNow.'%')
+    ->get();
+
+    //3.the city column is empty and the province column is empty too means the media is for the whole country to view
+    $self_medias_country = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
+    ->where('user_balance','>',2)
+    ->where('media_city',NULL)
+    ->where('media_province',NULL)->get();
+
+    $self_medias = array_merge($self_medias_country->toArray(),$self_medias_city->toArray());
 
     // $wechatData = (new WechatController)->wechat_data();
     // dd($wechatData);
@@ -143,6 +164,7 @@ class SelfMediaController extends CommonController
 }
 
   private function getCity($ip){
+    $ip = '59.48.207.1';
     header("content-type:text/html;charset=utf-8");
     date_default_timezone_set("Asia/Shanghai");
     error_reporting(0);
