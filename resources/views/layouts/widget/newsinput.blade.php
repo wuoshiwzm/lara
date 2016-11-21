@@ -28,10 +28,34 @@
            </button> -->
               <!-- <input  type="submit" name="submit" value="发布" onclick="newsSubmit()"> -->
       </div>
-
+      <tr>
+         <th width="120">此推广对应有效区域：</th>
+         <td>
+           <div id="distpicker" data-toggle="distpicker">
+             <select name="area_add1" class="md" id="area_add1"></select>
+             <select name="area_add2"  class="md" id="area_add2"></select>
+             <!-- <select name="area_add3"  class="md"></select> -->
+           </div>
+         <script src="{{asset('resources/org/ChinaAddress/js/distpicker.data.js')}}"></script>
+         <script src="{{asset('resources/org/ChinaAddress/js/distpicker.js')}}"></script>
+         <script src="{{asset('resources/org/ChinaAddress/js/main.js')}}"></script>
+         <script>
+         $("#distpicker").distpicker({
+           province: "---- 请选择省 默认为全国 ----",
+           city: "---- 请选择市 默认为全省 ----",
+           district: "---- 请选择区 默认为全市 ----",
+           autoSelect: false
+           });
+         </script>
+         </td>
+      </tr>
 </div>
 <!-- </form> -->
+
 </div>
+
+
+
 <script>
 
 function getContent() {
@@ -47,8 +71,10 @@ function getContent() {
 function newsSubmit(){
   var arr;
   arr = UE.getEditor('editor').getContent();
+  area_add1 = $("#area_add1").val();
+  area_add2 = $("#area_add2").val();
 
-  $.post('{{url('/self_media/add')}}', {'_token':"{{csrf_token()}}",'content':arr,}, function(data) {
+  $.post('{{url('/self_media/add')}}', {'_token':"{{csrf_token()}}",'content':arr,'area_add1':area_add1,area_add2:area_add2}, function(data) {
 
     //0 means user need to login
     //1 means the content is empty

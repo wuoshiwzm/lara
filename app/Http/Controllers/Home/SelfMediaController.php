@@ -17,7 +17,8 @@ class SelfMediaController extends CommonController
   public function index(){
 
 
-    $self_medias = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')->get();
+    $self_medias = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')->where('user_balance','>',2)->get();
+    // dd($self_medias);
     // dd($self_medias);
 
     // $wechatData = (new WechatController)->wechat_data();
@@ -29,6 +30,7 @@ class SelfMediaController extends CommonController
 
   public function add(){
     $input=Input::all();
+    return dd($input);
     $user = session('user');
 
 
