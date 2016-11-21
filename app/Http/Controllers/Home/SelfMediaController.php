@@ -14,6 +14,20 @@ class SelfMediaController extends CommonController
 {
 
 
+  public function getCity($ip){
+    // header("content-type:text/html;charset=utf-8");
+    // date_default_timezone_set("Asia/Shanghai");
+    // error_reporting(0);
+    // 根据IP判断城市
+
+    $url ="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=$ip";
+    $address = file_get_contents($url);
+    return $address;
+    //返回对象，需要转换为数组
+    // return $address_arr = json_decode($address);　
+  }
+
+
   public function index(){
 
 
@@ -30,6 +44,10 @@ class SelfMediaController extends CommonController
 
   public function add(){
     $input=Input::all();
+
+
+    $city = $this->getCity($_SERVER['REMOTE_ADDR']);
+    dd($city);
     return dd($input);
     $user = session('user');
 
@@ -73,6 +91,7 @@ class SelfMediaController extends CommonController
 
 
   }
+
 
 
   function curl_get_contents($url,array $post_data=array(),$verbose=false,$ref_url=false,$cookie_location=false,$return_transfer=true)
