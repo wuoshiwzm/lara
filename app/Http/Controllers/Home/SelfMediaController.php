@@ -38,8 +38,8 @@ class SelfMediaController extends CommonController
     //2.the city column is filled and the province column is filled   means the media is tobe checked iwth city and province
     $self_medias_city = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
     ->where('user_balance','>',2)
-    ->where('media_city','!=',NULL)
-    ->where('media_province','!=',NULL)
+    ->where('media_city','!=','')
+    ->where('media_province','!=','')
     ->where('media_province','like','%'.$provinceNow.'%')
     ->where('media_city','like','%'.$cityNow.'%')
     ->get();
@@ -47,8 +47,8 @@ class SelfMediaController extends CommonController
     //3.the city column is empty and the province column is empty too means the media is for the whole country to view
     $self_medias_country = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
     ->where('user_balance','>',2)
-    ->where('media_city',NULL)
-    ->where('media_province',NULL)->get();
+    ->where('media_city','')
+    ->where('media_province','')->get();
 
     $self_medias = array_merge($self_medias_country->toArray(),$self_medias_city->toArray(),$self_medias_province->toArray());
 
