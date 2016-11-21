@@ -15,14 +15,14 @@ class SelfMediaController extends CommonController
 
 
   public function getCity($ip){
-    // header("content-type:text/html;charset=utf-8");
-    // date_default_timezone_set("Asia/Shanghai");
-    // error_reporting(0);
+    header("content-type:text/html;charset=utf-8");
+    date_default_timezone_set("Asia/Shanghai");
+    error_reporting(0);
     // 根据IP判断城市
 
     $url ="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=$ip";
     $address = file_get_contents($url);
-    return $address;
+    return json_decode($address);
     //返回对象，需要转换为数组
     // return $address_arr = json_decode($address);　
   }
