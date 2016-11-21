@@ -24,18 +24,46 @@ class ShareController extends CommonController
 
     function index($media_id){
 
-      //already sign in
-      // if(session('user')){
-      //   $status=0;
-      // }
-      // else{
-      //   //not sign in
-      //   $status=1;
-      // }
-      // dd($wechat);
+      //the city where the user is in
 
-      //get openid and media_id and save to database. we send redpack ,to check the database if the user is in it !
+      $countryNow = $this->getCity($_SERVER['REMOTE_ADDR'])->country;
+      $provinceNow = $this->getCity($_SERVER['REMOTE_ADDR'])->province;
+      $cityNow = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
 
+      //1.the city column is empty and the province column is filled means to check the province
+
+      $self_medias_province = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
+      ->where('media_id',$media_id)
+      ->where('user_balance','>',2)
+      ->where('media_city','')
+      ->where('media_province','!=','')
+      ->where('media_province','like','%'.$provinceNow.'%')
+      ->get();
+
+      // dd($self_medias_province);
+      //2.the city column is filled and the province column is filled   means the media is tobe checked iwth city and province
+      $self_medias_city = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
+      ->where('media_id',$media_id)
+      ->where('user_balance','>',2)
+      ->where('media_city','!=','')
+      ->where('media_province','!=','')
+      ->where('media_province','like','%'.$provinceNow.'%')
+      ->where('media_city','like','%'.$cityNow.'%')
+      ->get();
+
+      //3.the city column is empty and the province column is empty too means the media is for the whole country to view
+      $self_medias_country = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
+      ->where('media_id',$media_id)
+      ->where('user_balance','>',2)
+      ->where('media_city','')
+      ->where('media_province','')->get();
+
+
+
+      if($self_medias_province->isEmpty() && $self_medias_city->isEmpty() && $self_medias_country->isEmpty()){
+        return view('home.return_main')
+        ->with('content','本条信息无效 请继续分享其他信息！');
+      }
 
       //get content of the media info use parameter $media_id
       $content = SelfMedia::where('media_id',$media_id)->first()->content;
@@ -57,7 +85,7 @@ class ShareController extends CommonController
       $city = $this->getCity($_SERVER['REMOTE_ADDR']);
 
       //the city and province where the news request
-      
+
       SelfMedia::where('media_id',$media_id)->get();
 
       return view('social.share2')
@@ -189,19 +217,20 @@ class ShareController extends CommonController
       return $t1;
   }
 
-  private function getCity($ip){
-    header("content-type:text/html;charset=utf-8");
-    date_default_timezone_set("Asia/Shanghai");
-    error_reporting(0);
-    // 根据IP判断城市
 
-    $url ="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=$ip";
-    $address = file_get_contents($url);
-    return $address_arr =  json_decode($address);
 
-    //返回对象，需要转换为数组
-    // return $address_arr = json_decode($address);　
-  }
+    private function getCity($ip){
+      header("content-type:text/html;charset=utf-8");
+      date_default_timezone_set("Asia/Shanghai");
+      error_reporting(0);
+      // 根据IP判断城市
 
+      $url ="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=$ip";
+      $address = file_get_contents($url);
+      return $address_arr =  json_decode($address);
+
+      //返回对象，需要转换为数组
+      // return $address_arr = json_decode($address);　
+    }
 
 }
