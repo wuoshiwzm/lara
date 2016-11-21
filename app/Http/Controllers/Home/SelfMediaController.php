@@ -31,9 +31,9 @@ class SelfMediaController extends CommonController
     $self_medias_province = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
     ->where('user_balance','>',2)
     ->where('media_city',NULL)
-    ->where('media_province','!=',NULL)
-    ->where('media_province','like','%'.$provinceNow.'%')
-    ->get();
+    ->where('media_province','!=',NULL)->get();
+    // ->where('media_province','like','%'.$provinceNow.'%')
+
 
     dd($self_medias_province);
     //2.the city column is filled and the province column is filled   means the media is tobe checked iwth city and province
