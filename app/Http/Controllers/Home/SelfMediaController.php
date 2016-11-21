@@ -24,7 +24,7 @@ class SelfMediaController extends CommonController
   //   +"country": "中国"
   // +"province": "陕西"
   // +"city": "西安"
-    dd($cityNow['country']);
+    dd($cityNow->country);
     //the city and province where the news request
     $self_medias = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')->where('user_balance','>',2)->get();
 
