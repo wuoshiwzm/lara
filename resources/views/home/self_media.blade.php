@@ -58,10 +58,7 @@
                     <li><a href="#">图片</a></li>
                     <li><a href="#">音乐</a></li>
                     <li><a href="#">文章</a></li>
-                    <!-- <li><a href="">视频</a></li>
-                    <li><a href="">图片</a></li>
-                    <li><a href="">音乐</a></li>
-                    <li><a href="">文章</a></li> -->
+
                     </ul>
                     <div class="wes">
                       <input type="text" class="weisou">

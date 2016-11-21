@@ -71,10 +71,10 @@ function getContent() {
 function newsSubmit(){
   var arr;
   arr = UE.getEditor('editor').getContent();
-  area_add1 = $("#area_add1").val();
-  area_add2 = $("#area_add2").val();
+  media_province = $("#area_add1").val();
+  media_city = $("#area_add2").val();
 
-  $.post('{{url('/self_media/add')}}', {'_token':"{{csrf_token()}}",'content':arr,'area_add1':area_add1,area_add2:area_add2}, function(data) {
+  $.post('{{url('/self_media/add')}}', {'_token':"{{csrf_token()}}",'content':arr,'media_province':media_province,'media_city':media_city}, function(data) {
 
     //0 means user need to login
     //1 means the content is empty
