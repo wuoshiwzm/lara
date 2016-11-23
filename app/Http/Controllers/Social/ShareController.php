@@ -87,7 +87,7 @@ class ShareController extends CommonController
       $cityNow = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
 
       // dd($countryNow);
-      dd($provinceNow);
+      // dd($provinceNow);
       dd($provinceNow);
 
       //1.the city column is empty and the province column is filled means to check the province
