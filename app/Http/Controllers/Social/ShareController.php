@@ -123,7 +123,7 @@ class ShareController extends CommonController
 
       /* -----------------------redpack payment start-----------------------*/
       //for test
-      $openid='oe72EwqRljlpSX3I9tNK2aIwzSWc';
+      // $openid='oe72EwqRljlpSX3I9tNK2aIwzSWc';
 
       //check if the sender's balance is enough for sharing
       $user_id = SelfMedia::join('user','self_media.user_id','=','user.user_id')->where('media_id',$media_id)->first()->user_id;
