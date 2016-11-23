@@ -88,7 +88,7 @@ class ShareController extends CommonController
 
       // dd($countryNow);
       // dd($provinceNow);
-      dd($provinceNow);
+      dd($cityNow);
 
       //1.the city column is empty and the province column is filled means to check the province
 
