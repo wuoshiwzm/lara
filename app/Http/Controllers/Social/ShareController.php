@@ -30,10 +30,7 @@ class ShareController extends CommonController
       $provinceNow = $this->getCity($_SERVER['REMOTE_ADDR'])->province;
       $cityNow = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
 
-      // echo $countryNow;
-      // echo $provinceNow;
-      // echo $cityNow;
-      // die();
+
       //1.the city column is empty and the province column is filled means to check the province
 
       $self_medias_province = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
@@ -85,16 +82,53 @@ class ShareController extends CommonController
     }
 
     function index2($media_id){
-
       $countryNow = $this->getCity($_SERVER['REMOTE_ADDR'])->country;
       $provinceNow = $this->getCity($_SERVER['REMOTE_ADDR'])->province;
       $cityNow = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
 
-      echo $countryNow;
-      echo $provinceNow;
-      echo $cityNow;
-      die();
+      dd($countryNow);
+      dd($provinceNow);
+      dd($provinceNow);
 
+      //1.the city column is empty and the province column is filled means to check the province
+
+      $self_medias_province = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
+      ->where('media_id',$media_id)
+      ->where('user_balance','>',2)
+      ->where('media_city','')
+      ->where('media_province','!=','')
+      ->where('media_province','like','%'.$provinceNow.'%')
+      ->get();
+
+      // dd($self_medias_province);
+      //2.the city column is filled and the province column is filled   means the media is tobe checked iwth city and province
+      $self_medias_city = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
+      ->where('media_id',$media_id)
+      ->where('user_balance','>',2)
+      ->where('media_city','!=','')
+      ->where('media_province','!=','')
+      ->where('media_province','like','%'.$provinceNow.'%')
+      ->where('media_city','like','%'.$cityNow.'%')
+      ->get();
+
+      //3.the city column is empty and the province column is empty too means the media is for the whole country to view
+      $self_medias_country = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
+      ->where('media_id',$media_id)
+      ->where('user_balance','>',2)
+      ->where('media_city','')
+      ->where('media_province','')->get();
+
+
+
+      if($self_medias_province->isEmpty() && $self_medias_city->isEmpty() && $self_medias_country->isEmpty()){
+        return view('home.return_main')
+        ->with('content','本条信息无效 请继续分享其他信息！');
+      }
+
+      //the city where the user is in
+      $city = $this->getCity($_SERVER['REMOTE_ADDR']);
+
+      //the city and province where the news request
 
       SelfMedia::where('media_id',$media_id)->get();
 
