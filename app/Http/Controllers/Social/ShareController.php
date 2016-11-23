@@ -29,7 +29,7 @@ class ShareController extends CommonController
       $countryNow = $this->getCity($_SERVER['REMOTE_ADDR'])->country;
       $provinceNow = $this->getCity($_SERVER['REMOTE_ADDR'])->province;
       $cityNow = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
-
+      echo $_SERVER['REMOTE_ADDR'];
       echo $self_medias_country.$provinceNow.$cityNow;
       die();
 
