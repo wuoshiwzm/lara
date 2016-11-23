@@ -59,7 +59,7 @@ class NotifyController extends Controller
 
       $payment['payment_user_name'] = $msg['attach'];
       $payment['payment_out_trade_no'] = $msg['out_trade_no'];
-      $payment['payment_cash_fee'] = $msg['cash_fee'];
+      $payment['payment_cash_fee'] = intval($msg['cash_fee']/100);
       $payment['payment_total_fee'] = $msg['total_fee'];
       $payment['payment_openid'] = $msg['openid'];
 

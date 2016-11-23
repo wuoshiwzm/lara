@@ -104,8 +104,6 @@ class SelfMediaController extends CommonController
     }
 
     // dd($user['user_balance']);
-
-
   }
 
 

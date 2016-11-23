@@ -7,10 +7,5 @@ use App\Http\Controllers\Controller;
 class HongbaoController extends Controller
 {
 
-  function index(){
-    // echo "index";
-    $test = new Test();
-    // dd($test);
-    $test->showi();
-  }
+
 }

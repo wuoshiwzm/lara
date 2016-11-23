@@ -153,8 +153,8 @@ class ShareController extends CommonController
         $sharerec['openid'] = $openid;
         $sharerec['media_id'] = $media_id;
         ShareRec::create($sharerec);
-        //user's balance decrease by 2
-        User::where('user_id',$user_id)->update(['user_balance'=>($user_balance - 2)]);
+        //user's balance decrease by 1
+        User::where('user_id',$user_id)->update(['user_balance'=>($user_balance - 1)]);
 
         return view('social.redpack_sending');
       }

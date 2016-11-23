@@ -14,7 +14,7 @@
 
 <!-- get the id of the self_media  -->
 
-<?php die(); ?>
+
 <?php
   $uri = 'http://adbangbang.com/share/'.$media_id;
  ?>
