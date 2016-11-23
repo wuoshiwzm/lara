@@ -30,6 +30,10 @@ class ShareController extends CommonController
       $provinceNow = $this->getCity($_SERVER['REMOTE_ADDR'])->province;
       $cityNow = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
 
+      // echo $countryNow;
+      // echo $provinceNow;
+      // echo $cityNow;
+      // die();
       //1.the city column is empty and the province column is filled means to check the province
 
       $self_medias_province = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
@@ -81,10 +85,16 @@ class ShareController extends CommonController
     }
 
     function index2($media_id){
-      //the city where the user is in
-      $city = $this->getCity($_SERVER['REMOTE_ADDR']);
 
-      //the city and province where the news request
+      $countryNow = $this->getCity($_SERVER['REMOTE_ADDR'])->country;
+      $provinceNow = $this->getCity($_SERVER['REMOTE_ADDR'])->province;
+      $cityNow = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
+
+      echo $countryNow;
+      echo $provinceNow;
+      echo $cityNow;
+      die();
+
 
       SelfMedia::where('media_id',$media_id)->get();
 
