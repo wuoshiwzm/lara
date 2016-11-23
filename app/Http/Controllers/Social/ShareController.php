@@ -86,7 +86,7 @@ class ShareController extends CommonController
       $provinceNow = $this->getCity($_SERVER['REMOTE_ADDR'])->province;
       $cityNow = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
 
-      dd($countryNow);
+      // dd($countryNow);
       dd($provinceNow);
       dd($provinceNow);
 
