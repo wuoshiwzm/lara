@@ -465,7 +465,7 @@
     </div>
 </div>
 <div class="guanggaowei">
-     <a href=""><img src="images/guanggao.jpg" alt="" /></a>
+     <!-- <a href=""><img src="images/guanggao.jpg" alt="" /></a> -->
 </div>
 <div class="box3">
     <div class="box3_title">
