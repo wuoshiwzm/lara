@@ -4,8 +4,6 @@
 <link rel="stylesheet" media="screen" href="{{asset('resources/views/home/css/style.css')}}" />
 <link rel="stylesheet" media="screen" href="{{asset('resources/views/home/css/jquery.jslides.css')}}" />
 
-
-
 <script type="text/javascript" src="{{asset('resources/views/home/js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{asset('resources/views/home/js/jquery.jslides.js')}}"></script>
 <script type="text/javascript" src="{{asset('resources/views/home/js/link.js')}}"></script>
@@ -42,97 +40,22 @@
 </div>
 </div>
 </div>
-<div class="banner">
-     <div id="full-screen-slidera">
-        <ul id="slidesa">
-            <li style="background:url({{url('resources/views/home/images/banner.jpg')}}) no-repeat center top"><a href="#"></a></li>
-            <li style="background:url({{url('resources/views/home/images/banner1.jpg')}}) no-repeat center top"><a href="#"></a></li>
-            <li style="background:url({{url('resources/views/home/images/banner2.jpg')}}) no-repeat center top"><a href="#"></a></li>
-            <li style="background:url({{url('resources/views/home/images/banner3.jpg')}}) no-repeat center top"><a href="#"></a></li>
-            <li style="background:url({{url('resources/views/home/images/banner4.jpg')}}) no-repeat center top"><a href="#"></a></li>
+<!-- 主横幅 -->
+@include('layouts.widget.mpic')
 
-        </ul>
-     </div>
-</div>
-<div class="box1">
-        <div class="box1_m">
-            <div class="box1_left">
-                <ul>
-                    <li> <a href="">欢迎步旗广告文化传播公司入驻本平台</a> </li>
-                    <li> <a href="">欢迎陕西正觉电子公司入驻本平台</a></li>
-                    <li> <a href="">欢迎步旗广告文化传播公司入驻本平台</a></li>
-                    <li> <a href="">欢迎陕西正觉电子公司入</a></li>
-                    <li> <a href="">欢迎步旗广告文化传播公司入驻本平台</a> </li>
-                    <li> <a href="">欢迎陕西正觉电子公司入驻本平台</a></li>
-                    <li> <a href="">欢迎步旗广告文化传播公司入驻本平台</a></li>
-                    <li> <a href="">欢迎陕西正觉电子公司入</a></li>
-                </ul>
-            </div>
-            <div class="box1_midden">
-                    <div id="slide-holder">
-                        <div id="slide-runner">
-                            <a href="#" target="_blank"><img id="slide-img-1" src="{{asset('resources/views/home/images/a1.jpg')}}" class="slide" alt="" /></a>
-                            <a href="#" target="_blank"><img id="slide-img-2" src="{{asset('resources/views/home/images/a2.jpg')}}" class="slide" alt="" /></a>
-                            <a href="#" target="_blank"><img id="slide-img-3" src="{{asset('resources/views/home/images/a3.jpg')}}" class="slide" alt="" /></a>
-                            <a href="#" target="_blank"><img id="slide-img-4" src="{{asset('resources/views/home/images/a4.jpg')}}" class="slide" alt="" /></a>
-                            <a href="#" target="_blank"><img id="slide-img-5" src="{{asset('resources/views/home/images/a5.jpg')}}" class="slide" alt="" /></a>
-                            <a href="#" target="_blank"><img id="slide-img-6" src="{{asset('resources/views/home/images/a6.jpg')}}" class="slide" alt="" /></a>
-                            <a href="#" target="_blank"><img id="slide-img-7" src="{{asset('resources/views/home/images/a7.jpg')}}" class="slide" alt="" /></a>
-                            <div id="slide-controls">
-                                <p id="slide-client" class="text"><strong></strong><span></span></p>
-                                <p id="slide-desc" class="text"></p>
-                                <p id="slide-nav"></p>
-                            </div>
-                        </div>
-                    </div>
-                        <script type="text/javascript">
-                            if(!window.slider) {
-                                var slider={};
-                            }
-                            slider.data= [
-                                {
-                                    "id":"slide-img-1", // 与slide-runner中的img标签id对应
-                                    "client":"",
-                                     "desc":"" //这里修改描述
-                                },
-                                {
-                                     "id":"slide-img-2",
-                                     "client":"",
-                                        "desc":""
-                                },
-                                {
-                                     "id":"slide-img-3",
-                                     "client":"",
-                                            "desc":""
-                                },
-                                {
-                                     "id":"slide-img-4",
-                                    "client":"",
-                                    "desc":""
-                                },
-                                {
-                                     "id":"slide-img-5",
-                                     "client":"",
-                                    "desc":""
-                                },
-                                {
-                                     "id":"slide-img-6",
-                                        "client":"",
-                                     "desc":""
-                                },
-                                {
-                                     "id":"slide-img-7",
-                                      "client":"",
-                                        "desc":""
-                                }
-                            ];
-                        </script>
-        </div>
+<!-- 入驻信息 -->
+@include('layouts.widget.join')
+
+
+<!-- 小横幅 -->
+@include('layouts.widget.spic')
+
+<!-- 登陆 -->
         <div class="box1_right">
             <div class="TabTitle">
                 <ul>
                     <li class="hover" id="gsjj1" onMouseover="setTab('gsjj',1,2)"><a href="#">个人登录</a></li>
-                    <li class="" id="gsjj2" onMouseover="setTab('gsjj',2,2)"><a href="#">企业登录</a></li>
+                    <!-- <li class="" id="gsjj2" onMouseover="setTab('gsjj',2,2)"><a href="#">企业登录</a></li> -->
                 </ul>
                 <div class="clear"></div>
             </div>

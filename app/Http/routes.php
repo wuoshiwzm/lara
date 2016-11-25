@@ -114,6 +114,14 @@ Route::group(['middleware' => ['admin.login'],'prefix'=>'admin','namespace'=>'Ad
     Route::any('navs/changeorder', 'NavsController@changeOrder');
     Route::resource('navs','NavsController');
 
+    //主页面大横幅
+    Route::any('mpic/changeorder', 'MpicController@changeOrder');
+    Route::resource('mpic','MpicController');
+
+    //主页面小横幅
+    Route::any('spic/changeorder', 'SpicController@changeOrder');
+    Route::resource('spic','SpicController');
+
     Route::any('config/putfile', 'ConfigController@putFile');
     Route::any('config/changeorder', 'ConfigController@changeOrder');
     Route::any('config/changecontent', 'ConfigController@changeContent');

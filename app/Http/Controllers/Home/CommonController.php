@@ -19,8 +19,6 @@ class CommonController extends Controller
       //the  5 article most views
       $hot = Article::orderBy('art_view','desc')->take(5)->get();
 
-      //8 the latest articles
-      // $new=Article::orderBy('art_time','desc')->take(8)->get();
 
       view::share('navs',$navs);
       view::share('hot',$hot);

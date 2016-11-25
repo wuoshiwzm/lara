@@ -8,17 +8,27 @@ use App\Http\Model\Links;
 use App\Http\Model\Category;
 use App\Http\Model\Category1;
 use App\Http\Model\Category2;
+use App\Http\Model\Mpic;
+use App\Http\Model\Spic;
+use App\Http\Model\Company;
+
 
 class IndexController extends CommonController
 {
 
-  public function test(){
-    echo "test";
-  }
 
 
   public function index(){
-    return view('home.index');
+    // die('test');
+    $mpic = Mpic::orderBy('mpic_order')->get();
+    $spic = Spic::orderBy('spic_order')->get();
+    $company = Company::orderBy('updated_at')->get();
+
+
+    return view('home.index')
+    ->with('mpic',$mpic)
+    ->with('spic',$spic)
+    ->with('company',$company);
   }
 
   public function dcate(){
