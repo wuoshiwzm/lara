@@ -10,6 +10,7 @@ use App\Http\Model\Category1;
 use App\Http\Model\Category2;
 use App\Http\Model\Mpic;
 use App\Http\Model\Spic;
+use App\Http\Model\MainMedia;
 use App\Http\Model\Company;
 
 
@@ -19,16 +20,21 @@ class IndexController extends CommonController
 
 
   public function index(){
-    // die('test');
+    //大横幅
     $mpic = Mpic::orderBy('mpic_order')->get();
+    //小横幅
     $spic = Spic::orderBy('spic_order')->get();
-    $company = Company::orderBy('updated_at')->get();
+    //最新入驻公司
+    $company = Company::orderBy('updated_at')->limit(7)->get();
+    //主流媒体
+    $main_media =MainMedia::orderBy('main_media_order')->get();
 
 
     return view('home.index')
     ->with('mpic',$mpic)
     ->with('spic',$spic)
-    ->with('company',$company);
+    ->with('company',$company)
+    ->with('main_media',$main_media);
   }
 
   public function dcate(){

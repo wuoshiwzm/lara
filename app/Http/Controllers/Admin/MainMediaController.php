@@ -6,67 +6,73 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Model\Mpic;
 use App\Http\ModeL\Category;
 use App\Http\ModeL\MainMedia;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 
+//主流媒体
 class MainMediaController extends Controller
 {
 
-  // 链接列表GET|HEAD  admin/mpic
+
+  // 链接列表GET|HEAD  admin/main_media
   public function index(){
-    $data = Mpic::orderBy('mpic_order','asc')->get();
-    return view('admin.mpic.index',compact('data'));
-
+    $data = MainMedia::orderBy('main_media_order','asc')->get();
+    return view('admin.main_media.index',compact('data'));
   }
 
-  //  添加 链接 GET|HEAD  admin/mpic/create
+  //  添加 链接 GET|HEAD  admin/main_media/create
   public function create(){
-    return view('admin/mpic/add');
+    $cate = Category::all();
+    return view('admin/main_media/add',compact('cate'));
   }
 
-  // 添加链接提交 POST   admin/mpic    admin.mpic.store
+  // 添加链接提交 POST   admin/main_media    admin.main_media.store
   public function store(){
     $input = Input::except('_token');
+
     if($input){
       $rules=[
-        'mpic_name'=>'required',
-        'mpic_path'=>'required',
+        'main_media_name'=>'required',
+        'main_media_en'=>'required',
+        'main_media_cate_id'=>'required',
+
       ];
       $message=[
-        'mpic_name.required'=>'横幅名称必填',
-        'mpic_path.required'=>'未上传横幅',
+        'main_media_name.required'=>'媒体名称必填',
+        'main_media_en.required'=>'媒体别名必填',
+        'main_media_cate_id.required'=>'未选择传媒体类型',
       ];
     $validator = Validator::make($input,$rules,$message);
-    if($validator->passes()){
-      $result =   Mpic::create($input);
-      if($result){return redirect('admin/mpic');}
-      else{return back()->with('errors','生成分类失败');}
-      }else{
-        return back()->withErrors($validator);
-      }
-
-
+        if($validator->passes()){
+          $input['main_media_url'] = url('cate/'.  $input['main_media_cate_id']);
+          // dd($input['main_media_url']);
+          $result =   MainMedia::create($input);
+          if($result){return redirect('admin/main_media');}
+          else{return back()->with('errors','生成失败');}
+          }else{
+            return back()->withErrors($validator);
+          }
     }
   }
 
 
 
-    // GET|HEAD   编辑链接  | admin/mpic/{mpic}/edit
-  public function edit($mpic_id){
-    $field = Mpic::find($mpic_id);
-    return view('admin.mpic.edit',compact('field'));
+    // GET|HEAD   编辑链接  | admin/main_media/{main_media}/edit
+  public function edit($main_media_id){
+    $field = MainMedia::find($main_media_id);
+    $cate = Category::all();
+    return view('admin.main_media.edit',compact('field','cate'));
   }
 
-  //PUT|PATCH     | admin/mpic/{mpic}
-  public function update($mpic_id){
+  //PUT|PATCH     | admin/main_media/{main_media}
+  public function update($main_media_id){
     $input = Input::except('_method','_token');
-    $result = Mpic::where('mpic_id',$mpic_id)->update($input);
+    $result = MainMedia::where('main_media_id',$main_media_id)->update($input);
 
     if($result){
-      return redirect('admin/mpic');
+      return redirect('admin/main_media');
     }else{
       return back()->with('errors','友情链接更新失败');
     }
@@ -78,9 +84,10 @@ class MainMediaController extends Controller
 
   public function changeOrder(){
     $input = Input::except('_token');
-    $mpic = Mpic::find($input['mpic_id']);
-    $mpic->mpic_order=$input['mpic_order'];
-    $result =   $mpic->update();
+    // dd($input);
+    $main_media = MainMedia::find($input['main_media_id']);
+    $main_media->main_media_order=$input['main_media_order'];
+    $result =   $main_media->update();
     if($result){
       $data=[
         'status'=>0,
@@ -100,8 +107,8 @@ class MainMediaController extends Controller
   }
 
 
-  public function destroy($mpic_id){
-    $result = Mpic::where('mpic_id',$mpic_id)->delete();
+  public function destroy($main_media_id){
+    $result = MainMedia::where('main_media_id',$main_media_id)->delete();
     if($result){
       $data=[
         'status'=>0,

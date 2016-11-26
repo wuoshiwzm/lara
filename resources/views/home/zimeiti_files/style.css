@@ -266,7 +266,7 @@ border: 0px;
    .box1 .box1_left ul li a{
    	color: #fff;
    	text-decoration: none;
-   }		
+   }
  .box1_midden{
  	width: 630px;
  	height: 307px;
@@ -318,6 +318,8 @@ border: 0px;
   		color: #a9a9a9;
   		text-indent: 7px;
   }
+
+
  .box1_right .Tabbottom .dan{
  	width: 16px;
   	height: 16px;
@@ -407,7 +409,7 @@ border: 0px;
 }
 .piczs{width:1200px; margin:0 auto;}
 .rollBoxa{ width:100%; height:234px; margin:0 auto; padding-top:10px;}
-.rollBoxa .LeftBotton{ 
+.rollBoxa .LeftBotton{
    width: 19px;
   margin-right: 5px;
   float: left;
@@ -418,7 +420,7 @@ border: 0px;
 }
 .rollBoxa .RightBotton { width:19px; margin-left:5px; float:right; height:144px; overflow:hidden; cursor:pointer; background:url(../images/right.jpg) right center no-repeat;}
 .rollBoxa .Cont{ width:1152px; overflow:hidden; margin:0 auto;}
-.rollBoxa li{ 
+.rollBoxa li{
  float: left;
     width: 120px;
     height: 180px;
@@ -923,7 +925,7 @@ border: 0px;
 }
 .li_foo .hover{
 	background: #f67517;
-} 
+}
 .li_foo li a{
 	color: #fff;
 }
@@ -964,14 +966,14 @@ div#slide-holder div#slide-controls p#slide-nav a{background-image:url(../images
 .rollBox .LeftBotton{ width:22px; float:left; height:324px; overflow:hidden; cursor:pointer; background:url(../images/rightaa.jpg) left center no-repeat; margin-right:16px;}
 .rollBox .RightBotton { width:22px; float:right; height:324px; overflow:hidden; cursor:pointer; margin-left:16px; background:url(../images/leftaa.jpg) right center no-repeat;}
 .rollBox .Cont{ width:1123px; overflow:hidden; margin:0 auto;}
-.rollBox li{ 
+.rollBox li{
     float: left;
     width: 210px;
     display: block;
     height: 324px;
     margin: 0 7px;
     overflow: hidden;
-	background:#f6f6f6;	
+	background:#f6f6f6;
 }
 .rollBox li img{ width:210px; height:210px;}
 .bto_gu{

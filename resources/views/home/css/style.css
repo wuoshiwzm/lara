@@ -318,6 +318,36 @@ border: 0px;
   		color: #a9a9a9;
   		text-indent: 7px;
   }
+
+  .box1_right .Tabbottom .input_ab{
+  		width: 164px;
+  		height: 34px;
+  		border:1px solid #abadb3;
+  		border-left: 0px;
+  		border-right: 0px;
+  		margin-left: 18px;
+  		margin-top: 14px;
+  		color: #a9a9a9;
+  		text-indent: 7px;
+			vertical-align:middle;
+  }
+
+	.box1_right .Tabbottom .valid_code{
+			width: 32.5%;
+			height: 30px;
+			vertical-align:middle;
+			margin-top: 14px;
+			margin-left: 0px;
+			/*border:1px solid #abadb3;
+			border-left: 0px;
+			border-right: 0px;
+			margin-left: 18px;
+			margin-top: 24px;
+			color: #a9a9a9;
+			text-indent: 7px;*/
+	}
+
+
  .box1_right .Tabbottom .dan{
  	width: 16px;
   	height: 16px;

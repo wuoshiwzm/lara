@@ -1,42 +1,14 @@
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>首页</title>
-<link rel="stylesheet" media="screen" href="{{asset('resources/views/home/css/style.css')}}" />
-<link rel="stylesheet" media="screen" href="{{asset('resources/views/home/css/jquery.jslides.css')}}" />
-
-<script type="text/javascript" src="{{asset('resources/views/home/js/jquery.js')}}"></script>
-<script type="text/javascript" src="{{asset('resources/views/home/js/jquery.jslides.js')}}"></script>
-<script type="text/javascript" src="{{asset('resources/views/home/js/link.js')}}"></script>
-<script type="text/javascript" src="{{asset('resources/views/home/js/script.js')}}"></script>
-</head>
-
-<body>
+@include('layouts.main_head')
 
 
-  <body onload="time()">
-  <!-- data for weixin share -->
+<!-- weather date ... -->
+@include('layouts.rig_top')
 
+<!-- nav bar -->
+@include('layouts.nav')
 
-   <input type="hidden"  class="session_user"  value=
-   @if( session('user'))
-   "{{session('user')->user_name}}"
-   @else
-   ""
-   @endif >
-    <div class="top">
-    <div class="wrappersy">
-        <div class="logo">
-        <a href=" {{url('')}}"><img src="{{asset('resources/views/home/images/logo.jpg')}}"></a>
-        </div>
-        <div class="top_right">
-          <!-- weather date ... -->
-          @include('layouts.rig_top')
-
-          <!-- nav bar -->
-          @include('layouts.nav')
-
-          <!-- seach bar -->
-          @include('layouts.search')
+<!-- seach bar -->
+@include('layouts.search')
 </div>
 </div>
 </div>
@@ -51,96 +23,12 @@
 @include('layouts.widget.spic')
 
 <!-- 登陆 -->
-        <div class="box1_right">
-            <div class="TabTitle">
-                <ul>
-                    <li class="hover" id="gsjj1" onMouseover="setTab('gsjj',1,2)"><a href="#">个人登录</a></li>
-                    <!-- <li class="" id="gsjj2" onMouseover="setTab('gsjj',2,2)"><a href="#">企业登录</a></li> -->
-                </ul>
-                <div class="clear"></div>
-            </div>
-            <div class="Tabbottom">
-                <div id="con_gsjj_1" class="display" style="display: block;">
-                    <!--<p class="we_name">
-                        欢迎回来,<a href="">李航 </a>！<span class="tuichu">[退出]</span>
-                    </p>
-                    <p class="we_name awe">
-                    <span class="toudi">投递反馈(0)<br>消息中心(3/5)</span>
-                    <span>信息管理<br>信息管理<br>信息管理</span>
-                    </p>
-                    <input type="button" class="denglu" value="进入个人中心"> -->
-                    <input type="text" class="input_aa" value="邮箱">
-                    <input type="text" class="input_aa" value="密码">
-                    <p class="pp"><input type="button" class="dan"> <span> 下次自动登录</span>
-                    <a href="">忘记密码?</a></p>
-                    <input type="button" class="denglu" value="确认登录">
-                     <p class="zhu">还没有个人账号？ <a href="">立即注册</a></p>
-                    <p class="p_img">
-                        <a href=""><img src="images/qq.jpg"/></a>
-                        <a href=""><img src="images/weixin11.jpg"/></a>
-                        <a href=""><img src="images/weibo.jpg"/></a>
-                    </p>
-                     </div>
-                     <div id="con_gsjj_2" class="hidden" style="display: none;">
-                           <input type="text" class="input_aa" value="邮箱">
-                           <input type="text" class="input_aa" value="密码">
-                           <p class="pp"><input type="button" class="dan"> <span> 下次自动登录</span>
-                           <a href="">忘记密码?</a></p>
-                           <input type="button" class="denglu" value="确认登录">
-                           <p class="zhu">还没有企业账号？ <a href="">立即注册</a></p>
-                     </div>
-                </div>
-            </div>
-        </div>
-</div>
-<div class="box_2">
-        <div class="title_box_2"></div>
-        <div class="piczs">
-            <div class="rollBoxa">
-                <div class="Cont">
-                    <div class="ScrCont">
-                            <div>
-                                    <ul>
-                                        <li>
-                                           <a href="#"><img src="images/m8.png"></a>
-                                             <p class="topaa">电视广告</p>
-                                             <p class="topbb">DIANSHIGUANGGAO</p>
-                                        </li>
-                                         <li>
-                                           <a href="#"><img src="images/m8.png"></a>
-                                             <p class="topaa">广播广告</p>
-                                             <p class="topbb">DIANSHIGUANGGAO</p>
-                                        </li>
-                                         <li>
-                                           <a href="#"><img src="images/m8.png"></a>
-                                             <p class="topaa">电视广告</p>
-                                             <p class="topbb">DIANSHIGUANGGAO</p>
-                                        </li>
-                                         <li>
-                                           <a href="#"><img src="images/m8.png"></a>
-                                             <p class="topaa">广播广告</p>
-                                             <p class="topbb">DIANSHIGUANGGAO</p>
-                                        </li>
-                                         <li>
-                                           <a href="#"><img src="images/m8.png"></a>
-                                             <p class="topaa">电视广告</p>
-                                             <p class="topbb">DIANSHIGUANGGAO</p>
-                                        </li>
-                                         <li>
-                                           <a href="#"><img src="images/m8.png"></a>
-                                             <p class="topaa">广播广告</p>
-                                             <p class="topbb">DIANSHIGUANGGAO</p>
-                                        </li>
-                                    </ul>
-                            </div>
-                                <div class="clear"></div>
-                         </div>
-                     <div class="clear"></div>
-            </div>
-      </div>
-      <div class="clear"></div>
-</div>
-</div>
+@include('layouts.widget.ajax_login')
+
+<!-- 主流媒体 -->
+@include('layouts.widget.main_media')
+
+
 <div class="box3">
     <div class="box3_title">
         <div class="title_left"><a href="">精品推荐<span>/</span></a><span class="small">JINGPINTUIJIAN</span></div>
@@ -387,6 +275,10 @@
         </div>
     </div>
 </div>
+
+
+
+<?php die(); ?>
 <div class="guanggaowei">
      <!-- <a href=""><img src="images/guanggao.jpg" alt="" /></a> -->
 </div>

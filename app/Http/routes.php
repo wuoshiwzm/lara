@@ -27,7 +27,10 @@ Route::group(['middleware' => []], function () {
     Route::get('/a/{art_id}','Home\IndexController@article');
     Route::get('/a1/{art_id}','Home\IndexController@article1');
     Route::get('/a2/{art_id}','Home\IndexController@article2');
+
+    //登录
     Route::any('admin/login', 'Admin\LoginController@login');
+    Route::any('admin/ajax_login', 'Admin\LoginController@ajaxLogin');
     Route::get('admin/code', 'Admin\LoginController@code');
 
 
@@ -114,13 +117,17 @@ Route::group(['middleware' => ['admin.login'],'prefix'=>'admin','namespace'=>'Ad
     Route::any('navs/changeorder', 'NavsController@changeOrder');
     Route::resource('navs','NavsController');
 
-    //主页面大横幅
+    //主页面大横幅后台设置
     Route::any('mpic/changeorder', 'MpicController@changeOrder');
     Route::resource('mpic','MpicController');
 
-    //主页面小横幅
+    //主页面小横幅后台设置
     Route::any('spic/changeorder', 'SpicController@changeOrder');
     Route::resource('spic','SpicController');
+
+    //主页面主流媒体后台设置
+    Route::any('main_media/changeorder', 'MainMediaController@changeOrder');
+    Route::resource('main_media','MainMediaController');
 
     Route::any('config/putfile', 'ConfigController@putFile');
     Route::any('config/changeorder', 'ConfigController@changeOrder');

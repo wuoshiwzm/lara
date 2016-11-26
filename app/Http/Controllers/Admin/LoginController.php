@@ -17,13 +17,13 @@ class LoginController extends CommonController
     {
       // dd(Input::all());
       if(session('user')){
-            if(session('company_id')){
-               return redirect('admin');
-            }
-            if((Company::where('user_id',session('user')['user_id'])->first()) && !(session('company_id'))){
-               $company_id = Company::where('user_id',session('user')['user_id'])->first()->user_id;
-               session(['company_id'=>$company_id]);
-            }
+            // if(session('company_id')){
+            //    return redirect('admin');
+            // }
+            // if((Company::where('user_id',session('user')['user_id'])->first()) && !(session('company_id'))){
+            //    $company_id = Company::where('user_id',session('user')['user_id'])->first()->user_id;
+            //    session(['company_id'=>$company_id]);
+            // }
            return redirect('admin');
        }
 
@@ -48,6 +48,7 @@ class LoginController extends CommonController
                 return back()->with('msg', '用户名或密码错误！');
             }
             session(['user'=>$user]);
+
             if(Company::where('user_id',session('user')['user_id'])->first()){
               $company_id = Company::where('user_id',session('user')['user_id'])->first()->user_id;
 
@@ -64,6 +65,72 @@ class LoginController extends CommonController
 
     }
 
+    public function ajaxLogin(){
+      // return "yes";
+      // dd(Input::all());
+
+      //已经登录
+      if(session('user')){
+            $data=[
+              'status'=>1,
+              'msg'=>'登录成功！',
+            ];
+           return $data;
+       }
+
+       //有input发送数据
+       if ($input = Input::except('_token')) {
+           $code = new \Code;
+
+           $_code = $code->get();
+
+
+           if (strtoupper($input['code']) != $_code) {
+               $data=[
+                 'status'=>0,
+                 'msg'=>'验证码错误！',
+               ];
+              //  dd('here');
+               return $data;
+           }
+
+           $user = User::where('user_name',$input['user_name'])->first();
+           if(!$user){
+               $data=[
+                 'status'=>0,
+                 'msg'=>'用户名或密码错误！',
+               ];
+               return $data;
+           }
+
+
+           $test =  $user->user_pass;
+           if ($user->user_name!=$input['user_name']
+               || Crypt::decrypt($user->user_pass) != $input['user_pass']
+           ) {
+             $data=[
+               'status'=>0,
+               'msg'=>'用户名或密码错误！',
+             ];
+             return $data;
+           }
+
+           //登录成功
+           session(['user'=>$user]);
+           //
+          //  if(Company::where('user_id',session('user')['user_id'])->first()){
+          //    $company_id = Company::where('user_id',session('user')['user_id'])->first()->user_id;
+           //
+          //    session(['company_id'=>$company_id]);
+          //  }
+          $data=[
+            'status'=>1,
+            'msg'=>'登录成功！',
+          ];
+          return $data;
+       }
+
+    }
 
     public function code(){
 
