@@ -31,6 +31,10 @@
 				<ul class="sub_menu">
 
 					<li><a href="{{url('admin/navs')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>网站首页</a></li>
+					<li><a href="{{url('admin/mpic')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>首页大横幅</a></li>
+					<li><a href="{{url('admin/spic')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>首页小横幅</a></li>
+					<li><a href="{{url('admin/page_banner')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>其他页横幅</a></li>
+					<li><a href="{{url('admin/main_media')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>主流媒体</a></li>
 					<li><a href="{{url('admin/category')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>媒体分类</a></li>
 					<li><a href="{{url('admin/category1')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>设计分类</a></li>
 					<li><a href="{{url('admin/category2')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>策划分类</a></li>

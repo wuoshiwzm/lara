@@ -88,7 +88,7 @@ class IndexController extends CommonController
     foreach ($allChild as $k => $v) {
       $childId[]=$v['cate_id'];
     }
-    $data = Article::whereIn('cate_id',$childId)->orderBy('art_view','desc')->paginate(10);
+    $data = Article1::whereIn('cate_id',$childId)->orderBy('art_view','desc')->paginate(10);
 
     // the child categorys
     $submenu = Category1::where('cate_pid',$cate_id)->get();
@@ -110,7 +110,7 @@ class IndexController extends CommonController
     foreach ($allChild as $k => $v) {
       $childId[]=$v['cate_id'];
     }
-    $data = Article::whereIn('cate_id',$childId)->orderBy('art_view','desc')->paginate(10);
+    $data = Article2::whereIn('cate_id',$childId)->orderBy('art_view','desc')->paginate(10);
 
     // the child categorys
     $submenu = Category2::where('cate_pid',$cate_id)->get();
@@ -127,6 +127,7 @@ class IndexController extends CommonController
 
   public function article($art_id){
     $field = Article::Join('category','article.cate_id','=','category.cate_id')->where('art_id',$art_id)->first();
+    $cate_info = Category::find($field->cate_id);
     $article['pre']= Article::where('art_id','<',$art_id)->orderBy('art_id','desc')->first();
     $article['next']= Article::where('art_id','>',$art_id)->orderBy('art_id','asc')->first();
     $data = Article::where('cate_id',$field->cate_id)->orderBy('art_view','desc')->take(6)->get();
@@ -135,31 +136,36 @@ class IndexController extends CommonController
     //add view times
     Article::where('art_id',$art_id)->increment('art_view',1);
 
-    return view('home/new',compact('field','article','data','new'));
+    return view('home/new',compact('field','article','data','new','cate_info'));
   }
 
   public function article1($art_id){
     $field = Article1::Join('category1','article1.cate_id','=','category1.cate_id')->where('art_id',$art_id)->first();
-    $article['pre']= Article::where('art_id','<',$art_id)->orderBy('art_id','desc')->first();
-    $article['next']= Article::where('art_id','>',$art_id)->orderBy('art_id','asc')->first();
-    $data = Article::where('cate_id',$field->cate_id)->orderBy('art_view','desc')->take(6)->get();
-    $new = Article::where('cate_id',$field->cate_id)->orderBy('art_id','desc')->take(6)->get();
+    // dd($field);
+    $cate_info = Category1::find($field->cate_id);
+    $article['pre']= Article1::where('art_id','<',$art_id)->orderBy('art_id','desc')->first();
+    $article['next']= Article1::where('art_id','>',$art_id)->orderBy('art_id','asc')->first();
+    $data = Article1::where('cate_id',$field->cate_id)->orderBy('art_view','desc')->take(6)->get();
+    $new = Article1::where('cate_id',$field->cate_id)->orderBy('art_id','desc')->take(6)->get();
 
     //add view times
-    Article::where('art_id',$art_id)->increment('art_view',1);
+    Article1::where('art_id',$art_id)->increment('art_view',1);
 
-    return view('home/new',compact('field','article','data','new'));
+    return view('home/new1',compact('field','article','data','new','cate_info'));
   }
+
+
   public function article2($art_id){
     $field = Article2::Join('category2','article2.cate_id','=','category2.cate_id')->where('art_id',$art_id)->first();
+    $cate_info = Category2::find($field->cate_id);
     $article['pre']= Article2::where('art_id','<',$art_id)->orderBy('art_id','desc')->first();
     $article['next']= Article2::where('art_id','>',$art_id)->orderBy('art_id','asc')->first();
     $data = Article2::where('cate_id',$field->cate_id)->orderBy('art_view','desc')->take(6)->get();
     $new = Article2::where('cate_id',$field->cate_id)->orderBy('art_id','desc')->take(6)->get();
 
     //add view times
-    Article::where('art_id',$art_id)->increment('art_view',1);
+    Article2::where('art_id',$art_id)->increment('art_view',1);
 
-    return view('home/new',compact('field','article','data','new'));
+    return view('home/new2',compact('field','article','data','new','cate_info'));
   }
 }

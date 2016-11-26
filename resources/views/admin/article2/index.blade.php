@@ -62,13 +62,11 @@
                         <td>{{date('Y-m-d',$v->art_time)}}</td>
 
                         <td>
-                            <a href="{{url('admin/article/'.$v->art_id.'/edit')}}">修改</a>
+                            <a href="{{url('admin/article2/'.$v->art_id.'/edit')}}">修改</a>
                             <a href="javascript::" onclick="delCate({{$v->art_id}})">删除</a>
                         </td>
                     </tr>
 										@endforeach
-
-
                 </table>
                 <div class="page_list">
                   {!!$data->links()!!}

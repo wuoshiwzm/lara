@@ -23,7 +23,7 @@
                   {
                       "id":"slide-img-{{$k+1}}", // 与slide-runner中的img标签id对应
                       "client":"",
-                       "desc":"$v->spic_name" //这里修改描述
+                       "desc":"" //这里修改描述
                   },
                   @endforeach
 

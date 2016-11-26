@@ -45,12 +45,17 @@ var code = $("#code").val();
 $.post('/admin/ajax_login',{'_token':"{{csrf_token()}}",'user_name':user_name,'user_pass':user_pass,'code':code},function(data){
 
 //登录失败
+
 if(data.status==0){
-  layer.msg(data.msg, {icon: 2});
+
+  alert(data.msg);
+
+  // layer.msg(data.msg, {icon: 2});
 }
 //登录成功
 if(data.status==1){
-  layer.msg(data.msg, {icon: 1});
+  // layer.msg(data.msg, {icon: 1});
+  alert(data.msg);
   location.href = location.href;
 }
 

@@ -26,7 +26,6 @@ class ArticleController extends CommonController
     public function create(){
 
       $categorys = (new Category)->adminCate();
-      // die('pls call cre function!');
       return view('admin.add_service.choose_cate',compact('categorys'));
     }
 
@@ -86,7 +85,7 @@ class ArticleController extends CommonController
         // $field = Article::where('art_id',$art_id)->first();
         $field = Article::find($art_id);
         $data=(new Category)->tree();
-        return view('admin.article.edit',compact('field','data'));
+        return view('admin.add_service.edit',compact('field','data'));
       }
 
 
@@ -96,11 +95,10 @@ class ArticleController extends CommonController
         $result = Article::where('art_id',$art_id)->update($input);
 
         if($result){
-          return redirect('admin/category');
+          return redirect('admin/article');
         }else{
           return back()->with('errors','文章更新失败');
         }
-
       }
 
 

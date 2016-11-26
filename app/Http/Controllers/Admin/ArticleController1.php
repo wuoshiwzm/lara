@@ -80,7 +80,7 @@ class ArticleController1 extends CommonController
         // $field = Article1::where('art_id',$art_id)->first();
         $field = Article1::find($art_id);
         $data=(new Category1)->tree();
-        return view('admin.article1.edit',compact('field','data'));
+        return view('admin.add_service.edit1',compact('field','data'));
       }
 
 
@@ -90,7 +90,7 @@ class ArticleController1 extends CommonController
         $result = Article1::where('art_id',$art_id)->update($input);
 
         if($result){
-          return redirect('admin/Category1');
+          return redirect('admin/article1');
         }else{
           return back()->with('errors','文章更新失败');
         }

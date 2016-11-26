@@ -37,8 +37,8 @@
 <div class="xiangqing">
   <div class="ny_top">当前位置：
     <a href="{{url('')}}">首页</a> >
-    <a href="{{url('cate1')}}">设计资源</a> >
-    <a href="{{url('cate1/'.$field->cate_id)}}">{{$cate_info->cate_name}}</a> > 正文</div>
+    <a href="{{url('cate')}}">广告资源</a> >
+    <a href="{{url('cate/'.$field->cate_id)}}">{{$cate_info->cate_name}}</a> > 正文</div>
   <div class="zw">
     <div class="fbr"><a href="#">发布人：{{$field->art_editor}}</a></div>
     <div class="news-title-sub">{{$field->art_title}}</div>
@@ -57,14 +57,14 @@
 </div>
 <div class="pian">
        <a href=
-       @if($article['pre'])
-       "{{url('a1/'.$article['pre']->art_id)}}"
-         >上一篇
-       @endif
-      </a><br>
+        @if($article['pre'])
+        "{{url('a1/'.$article['pre']->art_id)}}"
+          >上一篇
+        @endif
+       </a><br>
        <a href=
       @if($article['next'])
-      "{{url('a1/'.$article['next']->art_id)}}"
+      "{{url('a/'.$article['next']->art_id)}}"
         >下一篇
       @endif
     </a>

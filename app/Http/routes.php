@@ -125,6 +125,10 @@ Route::group(['middleware' => ['admin.login'],'prefix'=>'admin','namespace'=>'Ad
     Route::any('spic/changeorder', 'SpicController@changeOrder');
     Route::resource('spic','SpicController');
 
+    //其他页面横幅
+    Route::any('page_banner/changeorder', 'PageBannerController@changeOrder');
+    Route::resource('page_banner','PageBannerController');
+
     //主页面主流媒体后台设置
     Route::any('main_media/changeorder', 'MainMediaController@changeOrder');
     Route::resource('main_media','MainMediaController');

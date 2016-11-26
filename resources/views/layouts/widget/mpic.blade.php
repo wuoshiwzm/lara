@@ -2,7 +2,7 @@
      <div id="full-screen-slidera">
         <ul id="slidesa">
           @foreach($mpic as $k=>$v)
-              <li style="background:url({{$v->mpic_path}}) no-repeat center top">
+              <li style="background:url({{$v->mpic_path}}) no-repeat center">
                 <a ></a>
               </li>
           @endforeach

@@ -4,12 +4,11 @@ namespace App\Http\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article1 extends Model
+class PageBanner extends Model
 {
-  protected $table='article1';
-  protected $primaryKey='art_id';
+  protected $table='page_banner';
+  protected $primaryKey = 'page_banner_id';
   // public $timestamps = false;
   protected $guarded = [];
-
 
 }

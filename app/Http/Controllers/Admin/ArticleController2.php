@@ -81,7 +81,7 @@ class ArticleController2 extends CommonController
         // $field = Article2::where('art_id',$art_id)->first();
         $field = Article2::find($art_id);
         $data=(new Category2)->tree();
-        return view('admin.article2.edit',compact('field','data'));
+        return view('admin.add_service.edit2',compact('field','data'));
       }
 
 
@@ -91,7 +91,7 @@ class ArticleController2 extends CommonController
         $result = Article2::where('art_id',$art_id)->update($input);
 
         if($result){
-          return redirect('admin/Category2');
+          return redirect('admin/article2');
         }else{
           return back()->with('errors','文章更新失败');
         }

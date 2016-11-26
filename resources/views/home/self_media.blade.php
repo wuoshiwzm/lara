@@ -28,14 +28,11 @@
         @include('layouts.search')
 
 
+</div>
+</div>
+</div>
+  @include('layouts.widget.page_banner')
 
-
-</div>
-</div>
-</div>
-    <div class="ny_banner">
-      <!-- <img src="{{asset('resources/views/home/images/banner.jpg')}}"> -->
-    </div>
 
      <div class="zi">
          <div class="title_zi">
