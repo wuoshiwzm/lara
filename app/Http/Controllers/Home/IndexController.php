@@ -14,6 +14,8 @@ use App\Http\Model\MainMedia;
 use App\Http\Model\Company;
 use App\Http\Model\Recm;
 use App\Http\Model\Recm1;
+use App\Http\Model\News;
+use App\Http\Model\Offer;
 
 
 class IndexController extends CommonController
@@ -55,6 +57,13 @@ class IndexController extends CommonController
       $recm1[] = [$name => $cont];
     }
 
+    //新闻
+    $news = News::limit(5)->get();
+
+    //求购
+    $offer = Offer::limit(6)->get();
+
+
     // dd($recm1);
 
     return view('home.index')
@@ -63,7 +72,9 @@ class IndexController extends CommonController
     ->with('company',$company)
     ->with('main_media',$main_media)
     ->with('recm',$recm)
-    ->with('recm1',$recm1);
+    ->with('recm1',$recm1)
+    ->with('news',$news)
+    ->with('offer',$offer);
   }
 
   public function dcate(){
