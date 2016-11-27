@@ -133,6 +133,25 @@ Route::group(['middleware' => ['admin.login'],'prefix'=>'admin','namespace'=>'Ad
     Route::any('main_media/changeorder', 'MainMediaController@changeOrder');
     Route::resource('main_media','MainMediaController');
 
+    //精品推荐
+    Route::resource('recm','RecmommendController');
+    Route::any('recm/changeorder', 'RecmommendController@changeOrder');
+
+    //设计推荐
+    Route::resource('recm1','RecmommendController1');
+    Route::any('recm1/changeorder', 'RecmommendController1@changeOrder');
+
+    //新闻管理
+    Route::resource('news','NewsController');
+    Route::any('news/changeorder', 'NewsController@changeOrder');
+
+    //求购管理
+    Route::resource('offer','OfferController');
+    Route::any('offer/changeorder', 'OfferController@changeOrder');
+
+
+
+
     Route::any('config/putfile', 'ConfigController@putFile');
     Route::any('config/changeorder', 'ConfigController@changeOrder');
     Route::any('config/changecontent', 'ConfigController@changeContent');

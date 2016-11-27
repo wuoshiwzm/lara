@@ -12,6 +12,8 @@ use App\Http\Model\Mpic;
 use App\Http\Model\Spic;
 use App\Http\Model\MainMedia;
 use App\Http\Model\Company;
+use App\Http\Model\Recm;
+use App\Http\Model\Recm1;
 
 
 class IndexController extends CommonController
@@ -27,14 +29,41 @@ class IndexController extends CommonController
     //最新入驻公司
     $company = Company::orderBy('updated_at')->limit(7)->get();
     //主流媒体
-    $main_media =MainMedia::orderBy('main_media_order')->get();
+    $main_media = MainMedia::orderBy('main_media_order')->get();
 
+    //精品推荐
+    $recm_content = Recm::orderBy('recm_order','asc')->get();
+    $recm = [];
+    foreach ($recm_content as $k) {
+      $artIdArr = explode(',',$k->recm_content);
+      $name = $k->recm_name;
+      foreach($artIdArr as $a){
+        $cont[] = Article::find($a);
+      }
+      $recm[] = [$name => $cont];
+    }
+
+    //设计推荐
+    $recm_content1 = Recm1::orderBy('recm_order','asc')->get();
+    $recm1 = [];
+    foreach ($recm_content1 as $k) {
+      $artIdArr = explode(',',$k->recm_content);
+      $name = $k->recm_name;
+      foreach($artIdArr as $a){
+        $cont[] = Article::find($a);
+      }
+      $recm1[] = [$name => $cont];
+    }
+
+    // dd($recm1);
 
     return view('home.index')
     ->with('mpic',$mpic)
     ->with('spic',$spic)
     ->with('company',$company)
-    ->with('main_media',$main_media);
+    ->with('main_media',$main_media)
+    ->with('recm',$recm)
+    ->with('recm1',$recm1);
   }
 
   public function dcate(){
