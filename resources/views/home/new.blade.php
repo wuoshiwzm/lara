@@ -1,5 +1,5 @@
 @include('layouts.header')
-
+<!-- 文章内容 - 广告资源 -->
 
 <body onload="time()">
 <!-- data for weixin share -->

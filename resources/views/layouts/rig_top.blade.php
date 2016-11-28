@@ -5,9 +5,9 @@
 
 
       @if(session('user'))
-      <a href="{{url('admin')}}" target="_blank"> {{session('user')->user_name}}</a>
+      <a href="{{url('member')}}" target="_blank"> {{session('user')->user_name}}</a>
       @else
-      <a href="{{url('admin')}}">　登录</a>
+      <a href="{{url('member')}}">　登录</a>
       @endif
 
        <span><a href="http://bq.com/api/city.php" style="color:#fff;">[ 切换城市：全国]</a></span></div>

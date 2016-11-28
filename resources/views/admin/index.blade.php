@@ -30,29 +30,29 @@
 				<h3><i class="fa fa-fw fa-clipboard"></i>网站管理</h3>
 				<ul class="sub_menu">
 
-					<li><a href="{{url('admin/navs')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>网站首页</a></li>
+					<li><a href="{{url('admin/navs')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>导航栏</a></li>
 					<li><a href="{{url('admin/mpic')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>首页大横幅</a></li>
 					<li><a href="{{url('admin/spic')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>首页小横幅</a></li>
 					<li><a href="{{url('admin/page_banner')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>其他页横幅</a></li>
 					<li><a href="{{url('admin/main_media')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>主流媒体</a></li>
+					<li><a href="{{url('admin/recm')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>精品推荐-广告</a></li>
+					<li><a href="{{url('admin/recm1')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>精品推荐-设计</a></li>
 					<li><a href="{{url('admin/category')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>媒体分类</a></li>
 					<li><a href="{{url('admin/category1')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>设计分类</a></li>
 					<li><a href="{{url('admin/category2')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>策划分类</a></li>
-						<li><a target="main"><i class="fa fa-fw fa-list-ul"></i>轮播图</a></li>
-						<li><a target="main"><i class="fa fa-fw fa-list-ul"></i>媒体资源管理</a></li>
-						<li><a target="main"><i class="fa fa-fw fa-list-ul"></i>广告位管理</a></li>
-						<li><a target="main"><i class="fa fa-fw fa-list-ul"></i>公司展示</a></li>
 
 				</ul>
 			</li>
 
 			<li>
-				<h3><i class="fa fa-fw fa-clipboard"></i>资源上传</h3>
+				<h3><i class="fa fa-fw fa-clipboard"></i>资源管理</h3>
 				<ul class="sub_menu">
 
 					<li><a href="{{url('admin/article')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>媒体资源</a></li>
 					<li><a href="{{url('admin/article1')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>设计资源</a></li>
 					<li><a href="{{url('admin/article2')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>策划资源</a></li>
+					<li><a href="{{url('admin/news')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>新闻资源</a></li>
+					<li><a href="{{url('admin/offer')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>求购信息</a></li>
 
 				</ul>
 			</li>
@@ -64,8 +64,8 @@
 			<li>
 				<h3><i class="fa fa-fw fa-clipboard"></i>自媒体</h3>
 				<ul class="sub_menu">
-					<li><a   target="main"><i class="fa fa-fw fa-list-alt"></i>管理</a></li>
-					<li><a   target="main"><i class="fa fa-fw fa-list-alt"></i>添加</a></li>
+					<li><a href="{{url('admin/self_media')}}" target="main"><i class="fa fa-fw fa-list-alt"></i>管理</a></li>
+					<!-- <li><a   target="main"><i class="fa fa-fw fa-list-alt"></i>添加</a></li> -->
 				</ul>
 			</li>
 
@@ -108,9 +108,9 @@
 			<li>
 				<h3><i class="fa fa-fw fa-cog"></i>系统设置</h3>
 				<ul class="sub_menu" style="display:none">
-					<li><a href="{{url('admin/links')}}" target="main"><i class="fa fa-fw fa-cubes"></i>友情链接</a></li>
+					<!-- <li><a href="{{url('admin/links')}}" target="main"><i class="fa fa-fw fa-cubes"></i>友情链接</a></li> -->
 					<!-- <li><a href="{{url('admin/navs')}}" target="main"><i class="fa fa-fw fa-arrows-alt"></i>自定义导航</a></li> -->
-					<li><a href="{{url('admin/config')}}" target="main"><i class="fa fa-fw fa-wrench"></i>系统配置</a></li>
+					<!-- <li><a href="{{url('admin/config')}}" target="main"><i class="fa fa-fw fa-wrench"></i>系统配置</a></li> -->
 				</ul>
 			</li>
 			<li>

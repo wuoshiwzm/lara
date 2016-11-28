@@ -104,117 +104,46 @@
 @include('layouts.widget.investment')
 
 
-<?php die(); ?>
-<div class="bot">
-    <li>
-        <span class="fli">张三</span>
-        <span>13.20</span>
-        <span>浏览了</span>
-        <span><a href="">西安步旗文化广告传播公司</a></span>
-        <span>求购公司</span>
-    </li>
-     <li>
-        <span class="fli">张三</span>
-        <span>13.20</span>
-        <span>浏览了</span>
-        <span><a href="">西安步旗文化广告传播公司</a></span>
-        <span>求购公司</span>
-    </li>
-     <li>
-        <span class="fli">张三</span>
-        <span>13.20</span>
-        <span>浏览了</span>
-        <span><a href="">西安步旗文化广告传播公司</a></span>
-        <span>求购公司</span>
-    </li>
-</div>
-<div class="yl">
-    <div class="yl_con">
-        <a href="">西安步旗文化广告传播公司</a>
-        <a href="">西安步旗文化广告传播公司</a>
-        <a href="">西安步旗文化广告传播公司</a>
-        <a href="">西安步旗文化广告传播公司</a>
-    </div>
-</div>
-<div class="footer">
-    <div class="fot_main">
-        <img src="images/footlogo.jpg" class="fotlogo" />
-        <div class="mian_com">
-            <div class="fot_box">
-                <div class="top_fot">
-                    <a href="">广告媒体</a>
-                </div>
-                <ul>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
+{{--浏览记录--}}
+{{--<div class="bot">--}}
+    {{--<li>--}}
+        {{--<span class="fli">张三</span>--}}
+        {{--<span>13.20</span>--}}
+        {{--<span>浏览了</span>--}}
+        {{--<span><a href="">西安步旗文化广告传播公司</a></span>--}}
+        {{--<span>求购公司</span>--}}
+    {{--</li>--}}
+     {{--<li>--}}
+        {{--<span class="fli">张三</span>--}}
+        {{--<span>13.20</span>--}}
+        {{--<span>浏览了</span>--}}
+        {{--<span><a href="">西安步旗文化广告传播公司</a></span>--}}
+        {{--<span>求购公司</span>--}}
+    {{--</li>--}}
+     {{--<li>--}}
+        {{--<span class="fli">张三</span>--}}
+        {{--<span>13.20</span>--}}
+        {{--<span>浏览了</span>--}}
+        {{--<span><a href="">西安步旗文化广告传播公司</a></span>--}}
+        {{--<span>求购公司</span>--}}
+    {{--</li>--}}
+{{--</div>--}}
 
-                </ul>
-            </div>
-            <div class="fot_box">
-                <div class="top_fot">
-                    <a href="">广告媒体</a>
-                </div>
-                <ul>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
+{{--友情链接--}}
+{{--<div class="yl">--}}
+    {{--<div class="yl_con">--}}
+        {{--<a href="">西安步旗文化广告传播公司</a>--}}
+        {{--<a href="">西安步旗文化广告传播公司</a>--}}
+        {{--<a href="">西安步旗文化广告传播公司</a>--}}
+        {{--<a href="">西安步旗文化广告传播公司</a>--}}
+    {{--</div>--}}
+{{--</div>--}}
 
-                </ul>
-            </div>
-            <div class="fot_box">
-                <div class="top_fot">
-                    <a href="">广告媒体</a>
-                </div>
-                <ul>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
 
-                </ul>
-            </div>
-            <div class="fot_box">
-                <div class="top_fot">
-                    <a href="">广告媒体</a>
-                </div>
-                <ul>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
-                    <li><a href="">电视广告</a></li>
 
-                </ul>
-            </div>
-            <div class="clear"></div>
-            <div class="fot_bot ">
-                <p class="left">版权所有：西安步旗广告文化传播有限公司</p>
-                <p class="right"> 网站总浏览量：1234  今日浏览量：230  当前在线人数：20人</p>
-            </div>
-        </div>
-        <div class="rig_fot">
-            <img src="images/weixin.jpg" alt="" />
-            <p>微信扫一扫</p>
-        </div>
-    </div>
-</div>
-<div class="duilian duilian_right" style="display: block; top: 300px;">
-    <div class="duilian_con">
-        <a href="" id="sina" target="_blank"></a>
-        <a href="" id="tengxun" target="_blank"></a>
-        <a href="" id="tengxun" target="_blank"></a>
-     </div>
-</div>
+        @include('layouts.footer')
+
+
 
 </body>
 </html>

@@ -16,9 +16,11 @@ class BossLogin
     public function handle($request, Closure $next)
     {
 
-
-        if(session('user') && session('user')->user_class==0){
-            return redirect('/');
+        if(!session('user')){
+            return redirect('admin/login');
+        }
+        if(session('user')->user_class!=0){
+            return redirect('');
         }
 //        echo "middleware admin.login pass!";
         return $next($request);

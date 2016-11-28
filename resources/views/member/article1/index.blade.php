@@ -5,7 +5,7 @@
     <!--面包屑导航 开始-->
     <div class="crumb_warp">
         <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
-        <i class="fa fa-home"></i> <a href="{{url('admin/info')}}">首页</a> &raquo;文章管理
+        <i class="fa fa-home"></i> <a href="{{url('member/info')}}">首页</a> &raquo;文章管理
     </div>
     <!--面包屑导航 结束-->
 
@@ -28,7 +28,7 @@
             <!--快捷导航 开始-->
             <div class="result_content">
                 <div class="short_wrap">
-                    <a href="{{url('admin/article/create')}}"><i class="fa fa-plus"></i>新增文章</a>
+                    <a href="{{url('member/article1/create')}}"><i class="fa fa-plus"></i>新增文章</a>
                     <!-- <a href="#"><i class="fa fa-recycle"></i>批量删除</a> -->
                     <!-- <a href="#"><i class="fa fa-refresh"></i>更新排序</a> -->
                 </div>
@@ -59,10 +59,10 @@
                         </td>
                         <td>{{$v->art_view}}</td>
                         <td>{{$v->art_editor}}</td>
-                        <td>{{date('Y-m-d',$v->art_time)}}</td>
+                        <td> {{date("Y-m-d", strtotime($v->created_at))}}</td>
 
                         <td>
-                            <a href="{{url('admin/article/'.$v->art_id.'/edit')}}">修改</a>
+                            <a href="{{url('member/article1/'.$v->art_id.'/edit')}}">修改</a>
                             <a href="javascript::" onclick="delCate({{$v->art_id}})">删除</a>
                         </td>
                     </tr>
@@ -90,7 +90,7 @@ function delCate(cate_id){
 	layer.confirm('是否删除分类？', {
 	  btn: ['确认','取消']
 	},function(){
-			$.post("{{url('admin/article/')}}/"+cate_id,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
+			$.post("{{url('member/article1/')}}/"+cate_id,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
 				if(data.status==0){
 
 					layer.msg(data.msg, {icon: 1});

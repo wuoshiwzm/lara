@@ -108,9 +108,9 @@ class RecmommendController1 extends CommonController
       public function changeOrder(){
 
         $input = Input::except('_token');
-        $recm = Recm1::find($input['recm_id']);
-        $recm->recm_order=$input['recm_order'];
-        $result =   $recm->update();
+        $recm1 = Recm1::find($input['recm_id']);
+        $recm1->recm_order=$input['recm_order'];
+        $result =   $recm1->update();
         if($result){
           $data=[
             'status'=>0,

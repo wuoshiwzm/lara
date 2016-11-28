@@ -43,7 +43,9 @@ class IndexController extends CommonController
         $cont[] = Article::find($a);
       }
       $recm[] = [$name => $cont];
+      $cont = [];
     }
+    $cont = [];
 
     //设计推荐
     $recm_content1 = Recm1::orderBy('recm_order','asc')->get();
@@ -52,10 +54,12 @@ class IndexController extends CommonController
       $artIdArr = explode(',',$k->recm_content);
       $name = $k->recm_name;
       foreach($artIdArr as $a){
-        $cont[] = Article::find($a);
+        $cont[] = Article1::find($a);
       }
       $recm1[] = [$name => $cont];
+      $cont = [];
     }
+
 
     //新闻
     $news = News::limit(5)->get();

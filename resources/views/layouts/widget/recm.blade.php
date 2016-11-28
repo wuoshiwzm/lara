@@ -1,6 +1,6 @@
 <div class="box3">
 
- 
+
     <div class="box3_title">
         <div class="title_left"><a href="">精品推荐<span>/</span></a><span class="small">JINGPINTUIJIAN</span></div>
         <div class="title_right">
@@ -45,7 +45,8 @@
                             </div>
                             <div class="clear"></div>
                         </div>
-                         <script type="text/javascript" src="js/honor.js"></script>
+                         <script type="text/javascript" src="{{asset('resources/views/home/js/honor.js')}}"></script>
+                         <!--   -->
                         <div class="clear"></div>
                 </div>
         </div>

@@ -10,14 +10,14 @@
             <div  class="display" style="display: block;">
                     @if(session('user'))
                       <p class="we_name">
-                          欢迎回来,<a href="{{url('admin')}}" target="_blank">{{session('user')->user_name}} </a>！<span class="tuichu">
-                            <a href="{{url('admin/quit')}}">[退出]</span></a>
+                          欢迎回来,<a href="{{url('member')}}" target="_blank">{{session('user')->user_name}} </a>！<span class="tuichu">
+                            <a href="{{url('member/quit')}}">[退出]</span></a>
                       </p>
                       <p class="we_name awe">
                       <!-- <span class="toudi">投递反馈(0)<br>消息中心(3/5)</span>
                       <span>信息管理<br>信息管理<br>信息管理</span> -->
                       </p>
-                      <a href="{{url('admin')}}" target="_blank"><input type="button" class="denglu" value="进入个人中心"></a>
+                      <a href="{{url('member')}}" target="_blank"><input type="button" class="denglu" value="进入个人中心"></a>
                     @else
                       <input type="text" class="input_aa" placeholder="用户名" id="user_name" name="user_name">
                       <input type="password" class="input_aa" placeholder="密码" id="user_pass"name="user_pass">
@@ -42,7 +42,7 @@ var user_name = $("#user_name").val();
 var user_pass = $("#user_pass").val();
 var code = $("#code").val();
 
-$.post('/admin/ajax_login',{'_token':"{{csrf_token()}}",'user_name':user_name,'user_pass':user_pass,'code':code},function(data){
+$.post('member/ajax_login',{'_token':"{{csrf_token()}}",'user_name':user_name,'user_pass':user_pass,'code':code},function(data){
 
 //登录失败
 

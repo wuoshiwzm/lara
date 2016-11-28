@@ -16,35 +16,30 @@ use APP\Http\Model\User;
 class IndexController extends CommonController
 {
     public function index(){
-      $user_info = session('user');
-      $user_class = $user_info->user_class;
-      switch($user_class){
-        case '0':
-        echo 0;
-        return view('admin.index');
-        case'1':
-        return view('admin.company_index');
-        case'2':
-        return view('admin.person_index');
-        // break;
-      }
-      die();
+      // $user_info = session('user');
+      // $user_class = $user_info->user_class;
+      // switch($user_class){
+      //   case '0':
+      //   echo 0;
+      //   return view('admin.index');
+      //   case'1':
+      //   return view('admin.company_index');
+      //   case'2':
+      //   return view('admin.person_index');
+      //   // break;
+      // }
+      // die();
       return view('admin.index');
-      // echo 234;
-      // $test=DB::connection()->getPdo();
-      // dd($test);
-
     }
 
     public function info()
     {
+      //管理员主页
         return view('admin.info');
     }
 
     //change password
-
     public function pass(){
-
     if($input = Input::all()){
       $rules=[
         'password'=>'between:6,20|confirmed|required',

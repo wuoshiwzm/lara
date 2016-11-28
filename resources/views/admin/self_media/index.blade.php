@@ -28,7 +28,7 @@
             <!--快捷导航 开始-->
             <div class="result_content">
                 <div class="short_wrap">
-                    <a href="{{url('admin/article/create')}}"><i class="fa fa-plus"></i>新增文章</a>
+                    <!-- <a href="{{url('admin/self_media/create')}}"><i class="fa fa-plus"></i>新增文章</a> -->
                     <!-- <a href="#"><i class="fa fa-recycle"></i>批量删除</a> -->
                     <!-- <a href="#"><i class="fa fa-refresh"></i>更新排序</a> -->
                 </div>
@@ -59,8 +59,8 @@
                         <td>{{$v->created_at}}</td>
 
                         <td>
-                            <a href="{{url('admin/article/'.$v->art_id.'/edit')}}">修改</a>
-                            <a href="javascript::" onclick="delCate({{$v->art_id}})">删除</a>
+                            <!-- <a href="{{url('admin/self_media/'.$v->art_id.'/edit')}}">修改</a> -->
+                            <a href="javascript::" onclick="delSelfMedia({{$v->media_id}})">删除</a>
                         </td>
                     </tr>
 										@endforeach
@@ -82,12 +82,12 @@
 
 
 <script>
-function delCate(cate_id){
+function delSelfMedia(media_id){
 
 	layer.confirm('是否删除分类？', {
 	  btn: ['确认','取消']
 	},function(){
-			$.post("{{url('admin/article/')}}/"+cate_id,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
+			$.post("{{url('admin/self_media/')}}/"+media_id,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
 				if(data.status==0){
 
 					layer.msg(data.msg, {icon: 1});

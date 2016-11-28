@@ -18,7 +18,7 @@ class AdminLogin
 
 
         if(!session('user')){
-            return redirect('admin/login');
+            return redirect('member/login');
         }
 //        echo "middleware admin.login pass!";
         return $next($request);

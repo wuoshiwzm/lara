@@ -103,7 +103,7 @@ class ArticleController extends CommonController
 
 
       public function destroy($art_id){
-        
+
         $result = Article::where('art_id',$art_id)->delete();
         if($result){
           $data=[

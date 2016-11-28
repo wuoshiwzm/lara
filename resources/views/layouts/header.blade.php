@@ -18,6 +18,8 @@
 <link href="{{asset('resources/views/home/css/ny.css')}}" rel="stylesheet" >
 <link href="{{asset('resources/views/home/css/style(1).css')}}" rel="stylesheet" >
 <link href="{{asset('resources/views/home/css/buttons.css')}}" rel="stylesheet">
+
+
 <!-- weibo share -->
 <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 
@@ -29,7 +31,8 @@
 <script type="text/javascript" src="{{asset('resources/views/home/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('resources/views/home/js/jquery.jslides.js')}}"></script>
 <script type="text/javascript" src="{{asset('resources/views/home/js/script.js')}}"></script>
-<script type="text/javascript">window.onerror=function(){return true;}</script><script type="text/javascript" src="{{asset('resources/views/home/js/lang.js')}}"></script>
+<script type="text/javascript">window.onerror=function(){return true;}</script>
+<script type="text/javascript" src="{{asset('resources/views/home/js/lang.js')}}"></script>
 <script type="text/javascript" src="{{asset('resources/views/home/js/config.js')}}"></script>
 <script type="text/javascript" src="{{asset('resources/views/home/js/common.js')}}"></script>
 <script type="text/javascript" src="{{asset('resources/views/home/js/page.js')}}"></script>
