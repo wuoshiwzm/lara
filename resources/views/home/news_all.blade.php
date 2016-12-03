@@ -32,33 +32,37 @@ margin-right: 20%;">
 
     <div class="cates">
         <!-- the value passed from controller: allChild  allCates -->
-        @foreach($allCates as $k=>$v)
-            @foreach($v as $a=>$b)
-                <a href="{{url('cate/'.$b->cate_id)}}">
-                    @if($b['cate_id']==$cate_id)
-                        <span style="color:red">
-                    @endif
-                    {{$b->cate_name}}</a>
-                @if($b['cate_id']==$cate_id)
-                </span>
-                @endif
-                </a>
-            @endforeach
-            <hr>
-        @endforeach
+        {{--@foreach($allCates as $k=>$v)--}}
+            {{--@foreach($v as $a=>$b)--}}
+                {{--<a href="{{url('cate/'.$b->cate_id)}}">--}}
+                    {{--@if($b['cate_id']==$cate_id)--}}
+                        {{--<span style="color:red">--}}
+                    {{--@endif--}}
+                    {{--{{$b->cate_name}}</a>--}}
+                {{--@if($b['cate_id']==$cate_id)--}}
+                {{--</span>--}}
+                {{--@endif--}}
+                {{--</a>--}}
+            {{--@endforeach--}}
+            {{--<hr>--}}
+        {{--@endforeach--}}
     </div>
 
-    <div class="bloglist left">
-        <?php //dd($data); ?>
-        @foreach($data as $k=>$v)
-        <h3>{{$v->art_title}}</h3>
 
-        <figure><img src="{{url($v->art_thumb)}}"></figure>
+
+
+    <div class="bloglist left">
+        @foreach($data as $news)
+        <h3>{{$news->news_title}}</h3>
+
         <ul>
-            <p>{{$v->art_description}}...</p>
-            <a title="{{$v->art_title}}" href="{{url('a/'.$v->art_id)}}" 　target="_blank" class="readmore">阅读全文>></a>
+            <p>{{$news->news_content}}...</p>
+            <a title="{{$news->news_title}}" href="{{url('news/'.$news->news_id)}}"
+               target="_blank" class="readmore">阅读全文>></a>
         </ul>
-        <p class="dateview"><span>　{{date('Y-m-d',$v->art_time)}}</span> <span>作者：{{$v->art_editor}}</span></p>
+        <p class="dateview">
+            <span>　{{date('Y-m-d',strtotime($news->updated_at))}}</span>
+            <span>作者：{{$news->art_editor}}</span></p>
         @endforeach
         <div class="page">
             {!!$data->links()!!}

@@ -15,7 +15,7 @@ use App\Http\Model\Article;
 class CommonController extends Controller
 {
     public function __construct(){
-      $navs= Navs::all();
+      $navs= Navs::orderBy('nav_order','asc')->get();
 
       //the  5 article most views
       $hot = Article::orderBy('art_view','desc')->take(5)->get();

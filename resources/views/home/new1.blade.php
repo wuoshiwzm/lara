@@ -32,6 +32,8 @@
 </div>
   @include('layouts.widget.page_banner')
 
+</div>
+
   <!-- 内容部分 -->
 
 <div class="xiangqing">
