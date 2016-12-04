@@ -1,6 +1,5 @@
 <?php
 //管理员路由
-//['middleware' => ['boss.login'], 'prefix'=>'admin', 'namespace'=>'Admin'
 
 //登录页面
 Route::get('/', 'IndexController@index');
