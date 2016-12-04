@@ -2,7 +2,7 @@
 
 //管理员路由
 Route::group(['middleware' => ['boss.login'], 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
-    require(__DIR__ . '\Routes\AdminRoutes.php');
+    require(__DIR__ . '/Routes/AdminRoutes.php');
 });
 
 //会员的路由
