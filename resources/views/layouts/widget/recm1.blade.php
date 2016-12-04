@@ -27,7 +27,7 @@
                         <div class="ScrCont">
                             <div id="List1">
                                 <!-- 文章循环 -->
- 
+
                                 <ul>
                                     @if(isset($v))
                                         @foreach(array_values($v)[0] as $arts)
