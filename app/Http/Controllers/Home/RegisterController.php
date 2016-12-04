@@ -191,7 +191,7 @@ class RegisterController extends CommonController{
           User::destroy($res1);
         }
         // dd($result);
-        return redirect('admin/login');}
+        return redirect('member/login');}
       else{return back()->with('errors','存储数据失败，请重新注册');}
       }else{
         return back()->withErrors($validator);
