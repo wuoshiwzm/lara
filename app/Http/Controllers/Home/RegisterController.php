@@ -96,7 +96,7 @@ class RegisterController extends CommonController{
     //validation finish
     if($validator->passes()){
       $result =   User::create($user);
-      if($result){return redirect('admin/login');}
+      if($result){return redirect('member/login');}
       else{return back()->with('errors','生成分类失败');}
       }else{
         return back()->withErrors($validator);
