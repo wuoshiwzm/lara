@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\ModeL\Category;
-use App\Http\ModeL\MainMedia;
+use App\Http\Model\Category;
+use App\Http\Model\MainMedia;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 
