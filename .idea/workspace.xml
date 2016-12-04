@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5f3e2e6-bda0-4c9d-a647-f2b6dafde699" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Routes/AdminRoutes.php" afterPath="$PROJECT_DIR$/app/Http/Routes/AdminRoutes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-    </list>
+    <list default="true" id="c5f3e2e6-bda0-4c9d-a647-f2b6dafde699" name="Default" comment="" />
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -395,12 +392,12 @@
       <workItem from="1480824064816" duration="13000" />
       <workItem from="1480840344872" duration="3229000" />
       <workItem from="1480843577183" duration="15000" />
-      <workItem from="1480844459361" duration="427000" />
+      <workItem from="1480844459361" duration="531000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56326000" />
+    <option name="totallyTimeSpent" value="56430000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
