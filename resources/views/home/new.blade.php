@@ -38,7 +38,10 @@
     <div class="ny_top">当前位置：
         <a href="{{url('')}}">首页</a> >
         <a href="{{url('cate')}}">广告资源</a> >
-        <a href="{{url('cate/'.$field->cate_id)}}">{{$cate_info->cate_name}}</a> > 正文
+        @if(isset($field->cate_name))
+            <a href="{{url('cate/'.$field->cate_id)}}">{{$cate_info->cate_name}}</a>>
+        @endif
+        正文
     </div>
     <div class="zw">
         <div class="fbr"><a href="#">发布人：{{$field->art_editor}}</a></div>

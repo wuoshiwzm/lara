@@ -200,8 +200,15 @@ class IndexController extends CommonController
     {
         $field = Article::Join('category', 'category.cate_id', '=','article.cate_id')
             ->where('art_id', $art_id)->first();
+
+
+        //检查对应cate_id是否还存在， 如果不存在就导向主页
+
+//
         if(!$field)
         {
+
+
             $field =  Article::where('art_id', $art_id)->first();
         }
         $cate_info = Category::find($field->cate_id);
