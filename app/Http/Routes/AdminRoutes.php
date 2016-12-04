@@ -75,7 +75,7 @@ Route::any('offer/changeorder', 'OfferController@changeOrder');
 
 // //公司信息
 // Route::resource('company','CompanyController');
-// Route::any('upload', 'CommonController@upload');
+ Route::any('upload', 'CommonController@upload');
 
 //自媒体
 Route::resource('self_media','SelfMediaController');
