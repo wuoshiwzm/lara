@@ -8,12 +8,12 @@ Route::group(['middleware' => ['boss.login'], 'prefix' => 'admin', 'namespace' =
 //会员的路由
 Route::group(['middleware' => ['admin.login']], function () {
     //付款
-    Route::get('scanpay', 'Pay\Wx\Scanpay\ScanpayController@index');
-    Route::any('set_payment', 'Pay\Wx\Scanpay\ScanpayController@setPayment');
+    Route::get('scanpay', 'Pay/Wx/Scanpay/ScanpayController@index');
+    Route::any('set_payment', 'Pay/Wx/Scanpay/ScanpayController@setPayment');
 });
 
 Route::group(['middleware' => ['admin.login'], 'prefix' => 'member', 'namespace' => 'Member'], function () {
-    require(__DIR__ . '\Routes\MemberRoutes.php');
+    require(__DIR__ . '/Routes/MemberRoutes.php');
 
     //设置
     Route::any('config/putfile', 'ConfigController@putFile');
@@ -29,5 +29,5 @@ Route::group(['middleware' => ['admin.login'], 'prefix' => 'member', 'namespace'
 
 //前端  -  不需要验证的的网页
 Route::group(['middleware' => []], function () {
-    require(__DIR__ . '\Routes\HomeRoutes.php');
+    require(__DIR__ . '/Routes/HomeRoutes.php');
 });
