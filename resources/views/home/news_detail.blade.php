@@ -58,14 +58,14 @@
         </div>
         <div class="pian">
             <a href=
-               @if($offer['pre'])
-                       "{{url('offer/'.$offer['pre']->offer_id)}}"
+               @if($news['pre'])
+                       "{{url('news/'.$news['pre']->news_id)}}"
             >上一篇
                 @endif
             </a><br>
             <a href=
-               @if($offer['next'])
-                       "{{url('offer/'.$offer['next']->offer_id)}}"
+               @if($news['next'])
+                       "{{url('news/'.$news['next']->news_id)}}"
             >下一篇
                 @endif
             </a>
