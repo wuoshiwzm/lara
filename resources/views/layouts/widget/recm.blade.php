@@ -24,7 +24,7 @@
                             <div class="ScrCont">
                                 <div id="List1">
                                   <!-- 文章循环 -->
-
+    <?php die()?>
                                     <ul>
                                       @foreach(array_values($v)[0] as $arts)
                                       <?php //dd($arts); ?>

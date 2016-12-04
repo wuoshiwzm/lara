@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5f3e2e6-bda0-4c9d-a647-f2b6dafde699" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/widget/recm.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/widget/recm.blade.php" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,8 +46,8 @@
       <file leaf-file-name="recm.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/widget/recm.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="32" column="82" selection-start-line="32" selection-start-column="82" selection-end-line="32" selection-end-column="82" />
+            <state relative-caret-position="266">
+              <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -116,6 +116,7 @@
         <option value="$PROJECT_DIR$/app/Http/Routes/AdminRoutes.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/home/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/widget/recm.blade.php" />
       </list>
     </option>
   </component>
@@ -437,12 +438,12 @@
       <workItem from="1471494402406" duration="91000" />
       <workItem from="1480340684302" duration="2259000" />
       <workItem from="1480750894510" duration="11044000" />
-      <workItem from="1480820196359" duration="817000" />
+      <workItem from="1480820196359" duration="985000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49594000" />
+    <option name="totallyTimeSpent" value="49762000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -827,8 +828,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/widget/recm.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="32" column="82" selection-start-line="32" selection-start-column="82" selection-end-line="32" selection-end-column="82" />
+        <state relative-caret-position="266">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
           <folding />
         </state>
       </provider>
