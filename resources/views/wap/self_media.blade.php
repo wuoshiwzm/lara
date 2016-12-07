@@ -27,7 +27,9 @@
     });
 
     wx.ready(function () {
-        //        调取地址 --
+
+
+        //调取地址
         wx.checkJsApi({
             jsApiList: [
                 'getLocation'
@@ -41,7 +43,9 @@
                 }
             }
         });
-        //        调取地址 --
+        //调取地址
+
+
 
         //--调取地址
         wx.getLocation({
