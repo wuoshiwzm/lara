@@ -50,8 +50,8 @@
       <file leaf-file-name="self_media.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/wap/self_media.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="653">
-              <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+            <state relative-caret-position="1472">
+              <caret line="59" column="16" selection-start-line="46" selection-start-column="7" selection-end-line="59" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -409,12 +409,12 @@
       <workItem from="1480840344872" duration="3229000" />
       <workItem from="1480843577183" duration="15000" />
       <workItem from="1480844459361" duration="531000" />
-      <workItem from="1481092587777" duration="8948000" />
+      <workItem from="1481092587777" duration="9027000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65378000" />
+    <option name="totallyTimeSpent" value="65457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1056" extended-state="6" />
@@ -853,8 +853,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/wap/self_media.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+        <state relative-caret-position="1472">
+          <caret line="59" column="16" selection-start-line="46" selection-start-column="7" selection-end-line="59" selection-end-column="16" />
           <folding />
         </state>
       </provider>
