@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5f3e2e6-bda0-4c9d-a647-f2b6dafde699" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Social/ShareController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Social/ShareController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Social/WechatController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Social/WechatController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Wap/IndexController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wap/IndexController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home/self_media.blade.php" afterPath="$PROJECT_DIR$/resources/views/home/self_media.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/wap/self_media.blade.php" afterPath="$PROJECT_DIR$/resources/views/wap/self_media.blade.php" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,8 +38,8 @@
       <file leaf-file-name="self_media.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/wap/self_media.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+            <state relative-caret-position="653">
+              <caret line="53" column="11" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -484,12 +481,12 @@
       <workItem from="1480840344872" duration="3229000" />
       <workItem from="1480843577183" duration="15000" />
       <workItem from="1480844459361" duration="531000" />
-      <workItem from="1481092587777" duration="6173000" />
+      <workItem from="1481092587777" duration="6409000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62603000" />
+    <option name="totallyTimeSpent" value="62839000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1056" extended-state="6" />
@@ -928,8 +925,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/wap/self_media.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        <state relative-caret-position="653">
+          <caret line="53" column="11" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
           <folding />
         </state>
       </provider>
