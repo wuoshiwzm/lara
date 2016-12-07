@@ -27,7 +27,7 @@
     });
 
     wx.ready(function () {
-
+        alert('test);
         //调取地址
 //        wx.checkJsApi({
 //            jsApiList: [
