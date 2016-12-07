@@ -26,6 +26,8 @@ class IndexController extends WechatController
 
         //获取 access_token
         $access_token = $this->getToken();
+        $nonceStr = $this->getRandStr(15);
+        $timestamp = time();
         $url = 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=' . $access_token . '&type=jsapi';
 
         //获取 ticket
@@ -41,9 +43,8 @@ class IndexController extends WechatController
         }
 
         //获取签名
-        $nonceStr = $this->getRandStr(16);
-        $timestamp = time();
-        $url = 'http://mp.weixin.qq.com?params=value';
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+        $url = "$protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
         $string = "jsapi_ticket=$ret->ticket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
         $signature = sha1($string);
@@ -53,7 +54,9 @@ class IndexController extends WechatController
             ->with('timestamp',$timestamp)
             ->with('nonceStr',$nonceStr)
             ->with('signature',$signature);
-
-        die('wap-indexcontroller-index');
     }
+
+
+
+
 }
