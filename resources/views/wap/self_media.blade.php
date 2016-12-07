@@ -17,7 +17,7 @@
         appId:"<?php echo $appid;?>",
         timestamp:"<?php echo $timestamp;?>",
         nonceStr:"<?php echo $nonceStr;?>" ,
-        signature:"<?php echo $signature;?>",
+        signature:'<?php echo $signature;?>',
         jsApiList: [
             // 所有要调用的 API 都要加到这个列表中
             'checkJsApi',
