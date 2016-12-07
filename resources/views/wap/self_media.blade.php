@@ -29,19 +29,19 @@
     wx.ready(function () {
 
         //调取地址
-        wx.checkJsApi({
-            jsApiList: [
-                'getLocation'
-            ],
-            success: function (res) {
-                //alert(JSON.stringify(res));
-                // alert(JSON.stringify(res.checkResult.getLocation));
-                if (res.checkResult.getLocation == false) {
-                    alert('你的微信版本太低，不支持微信JS接口，请升级到最新的微信版本！');
-                    return;
-                }
-            }
-        });
+//        wx.checkJsApi({
+//            jsApiList: [
+//                'getLocation'
+//            ],
+//            success: function (res) {
+//                //alert(JSON.stringify(res));
+//                // alert(JSON.stringify(res.checkResult.getLocation));
+//                if (res.checkResult.getLocation == false) {
+//                    alert('你的微信版本太低，不支持微信JS接口，请升级到最新的微信版本！');
+//                    return;
+//                }
+//            }
+//        });
         //调取地址
 
         //--调取地址
