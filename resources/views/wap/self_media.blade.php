@@ -13,7 +13,7 @@
 <body>
 <script>
     wx.config({
-        debug: flase,
+        debug: true,
         appId:"{{$appid}}",
         timestamp:"{{$timestamp}}",
         nonceStr:"{{$nonceStr}}" ,
