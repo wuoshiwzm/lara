@@ -13,7 +13,7 @@
 <body>
 <script>
     wx.config({
-        debug: false,
+        debug: true,
         appId:"<?php echo $appid;?>",
         timestamp:"<?php echo $timestamp;?>",
         nonceStr:"<?php echo $nonceStr;?>" ,
