@@ -1,4 +1,10 @@
 <?php
+//手机
+Route::group(['middleware' => [], 'prefix' => 'wap', 'namespace' => 'Wap'], function () {
+    require(__DIR__ . '/Routes/WapRoutes.php');
+});
+
+
 
 //管理员路由
 Route::group(['middleware' => ['boss.login'], 'prefix' => 'admin', 'namespace' => 'Admin'], function () {

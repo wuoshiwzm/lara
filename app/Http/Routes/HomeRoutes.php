@@ -71,7 +71,5 @@ Route::resource('register','Home\RegisterController');
 // Route::get('scanpay_callback','Pay\Wx\Scanpay\ScanpayController@callback');
 Route::any('scanpay_callback890707asd89asdfasd897asd897jkjkzxcuioqwejkr89','Pay\Wx\Scanpay\NotifyController@index');
 
-
-
-
+//上传图片
 Route::any('upload', 'Admin\CommonController@upload');
