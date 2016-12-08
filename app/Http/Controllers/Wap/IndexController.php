@@ -60,7 +60,7 @@ class IndexController extends WechatController
 
     public function getAddress()
     {
-        return Input::all();
+        return Input::get('longitude');
     }
 
 
