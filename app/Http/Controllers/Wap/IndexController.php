@@ -60,7 +60,28 @@ class IndexController extends WechatController
 
     public function getAddress()
     {
-        return Input::get('longitude');
+        //根据经纬度获取城市 省份信息
+
+        //纬度
+        $latitude = Input::get('latitude');
+        //经度
+        $longitude = Input::get('longitude');
+
+        $url =
+        "http://api.map.baidu.com/geocoder/v2/?ak=mNFudz5LlDPFHRo9B4yWgG06vpkovvET&callback=renderReverse&location="
+        . $latitude . "," . $longitude . "&output=json&pois=0";
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //如果把这行注释掉的话，就会直接输出
+        $result=curl_exec($ch);
+        curl_close($ch);
+
+        return $result;
+
+
+
     }
 
 

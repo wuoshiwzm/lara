@@ -120,8 +120,6 @@ class ShareController extends CommonController
         }
 
 
-        // dd($openid);
-
         /* -----------------------redpack payment start-----------------------*/
         //for test
         // $openid='oe72EwqRljlpSX3I9tNK2aIwzSWc';
