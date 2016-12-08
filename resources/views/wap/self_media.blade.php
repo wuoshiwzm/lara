@@ -13,6 +13,8 @@
 </head>
 <body>
 <script>
+
+
     wx.config({
         debug: false,
         appId: "{{$appid}}",
