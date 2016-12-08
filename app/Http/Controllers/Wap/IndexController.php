@@ -71,6 +71,8 @@ class IndexController extends WechatController
         "http://api.map.baidu.com/geocoder/v2/?ak=mNFudz5LlDPFHRo9B4yWgG06vpkovvET&coordtype=wgs84ll&callback=renderReverse&location="
         . $latitude . "," . $longitude . "&output=json&pois=0";
 
+        return result = file_get_contents($url);
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HEADER, false);
