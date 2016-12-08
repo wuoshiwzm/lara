@@ -56,8 +56,9 @@
 
                 //ajax 获取信息 并显示页面
 
-
-                alert(accuracy + 'accuracy' + longitude + 'longitude');
+                $.post("{{url('wap/self_media/get_address')}}",{'id': 12,'_token':"{{csrf_token()}}"},function(a){
+                    alert(a);
+                });
             },
             cancel: function (res) {
                 alert('用户拒绝授权获取地理位置');
@@ -67,7 +68,7 @@
 
     });
 
- 
+
 
 </script>
 </body>
