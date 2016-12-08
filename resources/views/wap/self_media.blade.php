@@ -52,11 +52,10 @@
                 var speed = res.speed; // 速度，以米/每秒计
                 var accuracy = res.accuracy; // 位置精度
                 alert(latitude);
+
+
                 //ajax 获取信息 并显示页面
 
-                $.post("{{url('wap/self_media/get_address')}}",{'id': 12,'_token':"{{csrf_token()}}"},function(a){
-                    alert(a);
-                });
 
                 alert(accuracy + 'accuracy' + longitude + 'longitude');
             },
