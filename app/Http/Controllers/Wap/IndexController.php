@@ -56,6 +56,11 @@ class IndexController extends WechatController
             ->with('signature',$signature);
     }
 
+    public function getAddress()
+    {
+        return 'check';
+    }
+
 
 
 

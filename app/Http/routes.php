@@ -1,5 +1,9 @@
 <?php
-//手机
+
+
+
+
+//手机端路由
 Route::group(['middleware' => [], 'prefix' => 'wap', 'namespace' => 'Wap'], function () {
     require(__DIR__ . '/Routes/WapRoutes.php');
 });
