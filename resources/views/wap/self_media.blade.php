@@ -67,12 +67,7 @@
 
     });
 
-
-    function show(i) {
-        var id = document.getElementById('1').id;
-        alert(id);
-        var str = "<%=get("id") %>";
-    alert(str);
+ 
 
 </script>
 </body>
