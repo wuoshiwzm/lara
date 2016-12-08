@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Model\SelfMedia;
+use Illuminate\Support\Facades\Input;
 
 class IndexController extends WechatController
 {
@@ -22,6 +23,7 @@ class IndexController extends WechatController
 
     public function selfMedia()
     {
+
         //微信获取地址接口
 
         //获取 access_token
@@ -58,7 +60,7 @@ class IndexController extends WechatController
 
     public function getAddress()
     {
-        return 'check';
+        return Input::all();
     }
 
 
