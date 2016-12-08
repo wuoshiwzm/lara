@@ -54,7 +54,7 @@
 
                 //ajax 获取信息 并显示页面
 
-                $.post("{{url('wap/get_address')}}",{'id': 12},function(a){
+                $.post("{{url('wap/self_media/get_address')}}",{'id': 12},function(a){
                     alert(a);
                 });
 
