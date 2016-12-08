@@ -12,7 +12,7 @@ use App\Http\Model\SelfMedia;
 class IndexController extends WechatController
 {
 
-    private $appid='wx260619ea73a4b130';
+    private $appid = 'wx260619ea73a4b130';
     private $secret = '469536da8d67cd9df2cdde5609ffefaf';
 
     public function index()
@@ -50,18 +50,16 @@ class IndexController extends WechatController
         $signature = sha1($string);
 
         return view('wap.self_media')
-            ->with('appid',$this->appid)
-            ->with('timestamp',$timestamp)
-            ->with('nonceStr',$nonceStr)
-            ->with('signature',$signature);
+            ->with('appid', $this->appid)
+            ->with('timestamp', $timestamp)
+            ->with('nonceStr', $nonceStr)
+            ->with('signature', $signature);
     }
 
     public function getAddress()
     {
         return 'check';
     }
-
-
 
 
 }
