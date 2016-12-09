@@ -23,7 +23,7 @@
 <script type="text/javascript">
     // 百度地图API功能
     var map = new BMap.Map("allmap");
-    var point = new BMap.Point(100.331398,39.897445);
+    var point = new BMap.Point(116.331398,39.897445);
     map.centerAndZoom(point,12);
 
 //以上参数不用设置

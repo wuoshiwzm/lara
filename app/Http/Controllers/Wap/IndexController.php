@@ -68,13 +68,11 @@ class IndexController extends WechatController
         $longitude = Input::get('longitude');
 
         $url =
-        "http://api.map.baidu.com/geocoder/v=1.3/?ak=QbFPEt2GiMZ9I4e8zlVXPwjnVrClfNxO&coordtype=wgs84ll&callback=renderReverse&location="
-        . $latitude . "," . $longitude . "&output=json&pois=0";
 
+            "http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location="
+            .$latitude.",".$longitude."&output=json&pois=1&ak=QbFPEt2GiMZ9I4e8zlVXPwjnVrClfNxO";
 
-//        $url1 = "http://api.map.baidu.com/geocoder/v1.4/?address=北京市海淀区上地十街10号&output=json&ak=mNFudz5LlDPFHRo9B4yWgG06vpkovvET&callback=showLocation";
-//        return $result = file_get_contents($url);
-
+ 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HEADER, false);
