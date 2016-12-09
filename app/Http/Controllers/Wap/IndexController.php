@@ -67,6 +67,23 @@ class IndexController extends WechatController
         //经度
         $longitude = Input::get('longitude');
 
+        // -- test only
+
+
+        $latitude = Input::get('latitude');
+
+        $longitude = Input::get('longitude');
+
+
+
+
+
+        // -- test only
+
+
+
+
+
         $url =
 
             "http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location="
