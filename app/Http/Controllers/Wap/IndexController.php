@@ -68,7 +68,7 @@ class IndexController extends WechatController
         $longitude = Input::get('longitude');
 
         $url =
-        "http://api.map.baidu.com/geocoder/v1.4/?ak=mNFudz5LlDPFHRo9B4yWgG06vpkovvET&coordtype=wgs84ll&callback=renderReverse&location="
+        "http://api.map.baidu.com/geocoder/v=2.0/?ak=mNFudz5LlDPFHRo9B4yWgG06vpkovvET&coordtype=wgs84ll&callback=renderReverse&location="
         . $latitude . "," . $longitude . "&output=json&pois=0";
 
 
@@ -84,8 +84,11 @@ class IndexController extends WechatController
 
         return $result;
 
+    }
 
-
+    public function test()
+    {
+        return view('wap.test');
     }
 
 

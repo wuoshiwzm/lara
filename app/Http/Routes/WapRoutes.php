@@ -14,3 +14,6 @@ Route::get('/self_media','IndexController@selfMedia');
 
 //自媒体 地址经纬度获取并更新对应数据
 Route::any('/self_media/get_address','IndexController@getAddress');
+
+
+Route::any('/test','IndexController@test');
