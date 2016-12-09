@@ -73,7 +73,7 @@ class IndexController extends WechatController
 
 
 //        $url1 = "http://api.map.baidu.com/geocoder/v1.4/?address=北京市海淀区上地十街10号&output=json&ak=mNFudz5LlDPFHRo9B4yWgG06vpkovvET&callback=showLocation";
-        return $result = file_get_contents($url);
+//        return $result = file_get_contents($url);
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
