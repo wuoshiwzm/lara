@@ -5,7 +5,7 @@
     <style type="text/css">
         body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
     </style>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4&ak=mNFudz5LlDPFHRo9B4yWgG06vpkovvET">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.1">
 
 
 
@@ -23,7 +23,7 @@
 <script type="text/javascript">
     // 百度地图API功能
     var map = new BMap.Map("allmap");
-    var point = new BMap.Point(116.331398,39.897445);
+    var point = new BMap.Point(100.331398,39.897445);
     map.centerAndZoom(point,12);
 
 //以上参数不用设置
