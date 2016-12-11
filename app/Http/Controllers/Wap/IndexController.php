@@ -16,6 +16,9 @@ class IndexController extends WechatController
     private $appid = 'wx260619ea73a4b130';
     private $secret = '469536da8d67cd9df2cdde5609ffefaf';
 
+
+
+
     public function index()
     {
 
@@ -58,7 +61,10 @@ class IndexController extends WechatController
             ->with('signature', $signature);
     }
 
-    public function getAddress()
+    /**
+     *
+     */
+    public function getContent()
     {
         //根据经纬度获取城市 省份信息
 
@@ -68,8 +74,8 @@ class IndexController extends WechatController
         $longitude = Input::get('longitude');
 
         // -- test only
-//        $latitude = 34.301;
-//        $longitude = 108.934784;
+        $latitude = 34.301;
+        $longitude = 108.934784;
         // -- test only
 
         $url = "http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location="
@@ -122,17 +128,83 @@ class IndexController extends WechatController
         $city = $addrArr->result->addressComponent->city;
 
 
-//        dd($addrArr->result->addressComponent);
 
+        //返回经过地址过滤的对应数据给手机端 手机端AJAX 调取后处理显示
+        $contents = $this->getMedias($country, $province, $city);
 
-        return $city;
+        //返回json格式数据
+        return json_encode($contents);
 
     }
 
-    public function test()
+    /**
+     * @param $country
+     * @param $province
+     * @param $city
+     * @return array|bool
+     */
+    private function getMedias($country, $province, $city)
     {
-        return view('wap.test');
+        //1.the city column is empty and the province column is filled
+        // means to check the province
+        $self_medias_province = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
+            ->where('user_balance','>',2)
+            ->where('media_city','')
+            ->where('media_province','!=','')
+            ->where('media_province','like','%'.$province.'%')
+            ->select('self_media.*')
+            ->get();
+
+
+        //2.the city column is filled and the province column is filled
+        //   means the media is tobe checked iwth city and province
+        $self_medias_city = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
+            ->where('user_balance','>',2)
+            ->where('media_city','!=','')
+            ->where('media_province','!=','')
+            ->where('media_province','like','%'.$province.'%')
+            ->where('media_city','like','%'.$city.'%')
+            ->select('self_media.*')
+            ->get();
+
+        //3.the city column is empty and the province column is empty too,
+        // means the media is for the whole country to view
+        $self_medias_country = SelfMedia::leftJoin('user','self_media.user_id','=','user.user_id')
+            ->where('user_balance','>',2)
+            ->where('media_city','')
+            ->where('media_province','')
+            ->select('self_media.*')
+            ->get();
+
+        $self_medias = array_merge($self_medias_country->toArray(),$self_medias_city->toArray(),$self_medias_province->toArray());
+        $res = $this->arrSort($self_medias,'created_at',SORT_ASC,SORT_NUMERIC);
+
+        return $res;
     }
 
+
+    /**
+     * @param $arrays
+     * @param $sort_key
+     * @param int $sort_order
+     * @param int $sort_type
+     * @return array|bool
+     * 数组排序
+     */
+    private function arrSort($arrays,$sort_key,$sort_order=SORT_DESC,$sort_type=SORT_NUMERIC ){
+        if(is_array($arrays)){
+            foreach ($arrays as $array){
+                if(is_array($array)){
+                    $key_arrays[] = $array[$sort_key];
+                }else{
+                    return false;
+                }
+            }
+        }else{
+            return false;
+        }
+        array_multisort($key_arrays,$sort_order,$sort_type,$arrays);
+        return $arrays;
+    }
 
 }

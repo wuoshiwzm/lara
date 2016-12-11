@@ -9,7 +9,7 @@ class SelfMedia extends Model
 {
 
   protected $table='self_media';
-  protected $primaryKey='user_id';
+  protected $primaryKey='media_id';
   // public $timestamps = false;
   protected $guarded = [];
 
