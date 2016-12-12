@@ -9,18 +9,15 @@
 
 @section('content')
     <script>
-
         $.post("{{url('wap/self_media/get_content')}}",
                 {
                     '_token': "{{csrf_token()}}",
-
-
                 }, function (data) {
                     //得到内容的JSON 字符串，解析并显示
 
                     //解析 json字符串
                     var data = $.parseJSON(data);
-                    alert(data);
+//                    alert(data);
                     $.each(data, function (n, value) {
 
                         //alert(value['content']);
@@ -28,14 +25,14 @@
                         $(".wide-item-wrapper").append(
                                 "<div class='wide-item-titles'>"
                                 + "<h4>"
-                                + value["content"]
+                                + "分享送红包！"
                                 + "</h4>"
                                 + "</div>"
                                 +"<p>"
                                 +'</div>'
                                 +"<div class='wide-image'>"
                                 +"<div class='overlay'></div>"
-                                +"<a class='tile-wide' href='#'>"
+                                +"<a class='tile-wide' href='self_media'>"//点击进入对应的文章页面
                                 +"<img class='responsive-image'"
                                 +"src="
                                 +"{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"
@@ -44,7 +41,7 @@
                         );
                     });
 
-                    alert('test');
+//                    alert('test');
                 });
 
     </script>

@@ -102,17 +102,17 @@
 
 @yield('content')
     {{--循环体--}}
-    <div class="wide-item-titles">
-        <h4>I do nothing!</h4>
-        <p>You can add as many images as you want!</p>
-    </div>
-    <div class="wide-image">
-        <div class="overlay"></div>
-        <a class="tile-wide" href="#">
-            <img class="responsive-image"
-                 src="{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"
-                 alt="img"></a>
-    </div>
+    {{--<div class="wide-item-titles">--}}
+        {{--<h4>I do nothing!</h4>--}}
+        {{--<p>You can add as many images as you want!</p>--}}
+    {{--</div>--}}
+    {{--<div class="wide-image">--}}
+        {{--<div class="overlay"></div>--}}
+        {{--<a class="tile-wide" href="#">--}}
+            {{--<img class="responsive-image"--}}
+                 {{--src="{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"--}}
+                 {{--alt="img"></a>--}}
+    {{--</div>--}}
 
 </div>
 
