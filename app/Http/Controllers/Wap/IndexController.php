@@ -178,7 +178,6 @@ class IndexController extends WechatController
 
         $self_medias = array_merge($self_medias_country->toArray(),$self_medias_city->toArray(),$self_medias_province->toArray());
         $res = $this->arrSort($self_medias,'created_at',SORT_ASC,SORT_NUMERIC);
-
         return $res;
     }
 
@@ -203,6 +202,7 @@ class IndexController extends WechatController
         }else{
             return false;
         }
+
         array_multisort($key_arrays,$sort_order,$sort_type,$arrays);
         return $arrays;
     }
