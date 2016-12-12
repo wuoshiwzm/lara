@@ -22,7 +22,7 @@
           media="(device-width: 768px)	and (orientation: landscape)	and (-webkit-device-pixel-ratio: 2)"/>
 
 
-    <title></title>
+    <title>@yield('title')</title>
 
     <link href="{{asset('resources/views/wap/styles/style.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('resources/views/wap/styles/framework.css')}}" rel="stylesheet" type="text/css">
@@ -30,7 +30,11 @@
     <link href="{{asset('resources/views/wap/styles/owl.theme.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('resources/views/wap/styles/swipebox.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('resources/views/wap/styles/colorbox.css')}}" rel="stylesheet" type="text/css">
+    <title>@yield('css')</title>
 
+
+
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript" src="{{asset('resources/views/wap/js/jquery.js')}}"></script>
     <script type="text/javascript" src="{{asset('resources/views/wap/js/jqueryui.js')}}"></script>
     <script type="text/javascript" src="{{asset('resources/views/wap/js/owl.carousel.min.js')}}"></script>
@@ -41,6 +45,7 @@
     <script type="text/javascript" src="{{asset('resources/views/wap/js/custom.js')}}"></script>
     <script type="text/javascript" src="{{asset('resources/views/wap/js/framework.js')}}"></script>
     <script type="text/javascript" src="{{asset('resources/views/wap/js/framework.launcher.js')}}"></script>
+    <title>@yield('js')</title>
 
 
 </head>
