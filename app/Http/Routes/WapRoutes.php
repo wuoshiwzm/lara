@@ -16,4 +16,9 @@ Route::get('/self_media','IndexController@selfMedia');
 Route::any('/self_media/get_content','IndexController@getContent');
 
 
+
+//自媒体对应的文章
+Route::get('/self_media/{id}','IndexController@show');
+
+
 Route::any('/test','IndexController@test');

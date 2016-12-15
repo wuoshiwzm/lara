@@ -20,6 +20,7 @@
 //                    alert(data);
                     $.each(data, function (n, value) {
 
+
                         //alert(value['content']);
                         //clear the select options then add the new info
                         $(".wide-item-wrapper").append(
@@ -32,7 +33,7 @@
                                 +'</div>'
                                 +"<div class='wide-image'>"
                                 +"<div class='overlay'></div>"
-                                +"<a class='tile-wide' href='self_media'>"//点击进入对应的文章页面
+                                +"<a class='tile-wide' href='/wap/self_media/"+value['media_id']+"'>"//点击进入对应的文章页面
                                 +"<img class='responsive-image'"
                                 +"src="
                                 +"{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"
