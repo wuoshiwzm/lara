@@ -50,15 +50,7 @@
 
 </head>
 <body>
-
-<div id="preloader">
-    <div id="status">
-        <p class="center-text">
-            正在载入...
-            <em>请稍后...</em>
-        </p>
-    </div>
-</div>
+ 
 
 <div class="top-deco"></div>
 
