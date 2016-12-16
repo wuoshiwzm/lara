@@ -1,120 +1,163 @@
 @extends('layouts.wap.index')
 @section('content')
 
+    {{--地址判断--}}
+
+
+
+    {{--分享接口--}}
+
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+
+        wx.config({
+            debug: true,
+            appId: 'wx260619ea73a4b130',     // 必填，公众号的唯一标识
+            timestamp: {{$timestamp}}, // 必填，生成签名的时间戳
+            nonceStr: "{{$nonceStr}}", // 必填，生成签名的随机串
+            signature: "{{$signature}}",// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline']
+        });
+
+        wx.ready(function () {
+
+            //--确认微信版本地址
+            wx.checkJsApi({
+                jsApiList: [
+                    'getLocation'
+                ],
+                success: function (res) {
+                    //alert(JSON.stringify(res));
+                    //alert(JSON.stringify(res.checkResult.getLocation));
+                    if (res.checkResult.getLocation == false) {
+
+                        alert('你的微信版本太低，请升级到最新的微信版本！');
+                        location.href = "/wap/self_media";
+                        return;
+                    }
+                }
+            });
+            //--确认微信版本地址 end
+
+            //--调取地址
+            wx.getLocation({
+                success: function (res) {
+                    var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                    var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                    var speed = res.speed; // 速度，以米/每秒计
+                    var accuracy = res.accuracy; // 位置精度
+
+                    alert('latitude:' + latitude + 'longitude:' + longitude);
+                    //ajax 获取信息 并显示页面
+
+                    $.post("{{url('wap/self_media/check_location')}}",
+                            {
+                                'latitude': latitude,
+                                'longitude': longitude,
+                                'accuracy': accuracy,
+                                '_token': "{{csrf_token()}}",
+                                'media_id':"{{$media_id}}",
+                            }, function (data) {
+                                //得到内容的JSON 字符串，解析并显示
+
+                                //解析 json字符串
+
+
+                                //判断是否可以分享此内容 如果不行则返回到主页 如果可以就继续执行
+                                if(!data){
+                                    alert('您的区域无法分享该内容');
+                                    location.href = "/wap/self_media";
+                                }
+
+
+                                //alert(data);
+                            });
+
+                },
+                cancel: function (res) {
+                    alert('用户拒绝授权获取地理位置');
+                    location.href = "/wap/self_media";
+                }
+            });
+            //--调取地址 end
+
+
+            //----分享定制
+            var shareData = {
+                title: '这个秘密我只告诉你哦！',
+                desc: '无穷大分享 分享抢红包 分享有惊喜！',
+                link: 'http://adbangbang.com/wap/self_media/' + "{{$media_id}}",
+                imgUrl: "{{asset('resources/views/home/images/logo.jpg')}}",
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    // 将此文章id 和 OPENID 存入数据库
+                    window.open("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx260619ea73a4b130&redirect_uri=http://adbangbang.com/sharesuccess/" + "{{$media_id}}" + "&response_type=code&scope=snsapi_base&state=123#wechat_redirect");
+                },
+                cancel: function () {
+                    alert('cancel');
+                    // 用户取消分享后执行的回调函数
+                }
+            };
+
+            wx.onMenuShareAppMessage(shareData);
+            wx.onMenuShareTimeline(shareData);
+            // ----分享定制
+
+
+        });
+
+        wx.error(function (res) {
+            alert(res.errMsg);
+        });
+    </script>
+
+
+
+
+    {{--菜单--}}
+    <div class="content">
+        <div class="header">
+            <a href="#" class="homepage-logo">
+                <img src="{{asset('resources/views/wap/images/misc/logo.png')}}" alt="img">
+            </a>
+
+        </div>
+        <div class="decoration"></div>
+
+
+    </div>
+
+
     <div class="content">
 
-        <div class="container no-bottom">
-            <h4>无穷大分享平台 ！</h4>
+        <div class="container no-bottom" style="text-align: right">
+            <h2>无穷大分享平台 ！</h2>
             <p>
-                分享你的精彩
+                --分享你的精彩 点击右上角分享到朋友圈有惊喜哦！
             </p>
         </div>
 
         <div class="decoration"></div>
-
-
 
 
         <div class="decoration"></div>
 
         <div class="one-half-responsive">
             <h4>快来分享 赢红包吧！！！</h4>
-            <p>{!! $content->content !!}Use the form to send us a message, it's AJAX and PHP powered and it's easy to use!</p>
-            <div class="container no-bottom">
-                <div class="contact-form no-bottom">
-                    <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
-                        <div class="big-notification green-notification">
-                            <h3 class="uppercase">Message Sent </h3>
-                            <a href="#" class="close-big-notification">x</a>
-                            <p>Your message has been successfuly sent. Please allow up to 48 hours for a reply! Thank you!</p>
-                        </div>
-                    </div>
+            <div style="text-align: center" id="media_content">
 
-                    <form action="php/contact.php" method="post" class="contactForm" id="contactForm">
-                        <fieldset>
-                            <div class="formValidationError" id="contactNameFieldError">
-                                <div class="static-notification-red tap-dismiss-notification">
-                                    <p class="center-text uppercase">Name is required!</p>
-                                </div>
-                            </div>
-                            <div class="formValidationError" id="contactEmailFieldError">
-                                <div class="static-notification-red tap-dismiss-notification">
-                                    <p class="center-text uppercase">Mail address required!</p>
-                                </div>
-                            </div>
-                            <div class="formValidationError" id="contactEmailFieldError2">
-                                <div class="static-notification-red tap-dismiss-notification">
-                                    <p class="center-text uppercase">Mail address must be valid!</p>
-                                </div>
-                            </div>
-                            <div class="formValidationError" id="contactMessageTextareaError">
-                                <div class="static-notification-red tap-dismiss-notification">
-                                    <p class="center-text uppercase">Message field is empty!</p>
-                                </div>
-                            </div>
-                            <div class="formFieldWrap">
-                                <label class="field-title contactNameField" for="contactNameField">Name:<span>(required)</span></label>
-                                <input type="text" name="contactNameField" value="" class="contactField requiredField" id="contactNameField"/>
-                            </div>
-                            <div class="formFieldWrap">
-                                <label class="field-title contactEmailField" for="contactEmailField">Email: <span>(required)</span></label>
-                                <input type="text" name="contactEmailField" value="" class="contactField requiredField requiredEmailField" id="contactEmailField"/>
-                            </div>
-                            <div class="formTextareaWrap">
-                                <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Message: <span>(required)</span></label>
-                                <textarea name="contactMessageTextarea" class="contactTextarea requiredField" id="contactMessageTextarea"></textarea>
-                            </div>
-                            <div class="formSubmitButtonErrorsWrap">
-                                <input type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" value="SUBMIT" data-formId="contactForm"/>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
+                <p>{!! $content->content !!}</p>
+
             </div>
         </div>
         <div class="decoration hide-if-responsive"></div>
         <div class="one-half-responsive last-column">
-            <div class="container no-bottom">
-                <h4>Contact Information</h4>
-                <p>
-                    <strong>Postal Information</strong><br>
-                    PO Box 16122 Collins Street West<br>
-                    Victoria 8007 Australia
-                </p>
-                <p>
-                    <strong>Envato Headquarters</strong><br>
-                    121 King Street, Melbourne <br>
-                    Victoria 3000 Australia
-                </p>
-                <p>
-                    <strong>Envato Pty Ltd</strong><br>
-                    ABN 11 119 159 741
-                </p>
-                <p>
-                    <strong>Contact Information:</strong><br>
-                    <a href="#" class="contact-call">Phone: + 123 456 7890</a>
-                    <a href="#" class="contact-text">Message: + 123 456 7890</a>
-                    <a href="#" class="contact-mail">Email: mail@doamin.com</a>
-                    <a href="#" class="contact-facebook">Fanpage: enabled.labs</a>
-                    <a href="#" class="contact-twitter">Twitter: @iEnabled</a>
-                </p>
-            </div>
+
         </div>
 
 
         <div class="decoration"></div>
-        <div class="footer">
-            <div class="socials">
-                <a href="#" class="twitter-icon"></a>
-                <a href="#" class="google-icon"></a>
-                <a href="#" class="facebook-icon"></a>
-            </div>
-            <div class="clear"></div>
-            <p class="copyright">
-                COPYRIGHT 2015.<br>
-                ALL RIGHTS RESERVED
-            </p>
-        </div>
+
 
     </div>
 

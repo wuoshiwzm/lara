@@ -78,15 +78,8 @@ margin-right: 20%;">
 
 
 @include('layouts.footer')
-<script type="text/javascript">
-var destoon_userid = 0;
-var destoon_username = '';
-var destoon_message = 0;
-var destoon_chat = 0;
-var destoon_cart = get_cart();
-var destoon_member = '';
-destoon_member += '欢迎，<span class="f_red">客人</span> | <a href="http://127.0.0.48:89/member/login.php">请登录</a> | <a href="http://127.0.0.48:89/member/register.php">免费注册</a> | <a href="http://127.0.0.48:89/member/send.php">忘记密码?</a>';
-$('#destoon_member').html(destoon_member);
-</script>
+
+
+
 
 </body></html>
