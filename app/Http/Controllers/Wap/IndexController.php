@@ -140,6 +140,7 @@ class IndexController extends WechatController
         $longitude = Input::get('longitude');
 
         $res = $this->getLocation($latitude, $longitude);
+        dd($res);
 
         //返回经过地址过滤的对应数据给手机端 手机端AJAX 调取后处理显示
         $contents = $this->getMedias($res['country'], $res['province'], $res['city']);
