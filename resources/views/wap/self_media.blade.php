@@ -44,7 +44,7 @@
     <script>
 
         wx.config({
-            debug: true,
+            debug: false,
             appId: "{{$appid}}",
             timestamp: "{{$timestamp}}",
             nonceStr: "{{$nonceStr}}",
@@ -97,7 +97,6 @@
                                 //解析 json字符串
                                 var data = $.parseJSON(data);
                                 $.each(data, function (n, value) {
-
 
                                     //alert(value['content']);
                                     //clear the select options then add the new info
