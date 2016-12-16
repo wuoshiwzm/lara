@@ -118,7 +118,7 @@ class IndexController extends WechatController
         $signature = sha1($string);
 
 
-        return view('wap.self_media1')
+        return view('wap.self_media')
             ->with('appid', $this->appid)
             ->with('timestamp', $timestamp)
             ->with('nonceStr', $nonceStr)
@@ -134,15 +134,15 @@ class IndexController extends WechatController
 
         //根据经纬度获取城市 省份信息
 //
-//        //纬度
-//        $latitude = Input::get('latitude');
-//
-//        //经度
-//        $longitude = Input::get('longitude');
+        //纬度
+        $latitude = Input::get('latitude');
+
+        //经度
+        $longitude = Input::get('longitude');
 
         // -- test only
-        $latitude = 34.301;
-        $longitude = 108.934784;
+//        $latitude = 34.301;
+//        $longitude = 108.934784;
         // -- test only
 
         $res = $this->getLocation($latitude, $longitude);
