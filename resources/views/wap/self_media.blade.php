@@ -47,6 +47,7 @@
 
     <script>
 
+        alert(1);
         wx.config({
             debug: true,
             appId: 'wx260619ea73a4b130',
