@@ -9,6 +9,10 @@
 
 @section('content')
 
+    <?php die('test') ; ?>
+
+
+
     {{--菜单--}}
     <div class="content">
         <div class="header">
