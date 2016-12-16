@@ -51,43 +51,20 @@
 </head>
 <body>
 
-
+<div id="preloader">
+    <div id="status">
+        <p class="center-text">
+            正在载入...
+            <em>请稍后...</em>
+        </p>
+    </div>
+</div>
 
 <div class="top-deco"></div>
 
 
 
-{{--菜单--}}
-<div class="content">
-    <div class="header">
-        <a href="#" class="homepage-logo">
-            <img src="{{asset('resources/views/wap/images/misc/logo.png')}}" alt="img">
-        </a>
-        <a href="#" class="go-home">HOME</a>
-        <a href="#" class="go-menu">MENU</a>
-        <a href="#" class="go-back">CLOSE</a>
-    </div>
-    <div class="decoration"></div>
 
-    <div class="navigation">
-        <div class="corner-deco"></div>
-        <div class="navigation-wrapper">
-            <div class="navigation-item">
-                <a href="index.html" class="home-icon">Homepage</a>
-                <em class="inactive-menu"></em>
-            </div>
-            <div class="navigation-item">
-                <a href="#" class="features-icon has-submenu">Features</a>
-                <em class="dropdown-menu"></em>
-                <div class="submenu">
-                    <a href="type.html">Typography		 <em></em></a>
-                    <a href="jquery.html">jQuery		   <em></em></a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 
 {{--内容部分--}}
