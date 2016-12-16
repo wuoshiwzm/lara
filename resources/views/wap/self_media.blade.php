@@ -9,7 +9,7 @@
 
 @section('content')
 
- 
+
 
 
 
@@ -50,7 +50,7 @@
         wx.config({
             debug: true,
             appId: "{{$appid}}",
-            timestamp: "{{$timestamp}}",
+            timestamp:{{$timestamp}},
             nonceStr: "{{$nonceStr}}",
             signature: "{{$signature}}",
             jsApiList: [
