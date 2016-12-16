@@ -51,7 +51,7 @@
         wx.config({
             debug: true,
             appId: 'wx260619ea73a4b130',
-            timestamp:"{{$timestamp}}",
+            timestamp: {{$timestamp}},
             nonceStr: "{{$nonceStr}}",
             signature: "{{$signature}}",
             jsApiList: [
@@ -64,7 +64,7 @@
 
         wx.ready(function () {
 
-            alert(1);
+
             //--确认微信版本地址
             wx.checkJsApi({
                 jsApiList: [
