@@ -44,7 +44,7 @@
     <script>
 
         wx.config({
-            debug: false,
+            debug: true,
             appId: "{{$appid}}",
             timestamp: "{{$timestamp}}",
             nonceStr: "{{$nonceStr}}",
@@ -89,13 +89,13 @@
                                 'latitude': latitude,
                                 'longitude': longitude,
                                 'accuracy': accuracy,
-                                '_token': "{{csrf_token()}}",
+                                '_token': {{csrf_token()}},
 
 
                             }, function (data) {
                                 //得到内容的JSON 字符串，解析并显示
+alert(data);
 
-                                alert(1);
                                 //解析 json字符串
                                 var data = $.parseJSON(data);
                                 $.each(data, function (n, value) {
