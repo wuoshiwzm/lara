@@ -82,7 +82,7 @@ class IndexController extends WechatController
         $addrJson = substr($result, strlen('renderReverse&&renderReverse('), -1);
         $addrArr = json_decode($addrJson);
         $res['country'] = $addrArr->result->addressComponent->country;
-        $res['$province'] = $addrArr->result->addressComponent->province;
+        $res['province'] = $addrArr->result->addressComponent->province;
         $res['city'] = $addrArr->result->addressComponent->city;
 
         return $res;
@@ -120,6 +120,7 @@ class IndexController extends WechatController
         $string = "jsapi_ticket=$ret->ticket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
         $signature = sha1($string);
 
+
         return view('wap.self_media')
             ->with('appid', $this->appid)
             ->with('timestamp', $timestamp)
@@ -132,6 +133,8 @@ class IndexController extends WechatController
      */
     public function getContent()
     {
+
+
         //根据经纬度获取城市 省份信息
 
         //纬度
@@ -140,7 +143,6 @@ class IndexController extends WechatController
         $longitude = Input::get('longitude');
 
         $res = $this->getLocation($latitude, $longitude);
-
 
         //返回经过地址过滤的对应数据给手机端 手机端AJAX 调取后处理显示
         $contents = $this->getMedias($res['country'], $res['province'], $res['city']);
