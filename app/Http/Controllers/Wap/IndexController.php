@@ -121,6 +121,8 @@ class IndexController extends WechatController
         $signature = sha1($string);
 
 
+        die('test');
+
         return view('wap.self_media1')
             ->with('appid', $this->appid)
             ->with('timestamp', $timestamp)
