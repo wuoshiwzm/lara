@@ -21,8 +21,8 @@
     		debug: true,
         appId: 'wx260619ea73a4b130',     // 必填，公众号的唯一标识
         timestamp: {{$wechat['timestamp']}}, // 必填，生成签名的时间戳
-        nonceStr:  "{{$wechat['noncestr']}}", // 必填，生成签名的随机串
-        signature: "{{$wechat['signature']}}",// 必填，签名，见附录1
+        nonceStr:  {{$wechat['noncestr']}}, // 必填，生成签名的随机串
+        signature: {{$wechat['signature']}},// 必填，签名，见附录1
         jsApiList: ['onMenuShareTimeline']
     	});
 
