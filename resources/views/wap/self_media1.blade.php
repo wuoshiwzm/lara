@@ -55,6 +55,7 @@
                     var data = $.parseJSON(data);
                     $.each(data, function (n, value) {
 
+                        
                         //alert(value['content']);
                         //clear the select options then add the new info
                         $(".wide-item-wrapper").append(

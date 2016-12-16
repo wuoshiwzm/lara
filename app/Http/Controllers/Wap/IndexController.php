@@ -31,10 +31,7 @@ class IndexController extends WechatController
     {
 
 
-        // -- test only
-        $latitude = 34.301;
-        $longitude = 108.934784;
-        // -- test only
+
 
         $url = "http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location="
             . $latitude . "," . $longitude . "&output=json&pois=1&ak=QbFPEt2GiMZ9I4e8zlVXPwjnVrClfNxO";
@@ -136,11 +133,17 @@ class IndexController extends WechatController
 
 
         //根据经纬度获取城市 省份信息
+//
+//        //纬度
+//        $latitude = Input::get('latitude');
+//
+//        //经度
+//        $longitude = Input::get('longitude');
 
-        //纬度
-        $latitude = Input::get('latitude');
-        //经度
-        $longitude = Input::get('longitude');
+        // -- test only
+        $latitude = 34.301;
+        $longitude = 108.934784;
+        // -- test only
 
         $res = $this->getLocation($latitude, $longitude);
 
