@@ -68,6 +68,7 @@
                     //alert(JSON.stringify(res.checkResult.getLocation));
                     if (res.checkResult.getLocation == false) {
                         alert('你的微信版本太低，请升级到最新的微信版本！');
+                        location.href = "/wap/self_media";
                         return;
                     }
                 }
@@ -124,6 +125,7 @@
                 },
                 cancel: function (res) {
                     alert('用户拒绝授权获取地理位置');
+                    location.href = "/wap/self_media";
                 }
             });
             //--调取地址 end
