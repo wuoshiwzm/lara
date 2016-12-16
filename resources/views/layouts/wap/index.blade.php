@@ -6,7 +6,20 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 
-   
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/splash/splash-icon.png">
+    <link rel="apple-touch-startup-image" href="images/splash/splash-screen.png"
+          media="screen and (max-device-width: 320px)"/>
+    <link rel="apple-touch-startup-image" href="images/splash/splash-screen_402x.png"
+          media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)"/>
+    <link rel="apple-touch-startup-image" sizes="640x1096" href="images/splash/splash-screen_403x.png"/>
+    <link rel="apple-touch-startup-image" sizes="1024x748" href="images/splash/splash-screen-ipad-landscape"
+          media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : landscape)"/>
+    <link rel="apple-touch-startup-image" sizes="768x1004" href="images/splash/splash-screen-ipad-portrait.png"
+          media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : portrait)"/>
+    <link rel="apple-touch-startup-image" sizes="1536x2008" href="images/splash/splash-screen-ipad-portrait-retina.png"
+          media="(device-width: 768px)	and (orientation: portrait)	and (-webkit-device-pixel-ratio: 2)"/>
+    <link rel="apple-touch-startup-image" sizes="1496x2048" href="images/splash/splash-screen-ipad-landscape-retina.png"
+          media="(device-width: 768px)	and (orientation: landscape)	and (-webkit-device-pixel-ratio: 2)"/>
 
 
     <title>@yield('title')</title>
@@ -38,20 +51,43 @@
 </head>
 <body>
 
-<div id="preloader">
-    <div id="status">
-        <p class="center-text">
-            正在载入...
-            <em>请稍后...</em>
-        </p>
-    </div>
-</div>
+
 
 <div class="top-deco"></div>
 
 
 
+{{--菜单--}}
+<div class="content">
+    <div class="header">
+        <a href="#" class="homepage-logo">
+            <img src="{{asset('resources/views/wap/images/misc/logo.png')}}" alt="img">
+        </a>
+        <a href="#" class="go-home">HOME</a>
+        <a href="#" class="go-menu">MENU</a>
+        <a href="#" class="go-back">CLOSE</a>
+    </div>
+    <div class="decoration"></div>
 
+    <div class="navigation">
+        <div class="corner-deco"></div>
+        <div class="navigation-wrapper">
+            <div class="navigation-item">
+                <a href="index.html" class="home-icon">Homepage</a>
+                <em class="inactive-menu"></em>
+            </div>
+            <div class="navigation-item">
+                <a href="#" class="features-icon has-submenu">Features</a>
+                <em class="dropdown-menu"></em>
+                <div class="submenu">
+                    <a href="type.html">Typography		 <em></em></a>
+                    <a href="jquery.html">jQuery		   <em></em></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 
 {{--内容部分--}}
