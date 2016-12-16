@@ -30,7 +30,7 @@
     		var shareData = {
     			title: '这个秘密我只告诉你哦！',
     			desc: '无穷大分享 分享抢红包 分享有惊喜！',
-    			link: 'http://adbangbang.com/sharecontent/'+{{$media_id}},
+    			link: 'http://adbangbang.com/sharecontent/',
     			imgUrl: "{{asset('resources/views/home/images/logo.jpg')}}",
           success: function () {
               // 用户确认分享后执行的回调函数
