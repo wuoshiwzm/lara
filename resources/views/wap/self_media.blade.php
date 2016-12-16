@@ -9,7 +9,7 @@
 
 @section('content')
 
-    <?php die('test') ; ?>
+ 
 
 
 
