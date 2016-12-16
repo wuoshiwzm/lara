@@ -11,7 +11,7 @@
     <script>
 
         wx.config({
-            debug: true,
+            debug: false,
             appId: 'wx260619ea73a4b130',     // 必填，公众号的唯一标识
             timestamp: {{$timestamp}}, // 必填，生成签名的时间戳
             nonceStr: "{{$nonceStr}}", // 必填，生成签名的随机串
