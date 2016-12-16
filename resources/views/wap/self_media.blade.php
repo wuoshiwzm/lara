@@ -82,7 +82,6 @@
                     var speed = res.speed; // 速度，以米/每秒计
                     var accuracy = res.accuracy; // 位置精度
 
-                    alert('latitude:'+latitude+'longitude:'+longitude);
                     //ajax 获取信息 并显示页面
 
                     $.post("{{url('wap/self_media/get_content')}}",
@@ -96,6 +95,7 @@
                             }, function (data) {
                                 //得到内容的JSON 字符串，解析并显示
 
+                                alert(data);
                                 //解析 json字符串
                                 var data = $.parseJSON(data);
                                 $.each(data, function (n, value) {
@@ -134,7 +134,7 @@
         });
 
 
-        
+
 
     </script>
 
