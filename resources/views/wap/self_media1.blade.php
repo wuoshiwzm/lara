@@ -71,7 +71,7 @@
                                 +"<a class='tile-wide' href='/wap/self_media/"+value['media_id']+"'>"//点击进入对应的文章页面
                                 +"<img class='responsive-image'"
                                 +"src="
-                                + "http://lara.com/resources/views/wap/images/general-nature/" + Math.round(Math.random() * 6) + "w.jpg"
+                                + "http://lara.com/resources/views/wap/images/general-nature/" + Math.round(Math.random() * 5+1) + "w.jpg"
 {{--                                +"{{asset('resources/views/wap/images/general-nature/'.floor(rand(1,6)).'w.jpg')}}"--}}
                                 +" alt='img'></a>"
                                 +"</div>"
