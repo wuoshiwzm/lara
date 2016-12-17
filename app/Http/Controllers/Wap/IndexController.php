@@ -230,7 +230,7 @@ class IndexController extends WechatController
             $media->share_time = $media->share->count();
         }
 
-        foreach ($self_medias_country as $media) {
+        foreach ($self_medias_country as $k => $media) {
 
             if ($media->share->where('openid', $openId)->count()) {
                 $self_medias_country->forget($k);
