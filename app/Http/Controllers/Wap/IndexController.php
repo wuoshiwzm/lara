@@ -31,8 +31,6 @@ class IndexController extends WechatController
     {
 
 
-
-
         $url = "http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location="
             . $latitude . "," . $longitude . "&output=json&pois=1&ak=QbFPEt2GiMZ9I4e8zlVXPwjnVrClfNxO";
 
@@ -99,12 +97,8 @@ class IndexController extends WechatController
             $code = $_GET['code'];
             $uinfo = file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $this->app_id . "&secret=" . $this->app_secret . "&code=" . $code . "&grant_type=authorization_code");
             $uinfo = (array)json_decode($uinfo);
-            $openid = $uinfo['openid'];
+            $openId = $uinfo['openid'];
         }
-
-
-        dd($openid);
-
 
 
         //微信获取地址接口
@@ -136,10 +130,11 @@ class IndexController extends WechatController
 
 
         return view('wap.self_media')
-            ->with('appid', $this->appid)
+            ->with('appid', $this->app_id)
             ->with('timestamp', $timestamp)
             ->with('nonceStr', $nonceStr)
-            ->with('signature', $signature);
+            ->with('signature', $signature)
+            ->with('openId', $openId);
     }
 
     /**
@@ -156,6 +151,8 @@ class IndexController extends WechatController
         //经度
         $longitude = Input::get('longitude');
 
+        $openId = Input::get('openId');
+
         // -- test only
         //$latitude = 34.301;
         //$longitude = 108.934784;
@@ -164,7 +161,7 @@ class IndexController extends WechatController
         $res = $this->getLocation($latitude, $longitude);
 
         //返回经过地址过滤的对应数据给手机端 手机端AJAX 调取后处理显示
-        $contents = $this->getMedias($res['country'], $res['province'], $res['city']);
+        $contents = $this->getMedias($res['country'], $res['province'], $res['city'], $openId);
 
         //返回json格式数据
         return json_encode($contents);
@@ -177,7 +174,7 @@ class IndexController extends WechatController
      * @param $city
      * @return array|bool
      */
-    public function getMedias($country, $province, $city)
+    private function getMedias($country, $province, $city, $openId)
     {
         //1.the city column is empty and the province column is filled
         // means to check the province
@@ -211,27 +208,44 @@ class IndexController extends WechatController
             ->get();
 
 
-        foreach ($self_medias_province as $media){
+        foreach ($self_medias_province as $k => $media) {
+
+            if ($media->share->where('openid', $openId)->count()) {
+                $self_medias_province->forget($k);
+                continue;
+            }
+
             $media->user_name = $media->user->user_name;
             $media->share_time = $media->share->count();
         }
 
 
-        foreach ($self_medias_city as $media){
+        foreach ($self_medias_city as $k => $media) {
+
+            if ($media->share->where('openid', $openId)->count()) {
+                $self_medias_city->forget($k);
+                continue;
+            }
             $media->user_name = $media->user->user_name;
             $media->share_time = $media->share->count();
         }
 
-        foreach ($self_medias_country as $media){
+        foreach ($self_medias_country as $media) {
+
+            if ($media->share->where('openid', $openId)->count()) {
+                $self_medias_country->forget($k);
+                continue;
+            }
             $media->user_name = $media->user->user_name;
             $media->share_time = $media->share->count();
         }
 
 
         $self_medias = array_merge($self_medias_country->toArray(), $self_medias_city->toArray(), $self_medias_province->toArray());
-        $res = $this->arrSort($self_medias, 'created_at', SORT_DESC, SORT_NATURAL );
+        $res = $this->arrSort($self_medias, 'created_at', SORT_DESC, SORT_NATURAL);
 
         return $res;
+
     }
 
 
@@ -302,7 +316,7 @@ class IndexController extends WechatController
         $content = SelfMedia::find($id);
 
         return view('wap.content')
-            ->with('appid', $this->appid)
+            ->with('appid', $this->app_id)
             ->with('timestamp', $timestamp)
             ->with('nonceStr', $nonceStr)
             ->with('signature', $signature)
@@ -338,7 +352,7 @@ class IndexController extends WechatController
         $checkCity = $city == $cityRequire ? true : false;
 
         if (empty($cityRequire)) {
-            if(empty($provinceRequire))
+            if (empty($provinceRequire))
                 return true;
             return $checkProvince;
         } else {

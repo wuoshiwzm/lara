@@ -98,6 +98,7 @@
                                 'longitude': longitude,
                                 'accuracy': accuracy,
                                 '_token': "{{csrf_token()}}",
+                                'openId':"{{$openId}}",
 
                             }, function (data) {
                                 //得到内容的JSON 字符串，解析并显示
