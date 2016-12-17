@@ -23,6 +23,6 @@ Route::get('/self_media/{id}','IndexController@show');
 //确认当前地址是否是属于文章对应的地区
 Route::any('/self_media/check_location','IndexController@checkLocation');
 
-
-Route::any('/test/{country}/{province}/{city}/{openId}','IndexController@getMedias');
-Route::any('/test1','IndexController@selfMedia1');
+//
+//Route::any('/test/{country}/{province}/{city}/{openId}','IndexController@getMedias');
+//Route::any('/test1','IndexController@selfMedia1');
