@@ -47,7 +47,7 @@
                     var speed = res.speed; // 速度，以米/每秒计
                     var accuracy = res.accuracy; // 位置精度
 
-                 
+
                     //ajax 获取信息 并显示页面
 
                     $.post("{{url('wap/self_media/check_location')}}",

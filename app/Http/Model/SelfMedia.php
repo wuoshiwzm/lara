@@ -13,7 +13,7 @@ class SelfMedia extends Model
   // public $timestamps = false;
   protected $guarded = [];
 
-  public function userid(){
+  public function user(){
     //return $this->hasOne('App\Phone', 'foreign_key', 'local_key');
     return $this->hasOne('App\Http\Model\User','user_id','user_id');
   }

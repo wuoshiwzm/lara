@@ -133,16 +133,15 @@ class IndexController extends WechatController
 
 
         //根据经纬度获取城市 省份信息
-//
+
         //纬度
         $latitude = Input::get('latitude');
-
         //经度
         $longitude = Input::get('longitude');
 
         // -- test only
-//        $latitude = 34.301;
-//        $longitude = 108.934784;
+        //$latitude = 34.301;
+        //$longitude = 108.934784;
         // -- test only
 
         $res = $this->getLocation($latitude, $longitude);
@@ -161,7 +160,7 @@ class IndexController extends WechatController
      * @param $city
      * @return array|bool
      */
-    private function getMedias($country, $province, $city)
+    public function getMedias($country, $province, $city)
     {
         //1.the city column is empty and the province column is filled
         // means to check the province
@@ -194,8 +193,23 @@ class IndexController extends WechatController
             ->select('self_media.*')
             ->get();
 
+
+        foreach ($self_medias_province as $media){
+            $media->username = $media->user->user_name;
+        }
+
+        foreach ($self_medias_city as $media){
+            $media->username = $media->user->user_name;
+        }
+
+        foreach ($self_medias_country as $media){
+            $media->username = $media->user->user_name;
+        }
+
+
         $self_medias = array_merge($self_medias_country->toArray(), $self_medias_city->toArray(), $self_medias_province->toArray());
-        $res = $this->arrSort($self_medias, 'created_at', SORT_ASC, SORT_NUMERIC);
+        $res = $this->arrSort($self_medias, 'created_at', SORT_DESC, SORT_NATURAL );
+
         return $res;
     }
 
