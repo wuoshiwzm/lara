@@ -195,21 +195,21 @@ class IndexController extends WechatController
 
 
         foreach ($self_medias_province as $media){
-            $media->username = $media->user->user_name;
+            $media->user_name = $media->user->user_name;
         }
 
         foreach ($self_medias_city as $media){
-            $media->username = $media->user->user_name;
+            $media->user_name = $media->user->user_name;
         }
 
         foreach ($self_medias_country as $media){
-            $media->username = $media->user->user_name;
+            $media->user_name = $media->user->user_name;
         }
 
 
         $self_medias = array_merge($self_medias_country->toArray(), $self_medias_city->toArray(), $self_medias_province->toArray());
         $res = $this->arrSort($self_medias, 'created_at', SORT_DESC, SORT_NATURAL );
-
+//        dd(json_encode($res));
         return $res;
     }
 
