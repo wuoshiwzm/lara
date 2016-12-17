@@ -111,7 +111,8 @@
                                     $(".wide-item-wrapper").append(
                                             "<div class='wide-item-titles'>"
                                             + "<h4>"
-                                            + "分享送红包！ - "+value['user_name']
+                                            + "分享送红包！ - "
+                                            +'test'
                                             + "</h4>"
                                             + "</div>"
                                             +"<p>"
