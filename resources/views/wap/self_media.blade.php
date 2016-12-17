@@ -47,9 +47,6 @@
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
 
-        alert(window.location);
-
-
         wx.config({
             debug: false,
             appId: 'wx260619ea73a4b130',
