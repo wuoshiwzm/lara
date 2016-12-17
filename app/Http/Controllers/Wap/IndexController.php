@@ -91,16 +91,20 @@ class IndexController extends WechatController
 
         //share success and send redpack
 
-        if(!Session::get('openId'))
-        $state = '123';
-        $code = '';
+        if(!Session::get('openId')){
+            $state = '123';
+            $code = '';
 
-        if ($_GET['state'] == $state) {
-            $code = $_GET['code'];
-            $uinfo = file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $this->app_id . "&secret=" . $this->app_secret . "&code=" . $code . "&grant_type=authorization_code");
-            $uinfo = (array)json_decode($uinfo);
-            $openId = $uinfo['openid'];
-        }else{
+            if ($_GET['state'] == $state) {
+                $code = $_GET['code'];
+                $uinfo = file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $this->app_id . "&secret=" . $this->app_secret . "&code=" . $code . "&grant_type=authorization_code");
+                $uinfo = (array)json_decode($uinfo);
+                $openId = $uinfo['openid'];
+                Session::put('openId', $openId);
+            }
+        }
+
+        else{
             $openId = Session::get('openId');
         }
 
