@@ -97,7 +97,7 @@
                                 'longitude': longitude,
                                 'accuracy': accuracy,
                                 '_token': "{{csrf_token()}}",
-                                'openId':"{{$openId}}",
+                                'openId': "{{$openId}}",
 
                             }, function (data) {
                                 //得到内容的JSON 字符串，解析并显示
@@ -127,7 +127,8 @@
                                             + "<a class='tile-wide' href='/wap/self_media/" + value['media_id'] + "'>"//点击进入对应的文章页面
                                             + "<img class='responsive-image'"
                                             + "src="
-                                            + "{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"
+                                            + "http://lara.com/resources/views/wap/images/general-nature/" + Math.round(Math.random() * 6) + "w.jpg"
+{{--                                            + "{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"--}}
                                             + " alt='img'></a>"
                                             + "</div>"
                                     );
@@ -144,10 +145,6 @@
             //--调取地址 end
 
         });
-
-
-
-
 
 
     </script>

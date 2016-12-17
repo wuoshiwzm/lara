@@ -16,7 +16,8 @@
             timestamp: {{$timestamp}}, // 必填，生成签名的时间戳
             nonceStr: "{{$nonceStr}}", // 必填，生成签名的随机串
             signature: "{{$signature}}",// 必填，签名，见附录1
-            jsApiList: ['onMenuShareTimeline']
+            jsApiList: ['onMenuShareTimeline'],
+            openId:1
         });
 
         wx.ready(function () {
