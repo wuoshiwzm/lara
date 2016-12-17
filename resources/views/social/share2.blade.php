@@ -5,7 +5,6 @@
     <title></title>
     <style media="screen">
       .visible-print text-center{
-
       }
     </style>
   </head>
@@ -20,8 +19,10 @@
  ?>
 <!-- generate qr -->
 <div class="visible-print text-center">
-    {!!QrCode::size(450)->generate($uri); !!}
-    <p>扫描上方二维码，分享得红包啦!</p>
+
+    {!!QrCode::size(450)->generate($uri) !!}
+    <p>扫描上方二维码，分享并领取专属红包!<img src="{{asset('resources/views/home/images/logo.jpg')}}"></p>
+
 </div>
 
 
