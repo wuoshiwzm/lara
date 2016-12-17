@@ -147,6 +147,12 @@
         });
 
 
+
+        var stateObj = { foo: "bar" };
+        history.pushState(stateObj, "main_page", "bar.html");
+
+
+
     </script>
 
 

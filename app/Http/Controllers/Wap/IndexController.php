@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Model\SelfMedia;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class IndexController extends WechatController
 {
@@ -90,6 +91,7 @@ class IndexController extends WechatController
 
         //share success and send redpack
 
+        if(!Session::get('openId'))
         $state = '123';
         $code = '';
 
@@ -98,7 +100,11 @@ class IndexController extends WechatController
             $uinfo = file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $this->app_id . "&secret=" . $this->app_secret . "&code=" . $code . "&grant_type=authorization_code");
             $uinfo = (array)json_decode($uinfo);
             $openId = $uinfo['openid'];
+        }else{
+            $openId = Session::get('openId');
         }
+
+
 
 
         //微信获取地址接口
