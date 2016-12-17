@@ -19,30 +19,30 @@
             <a href="#" class="homepage-logo">
                 <img src="{{asset('resources/views/wap/images/misc/logo.png')}}" alt="img">
             </a>
-            <a href="#" class="go-home">HOME</a>
-            <a href="#" class="go-menu">MENU</a>
-            <a href="#" class="go-back">CLOSE</a>
+            {{--<a href="#" class="go-home">HOME</a>--}}
+            {{--<a href="#" class="go-menu">MENU</a>--}}
+            {{--<a href="#" class="go-back">CLOSE</a>--}}
         </div>
         <div class="decoration"></div>
 
-        <div class="navigation">
-            <div class="corner-deco"></div>
-            <div class="navigation-wrapper">
-                <div class="navigation-item">
-                    <a href="index.html" class="home-icon">Homepage</a>
-                    <em class="inactive-menu"></em>
-                </div>
-                <div class="navigation-item">
-                    <a href="#" class="features-icon has-submenu">Features</a>
-                    <em class="dropdown-menu"></em>
-                    <div class="submenu">
-                        <a href="type.html">Typography <em></em></a>
-                        <a href="jquery.html">jQuery <em></em></a>
-                    </div>
-                </div>
+        {{--<div class="navigation">--}}
+            {{--<div class="corner-deco"></div>--}}
+            {{--<div class="navigation-wrapper">--}}
+                {{--<div class="navigation-item">--}}
+                    {{--<a href="index.html" class="home-icon">Homepage</a>--}}
+                    {{--<em class="inactive-menu"></em>--}}
+                {{--</div>--}}
+                {{--<div class="navigation-item">--}}
+                    {{--<a href="#" class="features-icon has-submenu">Features</a>--}}
+                    {{--<em class="dropdown-menu"></em>--}}
+                    {{--<div class="submenu">--}}
+                        {{--<a href="type.html">Typography <em></em></a>--}}
+                        {{--<a href="jquery.html">jQuery <em></em></a>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-            </div>
-        </div>
+            {{--</div>--}}
+        {{--</div>--}}
     </div>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
