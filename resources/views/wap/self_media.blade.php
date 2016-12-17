@@ -36,8 +36,8 @@
                     <a href="#" class="features-icon has-submenu">Features</a>
                     <em class="dropdown-menu"></em>
                     <div class="submenu">
-                        <a href="type.html">Typography		 <em></em></a>
-                        <a href="jquery.html">jQuery		   <em></em></a>
+                        <a href="type.html">Typography <em></em></a>
+                        <a href="jquery.html">jQuery <em></em></a>
                     </div>
                 </div>
 
@@ -101,7 +101,7 @@
 
                             }, function (data) {
                                 //得到内容的JSON 字符串，解析并显示
-                                
+
                                 //解析 json字符串
                                 var data = $.parseJSON(data);
                                 $.each(data, function (n, value) {
@@ -114,17 +114,20 @@
                                             + "分享送红包！ - "
                                             + value['user_name']
                                             + "</h4>"
+                                            + "<h6>"
+                                            + value['share_time']
+                                            + "</h6>"
                                             + "</div>"
-                                            +"<p>"
-                                            +'</div>'
-                                            +"<div class='wide-image'>"
-                                            +"<div class='overlay'></div>"
-                                            +"<a class='tile-wide' href='/wap/self_media/"+value['media_id']+"'>"//点击进入对应的文章页面
-                                            +"<img class='responsive-image'"
-                                            +"src="
-                                            +"{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"
-                                            +" alt='img'></a>"
-                                            +"</div>"
+                                            + "<p>"
+                                            + '</div>'
+                                            + "<div class='wide-image'>"
+                                            + "<div class='overlay'></div>"
+                                            + "<a class='tile-wide' href='/wap/self_media/" + value['media_id'] + "'>"//点击进入对应的文章页面
+                                            + "<img class='responsive-image'"
+                                            + "src="
+                                            + "{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"
+                                            + " alt='img'></a>"
+                                            + "</div>"
                                     );
                                 });
 
@@ -141,23 +144,21 @@
         });
 
 
-
-
     </script>
 
 
 
     {{--循环体--}}
     {{--<div class="wide-item-titles">--}}
-        {{--<h4>I do nothing!</h4>--}}
-        {{--<p>You can add as many images as you want!</p>--}}
+    {{--<h4>I do nothing!</h4>--}}
+    {{--<p>You can add as many images as you want!</p>--}}
     {{--</div>--}}
     {{--<div class="wide-image">--}}
-        {{--<div class="overlay"></div>--}}
-        {{--<a class="tile-wide" href="#">--}}
-            {{--<img class="responsive-image"--}}
-                 {{--src="{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"--}}
-                 {{--alt="img"></a>--}}
+    {{--<div class="overlay"></div>--}}
+    {{--<a class="tile-wide" href="#">--}}
+    {{--<img class="responsive-image"--}}
+    {{--src="{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"--}}
+    {{--alt="img"></a>--}}
     {{--</div>--}}
 
 

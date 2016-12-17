@@ -196,14 +196,19 @@ class IndexController extends WechatController
 
         foreach ($self_medias_province as $media){
             $media->user_name = $media->user->user_name;
+            $media->share_time = $media->share->count();
         }
+
+        dd($self_medias_province);
 
         foreach ($self_medias_city as $media){
             $media->user_name = $media->user->user_name;
+            $media->share_time = $media->share->count();
         }
 
         foreach ($self_medias_country as $media){
             $media->user_name = $media->user->user_name;
+            $media->share_time = $media->share->count();
         }
 
 
