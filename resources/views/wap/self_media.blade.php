@@ -47,6 +47,8 @@
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
 
+        alert(window.location);
+
 
         wx.config({
             debug: false,
@@ -148,8 +150,6 @@
 
 
 
-        var stateObj = { foo: "bar" };
-        history.pushState(stateObj, "main_page", "bar.html");
 
 
 
