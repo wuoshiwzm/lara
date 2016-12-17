@@ -14,7 +14,7 @@ class IndexController extends WechatController
 {
 
     private $app_id = 'wx260619ea73a4b130';
-    private $secret = '469536da8d67cd9df2cdde5609ffefaf';
+    private $app_secret = '469536da8d67cd9df2cdde5609ffefaf';
 
 
     public function index()
