@@ -60,36 +60,39 @@
                 </div>
             </div>
 
-            <?php //dd($self_medias) ?>
+
             @foreach($self_medias as $k=>$v)
 
-            <div class="fie_con">
-                <div class="face">
-                    <img src="{{asset('resources/views/home/images/50.jpg')}}" alt="{{$v->user_name}}">
-                </div>
-                <div class="fie_right">
-                    <p class="name"><a href="#"><span style="color:#FF6600">{{$v['user_name']}}</span></a></p>
-                    <p class="datae"><span> {{$v['created_at']}}</span> <span>来自{{$v['user_name']}}</span>
-                        <a><h1><span onclick="jumpFrame({{$v['media_id']}})">
-                              点击分享送红包啦!
-                              </span>
-                            </h1>
-                        </a>
+                <div class="fie_con">
+                    <div class="face">
+                        <img src="{{asset('resources/views/home/images/50.jpg')}}" alt="{{$v->user_name}}">
+                    </div>
+                    <div class="fie_right">
+                        <p class="name"><a href="#"><span style="color:#FF6600">{{$v['user_name']}}</span></a></p>
+                        <p class="datae">
+                            <span> {{$v['created_at']}}</span>
+                            <span>来自{{$v['user_name']}}</span>
+                            <a><h1>
+                                    <span onclick="jumpFrame({{$v['media_id']}})">
+                                      点击分享送红包啦!
+                                    </span>
+                                </h1>
+                            </a>
 
-                    </p>
-                    <p class="nei">
+                        </p>
+                        <p class="nei">
                           <span>
 
                             {!!$v['content']!!}
                           </span>
 
-                        <img src="{{asset('resources/views/home/images/photos.jpg')}}" alt="11111111111111">
-                    </p>
+                            {{--                            <img src="{{asset('resources/views/home/images/photos.jpg')}}" alt="11111111111111">--}}
+                        </p>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="fie_bottom">
+                    </div>
                 </div>
-                <div class="clear"></div>
-                <div class="fie_bottom">
-                </div>
-            </div>
             @endforeach
 
 
