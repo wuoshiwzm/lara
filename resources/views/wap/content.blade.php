@@ -68,8 +68,6 @@
                                     alert('您的区域无法分享该内容');
                                     location.href = "/wap/self_media";
                                 }
-
-
                                 //alert(data);
                             });
 

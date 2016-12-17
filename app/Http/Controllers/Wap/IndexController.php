@@ -90,6 +90,23 @@ class IndexController extends WechatController
     public function selfMedia()
     {
 
+        //share success and send redpack
+
+        $state = '123';
+        $code = '';
+
+        if ($_GET['state'] == $state) {
+            $code = $_GET['code'];
+            $uinfo = file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $this->app_id . "&secret=" . $this->app_secret . "&code=" . $code . "&grant_type=authorization_code");
+            $uinfo = (array)json_decode($uinfo);
+            $openid = $uinfo['openid'];
+        }
+
+
+        dd($openid);
+
+
+
         //微信获取地址接口
 
         //获取 access_token
@@ -213,7 +230,7 @@ class IndexController extends WechatController
 
         $self_medias = array_merge($self_medias_country->toArray(), $self_medias_city->toArray(), $self_medias_province->toArray());
         $res = $this->arrSort($self_medias, 'created_at', SORT_DESC, SORT_NATURAL );
-//        dd(json_encode($res));
+
         return $res;
     }
 
