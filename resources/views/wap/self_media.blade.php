@@ -112,7 +112,7 @@
                                             "<div class='wide-item-titles'>"
                                             + "<h4>"
                                             + "分享送红包！ - "
-                                            +'test'
+                                            + "'"+value['user_name']+"'"
                                             + "</h4>"
                                             + "</div>"
                                             +"<p>"
