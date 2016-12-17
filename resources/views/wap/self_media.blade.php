@@ -26,22 +26,22 @@
         <div class="decoration"></div>
 
         {{--<div class="navigation">--}}
-            {{--<div class="corner-deco"></div>--}}
-            {{--<div class="navigation-wrapper">--}}
-                {{--<div class="navigation-item">--}}
-                    {{--<a href="index.html" class="home-icon">Homepage</a>--}}
-                    {{--<em class="inactive-menu"></em>--}}
-                {{--</div>--}}
-                {{--<div class="navigation-item">--}}
-                    {{--<a href="#" class="features-icon has-submenu">Features</a>--}}
-                    {{--<em class="dropdown-menu"></em>--}}
-                    {{--<div class="submenu">--}}
-                        {{--<a href="type.html">Typography <em></em></a>--}}
-                        {{--<a href="jquery.html">jQuery <em></em></a>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
+        {{--<div class="corner-deco"></div>--}}
+        {{--<div class="navigation-wrapper">--}}
+        {{--<div class="navigation-item">--}}
+        {{--<a href="index.html" class="home-icon">Homepage</a>--}}
+        {{--<em class="inactive-menu"></em>--}}
+        {{--</div>--}}
+        {{--<div class="navigation-item">--}}
+        {{--<a href="#" class="features-icon has-submenu">Features</a>--}}
+        {{--<em class="dropdown-menu"></em>--}}
+        {{--<div class="submenu">--}}
+        {{--<a href="type.html">Typography <em></em></a>--}}
+        {{--<a href="jquery.html">jQuery <em></em></a>--}}
+        {{--</div>--}}
+        {{--</div>--}}
 
-            {{--</div>--}}
+        {{--</div>--}}
         {{--</div>--}}
     </div>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -114,9 +114,11 @@
                                             + "分享送红包！ - "
                                             + value['user_name']
                                             + "</h4>"
-                                            + "<h6>"
+                                            + "<h5>"
+                                            + "      已分享  "
                                             + value['share_time']
-                                            + "</h6>"
+                                            + "  次"
+                                            + "</h5>"
                                             + "</div>"
                                             + "<p>"
                                             + '</div>'
