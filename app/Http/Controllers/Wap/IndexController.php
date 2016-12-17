@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Input;
 class IndexController extends WechatController
 {
 
-    private $appid = 'wx260619ea73a4b130';
+    private $app_id = 'wx260619ea73a4b130';
     private $secret = '469536da8d67cd9df2cdde5609ffefaf';
 
 
