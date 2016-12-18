@@ -93,7 +93,7 @@
                     window.open("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx260619ea73a4b130&redirect_uri=http://adbangbang.com/sharesuccess/" + "{{$media_id}}" + "&response_type=code&scope=snsapi_base&state=123#wechat_redirect");
                 },
                 cancel: function () {
-                    alert('cancel');
+                    alert('取消分享');
                     // 用户取消分享后执行的回调函数
                 }
             };
