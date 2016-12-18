@@ -115,8 +115,6 @@
                                             + value['title']
                                             + " - "
                                             + value['user_name']
-
-
                                             + "</h4>"
                                             + "<h4>"
                                             + "已分享送出红包"
