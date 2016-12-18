@@ -110,10 +110,9 @@
                                     //clear the select options then add the new info
                                     $(".wide-item-wrapper").append(
                                             "<div class='wide-item-titles'>"
-                                            + "<h4>"
+                                            + "<h5>"
                                             + "分享送红包！"
-                                            + "</h4>"
-                                            + "<br>"
+                                            + "</h5>"
                                             + "<h4>"
                                             + value['title']
                                             + " - "
