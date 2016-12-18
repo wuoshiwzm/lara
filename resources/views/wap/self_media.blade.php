@@ -111,12 +111,17 @@
                                     $(".wide-item-wrapper").append(
                                             "<div class='wide-item-titles'>"
                                             + "<h4>"
-                                            + "分享送红包！ - "
+                                            + "分享送红包！"
+                                            + "</h4>"
+                                            + "<br>"
+                                            + "<h4>"
                                             + value['title']
+                                            + " - "
                                             + value['user_name']
                                             + "</h4>"
+                                            + "<br>"
                                             + "<h4>"
-                                            + "      已分享  "
+                                            + "已分享  "
                                             + value['share_time']
                                             + "  次"
                                             + "</h4>"
