@@ -730,8 +730,8 @@ text-indent: 24px;
 }
 .zicon-left .kuang{
 	width: 808px;
-	float:left
-    height: 250px;
+	float:left;
+    height: 300px;
     background: url(../images/xxs.jpg) no-repeat;
 }
 /*.zicon-left .kuang textarea{

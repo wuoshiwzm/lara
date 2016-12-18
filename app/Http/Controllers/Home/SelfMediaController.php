@@ -101,6 +101,7 @@ class SelfMediaController extends CommonController
             $res['content'] = $input['content'];
             $res['media_province'] = $input['media_province'];
             $res['media_city'] = $input['media_city'];
+            $res['title'] = $input['title'];
 
             SelfMedia::create($res);
             return $data;

@@ -1,12 +1,28 @@
+
+<div class="form-group">
+    <label for="name">标题：</label>
+    <input type="text" style="width:95.5%" class="form-control md" id="title" placeholder="请输入标题">
+</div>
+
+<label for="name">内容：</label>
 <div class="kuang">
   <!-- <form id="drm" action="http://127.0.0.48:89/ZIMEITI/fb.php" method="post"> -->
-     <input type="hidden" name="action" value="add">
-     <input type="hidden" name="post[join_type]" value="0">
-     <input type="hidden" name="post[title]" value="的新鲜事">
+
+
+
+
+    <link href="{{asset('resources/views/home/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <script type="text/javascript" charset="utf-8" src="{{asset('resources/org/ueditor0/ueditor.config.js')}}"></script>
     <script type="text/javascript" charset="utf-8" src="{{asset('resources/org/ueditor0/ueditor.all.min.js')}}"> </script>
 
+
+
+
+
+    <input type="hidden" name="action" value="add">
+    <input type="hidden" name="post[join_type]" value="0">
+    <input type="hidden" name="post[title]" value="的新鲜事">
     <script type="text/javascript">
     var ue = UE.getEditor('editor');
     </script>
@@ -28,7 +44,10 @@
            </button> -->
               <!-- <input  type="submit" name="submit" value="发布" onclick="newsSubmit()"> -->
       </div>
-      <tr>
+
+
+
+        <tr>
          <th width="120">此推广对应有效区域：</th>
          <td>
            <div id="distpicker" data-toggle="distpicker">
@@ -49,6 +68,10 @@
          </script>
          </td>
       </tr>
+
+
+
+
 </div>
 <!-- </form> -->
 
@@ -73,8 +96,11 @@ function newsSubmit(){
   arr = UE.getEditor('editor').getContent();
   media_province = $("#area_add1").val();
   media_city = $("#area_add2").val();
+    title = $("#title").val();
 
-  $.post('{{url('/self_media/add')}}', {'_token':"{{csrf_token()}}",'content':arr,'media_province':media_province,'media_city':media_city}, function(data) {
+    alert(title);
+
+  $.post('{{url('/self_media/add')}}', {'_token':"{{csrf_token()}}",'content':arr,'media_province':media_province,'media_city':media_city,'title':title}, function(data) {
 
     //0 means user need to login
     //1 means the content is empty
