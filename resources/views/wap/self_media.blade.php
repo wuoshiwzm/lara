@@ -112,6 +112,7 @@
                                             "<div class='wide-item-titles'>"
                                             + "<h4>"
                                             + "分享送红包！ - "
+                                            + value['title']
                                             + value['user_name']
                                             + "</h4>"
                                             + "<h4>"
@@ -127,8 +128,8 @@
                                             + "<a class='tile-wide' href='/wap/self_media/" + value['media_id'] + "'>"//点击进入对应的文章页面
                                             + "<img class='responsive-image'"
                                             + "src="
-                                            + "/resources/views/wap/images/general-nature/" + Math.round(Math.random() * 5+1) + "w.jpg"
-{{--                                            + "{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"--}}
+                                            + "/resources/views/wap/images/general-nature/" + Math.round(Math.random() * 5 + 1) + "w.jpg"
+                                            {{--                                            + "{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"--}}
                                             + " alt='img'></a>"
                                             + "</div>"
                                     );
