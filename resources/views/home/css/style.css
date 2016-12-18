@@ -119,7 +119,7 @@ p{
 .data iframe .first{
 	margin-right:10px !important;
 }
-.data iframe # .cityname{
+.data iframe .cityname{
 	height: 29px !important; padding-top:10px;
     line-height: 29px !important;
 }
