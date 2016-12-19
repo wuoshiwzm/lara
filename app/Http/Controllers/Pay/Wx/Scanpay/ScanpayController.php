@@ -73,7 +73,7 @@ class ScanpayController extends Controller
         $input->SetTime_expire(date("YmdHis", time() + 600));
         $input->SetGoods_tag("test");
         //这里设置支付成功后的回调接口，不能有参数。
-        $input->SetNotify_url("http://adbangbang.com/scanpay_callback890707asd89asdfasd897asd897jkjkzxcuioqwejkr89");
+        $input->SetNotify_url("http://adbangbang.com/scanpay_callback");
 
         $input->SetTrade_type("NATIVE");
         $input->SetProduct_id("123456789");
