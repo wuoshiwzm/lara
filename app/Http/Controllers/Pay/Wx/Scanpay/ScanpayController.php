@@ -36,9 +36,13 @@ class ScanpayController extends Controller
      */
     function setPayment()
     {
+//        dd(Input::all());
+
+
         $amount = Input::get('amount');
+        $userBalance = Input::get('userBalance');
         $username = \Session::get('user')->user_name;
-        $url = $this->getQrcode($amount, $username);
+        $url = $this->getQrcode($amount,$userBalance,$username);
         $url = "<img src=$url>";
 
         return $url;
@@ -49,7 +53,7 @@ class ScanpayController extends Controller
      * @param $username
      * @return string
      */
-    public function getQrcode($mount, $username)
+    public function getQrcode($mount, $userBalance,$username)
     {
 
         // $file_id = $request->input('file_id', '');
@@ -64,7 +68,7 @@ class ScanpayController extends Controller
         $input->SetBody("支付无穷大哟");
         $input->SetAttach($username);
         $input->SetOut_trade_no($out_trade_no);
-        $input->SetTotal_fee("$mount");
+        $input->SetTotal_fee("$mount".'|'."$userBalance");
         $input->SetTime_start(date("YmdHis"));
         $input->SetTime_expire(date("YmdHis", time() + 600));
         $input->SetGoods_tag("test");
@@ -75,15 +79,10 @@ class ScanpayController extends Controller
         $input->SetProduct_id("123456789");
         $result = $notify->GetPayUrl($input);
 
-        // dd($input);
+        dd($input);
 
         $url = $result["code_url"];
 
-        // $file = \File::where('id', $file_id)->first();
-        // if (!empty($file)) {
-        //     $file->out_trade_no = $out_trade_no;
-        //     $file->save();
-        // }
         //这段是把out_trade_no和要处理的订单关联起来
         return "http://paysdk.weixin.qq.com/example/qrcode.php?data=" . $url;
 
