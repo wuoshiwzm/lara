@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers\Pay\Wx\Scanpay;
+
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -13,35 +14,50 @@ use Illuminate\Support\Facades\Input;
  *
  */
 
-require_once app_path()."/Http/Wxpay/lib/WxPay.Api.php";
-require_once app_path()."/Http/Wxpay/example/WxPay.NativePay.php";
+require_once app_path() . "/Http/Wxpay/lib/WxPay.Api.php";
+require_once app_path() . "/Http/Wxpay/example/WxPay.NativePay.php";
 
 
 class ScanpayController extends Controller
 {
 
 
-    function index(){
-      return view('admin.payment.wxpay');
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * 付款页面
+     */
+    function index()
+    {
+        return view('admin.payment.wxpay');
     }
 
-    function setPayment(){
-      $amount  =  Input::get('amount');
-      $username = \Session::get('user')->user_name;
-      $url = $this->getQrcode($amount,$username);
-      $url ="<img src=$url>";
+    /**
+     * @return string
+     */
+    function setPayment()
+    {
+        $amount = Input::get('amount');
+        $username = \Session::get('user')->user_name;
+        $url = $this->getQrcode($amount, $username);
+        $url = "<img src=$url>";
 
-      return $url;
+        return $url;
     }
-    public function getQrcode($mount,$username)
+
+    /**
+     * @param $mount
+     * @param $username
+     * @return string
+     */
+    public function getQrcode($mount, $username)
     {
 
         // $file_id = $request->input('file_id', '');
         // $out_trade_no = WxPayConfig::MCHID . date("YmdHis") . $file_id;
 
         //get the millisecond of now to generate $out_trade_no
-        list($msec,$sec)= explode(' ',microtime());
-        $out_trade_no = $sec.intval($msec*1000);
+        list($msec, $sec) = explode(' ', microtime());
+        $out_trade_no = $sec . intval($msec * 1000);
         //我的out_trade_no是这么做的 由于我的file_id（就是我的商家订单）是唯一的，所以无论如何这个结果都是唯一的
         $notify = new \NativePay();
         $input = new \WxPayUnifiedOrder();
@@ -73,37 +89,38 @@ class ScanpayController extends Controller
 
     }
 
-    public function callback($data, &$msg){
-
-      //echo "处理回调";
-      Log::DEBUG("call back:" . json_encode($data));
-
-
-
-
-
-
-      $res =  file_get_contents("php://input");
-      $disk = Storage::disk('wxpay');
-      // $contents = $disk->get('file.jpg')
-      // $contents = Storage::disk('wxpay')->get('wxpay.txt');
-      $contents = $disk->append('wxpay.txt',$res);
-
-      // dd($contents);
-      die();
-
-
-
-      dd(file_get_contents("php://input") );
+    /**
+     * @param $data
+     * @param $msg
+     * @return bool
+     */
+    public function callback($data, &$msg)
+    {
 
         //echo "处理回调";
         Log::DEBUG("call back:" . json_encode($data));
 
-        if(!array_key_exists("openid", $data) ||
-          !array_key_exists("product_id", $data))
-        {
-          $msg = "回调数据异常";
-          return false;
+
+        $res = file_get_contents("php://input");
+        $disk = Storage::disk('wxpay');
+        // $contents = $disk->get('file.jpg')
+        // $contents = Storage::disk('wxpay')->get('wxpay.txt');
+        $contents = $disk->append('wxpay.txt', $res);
+
+        // dd($contents);
+//        die();
+
+
+        dd(file_get_contents("php://input"));
+
+        //echo "处理回调";
+        Log::DEBUG("call back:" . json_encode($data));
+
+        if (!array_key_exists("openid", $data) ||
+            !array_key_exists("product_id", $data)
+        ) {
+            $msg = "回调数据异常";
+            return false;
         }
 
         $openid = $data["openid"];
@@ -111,13 +128,13 @@ class ScanpayController extends Controller
 
         //统一下单
         $result = $this->unifiedorder($openid, $product_id);
-        if(!array_key_exists("appid", $result) ||
-           !array_key_exists("mch_id", $result) ||
-           !array_key_exists("prepay_id", $result))
-        {
-          $msg = "统一下单失败";
-          return false;
-         }
+        if (!array_key_exists("appid", $result) ||
+            !array_key_exists("mch_id", $result) ||
+            !array_key_exists("prepay_id", $result)
+        ) {
+            $msg = "统一下单失败";
+            return false;
+        }
 
         $this->SetData("appid", $result["appid"]);
         $this->SetData("mch_id", $result["mch_id"]);
@@ -127,5 +144,5 @@ class ScanpayController extends Controller
         $this->SetData("err_code_des", "OK");
         return true;
 
-      }
-  }
+    }
+}

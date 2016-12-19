@@ -9,7 +9,6 @@
 <script type="text/javascript" src="{{asset('resources/org/layer/layer.js')}}"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</script>
 
 </head>
 <body>

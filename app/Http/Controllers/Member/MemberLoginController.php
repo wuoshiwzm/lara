@@ -41,6 +41,7 @@ class MemberLoginController extends CommonController
             }
 
 
+
             $test =  $user->user_pass;
             if ($user->user_name!=$input['user_name']
                 || Crypt::decrypt($user->user_pass) != $input['user_pass']

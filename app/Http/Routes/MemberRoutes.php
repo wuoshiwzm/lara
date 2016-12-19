@@ -35,4 +35,4 @@ Route::resource('company','CompanyController');
 Route::any('upload', 'CommonController@upload');
 
 //自媒体
-Route::resource('self_media','SelfMediaController');
+Route::resource('self_media','MemberSelfMediaController');
