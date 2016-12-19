@@ -47,7 +47,6 @@ class NotifyController extends Controller
     public function index()
     {
 
-        // die();
         $postStr = file_get_contents("php://input");
         $disk = Storage::disk('wxpay');
         $file = date('y-m-d') . '.log';
@@ -69,7 +68,7 @@ class NotifyController extends Controller
 
         $payment['payment_out_trade_no'] = $msg['out_trade_no'];
         $payment['payment_cash_fee'] = intval($msg['cash_fee'] / 100);
-        $payment['payment_total_fee'] = $msg['total_fee'];
+        $payment['payment_total_fee'] = $msg['total_fee'] / 100;
         $payment['payment_openid'] = $msg['openid'];
 
 
