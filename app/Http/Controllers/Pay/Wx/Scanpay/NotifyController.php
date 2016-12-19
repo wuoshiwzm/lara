@@ -81,6 +81,8 @@ class NotifyController extends Controller
 
         //if $num == 0 , means there is no such order. them write to databaese
         if (!$num && $msg['mch_id'] == $this->mchid) {
+
+            Payment::create($payment);
             //事务处理
             DB::transaction(function () use ($payment) {
                 Payment::create($payment);
