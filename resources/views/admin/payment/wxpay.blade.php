@@ -23,28 +23,28 @@
         <div class="service-grids">
             <div class="col-md-3 service-grid">
 
-                <i class="icon1" id="5000l" onclick="pay(50000,60000)">
+                <i class="icon1" id="5000l" onclick="pay(50000,6000000)">
                 </i>
                 <h3>50000条/60000元</h3>
             </div>
 
             <div class="col-md-3 service-grid">
 
-                <i class="icon1" id="5000l" onclick="pay(10000,14000)">
+                <i class="icon1" id="5000l" onclick="pay(10000,1400000)">
                 </i>
                 <h3>10000条/14000元</h3>
             </div>
 
             <div class="col-md-3 service-grid">
 
-                <i class="icon1" id="5000l" onclick="pay(5000,8000)">
+                <i class="icon1" id="5000l" onclick="pay(5000,800000)">
                 </i>
                 <h3>5000条/8000元</h3>
             </div>
 
             <div class="col-md-3 service-grid">
 
-                <i class="icon1" id="5000l" onclick="pay(2000,4000)">
+                <i class="icon1" id="5000l" onclick="pay(2000,400000)">
                 </i>
                 <h3>2000条/4000元</h3>
             </div>
@@ -52,21 +52,21 @@
 
             <div class="col-md-3 service-grid">
 
-                <i class="icon1" id="5000l" onclick="pay(100,200)">
+                <i class="icon1" id="5000l" onclick="pay(100,20000)">
                 </i>
                 <h3>100条/200元</h3>
             </div>
 
             <div class="col-md-3 service-grid">
 
-                <i class="icon1" id="5000l" onclick="pay(50,100)">
+                <i class="icon1" id="5000l" onclick="pay(50,10000)">
                 </i>
                 <h3>50条/100元</h3>
             </div>
 
             <div class="col-md-3 service-grid">
 
-                <i class="icon1" id="5000l" onclick="pay(10,20)">
+                <i class="icon1" id="5000l" onclick="pay(10,2000)">
                 </i>
                 <h3>10条/20元</h3>
             </div>
