@@ -65,7 +65,7 @@ Route::any('testpay','Pay\WechatPayController@index');
 Route::resource('register','Home\RegisterController');
 
 
-//wx pay Route
+//wx pay Route 回调函数
 // Route::get('hongbao','Pay\Wx\Hongbao\HongbaoController@index');
 // Route::get('scanpay','Pay\Wx\Scanpay\ScanpayController@index');
 // Route::get('scanpay_callback','Pay\Wx\Scanpay\ScanpayController@callback');
