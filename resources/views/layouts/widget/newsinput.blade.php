@@ -1,10 +1,17 @@
-<link href="{{asset('resources/views/home/css/bootstrap.min.css')}}" rel="stylesheet">
-<div class="form-group">
-    <label for="name">标题：</label>
-    <input type="text" style="width:95.5%" class="form-control md" id="title" placeholder="请输入标题">
-</div>
+<link rel="stylesheet" href="{{asset('resources/views/admin/style/css/ch-ui.admin.css')}}">
+<script type="text/javascript" src="{{asset('resources/views/admin/style/js/ch-ui.admin.js')}}"></script>
 
-<label for="name">内容：</label>
+<tr>
+
+    <th>标题：</th>
+<td>
+    <input type="text" style="width:94%" name="cate_order" id="title" placeholder="请输入标题">
+</td>
+
+</tr>
+<br>
+<br>
+<tr for="name">内容：</tr>
 <div class="kuang">
     <!-- <form id="drm" action="http://127.0.0.48:89/ZIMEITI/fb.php" method="post"> -->
 

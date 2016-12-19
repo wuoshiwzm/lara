@@ -49,18 +49,10 @@
             @include('layouts.widget.newsinput')
             <div class="lis">
                 <ul>
-                    <li class="select"><a href="#">全部</a></li>
-                    <li><a href="#">原创</a></li>
-                    <li><a href="#">视频</a></li>
-                    <li><a href="#">图片</a></li>
-                    <li><a href="#">音乐</a></li>
-                    <li><a href="#">文章</a></li>
+
 
                 </ul>
-                <div class="wes">
-                    <input type="text" class="weisou">
-                    <input type="button" class="weisoua">
-                </div>
+              
             </div>
 
 
