@@ -5,12 +5,6 @@
 <!-- data for weixin share -->
 
 
-<input type="hidden" class="session_user" value=
-@if( session('user'))
-        "{{session('user')->user_name}}"
-@else
-    ""
-@endif >
 <div class="top">
     <div class="wrappersy">
         <div class="logo">
@@ -24,13 +18,22 @@
         @include('layouts.nav')
 
         <!-- seach bar -->
-            @include('layouts.search')
+        @include('layouts.search')
 
 
         </div>
     </div>
 </div>
 @include('layouts.widget.page_banner')
+
+
+
+<input type="hidden" class="session_user" value=
+@if( session('user'))
+        "{{session('user')->user_name}}"
+@else
+    ""
+@endif >
 
 
 <div class="zi">
