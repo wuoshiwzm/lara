@@ -78,11 +78,7 @@ class ScanpayController extends Controller
         $input->SetTrade_type("NATIVE");
         $input->SetProduct_id("123456789");
         $result = $notify->GetPayUrl($input);
-
-        dd($input);
-
         $url = $result["code_url"];
-
         //这段是把out_trade_no和要处理的订单关联起来
         return "http://paysdk.weixin.qq.com/example/qrcode.php?data=" . $url;
 
