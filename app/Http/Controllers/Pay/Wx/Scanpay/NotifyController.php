@@ -63,7 +63,7 @@ class NotifyController extends Controller
         $userArr = explode('|', $msg['attach']);
 
         $payment['payment_user_name'] = $userArr[0];
-        $user_banlance = $userArr[1];
+        $userBalance = $userArr[1];
 
 
         $payment['payment_out_trade_no'] = $msg['out_trade_no'];
@@ -82,13 +82,13 @@ class NotifyController extends Controller
         //if $num == 0 , means there is no such order. them write to databaese
         if (!$num && $msg['mch_id'] == $this->mchid) {
 
-            Payment::create($payment);
+//            Payment::create($payment);
             //事务处理
-            DB::transaction(function () use ($payment,$user_banlance) {
+            DB::transaction(function () use ($payment,$userBalance) {
                 Payment::create($payment);
                 $userName = $payment['payment_user_name'];
                 User::where('user_name', $userName)
-                    ->increment('user_balance', $user_banlance);;
+                    ->increment('user_balance', $userBalance);;
 
             });
         }
