@@ -84,7 +84,7 @@ class NotifyController extends Controller
 //            Payment::create($payment);
             //事务处理
             DB::transaction(function () use ($payment,$userBalance) {
-                Payment::create($payment);
+                DB::table('payment')->create($payment);
 //                $userName = $payment['payment_user_name'];
 //                User::where('user_name', $userName)
 //                    ->increment('user_balance', $userBalance);
