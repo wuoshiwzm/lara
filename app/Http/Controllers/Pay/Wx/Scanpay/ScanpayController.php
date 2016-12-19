@@ -66,9 +66,9 @@ class ScanpayController extends Controller
         $notify = new \NativePay();
         $input = new \WxPayUnifiedOrder();
         $input->SetBody("支付无穷大哟");
-        $input->SetAttach($username);
+        $input->SetAttach($username.'|'."$userBalance");
         $input->SetOut_trade_no($out_trade_no);
-        $input->SetTotal_fee("$mount".'|'."$userBalance");
+        $input->SetTotal_fee("$mount");
         $input->SetTime_start(date("YmdHis"));
         $input->SetTime_expire(date("YmdHis", time() + 600));
         $input->SetGoods_tag("test");
