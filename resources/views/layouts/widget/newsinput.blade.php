@@ -1,3 +1,4 @@
+<link href="{{asset('resources/views/home/css/bootstrap.min.css')}}" rel="stylesheet">
 <div class="form-group">
     <label for="name">标题：</label>
     <input type="text" style="width:95.5%" class="form-control md" id="title" placeholder="请输入标题">
@@ -8,7 +9,7 @@
     <!-- <form id="drm" action="http://127.0.0.48:89/ZIMEITI/fb.php" method="post"> -->
 
 
-    <link href="{{asset('resources/views/home/css/bootstrap.min.css')}}" rel="stylesheet">
+
 
     <script type="text/javascript" charset="utf-8" src="{{asset('resources/org/ueditor0/ueditor.config.js')}}"></script>
     <script type="text/javascript" charset="utf-8"
@@ -104,7 +105,7 @@
                 layer.confirm(data.msg, {
                     btn: ['登录', '取消'] //按钮
                 }, function () {
-                    window.open("{{url('/admin/login')}}");
+                    window.open("{{url('/member/login')}}");
                     layer.confirm('完成登录？', {
                         btn: ['完成', '取消'] //按钮
                     }, function () {
