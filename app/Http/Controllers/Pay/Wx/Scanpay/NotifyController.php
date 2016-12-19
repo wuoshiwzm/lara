@@ -59,27 +59,35 @@ class NotifyController extends Controller
         $msg = array();
         $msg = (array)simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
 
+        //获取用户名和相应的条数
+        /**        $input->SetAttach($username.'|'."$userBalance");*/
+        $userArr = explode('|', $msg['attach']);
 
-        $payment['payment_user_name'] = $msg['attach'];
+        $payment['payment_user_name'] = $userArr[0];
+        $payment['user_banlance'] = $userArr[1];
+
+
         $payment['payment_out_trade_no'] = $msg['out_trade_no'];
         $payment['payment_cash_fee'] = intval($msg['cash_fee'] / 100);
         $payment['payment_total_fee'] = $msg['total_fee'];
         $payment['payment_openid'] = $msg['openid'];
-        $payment['user_banlance'] = $msg['openid'];
+
 
         //check how many he buy, and add the user_balance in table user use transaction
 
 
         //if the payment_out_trade_no already existed
-        $num = Payment::where('payment_out_trade_no', $payment['payment_out_trade_no'])->count();
+        $num = Payment::where('payment_out_trade_no', $payment['payment_out_trade_no'])
+            ->count();
 
         //if $num == 0 , means there is no such order. them write to databaese
         if (!$num && $msg['mch_id'] == $this->mchid) {
             //事务处理
-            DB::transaction(function () use ($payment){
+            DB::transaction(function () use ($payment) {
                 Payment::create($payment);
                 $userName = $payment['payment_user_name'];
-                User::where('user_name', $userName)->increment('user_balance', $payment['payment_cash_fee'] / 2);;
+                User::where('user_name', $userName)
+                    ->increment('user_balance', $payment['user_banlance']);;
 
             });
         }
