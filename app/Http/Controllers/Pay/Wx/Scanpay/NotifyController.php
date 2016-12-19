@@ -63,7 +63,7 @@ class NotifyController extends Controller
         $userArr = explode('|', $msg['attach']);
 
         $payment['payment_user_name'] = $userArr[0];
-        $payment['user_banlance'] = $userArr[1];
+        $user_banlance = $userArr[1];
 
 
         $payment['payment_out_trade_no'] = $msg['out_trade_no'];
@@ -86,7 +86,7 @@ class NotifyController extends Controller
                 Payment::create($payment);
                 $userName = $payment['payment_user_name'];
                 User::where('user_name', $userName)
-                    ->increment('user_balance', $payment['user_banlance']);;
+                    ->increment('user_balance', $user_banlance);;
 
             });
         }
