@@ -34,7 +34,7 @@ class MemberIndexController extends CommonController
 
     public function info()
     {
-        $userId = Session::get('user')->user_id;
+        $userId = \Session::get('user')->user_id;
         $userBalance = User::find($userId)->user_balance;
         return view('member.info',compact('userBalance'));
     }
