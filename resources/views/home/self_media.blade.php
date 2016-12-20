@@ -16,9 +16,10 @@
         @include('layouts.rig_top')
 
         <!-- nav bar -->
-        @include('layouts.nav')
 
-        <!-- seach bar -->
+                @include('layouts.nav')
+
+            <!-- seach bar -->
             @include('layouts.search')
 
 
@@ -41,15 +42,7 @@
     </div>
     <div class="zi_con">
 
-        <div>
-            <br>
-            <br>
-            <br>
 
-            <br>
-            <br>
-
-        </div>
         <div class="zicon-left">
             <!-- wechat share loading -->
             @include('layouts.widget.newsinput')
