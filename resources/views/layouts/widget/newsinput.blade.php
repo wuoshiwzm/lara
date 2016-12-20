@@ -4,9 +4,9 @@
 <tr>
 
     <th>标题：</th>
-<td>
-    <input type="text" style="width:94%" name="cate_order" id="title" placeholder="请输入标题">
-</td>
+    <td>
+        <input type="text" style="width:94%" name="cate_order" id="title" placeholder="请输入标题">
+    </td>
 
 </tr>
 <br>
@@ -14,8 +14,6 @@
 <tr for="name">内容：</tr>
 <div class="kuang">
     <!-- <form id="drm" action="http://127.0.0.48:89/ZIMEITI/fb.php" method="post"> -->
-
-
 
 
     <script type="text/javascript" charset="utf-8" src="{{asset('resources/org/ueditor0/ueditor.config.js')}}"></script>
@@ -29,7 +27,6 @@
     <script type="text/javascript">
         var ue = UE.getEditor('editor');
     </script>
-
 
     <script id="editor" type="text/plain" style="width:99.5%;height:150px;"></script>
     <div class="ku_bot">

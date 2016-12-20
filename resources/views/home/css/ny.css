@@ -731,7 +731,7 @@ text-indent: 24px;
 .zicon-left .kuang{
 	width: 808px;
 	float:left;
-    height: 300px;
+    height: auto;
     /*background: url(../images/xxs.jpg) no-repeat;*/
 }
 /*.zicon-left .kuang textarea{
@@ -748,9 +748,6 @@ text-indent: 24px;
 	padding-top: 5px;
 	overflow: hidden;
 }
-
-
-
 
 
 .kb_left{

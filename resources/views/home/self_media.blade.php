@@ -1,4 +1,5 @@
 @include('layouts.header')
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" charset="utf-8"></script>
 
 
 <body onload="time()">
@@ -18,14 +19,13 @@
         @include('layouts.nav')
 
         <!-- seach bar -->
-        @include('layouts.search')
+            @include('layouts.search')
 
 
         </div>
     </div>
 </div>
 @include('layouts.widget.page_banner')
-
 
 
 <input type="hidden" class="session_user" value=
@@ -40,13 +40,20 @@
     <div class="title_zi">
     </div>
     <div class="zi_con">
+
+        <div>
+            <br>
+            <br>
+            <br>
+
+            <br>
+            <br>
+
+        </div>
         <div class="zicon-left">
-
             <!-- wechat share loading -->
-            <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" charset="utf-8"></script>
-
-
             @include('layouts.widget.newsinput')
+
             <div class="lis">
                 <ul>
 
