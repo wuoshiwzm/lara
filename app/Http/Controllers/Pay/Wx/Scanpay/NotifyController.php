@@ -80,13 +80,14 @@ class NotifyController extends Controller
             ->count();
 
         //if $num == 0 , means there is no such order. them write to databaese
+
         if (!$num && $msg['mch_id'] == $this->mchid) {
 //            Payment::create($payment);
 //            $userName = $payment['payment_user_name'];
 //            User::where('user_name', $userName)
 //                ->increment('user_balance', $userBalance);
             //事务处理
-            DB::transaction(function () use ($payment, $userBalance) {
+            \DB::transaction(function () use ($payment, $userBalance) {
                 try {
                     Payment::insert($payment);
                     $userName = $payment['payment_user_name'];
@@ -94,12 +95,7 @@ class NotifyController extends Controller
                         ->increment('user_balance', $userBalance);
                 }catch(\Exception $e){
 
-                    $postStr =  'test';
-                    $disk = Storage::disk('wxpay_error');
-                    $file = date('y-m-d') . '.log';
-                    $disk->append($file, $postStr);
-                    $disk->append($file, '\n');
-                    $disk->append($file, '\n');
+                  dd($e);
 
                 }
             });
