@@ -34,7 +34,9 @@ class MemberIndexController extends CommonController
 
     public function info()
     {
-        return view('member.info');
+        $userId = Session::get('user')->user_id;
+        $userBalance = User::find($userId)->user_balance;
+        return view('member.info',compact('userBalance'));
     }
 
     //change password

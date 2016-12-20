@@ -6,7 +6,8 @@
 
         <tr>
             <th width="30%"><i class="fa fa-fw fa-clipboard"></i>目前账户额度</th>
-            <td> {{Session::get('user')->user_balance}}</td>
+            <td>
+                {{$userBalance}}
         </tr>
 
         <tr>
