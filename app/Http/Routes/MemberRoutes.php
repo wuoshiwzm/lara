@@ -28,11 +28,12 @@ Route::any('offer/changeorder', 'MemberOfferController@changeOrder');
 Route::resource('news','MemberNewsController');
 Route::any('news/changeorder', 'MemberNewsController@changeOrder');
 
-//资源信息 - 自媒体
-
 //公司信息
 Route::resource('company','CompanyController');
 Route::any('upload', 'CommonController@upload');
+
+
+
 
 //自媒体
 Route::resource('self_media','MemberSelfMediaController');
