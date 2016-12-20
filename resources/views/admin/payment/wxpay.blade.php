@@ -23,12 +23,12 @@
         <div class="service-grids">
 
 
-            <div class="col-md-3 service-grid">
+            {{--<div class="col-md-3 service-grid">--}}
 
-                <i class="icon1" id="5000l" onclick="pay(1,1)">
-                </i>
-                <h3>1条/0.01元 -- 测试</h3>
-            </div>
+                {{--<i class="icon1" id="5000l" onclick="pay(1,1)">--}}
+                {{--</i>--}}
+                {{--<h3>1条/0.01元 -- 测试</h3>--}}
+            {{--</div>--}}
 
 
 

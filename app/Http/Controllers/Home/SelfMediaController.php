@@ -53,12 +53,15 @@ class SelfMediaController extends CommonController
             ->select('self_media.*')
             ->get();
 
-        $self_medias = array_merge($self_medias_country->toArray(), $self_medias_city->toArray(), $self_medias_province->toArray());
 
-        // dd($self_medias);
-        // $wechatData = (new WechatController)->wechat_data();
-        // dd($wechatData);
-        // dd($self_medias);
+        $self_medias = array_merge($self_medias_country->toArray(),
+            $self_medias_city->toArray(),
+            $self_medias_province->toArray());
+        $res = $this->arrSort($self_medias, 'created_at', SORT_DESC, SORT_NATURAL);
+
+        return $res;
+
+
         return view('home.self_media')
             ->with('self_medias', $self_medias);
     }
@@ -172,6 +175,34 @@ class SelfMediaController extends CommonController
 
         //返回对象，需要转换为数组
         // return $address_arr = json_decode($address);　
+    }
+
+
+
+    /**
+     * @param $arrays
+     * @param $sort_key
+     * @param int $sort_order
+     * @param int $sort_type
+     * @return array|bool
+     * 数组排序
+     */
+    private function arrSort($arrays, $sort_key, $sort_order = SORT_DESC, $sort_type = SORT_NUMERIC)
+    {
+        if (is_array($arrays)) {
+            foreach ($arrays as $array) {
+                if (is_array($array)) {
+                    $key_arrays[] = $array[$sort_key];
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            return false;
+        }
+
+        array_multisort($key_arrays, $sort_order, $sort_type, $arrays);
+        return $arrays;
     }
 
 

@@ -18,7 +18,7 @@
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
     	wx.config({
-    		debug: true,
+    		debug: false,
         appId: 'wx260619ea73a4b130',     // 必填，公众号的唯一标识
         timestamp: {{$wechat['timestamp']}}, // 必填，生成签名的时间戳
         nonceStr:  "{{$wechat['noncestr']}}", // 必填，生成签名的随机串
