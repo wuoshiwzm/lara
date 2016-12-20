@@ -732,7 +732,7 @@ text-indent: 24px;
 	width: 808px;
 	float:left;
     height: 300px;
-    background: url(../images/xxs.jpg) no-repeat;
+    /*background: url(../images/xxs.jpg) no-repeat;*/
 }
 /*.zicon-left .kuang textarea{
 	width: 801px;
