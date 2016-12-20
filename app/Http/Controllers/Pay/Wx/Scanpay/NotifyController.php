@@ -94,7 +94,7 @@ class NotifyController extends Controller
                         ->increment('user_balance', $userBalance);
                 }catch(\Exception $e){
 
-                    $postStr = $e;
+                    $postStr =  'test';
                     $disk = Storage::disk('wxpay_error');
                     $file = date('y-m-d') . '.log';
                     $disk->append($file, $postStr);
