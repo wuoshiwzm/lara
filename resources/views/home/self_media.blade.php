@@ -18,9 +18,9 @@
 
         <!-- nav bar -->
 
-                @include('layouts.nav')
+        @include('layouts.nav')
 
-            <!-- seach bar -->
+        <!-- seach bar -->
             @include('layouts.search')
 
 

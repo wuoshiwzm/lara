@@ -698,6 +698,10 @@ table.list_tab {
 	width: 100%
 }
 
+table.list_tab img{
+	max-height: 80px;
+}
+
 table.list_tab tr {
 	line-height: 35px
 }
