@@ -19,10 +19,7 @@
 <link href="{{asset('resources/views/home/css/style(1).css')}}" rel="stylesheet" >
 <link href="{{asset('resources/views/home/css/buttons.css')}}" rel="stylesheet">
 
-
-<!-- weibo share -->
-<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
-
+@yield('css')
 
 
 

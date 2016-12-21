@@ -1,8 +1,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>首页</title>
-    <link rel="stylesheet" media="screen" href="{{asset('resources/views/home/css/style.css')}}"/>
+    <link rel="stylesheet" media="screen" href="{{asset('resources/views/home/css/style_mainpage.css')}}"/>
     <link rel="stylesheet" media="screen" href="{{asset('resources/views/home/css/jquery.jslides.css')}}"/>
+
+
+
 
 
     <script type="text/javascript" src="{{asset('resources/views/home/js/jquery.js')}}"></script>
@@ -12,7 +15,6 @@
     <script type="text/javascript" src="{{asset('resources/org/layer/layer.js')}}"></script>
 </head>
 
-<body>
 
 <body onload="time()">
 <!-- data for weixin share -->

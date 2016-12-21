@@ -4,9 +4,9 @@
         <div>
             <select id="hangye" class="hangye" name="type">
 
-                <option value="ad" selected="">广告媒体</option>
-                <option value="design" selected="">设计资源</option>
-                <option value="activity" selected="">活动策划</option>
+                <option value="ad" selected="selected">广告媒体</option>
+                <option value="design"  >设计资源</option>
+                <option value="activity" >活动策划</option>
                 {{--<option value="5">行业搜索</option>--}}
             </select>
         </div>
