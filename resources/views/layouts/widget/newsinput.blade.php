@@ -1,11 +1,17 @@
-<link rel="stylesheet" href="{{asset('resources/views/admin/style/css/ch-ui.admin.css')}}">
-<script type="text/javascript" src="{{asset('resources/views/admin/style/js/ch-ui.admin.js')}}"></script>
+{{--<link rel="stylesheet" href="{{asset('resources/views/admin/style/css/ch-ui.admin.css')}}">--}}
+{{--<script type="text/javascript" src="{{asset('resources/views/admin/style/js/ch-ui.admin.js')}}"></script>--}}
 
 <tr>
 
     <th>标题：</th>
+    <br>
     <td>
-        <input type="text" style="width:94%" name="cate_order" id="title" placeholder="请输入标题">
+        <input type="text"
+               style="
+               width:95%;
+               border: dashed  1px gray;
+               height: 25px;
+            " name="cate_order" id="title" placeholder="请输入标题">
     </td>
 
 </tr>
@@ -16,7 +22,8 @@
     <!-- <form id="drm" action="http://127.0.0.48:89/ZIMEITI/fb.php" method="post"> -->
 
 
-    <script type="text/javascript" charset="utf-8" src="{{asset('resources/org/ueditor0/ueditor.config.js')}}"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="{{asset('resources/org/ueditor0/ueditor.config.js')}}"></script>
     <script type="text/javascript" charset="utf-8"
             src="{{asset('resources/org/ueditor0/ueditor.all.min.js')}}"></script>
 
