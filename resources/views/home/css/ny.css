@@ -728,6 +728,12 @@ text-indent: 24px;
 	border-right:1px solid #e5e5e5;
 	margin-bottom: 28px;
 }
+
+.zicon-left img{
+
+	max-height:150px;
+}
+
 .zicon-left .kuang{
 	width: 808px;
 	float:left;
