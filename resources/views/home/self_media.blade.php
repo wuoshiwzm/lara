@@ -114,7 +114,7 @@
                 @foreach($pushMedia as $media)
                     <span onclick="jumpFrame({{$media['media_id']}})">
                     <li> {{$media['title']}} <span>{{date('m-d',strtotime($media['created_at']))}}</span></li>
-                         
+
                 @endforeach
 
             </div>
