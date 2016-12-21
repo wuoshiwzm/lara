@@ -2,26 +2,33 @@
 
 namespace App\Http\Controllers\Home;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 use App\Http\Model\SelfMedia;
 use App\Http\Model\User;
+use App\Http\Model\ShareRec;
 use App\Http\Controllers\Home\CommonController;
 
 class SelfMediaController extends CommonController
 {
 
 
+    /**
+     * @return mixed
+     */
     public function index()
     {
+
 
         //the city where the user is in
         // dd($this->getCity($_SERVER['REMOTE_ADDR']));
         $countryNow = $this->getCity($_SERVER['REMOTE_ADDR'])->country;
         $provinceNow = $this->getCity($_SERVER['REMOTE_ADDR'])->province;
         $cityNow = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
+
 
         //the city and province where the news request
 
@@ -59,13 +66,37 @@ class SelfMediaController extends CommonController
             $self_medias_province->toArray());
         $self_medias = $this->arrSort($self_medias, 'created_at', SORT_DESC, SORT_NATURAL);
 
-//        return $res;
+        //分享数排行
 
+        foreach ($self_medias as $k => $media) {
+            $shareTimes = ShareRec::where('media_id', $media['media_id'])->count();
+            $self_medias[$k] = array_merge($media, array('shareTimes' => $shareTimes));
+        }
+
+        $topShareMedia = $this->arrSort($self_medias, 'shareTimes', SORT_DESC, SORT_NUMERIC);
+
+        if(count($topShareMedia)>8){
+            $topShareMedia = array_slice($topShareMedia,0,0);
+        }elseif (count($topShareMedia)<8){
+            $topShareMedia = array_slice($self_medias,0,8);
+        };
+
+        //推荐
+        foreach ($self_medias as $k => $media) {
+            if($media['show'] == 2){
+                $pushMedia[] = $media;
+            }
+        }
 
         return view('home.self_media')
-            ->with('self_medias', $self_medias);
+            ->with('self_medias', $self_medias)
+            ->with('topShareMedia',$topShareMedia)
+            ->with('pushMedia',$pushMedia);
     }
 
+    /**
+     * @return array
+     */
     public function add()
     {
         $input = Input::all();
@@ -114,6 +145,15 @@ class SelfMediaController extends CommonController
     }
 
 
+    /**
+     * @param $url
+     * @param array $post_data
+     * @param bool $verbose
+     * @param bool $ref_url
+     * @param bool $cookie_location
+     * @param bool $return_transfer
+     * @return bool
+     */
     function curl_get_contents($url, array $post_data = array(), $verbose = false, $ref_url = false, $cookie_location = false, $return_transfer = true)
     {
         $return_val = false;
@@ -123,7 +163,7 @@ class SelfMediaController extends CommonController
         curl_setopt($pointer, CURLOPT_URL, $url);
         curl_setopt($pointer, CURLOPT_TIMEOUT, 40);
         curl_setopt($pointer, CURLOPT_RETURNTRANSFER, $return_transfer);
-        curl_setopt($pointer, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.10 (KHTML, like Gecko) Chrome/8.0.552.28 Safari/534.10");
+        curl_setopt($pointer, CURLOPT_USERAGENT, "Mozilla / 5.0 (Windows; U; Windows NT 6.1; en - US) AppleWebKit / 534.10 (KHTML, like Gecko) Chrome / 8.0.552.28 Safari / 534.10");
         curl_setopt($pointer, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($pointer, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($pointer, CURLOPT_HEADER, false);
@@ -162,9 +202,13 @@ class SelfMediaController extends CommonController
         curl_close($pointer);
     }
 
+    /**
+     * @param $ip
+     * @return mixed
+     */
     private function getCity($ip)
     {
-        header("content-type:text/html;charset=utf-8");
+        header("content-type:text/html;charset = utf-8");
         date_default_timezone_set("Asia/Shanghai");
         error_reporting(0);
         // 根据IP判断城市

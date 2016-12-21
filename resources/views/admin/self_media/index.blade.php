@@ -43,13 +43,12 @@
                         <th>标题</th>
                         <th>内容</th>
                         <th>发布时间</th>
+                        <th>是否推荐</th>
                         <th>操作</th>
                     </tr>
 
                     @foreach($data as $v)
                         <tr>
-
-
                             <td class="tc">{{$v->id}}</td>
                             <td class="">
                                 {{$v->title}}
@@ -59,10 +58,18 @@
                                 {!! $v->content !!}
                             </td>
                             <td>{{$v->created_at}}</td>
+                            <td>
+                                @if($v->show == 2)
+                                    推荐中
+                                @else
+                                    未推荐
+                                @endif
+                            </td>
 
                             <td>
                             <!-- <a href="{{url('admin/self_media/'.$v->art_id.'/edit')}}">修改</a> -->
                                 <a href="javascript::" onclick="delSelfMedia({{$v->media_id}})">删除</a>
+                                <a href="javascript::" onclick="pushMedia({{$v->media_id}})">添加/取消推荐</a>
                             </td>
                         </tr>
                     @endforeach
@@ -95,6 +102,31 @@
                 }, function (data) {
                     if (data.status == 0) {
 
+                        layer.msg(data.msg, {icon: 1});
+                        location.href = location.href;
+                    }
+                    else {
+                        layer.msg(data.msg, {icon: 1});
+                    }
+                });
+
+            }, function () {
+
+            });
+        }
+
+
+        function pushMedia(media_id) {
+
+            layer.confirm('是否推荐分类？', {
+                btn: ['确认', '取消']
+            }, function () {
+                $.post("{{url('/admin/self_media/push/')}}", {
+                    'media_id': media_id,
+                    '_token': "{{csrf_token()}}"
+
+                }, function (data) {
+                    if (data.status == 0) {
                         layer.msg(data.msg, {icon: 1});
                         location.href = location.href;
                     }

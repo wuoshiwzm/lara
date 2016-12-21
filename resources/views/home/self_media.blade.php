@@ -83,7 +83,6 @@
                             {!!$v['content']!!}
                           </span>
 
-                            {{--                            <img src="{{asset('resources/views/home/images/photos.jpg')}}" alt="11111111111111">--}}
                         </p>
                     </div>
                     <div class="clear"></div>
@@ -111,23 +110,24 @@
             </div> -->
             <div class="zicr_midden">
                 <h1>推荐分享</h1>
-                <li><a href="">#徐佳莹我所需要的#</a><span>12-25</span></li>
-                <li><a href="">#宇宙夫妇#</a><span>12-33</span></li>
-                <li><a href="">#你能陪陪我吗#</a><span>12-12</span></li>
-                <li><a href="">#张睿直播送钱#</a><span>12-15</span></li>
-                <li><a href="">#极限挑战#</a><span>12-15</span></li>
-                <li><a href="">#特工皇妃主演#</a><span>12-15</span></li>
-                <li><a href="">#多花点时间来陪我#</a><span>12-15</span></li>
-                <li><a href="">#陈奕迅演唱会有票#</a><span>12-15</span></li>
+
+                @foreach($pushMedia as $media)
+                    <span onclick="jumpFrame({{$media['media_id']}})">
+                    <li><a href="">#{{$media['title']}}#</a><span>12-25</span></li>
+                        </span>
+                @endforeach
+
             </div>
             <div class="zicr_bottom">
                 <h1>分享排行</h1>
                 <ul>
-                    <li>
-                        <a href="http://127.0.0.48:89/ZIMEITI/list.php?catid=9"><img src="#" alt=""></a>
-                        <a href="http://127.0.0.48:89/ZIMEITI/list.php?catid=9"><span
-                                    style="color:#FF6600">最新视频拍摄</span></a>
-                    </li>
+                    @foreach($topShareMedia as $media)
+                        <li>
+                            <a href=""><span onclick="jumpFrame({{$media['media_id']}})"
+                                        style="color:#FF6600">{{$media['title']}}</span></a>
+                        </li>
+
+                    @endforeach
                 </ul>
             </div>
         </div>

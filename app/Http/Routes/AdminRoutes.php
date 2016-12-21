@@ -68,6 +68,7 @@ Route::any('recm1/changeorder', 'RecmommendController1@changeOrder');
 
 //自媒体
 Route::resource('self_media','SelfMediaController');
+Route::any('self_media/push','SelfMediaController@push');
 
 //求购管理
 Route::resource('offer','OfferController');
