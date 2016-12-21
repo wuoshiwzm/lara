@@ -31,7 +31,7 @@ class SelfMediaController extends CommonController
             ->where('media_city', '')
             ->where('media_province', '!=', '')
             ->where('media_province', 'like', '%' . $provinceNow . '%')
-            ->select('self_media.*')
+            ->select('self_media.*', 'user.user_name')
             ->get();
 
         // dd($self_medias_province);
@@ -42,7 +42,7 @@ class SelfMediaController extends CommonController
             ->where('media_province', '!=', '')
             ->where('media_province', 'like', '%' . $provinceNow . '%')
             ->where('media_city', 'like', '%' . $cityNow . '%')
-            ->select('self_media.*')
+            ->select('self_media.*', 'user.user_name')
             ->get();
 
         //3.the city column is empty and the province column is empty too means the media is for the whole country to view
@@ -50,7 +50,7 @@ class SelfMediaController extends CommonController
             ->where('user_balance', '>', 2)
             ->where('media_city', '')
             ->where('media_province', '')
-            ->select('self_media.*')
+            ->select('self_media.*', 'user.user_name')
             ->get();
 
 
@@ -176,7 +176,6 @@ class SelfMediaController extends CommonController
         //返回对象，需要转换为数组
         // return $address_arr = json_decode($address);　
     }
-
 
 
     /**

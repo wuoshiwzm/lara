@@ -9,7 +9,8 @@
 <div class="top">
     <div class="wrappersy">
         <div class="logo">
-            <a href=" {{url('')}}"><img src="{{asset('resources/views/home/images/logo.jpg')}}"></a>
+            <a href=" {{url('')}}">
+                <img src="{{asset('resources/views/home/images/logo.jpg')}}"></a>
         </div>
         <div class="top_right">
             <!-- weather date ... -->
@@ -56,7 +57,8 @@
             </div>
 
 
-            @foreach($self_medias as $k=>$v)
+            @foreach($self_medias as $v)
+
 
                 <div class="fie_con">
                     <div class="face">

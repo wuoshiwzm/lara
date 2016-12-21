@@ -17,7 +17,7 @@ class SelfMedia extends Model
     public function user()
     {
         //return $this->hasOne('App\Phone', 'foreign_key', 'local_key');
-        return $this->hasOne('App\Http\Model\User', 'user_id', 'user_id');
+        return $this->belongsTo('App\Http\Model\User', 'user_id');
     }
 
     public function share()

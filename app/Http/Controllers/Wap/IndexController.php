@@ -92,7 +92,6 @@ class IndexController extends WechatController
 
 
         //微信获取地址接口
-
         //获取 access_token
         $access_token = $this->getToken();
         $nonceStr = $this->getRandStr(15);
