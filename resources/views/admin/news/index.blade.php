@@ -58,7 +58,7 @@
 
                         <td>
                             <a href="{{url('admin/news/'.$v->news_id.'/edit')}}">修改</a>
-                            <a href="javascript::" onclick="delNews({{$v->art_id}})">删除</a>
+                            <a href="javascript::" onclick="delNews({{$v->news_id}})">删除</a>
                         </td>
                     </tr>
 										@endforeach
@@ -87,7 +87,6 @@ function delNews(news_id){
 	},function(){
 			$.post("{{url('admin/news/')}}/"+news_id,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
 				if(data.status==0){
-
 					layer.msg(data.msg, {icon: 1});
           location.href = location.href;
 				}
