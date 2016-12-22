@@ -101,7 +101,10 @@ class SelfMediaController extends CommonController
     {
         $input = Input::all();
         //check if the user is login
-        $user = session('user');
+        $user_id = session('user')->user_id;
+        $user = User::find($user_id);
+
+
         if (!$user) {
             //0 means user need to login
             $data = [
