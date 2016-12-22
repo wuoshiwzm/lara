@@ -1,6 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 
+
+#media_content img{
+	max-width:95%;
+}
+
 body{
 	background-image:url(../images/misc/body-bg.png);
 	background-size:100px 100px;

@@ -100,9 +100,10 @@ class SelfMediaController extends CommonController
     public function add()
     {
         $input = Input::all();
+
         //check if the user is login
-        $user_id = session('user')->user_id;
-        $user = User::find($user_id);
+        $user = session('user');
+//        $user = User::find($user_id);
 
 
         if (!$user) {
@@ -120,7 +121,7 @@ class SelfMediaController extends CommonController
 
             ];
             return $data;
-        } elseif ($user['user_balance'] <= 2) {
+        } elseif (User::find($user->user_id)->user_balance <= 2) {
             //2 means the balance is empty need to recharge
             $data = [
                 'status' => 2,
