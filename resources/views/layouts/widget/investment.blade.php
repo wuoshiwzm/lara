@@ -57,7 +57,7 @@
         </div>
         <div id="con_lefa_1" class="display" style="display: block;">
 
-            @if(isset($offer))
+            @if(isset($offer[0]))
 
             <div class="conr_top">
                 <a href=""><img src="images/image1.jpg"/></a>
