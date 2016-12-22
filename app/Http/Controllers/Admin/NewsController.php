@@ -93,7 +93,7 @@ class NewsController extends CommonController
     public function destroy($news_id)
     {
 
-       
+
         $result = News::where('news_id', $news_id)->delete();
         if ($result) {
             $data = [
