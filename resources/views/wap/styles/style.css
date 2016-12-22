@@ -1,6 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 
+img{
+	max-width:95%;
+}
 
 body{
 	background-image:url(../images/misc/body-bg.png);

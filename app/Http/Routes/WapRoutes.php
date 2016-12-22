@@ -24,5 +24,5 @@ Route::get('/self_media/{id}','IndexController@show');
 Route::any('/self_media/check_location','IndexController@checkLocation');
 
 //
-//Route::any('/test/{country}/{province}/{city}/{openId}','IndexController@getMedias');
-//Route::any('/test1','IndexController@selfMedia1');
+Route::any('/test/{country}/{province}/{city}/{openId}','IndexController@getMedias');
+Route::any('/test1','IndexController@selfMedia1');

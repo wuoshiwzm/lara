@@ -117,11 +117,11 @@ class SelfMediaController extends CommonController
 
             ];
             return $data;
-        } elseif ($user['user_balance'] <= 0) {
+        } elseif ($user['user_balance'] <= 2) {
             //2 means the balance is empty need to recharge
             $data = [
                 'status' => 2,
-                'msg' => '您账户余额为空，请充值'
+                'msg' => '您账户余额不足，请充值'
             ];
             return $data;
         } else {
