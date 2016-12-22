@@ -14,8 +14,10 @@
 <!-- get the id of the self_media  -->
 
 
+
+
 <?php
-  $uri = 'http://adbangbang.com/share/'.$media_id;
+  $uri = 'http://adbangbang.com//wap/self_media/'.$media_id;
  ?>
 <!-- generate qr -->
 <div class="visible-print text-center">
