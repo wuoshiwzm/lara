@@ -134,7 +134,7 @@
                 layer.confirm(data.msg, {
                     btn: ['充值', '取消'] //按钮
                 }, function () {
-
+                    window.open("{{url('/scanpay')}}");
                 });
             } else if (data.status == 4) {
                 layer.confirm(data.msg, {
