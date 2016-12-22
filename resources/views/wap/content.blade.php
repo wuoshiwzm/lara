@@ -1,4 +1,11 @@
 @extends('layouts.wap.index')
+@section('css')
+
+    <link href="{{asset('resources/views/wap/styles/content.css')}}" rel="stylesheet" type="text/css">
+
+    @stop
+
+
 @section('content')
 
 
