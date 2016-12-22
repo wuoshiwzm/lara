@@ -57,6 +57,8 @@
         </div>
         <div id="con_lefa_1" class="display" style="display: block;">
 
+            @if(isset($offer))
+
             <div class="conr_top">
                 <a href=""><img src="images/image1.jpg"/></a>
                 <p class="paa">
@@ -69,6 +71,7 @@
                     <span><?php echo date('Y-m', strtotime($offer[0]->created_at)) ?> </span>
                 </p>
             </div>
+            @endif
 
 
             <ul class="lii">
