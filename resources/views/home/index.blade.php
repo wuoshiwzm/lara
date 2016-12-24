@@ -5,9 +5,6 @@
     <link rel="stylesheet" media="screen" href="{{asset('resources/views/home/css/jquery.jslides.css')}}"/>
 
 
-
-
-
     <script type="text/javascript" src="{{asset('resources/views/home/js/jquery.js')}}"></script>
     <script type="text/javascript" src="{{asset('resources/views/home/js/jquery.jslides.js')}}"></script>
     <script type="text/javascript" src="{{asset('resources/views/home/js/link.js')}}"></script>
@@ -75,28 +72,9 @@
 
 
 <!-- 公司展示 -->
-<div class="gszs">
-    <div class="img_pa">
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-        <img src="images/aca.jpg" alt=""/>
-    </div>
-    <div class="clear"></div>
-    <div class="more_box3">
-        <a href=""><p>MORE</p></a>
-    </div>
-</div>
+
+@include('layouts.widget.companys')
+
 
 
 <!-- 招商招标 -->

@@ -1,6 +1,6 @@
 @include('layouts.header')
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" charset="utf-8"></script>
-
+<link href="{{asset('resources/views/home/css/pack.css')}}" rel="stylesheet">
 
 <body onload="time()">
 <!-- data for weixin share -->
@@ -69,12 +69,8 @@
                         <p class="datae">
                             <span> {{$v['created_at']}}</span>
                             <span>来自{{$v['user_name']}}</span>
-                            <a><h1>
-                                    <span onclick="jumpFrame({{$v['media_id']}})">
-                                      点击分享送红包啦!
-                                    </span>
-                                </h1>
-                            </a>
+
+
 
                         </p>
                         <p class="nei">
@@ -82,8 +78,10 @@
 
                             {!!$v['content']!!}
                           </span>
-
+                            <a onclick="jumpFrame({{$v['media_id']}})"><img class="pack" src="{{asset('resources/views/home/images/pack.jpg')}}">
+                            </a>
                         </p>
+
                     </div>
                     <div class="clear"></div>
                     <div class="fie_bottom">

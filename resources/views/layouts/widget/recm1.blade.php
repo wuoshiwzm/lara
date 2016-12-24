@@ -36,7 +36,7 @@
                                                 <a href="{{url('a1/'.$arts->art_id)}}"><img
                                                             src="{{asset($arts->art_thumb)}}"/></a>
                                                 <div class="bto-gu">
-                                                    <h1><a href="">{{$arts->art_thumb}}</a></h1>
+                                                    <h1><a href="">{{$arts->art_title}}</a></h1>
                                                     <p><a href="">{{$arts->created_at}}</a></p>
                                                     <a href="{{url('a1/'.$arts->art_id)}}"><span>MORE</span></a>
                                                 </div>

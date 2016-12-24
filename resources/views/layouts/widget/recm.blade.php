@@ -12,7 +12,8 @@
                         </a></li>
                 @endforeach
                 @endif
-                <a href="{{url('cate')}}" target="_blank"><img src="{{asset('resources/views/home/images/more.jpg')}}"
+                <a href="{{url('cate')}}" target="_blank">
+                    <img src="{{asset('resources/views/home/images/more.jpg')}}"
                                                                alt=""/></a>
             </ul>
         </div>
@@ -38,7 +39,7 @@
                                                 <li>
                                                     <a href="#"><img src="{{asset($arts->art_thumb)}}"/></a>
                                                     <div class="bto-gu">
-                                                        <h1><a href="">{{$arts->art_thumb}}</a></h1>
+                                                        <h1><a href="">{{$arts->art_title}}</a></h1>
                                                         <p><a href="">{{date('Y-m-d',strtotime($arts->created_at))}}</a>
                                                         </p>
                                                         <a href="{{url('a/'.$arts->art_id)}}"><span>MORE</span></a>
