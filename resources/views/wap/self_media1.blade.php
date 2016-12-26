@@ -61,7 +61,7 @@
                         $(".wide-item-wrapper").append(
                                 "<div class='wide-item-titles'>"
                                 + "<h4>"
-                                + value['title'].substr(0,15)
+                                + value['title'].substr(0,12)
                                 + "..."
                                 + " - "
                                 + value['user_name']

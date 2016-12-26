@@ -3,4 +3,6 @@
 
 #media_content img{
     max-width:95%;
+    width:auto;
+    height:auto;
 }
