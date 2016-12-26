@@ -124,7 +124,7 @@
                     @foreach($topShareMedia as $media)
                         <li>
                             </a><span onclick="jumpFrame({{$media['media_id']}})"
-                                      style="color:#FF6600">{{substr($media['title'],13)}}...</span>
+                                      style="color:#FF6600">{{substr($media['title'],13)}}</span>
                         </li>
 
                     @endforeach
