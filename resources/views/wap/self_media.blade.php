@@ -114,7 +114,8 @@
                                             + "<h4>"
                                             + value['title']
                                             + " - "
-                                            + value['user_name']
+                                            + substr(value['user_name'], 6)
+                                            + "..."
                                             + "</h4>"
                                             + "<h4>"
                                             + "已分享送出红包"

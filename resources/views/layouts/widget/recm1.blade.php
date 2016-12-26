@@ -17,6 +17,10 @@
         </div>
     </div>
     <div class="box3_cone">
+
+
+
+
         @foreach($recm1 as $k => $v)
             <div id="con_cehua_{{$k+1}}" class="@if($k == 0) display @else hidden  @endif"
                  style="display: @if($k == 0) block @else none  @endif;">

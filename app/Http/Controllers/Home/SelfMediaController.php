@@ -121,7 +121,8 @@ class SelfMediaController extends CommonController
 
             ];
             return $data;
-        } elseif (User::find($user->user_id)->user_balance <= 2) {
+        }
+        elseif (User::find($user->user_id)->user_balance <= 2) {
             //2 means the balance is empty need to recharge
             $data = [
                 'status' => 2,
