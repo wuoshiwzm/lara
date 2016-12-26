@@ -4,11 +4,13 @@
         <div class="title_left"><a href="">设计与策划服务 <span>/</span></a><span class="small">Design</span></div>
         <div class="title_right">
             <ul>
-                @foreach($recm1 as $k => $r)
-                    <li class="@if($k == 0) hover @endif" id="cehua{{$k+1}}"
-                        onMouseover="setTab('cehua',{{$k+1}},4)">{{array_keys($r)[0]}}<a href="#">
-                        </a></li>
-                @endforeach
+                @if(isset($recm1))
+                    @foreach($recm1 as $k => $r)
+                        <li class="@if($k == 0) hover @endif" id="cehua{{$k+1}}"
+                            onMouseover="setTab('cehua',{{$k+1}},4)">{{array_keys($r)[0]}}<a href="#">
+                            </a></li>
+                    @endforeach
+                @endif
                 <a href="{{url('cate')}}" target="_blank"><img src="{{asset('resources/views/home/images/more.jpg')}}"
                                                                alt=""/></a>
             </ul>
@@ -29,18 +31,20 @@
                                 <!-- 文章循环 -->
 
                                 <ul>
+
                                     @if(isset($v))
                                         @foreach(array_values($v)[0] as $arts)
-
-                                            <li>
-                                                <a href="{{url('a1/'.$arts->art_id)}}"><img
-                                                            src="{{asset($arts->art_thumb)}}"/></a>
-                                                <div class="bto-gu">
-                                                    <h1><a href="">{{$arts->art_title}}</a></h1>
-                                                    <p><a href="">{{$arts->created_at}}</a></p>
-                                                    <a href="{{url('a1/'.$arts->art_id)}}"><span>MORE</span></a>
-                                                </div>
-                                            </li>
+                                            @if(!empty($arts))
+                                                <li>
+                                                    <a href="{{url('a1/'.$arts->art_id)}}"><img
+                                                                src="{{asset($arts->art_thumb)}}"/></a>
+                                                    <div class="bto-gu">
+                                                        <h1><a href="">{{$arts->art_title}}</a></h1>
+                                                        <p><a href="">{{$arts->created_at}}</a></p>
+                                                        <a href="{{url('a1/'.$arts->art_id)}}"><span>MORE</span></a>
+                                                    </div>
+                                                </li>
+                                            @endif
                                         @endforeach
                                     @endif
                                 </ul>

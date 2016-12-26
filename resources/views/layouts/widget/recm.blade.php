@@ -36,6 +36,7 @@
                                     <ul>
                                         @if(isset($v))
                                             @foreach(array_values($v)[0] as $arts)
+                                                @if(!empty($arts))
                                                 <li>
                                                     <a href="#"><img src="{{asset($arts->art_thumb)}}"/></a>
                                                     <div class="bto-gu">
@@ -45,6 +46,7 @@
                                                         <a href="{{url('a/'.$arts->art_id)}}"><span>MORE</span></a>
                                                     </div>
                                                 </li>
+                                                @endif
                                             @endforeach
                                         @endif
                                     </ul>
