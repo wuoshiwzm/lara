@@ -113,7 +113,7 @@
 
                 @foreach($pushMedia as $media)
                     <span onclick="jumpFrame({{$media['media_id']}})">
-                    <li> {{substr($media['title'])}} <span>{{date('m-d',strtotime($media['created_at']))}}</span></li>
+                    <li> {{substr($media['title'],13)}}... <span>{{date('m-d',strtotime($media['created_at']))}}</span></li>
 
                 @endforeach
 
@@ -124,7 +124,7 @@
                     @foreach($topShareMedia as $media)
                         <li>
                             </a><span onclick="jumpFrame({{$media['media_id']}})"
-                                      style="color:#FF6600">{{substr($media['title'],15)}}</span>
+                                      style="color:#FF6600">{{substr($media['title'],13)}}...</span>
                         </li>
 
                     @endforeach
