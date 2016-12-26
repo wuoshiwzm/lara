@@ -48,7 +48,7 @@
     <script>
 
         wx.config({
-            debug: false,
+            debug: true,
             appId: 'wx260619ea73a4b130',
             timestamp: {{$timestamp}},
             nonceStr: "{{$nonceStr}}",
