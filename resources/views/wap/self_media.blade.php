@@ -114,7 +114,7 @@
                                             + "<h4>"
                                             + value['title']
                                             + " - "
-                                            + substr(value['user_name'], 6)
+                                            + "substr(value['user_name'], 6)"
                                             + "..."
                                             + "</h4>"
                                             + "<h4>"
