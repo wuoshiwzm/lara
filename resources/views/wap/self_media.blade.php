@@ -110,9 +110,8 @@
                                     //clear the select options then add the new info
                                     $(".wide-item-wrapper").append(
                                             "<div class='wide-item-titles'>"
-
                                             + "<h4>"
-                                            + value['title'].substr(0,15)
+                                            + value['title'].substr(0,12)
                                             + "..."
                                             + " - "
                                             + value['user_name']
@@ -131,7 +130,7 @@
                                             + "<img class='responsive-image'"
                                             + "src="
                                             + "/resources/views/wap/images/general-nature/" + Math.round(Math.random() * 5 + 1) + "w.jpg"
-                                            {{--                                            + "{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"--}}
+                                            {{-- + "{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"--}}
                                             + " alt='img'></a>"
                                             + "</div>"
                                     );
