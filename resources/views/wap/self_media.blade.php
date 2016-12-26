@@ -48,7 +48,7 @@
     <script>
 
         wx.config({
-            debug: false,
+            debug: true,
             appId: 'wx260619ea73a4b130',
             timestamp: {{$timestamp}},
             nonceStr: "{{$nonceStr}}",
@@ -106,7 +106,7 @@
                                 var data = $.parseJSON(data);
                                 $.each(data, function (n, value) {
 
-                                    //alert(value['content']);
+                                    alert(value['content']);
                                     //clear the select options then add the new info
                                     $(".wide-item-wrapper").append(
                                             "<div class='wide-item-titles'>"
