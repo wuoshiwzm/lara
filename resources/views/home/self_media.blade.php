@@ -14,13 +14,13 @@
         </div>
         <div class="top_right">
             <!-- weather date ... -->
-        @include('layouts.rig_top')
+            @include('layouts.rig_top')
 
-        <!-- nav bar -->
+                    <!-- nav bar -->
 
-        @include('layouts.nav')
+            @include('layouts.nav')
 
-        <!-- seach bar -->
+                    <!-- seach bar -->
             @include('layouts.search')
 
 
@@ -66,19 +66,21 @@
                     </div>
                     <div class="fie_right">
                         <p class="name"><a href="#"><span style="color:#FF6600">{{$v['user_name']}}</span></a></p>
+
                         <p class="datae">
                             <span> {{$v['created_at']}}</span>
                             <span>来自{{$v['user_name']}}</span>
 
 
-
                         </p>
+
                         <p class="nei">
                           <span>
 
                             {!!$v['content']!!}
                           </span>
-                            <a onclick="jumpFrame({{$v['media_id']}})"><img class="pack" src="{{asset('resources/views/home/images/pack.jpg')}}">
+                            <a onclick="jumpFrame({{$v['media_id']}})"><img class="pack"
+                                                                            src="{{asset('resources/views/home/images/pack.jpg')}}">
                             </a>
                         </p>
 
@@ -111,7 +113,7 @@
 
                 @foreach($pushMedia as $media)
                     <span onclick="jumpFrame({{$media['media_id']}})">
-                    <li> {{$media['title']}} <span>{{date('m-d',strtotime($media['created_at']))}}</span></li>
+                    <li> {{substr($media['title'])}} <span>{{date('m-d',strtotime($media['created_at']))}}</span></li>
 
                 @endforeach
 
@@ -121,8 +123,8 @@
                 <ul>
                     @foreach($topShareMedia as $media)
                         <li>
-                             </a><span onclick="jumpFrame({{$media['media_id']}})"
-                                        style="color:#FF6600">{{$media['title']}}</span>
+                            </a><span onclick="jumpFrame({{$media['media_id']}})"
+                                      style="color:#FF6600">{{substr($media['title'],15)}}</span>
                         </li>
 
                     @endforeach
