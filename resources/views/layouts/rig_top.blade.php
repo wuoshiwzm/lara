@@ -13,9 +13,9 @@
        {{--<span><a href="http://bq.com/api/city.php" style="color:#fff;">[ 切换城市：全国]</a></span>--}}
     </div>
 
-    <div class="welocome">欢迎光临西安步旗广告传播有限公司网络平台!</div>
+    <div class="welocome">欢迎光临无穷大网络平台!</div>
     <div class="data">
-        <span id="info1">今天是：2016年9月11日</span>
+        {{--<span id="info1">今天是：2016年9月11日</span>--}}
         <script language="javascript" type="text/javascript">
             //js获取日期
             function time()
