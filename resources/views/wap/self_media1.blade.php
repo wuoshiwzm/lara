@@ -61,20 +61,28 @@
                         $(".wide-item-wrapper").append(
                                 "<div class='wide-item-titles'>"
                                 + "<h4>"
-                                + "分享送红包！"
+                                + value['title'].substr(0,15)
+                                + "..."
+                                + " - "
+                                + value['user_name']
+                                + "</h4>"
+                                + "<h4>"
+                                + "已分享送出红包"
+                                + value['share_time']
+                                + "  次"
                                 + "</h4>"
                                 + "</div>"
-                                +"<p>"
-                                +'</div>'
-                                +"<div class='wide-image'>"
-                                +"<div class='overlay'></div>"
-                                +"<a class='tile-wide' href='/wap/self_media/"+value['media_id']+"'>"//点击进入对应的文章页面
-                                +"<img class='responsive-image'"
-                                +"src="
-                                + "http://lara.com/resources/views/wap/images/general-nature/" + Math.round(Math.random() * 5+1) + "w.jpg"
-{{--                                +"{{asset('resources/views/wap/images/general-nature/'.floor(rand(1,6)).'w.jpg')}}"--}}
-                                +" alt='img'></a>"
-                                +"</div>"
+                                + "<p>"
+                                + '</div>'
+                                + "<div class='wide-image'>"
+                                + "<div class='overlay'></div>"
+                                + "<a class='tile-wide' href='/wap/self_media/" + value['media_id'] + "'>"//点击进入对应的文章页面
+                                + "<img class='responsive-image'"
+                                + "src="
+                                + "/resources/views/wap/images/general-nature/" + Math.round(Math.random() * 5 + 1) + "w.jpg"
+                                {{--                                            + "{{asset('resources/views/wap/images/general-nature/1w.jpg')}}"--}}
+                                + " alt='img'></a>"
+                                + "</div>"
                         );
                     });
 

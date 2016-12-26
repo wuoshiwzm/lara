@@ -112,10 +112,10 @@
                                             "<div class='wide-item-titles'>"
 
                                             + "<h4>"
-                                            + value['title']
+                                            + value['title'].substr(0,15)
+                                            + "..."
                                             + " - "
                                             + value['user_name']
-                                            + "..."
                                             + "</h4>"
                                             + "<h4>"
                                             + "已分享送出红包"
