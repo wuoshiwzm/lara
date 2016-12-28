@@ -74,7 +74,7 @@
                     //alert(JSON.stringify(res.checkResult.getLocation));
                     if (res.checkResult.getLocation == false) {
                         alert('你的微信版本太低，请升级到最新的微信版本！');
-                        location.href = "/wap/self_media";
+//                        location.href = "/wap/self_media";
                         return;
                     }
                 }

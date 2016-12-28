@@ -20,7 +20,7 @@
     <script>
 
         wx.config({
-            debug: true,
+            debug: false,
             appId: 'wx260619ea73a4b130',     // 必填，公众号的唯一标识
             timestamp: {{$timestamp}}, // 必填，生成签名的时间戳
             nonceStr: "{{$nonceStr}}", // 必填，生成签名的随机串
@@ -68,14 +68,17 @@
                                 '_token': "{{csrf_token()}}",
                                 'media_id':"{{$media_id}}",
                             }, function (data) {
+                                //得到内容的JSON 字符串，解析并显示
 
-                                location.href = "/wap/self_media";
+                                //解析 json字符串
+
+
                                 //判断是否可以分享此内容 如果不行则返回到主页 如果可以就继续执行
                                 if(!data){
                                     alert('您的区域无法分享该内容');
                                     location.href = "/wap/self_media";
                                 }
-                                alert(data);
+                                //alert(data);
                             });
 
                 },
