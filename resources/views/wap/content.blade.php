@@ -72,7 +72,7 @@
                                 //判断是否可以分享此内容 如果不行则返回到主页 如果可以就继续执行
                                 if(data == 'false'){
                                     alert('您的区域无法分享该内容');
-                                    location.href = "/wap/self_media";
+                                    location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx260619ea73a4b130&redirect_uri=http://adbangbang.com/wap/self_media1&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
                                 }
                                 //alert(data);
                             });
