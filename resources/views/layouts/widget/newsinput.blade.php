@@ -16,6 +16,8 @@
 
 </tr>
 <br>
+
+<h6>***请按照word格式编辑内容 以免影响戴聪效果***：</h6>
 <br>
 <tr for="name">内容：</tr>
 <div class="kuang">

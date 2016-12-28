@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="rig_fot">
-            <img src="" alt="">
+            <img src="{{asset('resources/views/home/images/weichat_qr.jpg')}}" alt="" width="100%">
             <p>微信扫一扫</p>
         </div>
     </div>
