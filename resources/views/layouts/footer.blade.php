@@ -1,7 +1,12 @@
 
 <div class="footer">
     <div class="fot_main">
-        <img src="{{asset('resources/views/home/images/footlogo.jpg')}}" class="fotlogo">
+
+
+{{--            <img src="{{asset('resources/views/home/images/footer_logo.jpg')}}" class="fotlogo" width="10%">--}}
+
+
+
         <div class="mian_com">
             <div class="fot_box">
                 <div class="top_fot">

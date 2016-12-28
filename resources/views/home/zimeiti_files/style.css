@@ -838,6 +838,16 @@ border: 0px;
 .footer .fot_main .fotlogo{
 	display: block;
 	float: left;
+
+
+	width: 107px;
+	height: 133px;
+	margin-top: 47px;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	line-height:27px;
+
 }
 .mian_com{
 	width: 840px;
