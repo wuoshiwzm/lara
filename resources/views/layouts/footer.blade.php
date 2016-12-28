@@ -66,8 +66,17 @@
                 <p class="right"> <!-- 网站总浏览量：1234  今日浏览量：230  当前在线人数：20人 --></p>
             </div>
         </div>
-        <div class="rig_fot">
-            <img src="{{asset('resources/views/home/images/weichat_qr.jpg')}}" alt="" width="100%">
+        <div class="rig_fot" style="
+	float: right;
+	width: 107px;
+	height: 133px;
+	margin-top: 47px;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	line-height:27px;
+">
+            <img src="{{asset('resources/views/home/images/weichat_qr.jpg')}}" alt="" width="115px" >
             <p>微信扫一扫</p>
         </div>
     </div>
