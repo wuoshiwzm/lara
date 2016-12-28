@@ -405,7 +405,7 @@ class IndexController extends WechatController
         $cityRequire = $selfMedia->media_city;
 
         $checkProvince = ($province == $provinceRequire) ? 'true' : 'false';
-        $checkCity = $city == $cityRequire ? 'true' : 'false';
+        $checkCity = ($city == $cityRequire) ? 'true' : 'false';
 
 
         if (empty($cityRequire)) {

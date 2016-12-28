@@ -69,7 +69,7 @@
                                 'media_id':"{{$media_id}}",
                             }, function (data) {
                                 //得到内容的JSON 字符串，解析并显示
-
+                                alert(data);
                                 //解析 json字符串
 
 
