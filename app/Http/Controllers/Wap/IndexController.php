@@ -20,7 +20,7 @@ class IndexController extends WechatController
 
     public function index()
     {
-
+    dd($this->checkLocation());
     }
 
     /**
@@ -386,6 +386,10 @@ class IndexController extends WechatController
         $longitude = Input::get('longitude');
         //文章id
         $mediaId = Input::get('media_id');
+
+        $latitude =34.30101;
+        $longitude = 108.93479;
+        $mediaId = 6;
 
         //获取省份 城市
         $res = $this->getLocation($latitude, $longitude);

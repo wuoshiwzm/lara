@@ -68,17 +68,14 @@
                                 '_token': "{{csrf_token()}}",
                                 'media_id':"{{$media_id}}",
                             }, function (data) {
-                                //得到内容的JSON 字符串，解析并显示
-                                alert(data);
-                                //解析 json字符串
 
-
+                                location.href = "/wap/self_media";
                                 //判断是否可以分享此内容 如果不行则返回到主页 如果可以就继续执行
                                 if(!data){
                                     alert('您的区域无法分享该内容');
                                     location.href = "/wap/self_media";
                                 }
-                                //alert(data);
+                                alert(data);
                             });
 
                 },
