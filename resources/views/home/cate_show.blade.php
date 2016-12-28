@@ -9,10 +9,10 @@
         <div class="top_right">
 
             <!-- weather date ... -->
-        @include('layouts.rig_top')
-        <!-- nav bar -->
-        @include('layouts.nav')
-        <!-- seach bar -->
+            @include('layouts.rig_top')
+                    <!-- nav bar -->
+            @include('layouts.nav')
+                    <!-- seach bar -->
             @include('layouts.search')
 
         </div>
@@ -24,7 +24,7 @@
 
 
 <div class="content" style="margin-left: 20%;
-margin-right: 20%;">
+    margin-right: 20%;">
 
 
     <!-- <h1>contents here</h1> -->
@@ -35,13 +35,16 @@ margin-right: 20%;">
         @foreach($allCates as $k=>$v)
             @foreach($v as $a=>$b)
                 <a href="{{url('cate/'.$b->cate_id)}}">
+
                     @if($b['cate_id']==$cate_id)
                         <span style="color:red">
+                            @endif
+                            {{$b->cate_name}}
+
+
+                            @if($b['cate_id']==$cate_id)
+                    </span>
                     @endif
-                    {{$b->cate_name}}</a>
-                @if($b['cate_id']==$cate_id)
-                </span>
-                @endif
                 </a>
             @endforeach
             <hr>
@@ -51,14 +54,15 @@ margin-right: 20%;">
     <div class="bloglist left">
         <?php //dd($data); ?>
         @foreach($data as $k=>$v)
-        <h3>{{$v->art_title}}</h3>
+            <h3>{{$v->art_title}}</h3>
 
-        <figure><img src="{{url($v->art_thumb)}}"></figure>
-        <ul>
-            <p>{{$v->art_description}}...</p>
-            <a title="{{$v->art_title}}" href="{{url('a/'.$v->art_id)}}" 　target="_blank" class="readmore">阅读全文>></a>
-        </ul>
-        <p class="dateview"><span>　{{date('Y-m-d',$v->art_time)}}</span> <span>作者：{{$v->art_editor}}</span></p>
+            <figure><img src="{{url($v->art_thumb)}}" style="max-height: 250px"></figure>
+            <ul>
+                <p>{{$v->art_description}}...</p>
+                <a title="{{$v->art_title}}" href="{{url('a/'.$v->art_id)}}" 　target="_blank"
+                   class="readmore">阅读全文>></a>
+            </ul>
+            <p class="dateview"><span>　{{date('Y-m-d',$v->art_time)}}</span> <span>作者：{{$v->art_editor}}</span></p>
         @endforeach
         <div class="page">
             {!!$data->links()!!}

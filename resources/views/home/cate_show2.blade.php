@@ -36,12 +36,16 @@ margin-right: 20%;">
     @foreach($allCates as $k=>$v)
       @foreach($v as $a=>$b)
       <a href="{{url('cate2/'.$b->cate_id)}}">
+
         @if($b['cate_id']==$cate_id)
-          <span style="color:red">
+              <span style="color:red" >
         @endif
-        {{$b->cate_name}}</a>
+
+        {{$b->cate_name}}
+
+
         @if($b['cate_id']==$cate_id)
-      </span>
+ </span>
         @endif
         </a>
       @endforeach
@@ -55,7 +59,7 @@ margin-right: 20%;">
     <h3>{{$v->art_title}}</h3>
     <?php //dd($v); ?>
 
-    <figure><img src="{{url($v->art_thumb)}}"></figure>
+    <figure><img src="{{url($v->art_thumb)}}" style="max-height: 250px"></figure>
     <ul>
       <p>{{$v->art_description}}...</p>
       <a title="{{$v->art_title}}" href="{{url('a2/'.$v->art_id)}}" 　target="_blank" class="readmore">阅读全文>></a>

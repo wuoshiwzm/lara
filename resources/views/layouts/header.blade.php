@@ -19,6 +19,9 @@
 <link href="{{asset('resources/views/home/css/style(1).css')}}" rel="stylesheet" >
 <link href="{{asset('resources/views/home/css/buttons.css')}}" rel="stylesheet">
 
+
+<link href="{{asset('resources/views/home/css/cate_content.css')}}" rel="stylesheet">
+
 @yield('css')
 
 
