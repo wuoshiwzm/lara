@@ -293,7 +293,7 @@
                                             + "<div class='twlb_top'>"
                                             + "<i><img src='/resources/views/wap/images/touxiang.jpg'/></i>"
                                             + "<p>用户昵称</p>"
-                                            + "<em>发送时间" + value['share_time'] + "</em>"
+                                            + "<em>发送时间" + value['created_at'] + "</em>"
                                             + "</div>"
                                             + "<div class='twcb'>"
                                             + "<h4><a href='/wap/self_media/" + value['media_id'] + "'>"
