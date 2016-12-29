@@ -222,16 +222,7 @@
     </div>
 
     {{--菜单--}}
-    <div class="content">
-        <div class="header">
-            <a href="#" class="homepage-logo">
-                <a href="#"><img src="{{asset('resources/views/wap/images/logo.jpg')}}"/> </a>
-            </a>
-
-        </div>
-        <div class="decoration"></div>
-
-    </div>
+   
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
 
