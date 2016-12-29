@@ -208,14 +208,15 @@
 <body>
 <div class="box">
     <div class="b_header">
-        <a href="#"><img src="img/logo.jpg"/> </a>
+        <a href="#"><img src="{{asset('resources/views/wap/images/logo.jpg')}}"/> </a>
         <div class="header_r"><p>无穷大网络信息服务平台正式上线了！...无穷大网络信息服务</p></div>
     </div>
     <div class="swiper-container">
         <div class="swiper-wrapper" id="swiper-wrapper">
-            <script type="text/javascript" src="{{asset('resources/views/wap/js/jquery-1.10.2.min.js')}}"></script>
-            <script type="text/javascript" src="{{asset('resources/views/wap/js/swiper-2.1.min.js')}}"></script>
-            <script type="text/javascript" src="{{asset('resources/views/wap/js/media-query.js')}}"></script>
+
+            <div class="swiper-slide"><a href="#"><img src="{{asset('resources/views/wap/images/banner.jpg')}}" alt=""></a></div>
+            <div class="swiper-slide"><a href="#"><img src="{{asset('resources/views/wap/images/banner.jpg')}}" alt=""></a></div>
+            <div class="swiper-slide"><a href="#"><img src="{{asset('resources/views/wap/images/banner.jpg')}}" alt=""></a></div>
         </div>
         <div class="pagination"></div>
     </div>
