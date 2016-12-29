@@ -222,7 +222,7 @@
     </div>
 
     {{--菜单--}}
-   
+
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
 
@@ -288,7 +288,8 @@
 //                                    alert(value['content']);
                                     //clear the select options then add the new info
                                     $("#article_contents").append(
-                                            "<div class='twlb_ct'>"
+                                            "<a href ='/wap/self_media/"+ value['media_id'] + "'>"
+                                            +"<div class='twlb_ct'>"
                                             + "<div class='twlb_top'>"
                                             + "<i><img src='/resources/views/wap/images/touxiang.jpg'/></i>"
                                             + "<p>用户昵称</p>"
@@ -303,6 +304,7 @@
                                             + "<span class='fxl'>分享数量" + value['share_time'] + "</span>"
                                             + "<a href='/wap/self_media/" + value['media_id'] + "'  class='fxb'> 分享</a>"
                                             + "</div> </div>"
+                                            +"</a>"
                                     );
                                 });
 
