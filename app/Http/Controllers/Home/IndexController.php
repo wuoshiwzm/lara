@@ -56,9 +56,16 @@ class IndexController extends CommonController
             $artIdArr = explode(',', $k->recm_content);
             $name = $k->recm_name;
             foreach ($artIdArr as $a) {
-                $cont[] = Article1::find($a);
+                if($k->recm_type == 0)
+                {
+                    $cont[] = Article1::find($a);
+                }
+                else
+                {
+                    $cont[] = Article2::find($a);
+                }
             }
-            $recm1[] = [$name => $cont];
+            $recm1[] = [$name => $cont,'recm_type' => $k->recm_type];
             $cont = [];
         }
 

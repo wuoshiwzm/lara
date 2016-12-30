@@ -66,6 +66,9 @@ Route::any('recm/changeorder', 'RecmommendController@changeOrder');
 Route::resource('recm1','RecmommendController1');
 Route::any('recm1/changeorder', 'RecmommendController1@changeOrder');
 
+//设计推荐——ajax获取文章列表
+Route::any('recm1/ajaxGetArtlist', 'RecmommendController1@ajaxGetArtlist');
+
 //自媒体
 Route::resource('self_media','SelfMediaController');
 Route::any('self_media/push','SelfMediaController@push');
