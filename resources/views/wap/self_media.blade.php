@@ -292,7 +292,7 @@
                                             +"<div class='twlb_ct'>"
                                             + "<div class='twlb_top'>"
                                             + "<i><img src='/resources/views/wap/images/touxiang.jpg'/></i>"
-                                            + "<p>用户昵称</p>"
+                                            + "<p>"+value['user_name']+"</p>"
                                             + "<em>发送时间" + value['created_at'] + "</em>"
                                             + "</div>"
                                             + "<div class='twcb'>"
