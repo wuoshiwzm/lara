@@ -37,19 +37,35 @@
                                 <ul>
 
                                     @if(isset($v))
-                                        @foreach(array_values($v)[0] as $arts)
-                                            @if(!empty($arts))
-                                                <li>
-                                                    <a href="{{url('a1/'.$arts->art_id)}}"><img
-                                                                src="{{asset($arts->art_thumb)}}"/></a>
-                                                    <div class="bto-gu">
-                                                        <h1><a href="">{{$arts->art_title}}</a></h1>
-                                                        <p><a href="">{{$arts->created_at}}</a></p>
-                                                        <a href="{{url('a1/'.$arts->art_id)}}"><span>MORE</span></a>
-                                                    </div>
-                                                </li>
-                                            @endif
-                                        @endforeach
+                                        @if($v['recm_type'] == 0)
+                                            @foreach(array_values($v)[0] as $arts)
+                                                @if(!empty($arts))
+                                                    <li>
+                                                        <a href="{{url('a1/'.$arts->art_id)}}"><img
+                                                                    src="{{asset($arts->art_thumb)}}"/></a>
+                                                        <div class="bto-gu">
+                                                            <h1><a href="">{{$arts->art_title}}</a></h1>
+                                                            <p><a href="">{{$arts->created_at}}</a></p>
+                                                            <a href="{{url('a1/'.$arts->art_id)}}"><span>MORE</span></a>
+                                                        </div>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            @foreach(array_values($v)[0] as $arts)
+                                                @if(!empty($arts))
+                                                    <li>
+                                                        <a href="{{url('a2/'.$arts->art_id)}}"><img
+                                                                    src="{{asset($arts->art_thumb)}}"/></a>
+                                                        <div class="bto-gu">
+                                                            <h1><a href="">{{$arts->art_title}}</a></h1>
+                                                            <p><a href="">{{$arts->created_at}}</a></p>
+                                                            <a href="{{url('a2/'.$arts->art_id)}}"><span>MORE</span></a>
+                                                        </div>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        @endif
                                     @endif
                                 </ul>
                             </div>
