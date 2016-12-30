@@ -59,7 +59,7 @@
                         </td>
                         <td>{{$v->art_view}}</td>
                         <td>{{$v->art_editor}}</td>
-                        <td>{{$v->created_at}}</td>
+                        <td>{{$v->created_at}}</td> 
 
                         <td>
                             <a href="{{url('admin/article1/'.$v->art_id.'/edit')}}">修改</a>
