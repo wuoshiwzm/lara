@@ -62,7 +62,7 @@
                 <a title="{{$v->art_title}}" href="{{url('a/'.$v->art_id)}}" 　target="_blank"
                    class="readmore">阅读全文>></a>
             </ul>
-            <p class="dateview"><span>　{{date('Y-m-d',$v->art_time)}}</span> <span>作者：{{$v->art_editor}}</span></p>
+            <p class="dateview"><span>　{{date('Y-m-d',strtotime($v->created_at))}}</span> <span>作者：{{$v->art_editor}}</span></p>
         @endforeach
         <div class="page">
             {!!$data->links()!!}

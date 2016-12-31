@@ -14,7 +14,7 @@
                         @if($k == 0)
 
                             <div class="con_left">
-                                <a href="{{url('news/'.$v->news_id)}}"><img src="images/image1.jpg"/></a>
+                                <a href="{{url('news/'.$v->news_id)}}"><img src="{{$v->art_thumb}}"/></a>
                                 <a href="{{url('news/'.$v->news_id)}}"><h1>{{$v->news_title}}...</h1></a>
                                 <p><?php echo mb_substr($v->news_content, 0, 15) ?>...<span><a href="{{url('news/'.$v->news_id)}}"
                                                                                             class="red">[详情]</a></span>
@@ -32,7 +32,7 @@
                                 <span class="span_num">0{{$k}}</span>
                                 <div class="squ"></div>
                                 <div class="li_conrg">
-                                    <p class="li_title"><a href="{{url('news/'.$v->news_id)}}">{{$v->news_title}}...</a><span>2016-05-04</span></p>
+                                    <p class="li_title"><a href="{{url('news/'.$v->news_id)}}">{{$v->news_title}}...</a><span>{{date('Y-m-d',strtotime($v->created_at))}}</span></p>
                                     <p class="li_jianjie"><a href="{{url('news/'.$v->news_id)}}"><?php echo mb_substr($v->news_content, 0, 15) ?>
                                             ...</a>
                                     </p>
@@ -60,7 +60,7 @@
             @if(isset($offer[0]))
 
             <div class="conr_top">
-                <a href="{{url('offer/'.$offer[0]->offer_id)}}"><img src="images/image1.jpg"/></a>
+                <a href="{{url('offer/'.$offer[0]->offer_id)}}"><img src="{{$offer[0]->art_thumb}}"/></a>
                 <p class="paa">
                     <span class="topic"><a href="{{url('offer/'.$offer[0]->offer_id)}}">{{$offer[0]->offer_title}}..</a></span><br/>
                     <span class="miaoshu"><?php echo substr($offer[0]->offer_content, 0, 15) ?>..<a href="{{url('offer/'.$offer[0]->offer_id)}}" class="red">[详情]</a></span>
