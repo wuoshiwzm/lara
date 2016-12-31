@@ -40,7 +40,7 @@
         <a href="{{url('offer_all')}}">求购信息</a> > 正文
     </div>
     <div class="zw">
-        <div class="fbr"><a href="#">发布人：{{$field->offer_editor}}</a></div>
+        <div class="fbr"><a href="#">发布人：{{$field->user_name}}</a></div>
         <div class="offer-title-sub">对应资源：{{$field->cate_name}}</div>
         <div class="fbt">发布时间：{{date('Y-m-d',strtotime($field->created_at))}}　　浏览次数：{{$field->offer_view}}次</div>
 

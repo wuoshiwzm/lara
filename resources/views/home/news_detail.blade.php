@@ -37,7 +37,7 @@
 <div class="xiangqing">
     <div class="ny_top">当前位置：
         <a href="{{url('')}}">首页</a> >
-        <a href="{{url('offer_all')}}">求购</a> > 正文</div>
+        <a href="{{url('offer_all')}}">行业资讯</a> > 正文</div>
     <div class="zw">
         <div class="fbr"><a href="#">发布人：{{$field->news_editor}}</a></div>
         <div class="fbr"><a href="#">资源种类：{{$field->news_editor}}</a></div>
