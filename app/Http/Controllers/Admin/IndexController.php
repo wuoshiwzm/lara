@@ -35,7 +35,8 @@ class IndexController extends CommonController
     public function info()
     {
       //管理员主页
-        return view('admin.info');
+        $user_info = session('user');
+        return view('admin.info', compact('user_info'));
     }
 
     //change password

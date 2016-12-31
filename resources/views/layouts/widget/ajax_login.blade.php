@@ -16,6 +16,7 @@
                       <p class="we_name awe">
                       <!-- <span class="toudi">投递反馈(0)<br>消息中心(3/5)</span>
                       <span>信息管理<br>信息管理<br>信息管理</span> -->
+                      <span style="width:100% !important;">动动手指头，轻轻松松赚钱花！</span>
                       </p>
                       <a href="{{url('member')}}" target="_blank"><input type="button" class="denglu" value="进入个人中心"></a>
                     @else

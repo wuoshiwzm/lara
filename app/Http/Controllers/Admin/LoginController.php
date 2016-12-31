@@ -54,11 +54,11 @@ class LoginController extends CommonController
             }
             session(['user'=>$user]);
 
-            // if(Company::where('user_id',session('user')['user_id'])->first()){
-            //   $company_id = Company::where('user_id',session('user')['user_id'])->first()->user_id;
-            //
-            //   session(['company_id'=>$company_id]);
-            // }
+            if(Company::where('user_id',session('user')['user_id'])->first()){
+              $company_id = Company::where('user_id',session('user')['user_id'])->first()->user_id;
+            
+              session(['company_id'=>$company_id]);
+            }
 
             return redirect('admin');
         }
