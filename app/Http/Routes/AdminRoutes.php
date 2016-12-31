@@ -87,3 +87,6 @@ Route::resource('self_media','SelfMediaController');
 //新闻管理
 Route::resource('news','NewsController');
 Route::any('news/changeorder', 'NewsController@changeOrder');
+
+//公司信息
+Route::resource('company','CompanyController');
