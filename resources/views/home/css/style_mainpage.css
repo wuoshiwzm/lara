@@ -743,6 +743,8 @@ border: 0px;
 .box4_right{
 	float:right;
 	width: 584px;
+	height: 368px;
+    overflow: hidden;
 }
 .conr_top{
 	width: 584px;
