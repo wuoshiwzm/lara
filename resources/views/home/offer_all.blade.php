@@ -56,7 +56,7 @@ margin-right: 20%;">
         <h3>{{$offer->offer_title}}</h3>
 
         <ul>
-            <p>{{$offer->offer_content}}...</p>
+            <p>{!!$offer->offer_content!!}...</p>
             <a title="{{$offer->offer_title}}" href="{{url('offer/'.$offer->offer_id)}}"
                target="_blank" class="readmore">阅读全文>></a>
         </ul>

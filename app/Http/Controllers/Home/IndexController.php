@@ -339,7 +339,8 @@ class IndexController extends CommonController
     {
 
         $field = Offer::join('category', 'offer.offer_cate_id', '=', 'category.cate_id')
-            ->select('offer.*', 'category.cate_name')
+            ->leftjoin('user','user.user_id','=','offer.user_id')
+            ->select('offer.*', 'category.cate_name', 'user.user_name')
             ->where('offer_id', $offer_id)->first();
 
 
