@@ -389,5 +389,8 @@ class IndexController extends CommonController
         return view('home/search', compact('data','keywords','type'));
     }
 
-
+    public function protocal()
+    {
+        return view('home/protocal');
+    }
 }

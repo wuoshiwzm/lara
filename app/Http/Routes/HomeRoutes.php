@@ -64,6 +64,9 @@ Route::any('testpay','Pay\WechatPayController@index');
 //register
 Route::resource('register','Home\RegisterController');
 
+//服务条款
+Route::resource('/protocal','Home\IndexController@protocal');
+
 
 //wx pay Route 回调函数
 // Route::get('hongbao','Pay\Wx\Hongbao\HongbaoController@index');

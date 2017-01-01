@@ -50,6 +50,14 @@
 							 <tbody>
 
 								 <tr>
+										<th>public_资源得分：</th>
+										<td>
+												<input type="text" class="lg" name="art_title">
+
+										</td>
+								</tr>
+
+								 <tr>
 										<th>public_资源标题：</th>
 										<td>
 												<input type="text" class="lg" name="art_title" value="{{old('art_title')}}">
@@ -57,10 +65,10 @@
 										</td>
 								</tr>
 
-								 <tr>
+								 <!-- <tr>
 										 <th>public_资源标题：</th>
 
-								 </tr>
+								 </tr> -->
 <!--
 								 <tr>
 										 <th width="120">public_资源分类：</th>
