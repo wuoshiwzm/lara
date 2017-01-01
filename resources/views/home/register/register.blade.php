@@ -214,8 +214,9 @@
 										<tr>
  												<th>完成注册：</th>
  												<td>
- 														<input type="submit" value="提交">
+ 														<input type="submit" id="submitreginfo" value="提交">
  														<input type="button" class="back" onclick="history.go(-1)" value="返回">
+ 														<span><input type="checkbox" id="readagreementbox" checked onchange="readprotocal()" />阅读并接受《<a href="{{url('protocal')}}" target="_blank">服务条款</a>》</span>
  												</td>
  										</tr>
 
@@ -225,6 +226,19 @@
 
 			 </form>
 	 </div>
+
+	 <script>
+	 	function readprotocal(){
+	 		if($("#readagreementbox").is(':checked'))
+	 		{
+	 			$("#submitreginfo").attr("disabled", false);
+	 		}
+	 		else
+	 		{
+	 			$("#submitreginfo").attr("disabled", true);
+	 		}
+	 	}
+	 </script>
 
 
 
