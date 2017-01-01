@@ -393,4 +393,9 @@ class IndexController extends CommonController
     {
         return view('home/protocal');
     }
+
+    public function about()
+    {
+        return view('home/about');
+    }
 }
