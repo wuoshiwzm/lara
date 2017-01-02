@@ -6,8 +6,9 @@
 
         <tr>
             <th width="30%"><i class="fa fa-fw fa-clipboard"></i>目前账户额度</th>
-            <td>
+            <td id="ubalance">
                 {{$userBalance}}
+            </td>
         </tr>
 
         <tr>
@@ -51,4 +52,22 @@
     </table>
 
     <!--结果集列表组件 结束-->
+    <script>
+        $(document).ready(function(){
+            setInterval(function(){
+                $.ajax({
+                    type:'post',
+                    url:"{{url('member/ajaxgetbalance')}}",
+                    dataType:'JSON',
+                    data:'_token={{csrf_token()}}',
+                    success:function(r){
+                        if(r.data)
+                            $("#ubalance").html(r.data);
+                        else
+                            $("#ubalance").html(0);
+                    }
+                });
+            },300000);
+        });
+    </script>
 @endsection

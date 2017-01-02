@@ -88,7 +88,7 @@
 
             //----分享定制
             var shareData = {
-                title: '这个秘密我只告诉你哦！'+"{{$content->title}}",
+                title: '转发此条消息有红包哦！'+"{{$content->title}}",
                 desc: '无穷大分享 分享抢红包 分享有惊喜！',
                 link: 'http://adbangbang.com/wap/self_media/' + "{{$media_id}}",
                 imgUrl: "{{asset('resources/views/home/images/logo.jpg')}}",
