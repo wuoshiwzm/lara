@@ -81,4 +81,12 @@ class MemberIndexController extends CommonController
     }
         return view('member.pass');
     }
+
+    public function ajaxgetbalance()
+    {
+        $userId = \Session::get('user')->user_id;
+        $userBalance = User::find($userId)->user_balance;
+        echo json_encode(array('data'=>intval($userBalance)));
+        exit;
+    }
 }

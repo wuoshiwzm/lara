@@ -79,3 +79,6 @@ Route::any('scanpay_callback','Pay\Wx\Scanpay\NotifyController@index');
 
 //上传图片
 Route::any('upload', 'Admin\CommonController@upload');
+
+//ajax获取用户余额
+Route::any('member/ajaxgetbalance','Member\MemberIndexController@ajaxgetbalance');
