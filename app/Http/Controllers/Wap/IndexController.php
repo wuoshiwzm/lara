@@ -31,7 +31,7 @@ class IndexController extends WechatController
     private function getLocation($latitude, $longitude)
     {
 
-
+/*
         $url = "http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location="
             . $latitude . "," . $longitude . "&output=json&pois=1&ak=QbFPEt2GiMZ9I4e8zlVXPwjnVrClfNxO";
 
@@ -82,14 +82,30 @@ class IndexController extends WechatController
         $res['city'] = $addrArr->result->addressComponent->city;
 
         return $res;
-
-
+*/
+        $url = 'http://apis.map.qq.com/ws/geocoder/v1/';
+        $data = array(
+            'location' => $latitude.','.$longitude,
+            'key' => 'F2LBZ-3QCKU-BG2VC-4WNDQ-V5KGQ-YWFJF',
+        );
+        $res = json_decode(requestHttp($url, $data, 0), true);
+        $expiretime = time() + 10800;
+        if(!isset($_COOKIE['nation']) || !isset($_COOKIE['province']) || !isset($_COOKIE['city']))
+        {
+            setcookie('nation', $res['result']['address_component']['nation'], $expiretime);
+            setcookie('province', $res['result']['address_component']['province'], $expiretime);
+            setcookie('city', $res['result']['address_component']['city'], $expiretime);
+        }
+        return array(
+            'country' => $_COOKIE['nation'],
+            'province' => $_COOKIE['province'],
+            'city' => $_COOKIE['city'],
+        );
     }
 
 
     public function selfMedia1(){
         //share success and send redpack
-
 
         //微信获取地址接口
         //获取 access_token
@@ -303,7 +319,7 @@ class IndexController extends WechatController
             ->get();
         $self_medias = $self_medias_data->toArray();
 
-        foreach ($self_medias_province as $k => $media) {
+        /*foreach ($self_medias_province as $k => $media) {
 
             if ($media->share->where('openid', $openId)->count()) {
                 $self_medias_province->forget($k);
@@ -336,7 +352,7 @@ class IndexController extends WechatController
         }
 
 
-        $self_medias = array_merge($self_medias_country->toArray(), $self_medias_city->toArray(), $self_medias_province->toArray());
+        $self_medias = array_merge($self_medias_country->toArray(), $self_medias_city->toArray(), $self_medias_province->toArray());*/
         $res = $this->arrSort($self_medias, 'created_at', SORT_DESC, SORT_NATURAL);
 
         return $res;
