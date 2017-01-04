@@ -29,10 +29,16 @@
             <div class="result_content">
                 <div class="short_wrap">
                     <a href="{{url('admin/news/create')}}"><i class="fa fa-plus"></i>新增新闻</a>
+                    <form action="{{url('admin/news')}}" method="post">
+                        <input type="hidden" value="{{csrf_token()}}" name="_token">
+                        <input type="text" name="search">
+                        <input type="submit" value="搜索">
+                    </form>
                 </div>
             </div>
             <!--快捷导航 结束-->
         </div>
+
 
         <div class="result_wrap">
             <div class="result_content">

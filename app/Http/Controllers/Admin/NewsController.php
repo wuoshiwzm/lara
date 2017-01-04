@@ -18,7 +18,15 @@ class NewsController extends CommonController
     public function index()
     {
         // $data = Article::orderBy('art_id','desc')->paginate(8);
-        $data = News::orderBy('news_id', 'desc')->paginate(8);
+
+        $data = News::orderBy('news_id', 'desc');
+        if(Input::all() ){
+            dd(Input::get('search'));
+            $search = Input::get('search');
+            $data = $data->where('news_title','like','%'.$search.'%')
+                ->orwhere('news_content','like','%'.$search.'%');
+        }
+        $data = $data->paginate(8);
         return view('admin.news.index', compact('data'));
     }
 
