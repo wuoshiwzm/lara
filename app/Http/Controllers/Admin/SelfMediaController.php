@@ -107,4 +107,13 @@ class SelfMediaController extends CommonController
     }
 
 
+    /**
+     * test
+     */
+    public function test()
+    {
+
+    }
+
+
 }
