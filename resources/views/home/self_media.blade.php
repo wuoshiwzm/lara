@@ -62,7 +62,7 @@
 
                 <div class="fie_con">
                     <div class="face">
-                        <img src="{{asset('resources/views/home/images/50.jpg')}}" alt="{{$v->user_name}}">
+                        <img src="{{asset('resources/views/home/images/50.jpg')}}" alt="{{$v['user_name']}}">
                     </div>
                     <div class="fie_right">
                         <p class="name"><a href="#"><span style="color:#FF6600">{{$v['user_name']}}</span></a></p>
