@@ -200,6 +200,8 @@
         .footer {
             text-align: center;
         }
+        .content {font-size: 1.22rem; margin-bottom: 3rem; padding: 2rem; line-height: 2.22rem; text-shadow: 0.1rem 0.1rem 0.5rem #FF0000;}
+        .content img {width: 7rem; height: 7rem;}
     </style>
     <script type="text/javascript" src="{{asset('resources/views/wap/js/jquery-1.10.2.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('resources/views/wap/js/swiper-2.1.min.js')}}"></script>
@@ -283,30 +285,41 @@
 
                                 //解析 json字符串
                                 var data = $.parseJSON(data);
-                                $.each(data, function (n, value) {
+                                if(data)
+                                {
+                                    $.each(data, function (n, value) {
 
-//                                    alert(value['content']);
-                                    //clear the select options then add the new info
+    //                                    alert(value['content']);
+                                        //clear the select options then add the new info
+                                        $("#article_contents").append(
+                                                "<a href ='/wap/self_media/"+ value['media_id'] + "'>"
+                                                +"<div class='twlb_ct'>"
+                                                + "<div class='twlb_top'>"
+                                                + "<i><img src='/resources/views/wap/images/touxiang.jpg'/></i>"
+                                                + "<p>"+value['user_name']+"</p>"
+                                                + "<em>发送时间" + value['created_at'] + "</em>"
+                                                + "</div>"
+                                                + "<div class='twcb'>"
+                                                + "<h4><a href='/wap/self_media/" + value['media_id'] + "'>"
+                                                + value['title'].substr(0, 12)
+                                                + "...</a></h4>"
+                                                + "</div>"
+                                                + "<div class='twlb_footer'>"
+                                                + "<span class='fxl'>分享数量" + value['share_time'] + "</span>"
+                                                + "<a href='/wap/self_media/" + value['media_id'] + "'  class='fxb'> 分享</a>"
+                                                + "</div> </div>"
+                                                +"</a>"
+                                        );
+                                    });
+                                }
+                                else
+                                {
                                     $("#article_contents").append(
-                                            "<a href ='/wap/self_media/"+ value['media_id'] + "'>"
-                                            +"<div class='twlb_ct'>"
-                                            + "<div class='twlb_top'>"
-                                            + "<i><img src='/resources/views/wap/images/touxiang.jpg'/></i>"
-                                            + "<p>"+value['user_name']+"</p>"
-                                            + "<em>发送时间" + value['created_at'] + "</em>"
-                                            + "</div>"
-                                            + "<div class='twcb'>"
-                                            + "<h4><a href='/wap/self_media/" + value['media_id'] + "'>"
-                                            + value['title'].substr(0, 12)
-                                            + "...</a></h4>"
-                                            + "</div>"
-                                            + "<div class='twlb_footer'>"
-                                            + "<span class='fxl'>分享数量" + value['share_time'] + "</span>"
-                                            + "<a href='/wap/self_media/" + value['media_id'] + "'  class='fxb'> 分享</a>"
-                                            + "</div> </div>"
-                                            +"</a>"
+                                        '<div class="content">'
+                                        +'    <p>糟糕，你来迟了分享推广已经分享完啦！更多分享推广正在编写中，请稍后再来哦”</p>'
+                                        +'</div>'
                                     );
-                                });
+                                }
 
                             });
                 },

@@ -21,17 +21,48 @@ class SelfMediaController extends CommonController
      */
     public function index()
     {
-
+        //初始化用户地理位置坐标——start
+        $onlineip = getIp();
+        $expiretime = time() + 86400;
+        if(isset($_COOKIE['onlineip']) && $_COOKIE['onlineip'] == $onlineip && isset($_COOKIE['longitude']) && isset($_COOKIE['latitude']) && isset($_COOKIE['nation']) && isset($_COOKIE['province']) && isset($_COOKIE['city']))
+        {
+            setcookie('onlineip', $_COOKIE['onlineip'], $expiretime);
+            setcookie('longitude', $_COOKIE['longitude'], $expiretime);
+            setcookie('latitude', $_COOKIE['latitude'], $expiretime);
+            setcookie('nation', $_COOKIE['nation'], $expiretime);
+            setcookie('province', $_COOKIE['province'], $expiretime);
+            setcookie('city', $_COOKIE['city'], $expiretime);
+        }
+        else
+        {
+            $resdata = json_decode(getTencentMapLocation($onlineip),true);
+            if($resdata['status'] == 0)
+            {
+                setcookie('onlineip', $onlineip, $expiretime);
+                setcookie('longitude', $resdata['result']['location']['lng'], $expiretime);
+                setcookie('latitude', $resdata['result']['location']['lat'], $expiretime);
+                setcookie('nation', $resdata['result']['ad_info']['nation'], $expiretime);
+                setcookie('province', $resdata['result']['ad_info']['province'], $expiretime);
+                setcookie('city', $resdata['result']['ad_info']['city'], $expiretime);
+            }
+        }
+        //初始化用户地理位置坐标——end
 
         //the city where the user is in
         // dd($this->getCity($_SERVER['REMOTE_ADDR']));
-        $countryNow = $this->getCity($_SERVER['REMOTE_ADDR'])->country;
-        $provinceNow = $this->getCity($_SERVER['REMOTE_ADDR'])->province;
-        $cityNow = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
+        // $countryNow = $this->getCity($_SERVER['REMOTE_ADDR'])->country;
+        // $GLOBALS['provinceNow'] = $this->getCity($_SERVER['REMOTE_ADDR'])->province;
+        // $GLOBALS['cityNow'] = $this->getCity($_SERVER['REMOTE_ADDR'])->city;
+
+        $data['countryNow'] = $_COOKIE['nation'];
+        $data['provinceNow'] = $_COOKIE['province'];
+        $data['cityNow'] = $_COOKIE['city'];
+        $data['latNow'] = doubleval($_COOKIE['latitude']);
+        $data['lngNow'] = doubleval($_COOKIE['longitude']);
 
 
         //the city and province where the news request
-
+        /*
         //1.the city column is empty and the province column is filled means to check the province
         $self_medias_province = SelfMedia::leftJoin('user', 'self_media.user_id', '=', 'user.user_id')
             ->where('user_balance', '>', 2)
@@ -64,7 +95,47 @@ class SelfMediaController extends CommonController
         $self_medias = array_merge($self_medias_country->toArray(),
             $self_medias_city->toArray(),
             $self_medias_province->toArray());
-        $self_medias = $this->arrSort($self_medias, 'created_at', SORT_DESC, SORT_NATURAL);
+        */
+
+        $self_medias_data = SelfMedia::leftJoin('user', 'self_media.user_id', '=', 'user.user_id')
+            ->where(function($query) use($data){
+                $query->where('media_min_lat', '<=', $data['latNow'])
+                    ->where('media_min_lng', '<=', $data['lngNow'])
+                    ->where('media_max_lat', '>=', $data['latNow'])
+                    ->where('media_max_lng', '>=', $data['lngNow']);
+            })
+            ->orwhere(function($query) use($data){
+                $query->where('media_province', '')
+                    ->where('media_city', '')
+                    ->where('media_min_lat', 0)
+                    ->where('media_min_lng', 0)
+                    ->where('media_max_lat', 0)
+                    ->where('media_max_lng', 0);
+            })
+            ->orwhere(function($query) use($data){
+                $query->where('media_province', 'like', '%' . $data['provinceNow'] . '%')
+                    ->where('media_city', '')
+                    ->where('media_min_lat', 0)
+                    ->where('media_min_lng', 0)
+                    ->where('media_max_lat', 0)
+                    ->where('media_max_lng', 0);
+            })
+            ->orwhere(function($query) use($data){
+                $query->where('media_province', 'like', '%' . $data['provinceNow'] . '%')
+                    ->where('media_city', 'like', '%' . $data['cityNow'] . '%')
+                    ->where('media_min_lat', 0)
+                    ->where('media_min_lng', 0)
+                    ->where('media_max_lat', 0)
+                    ->where('media_max_lng', 0);
+            })
+            ->where('user_balance', '>', 2)
+            // ->limit(8)
+            ->orderby('created_at', 'desc')
+            ->select('self_media.*', 'user.user_name')
+            ->get();
+        $self_medias = $self_medias_data->toArray();
+
+        // $self_medias = $this->arrSort($self_medias, 'created_at', SORT_DESC, SORT_NATURAL);
 
         //分享数排行
 
@@ -76,10 +147,11 @@ class SelfMediaController extends CommonController
         $topShareMedia = $this->arrSort($self_medias, 'shareTimes', SORT_DESC, SORT_NUMERIC);
 
         if(count($topShareMedia)>8){
-            $topShareMedia = array_slice($topShareMedia,0,0);
-        }elseif (count($topShareMedia)<8){
-            $topShareMedia = array_slice($self_medias,0,8);
-        };
+            $topShareMedia = array_slice($topShareMedia,0,8);
+        }
+        // elseif (count($topShareMedia)<8){
+            // $topShareMedia = array_slice($self_medias,0,8);
+        // };
 
         //推荐
         foreach ($self_medias as $k => $media) {
@@ -131,6 +203,23 @@ class SelfMediaController extends CommonController
             return $data;
         } else {
             //4 succeed and notice user that each twitte will charge him 1 currency
+            if($input['extensiontype'] == '1' && !empty($input['locallat']) && !empty($input['locallng']))
+            {
+                $res['media_province'] = $_COOKIE['province'];
+                $res['media_city'] = $_COOKIE['city'];
+                $res['media_lat'] = doubleval($input['locallat']);
+                $res['media_lng'] = doubleval($input['locallng']);
+                $range = getRange($res['media_lat'], $res['media_lng'], 2000);
+                $res['media_min_lat'] = $range['minLat'];
+                $res['media_min_lng'] = $range['minLon'];
+                $res['media_max_lat'] = $range['maxLat'];
+                $res['media_max_lng'] = $range['maxLon'];
+            }
+            else
+            {
+                $res['media_province'] = $input['media_province'];
+                $res['media_city'] = $input['media_city'];
+            }
             $data = [
                 'status' => 4,
                 'msg' => '已经成功发送，奇迹即将发生！'
@@ -138,8 +227,6 @@ class SelfMediaController extends CommonController
 
             $res['user_id'] = $user['user_id'];
             $res['content'] = $input['content'];
-            $res['media_province'] = $input['media_province'];
-            $res['media_city'] = $input['media_city'];
             $res['title'] = $input['title'];
 
             SelfMedia::create($res);

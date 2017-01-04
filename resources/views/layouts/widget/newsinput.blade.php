@@ -1,5 +1,6 @@
 {{--<link rel="stylesheet" href="{{asset('resources/views/admin/style/css/ch-ui.admin.css')}}">--}}
 {{--<script type="text/javascript" src="{{asset('resources/views/admin/style/js/ch-ui.admin.js')}}"></script>--}}
+<script type="text/javascript" src="{{asset('resources/views/home/js/jquery.cookie.js')}}"></script>
 
 <tr>
 
@@ -61,7 +62,7 @@
 
 
         <tr>
-            <th width="120">此推广对应有效区域：</th>
+            <th width="120"><input type="radio" name="extensiontype" value='0' checked="checked" />此推广对应有效区域：</th>
             <td>
                 <div id="distpicker" data-toggle="distpicker">
                     <select name="area_add1" class="md" id="area_add1"></select>
@@ -81,8 +82,16 @@
                 </script>
             </td>
         </tr>
-
-
+        <br>
+        <tr>
+            <th><input type="radio" name="extensiontype" value='1' />推送给目标位置2公里范围内的用户</th>
+            <td>
+                <input type="hidden" id="locallat" value="{{$_COOKIE['latitude']}}" />
+                <input type="hidden" id="locallng" value="{{$_COOKIE['longitude']}}" />
+                <div id="container"></div>
+                <script src="{{asset('resources/org/tencentmap/js/lgnews.js')}}"></script>
+            </td>
+        </tr>
     </div>
     <!-- </form> -->
 
@@ -106,13 +115,19 @@
         media_province = $("#area_add1").val();
         media_city = $("#area_add2").val();
         title = $("#title").val();
+        extensiontype = $("input[name='extensiontype']:checked").val();
+        var locallat = $("#locallat").val();
+        var locallng = $("#locallng").val();
 
         $.post('{{url('/self_media/add')}}', {
             '_token': "{{csrf_token()}}",
             'content': arr,
             'media_province': media_province,
             'media_city': media_city,
-            'title': title
+            'title': title,
+            'extensiontype': extensiontype,
+            'locallat': locallat,
+            'locallng': locallng
         }, function (data) {
 
             //0 means user need to login
@@ -156,5 +171,25 @@
 
         });
     }
+
+    $(document).ready(function(){
+        //选择推广范围
+        $("input[name='extensiontype']").click(function(){
+            var chkres = $("input[name='extensiontype']:checked").val();
+            if(chkres == 0)
+            {
+                $("#distpicker").show();
+                $("#container").hide();
+            }
+            else
+            {
+                $("#distpicker").hide();
+                $("#container").show();
+                var lat = $.cookie('latitude');
+                var lng = $.cookie('longitude');
+                tencentmapinit(lat, lng);
+            }
+        });
+    });
 
 </script>

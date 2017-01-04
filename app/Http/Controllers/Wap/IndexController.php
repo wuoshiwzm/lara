@@ -179,7 +179,6 @@ class IndexController extends WechatController
         $string = "jsapi_ticket=$ret->ticket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
         $signature = sha1($string);
 
-
         return view('wap.self_media')
             ->with('appid', $this->app_id)
             ->with('timestamp', $timestamp)
@@ -205,14 +204,14 @@ class IndexController extends WechatController
         $openId = Input::get('openId');
 
         // -- test only
-        $latitude = 34.301;
-        $longitude = 108.934784;
+        // $latitude = 34.301;
+        // $longitude = 108.934784;
         // -- test only
 
         $res = $this->getLocation($latitude, $longitude);
 
         //返回经过地址过滤的对应数据给手机端 手机端AJAX 调取后处理显示
-        $contents = $this->getMedias($res['country'], $res['province'], $res['city'], $openId);
+        $contents = $this->getMedias($res['country'], $res['province'], $res['city'], $latitude, $longitude, $openId);
 
         //返回json格式数据
         return json_encode($contents);
@@ -225,8 +224,9 @@ class IndexController extends WechatController
      * @param $city
      * @return array|bool
      */
-    private function getMedias($country, $province, $city, $openId)
+    private function getMedias($country, $province, $city, $latitude, $longitude, $openId)
     {
+        /*
         //1.the city column is empty and the province column is filled
         // means to check the province
         $self_medias_province = SelfMedia::leftJoin('user', 'self_media.user_id', '=', 'user.user_id')
@@ -257,7 +257,51 @@ class IndexController extends WechatController
             ->where('media_province', '')
             ->select('self_media.*')
             ->get();
+        */
 
+        $data['countryNow'] = $country;
+        $data['provinceNow'] = $province;
+        $data['cityNow'] = $city;
+        $data['latNow'] = doubleval($latitude);
+        $data['lngNow'] = doubleval($longitude);
+
+        $self_medias_data = SelfMedia::leftJoin('user', 'self_media.user_id', '=', 'user.user_id')
+            ->where(function($query) use($data){
+                $query->where('media_min_lat', '<=', $data['latNow'])
+                    ->where('media_min_lng', '<=', $data['lngNow'])
+                    ->where('media_max_lat', '>=', $data['latNow'])
+                    ->where('media_max_lng', '>=', $data['lngNow']);
+            })
+            ->orwhere(function($query) use($data){
+                $query->where('media_province', '')
+                    ->where('media_city', '')
+                    ->where('media_min_lat', 0)
+                    ->where('media_min_lng', 0)
+                    ->where('media_max_lat', 0)
+                    ->where('media_max_lng', 0);
+            })
+            ->orwhere(function($query) use($data){
+                $query->where('media_province', 'like', '%' . $data['provinceNow'] . '%')
+                    ->where('media_city', '')
+                    ->where('media_min_lat', 0)
+                    ->where('media_min_lng', 0)
+                    ->where('media_max_lat', 0)
+                    ->where('media_max_lng', 0);
+            })
+            ->orwhere(function($query) use($data){
+                $query->where('media_province', 'like', '%' . $data['provinceNow'] . '%')
+                    ->where('media_city', 'like', '%' . $data['cityNow'] . '%')
+                    ->where('media_min_lat', 0)
+                    ->where('media_min_lng', 0)
+                    ->where('media_max_lat', 0)
+                    ->where('media_max_lng', 0);
+            })
+            ->where('user_balance', '>', 2)
+            // ->limit(8)
+            ->orderby('created_at', 'desc')
+            ->select('self_media.*', 'user.user_name')
+            ->get();
+        $self_medias = $self_medias_data->toArray();
 
         foreach ($self_medias_province as $k => $media) {
 
