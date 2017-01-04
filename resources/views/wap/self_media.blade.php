@@ -314,7 +314,6 @@
                                 }
                                 else
                                 {
-                                    alert('qw');
                                     $("#article_contents").append(
                                         '<div class="content">'
                                         +'    <p>糟糕，你来迟了分享推广已经分享完啦！更多分享推广正在编写中，请稍后再来哦”</p>'
@@ -335,7 +334,7 @@
 
 
     </script>
-    <input type="button" value="get" onclick="location.href='http://www.buqi.com/wap/self_media/get_content?latitude=34.247851752062&longitude=108.90309333801&openId=123123'" />
+    <input type="button" value="get" onclick="location.href='http://www.adbangbang.com/wap/self_media/get_content?latitude=34.247851752062&longitude=108.90309333801&openId=123123'" />
     <div id="article_contents">
 
 
