@@ -106,7 +106,7 @@ class IndexController extends WechatController
 
     public function selfMedia1(){
         //share success and send redpack
-/*
+
         //微信获取地址接口
         //获取 access_token
         $access_token = $this->getToken();
@@ -131,11 +131,9 @@ class IndexController extends WechatController
         $url = "$protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
         $string = "jsapi_ticket=$ret->ticket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
-        $signature = sha1($string);*/
+        $signature = sha1($string);
 
-$timestamp = time();
-$nonceStr = '';
-$signature = '';
+
         return view('wap.self_media1')
             ->with('appid', $this->app_id)
             ->with('timestamp', $timestamp)
@@ -147,7 +145,7 @@ $signature = '';
 
     public function selfMedia()
     {
-/*
+
         //share success and send redpack
 
         if(!Session::get('openId')){
@@ -195,11 +193,8 @@ $signature = '';
         $url = "$protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
         $string = "jsapi_ticket=$ret->ticket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
-        $signature = sha1($string);*/
-$timestamp = time();
-$nonceStr = '';
-$signature = '';
-$openId = '';
+        $signature = sha1($string);
+
         return view('wap.self_media')
             ->with('appid', $this->app_id)
             ->with('timestamp', $timestamp)
