@@ -37,13 +37,13 @@
 <div class="xiangqing">
     <div class="ny_top">当前位置：
         <a href="{{url('')}}">首页</a> >
-        <a href="{{url('offer_all')}}">求购</a> > 正文</div>
+        <a href="{{url('offer_all')}}">行业资讯</a> > 正文</div>
     <div class="zw">
-        <div class="fbr"><a href="#">发布人：{{$field->offer_editor}}</a></div>
-        <div class="fbr"><a href="#">资源种类：{{$field->offer_editor}}</a></div>
-        <div class="offer-title-sub">{{$field->offer_title}}</div>
+        <div class="fbr"><a href="#">发布人：{{$field->news_editor}}</a></div>
+        <div class="fbr"><a href="#">资源种类：{{$field->news_editor}}</a></div>
+        <div class="offer-title-sub">{{$field->news_title}}</div>
         <div class="fbt">发布时间：{{date('Y-m-d',strtotime($field->created_at))}}　　
-            浏览次数：{{$field->offer_view}}次</div>
+            浏览次数：{{empty($field->news_view) ? 0:$field->news_view}}次</div>
 
         <div class="tex">
 
@@ -52,7 +52,7 @@
 
 
             <hr>
-            {!!$field->offer_content!!}
+            {!!$field->news_content!!}
 
 
         </div>

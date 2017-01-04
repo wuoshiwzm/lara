@@ -34,7 +34,12 @@
     <input type="hidden" name="post[join_type]" value="0">
     <input type="hidden" name="post[title]" value="的新鲜事">
     <script type="text/javascript">
-        var ue = UE.getEditor('editor');
+        var ue = UE.getEditor('editor',{
+            toolbars: [
+                ['undo', 'redo', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'justifyleft', 'justifycenter', 'justifyright', 'indent', 'fontborder', 'formatmatch', 'removeformat', 'autotypeset', 'link', 'unlink', '|', 'rowspacingtop', 'rowspacingbottom', 'lineheight'],
+                ['fontfamily', 'fontsize', 'inserttable', 'horizontal', '|', 'emotion', 'insertimage', 'insertvideo', '|', 'imageleft', 'imagecenter', 'imageright']
+            ]
+        });
     </script>
 
     <script id="editor" type="text/plain" style="width:99.5%;height:150px;"></script>

@@ -57,6 +57,17 @@
                 </tr>
 
                 <tr>
+                    <th width="120"><i class="require">*</i>选择文章分类：</th>
+                    <td>
+                        <select name="recm_type" id="recm_type" onchange="recmTypeChoose()">
+                            <option value="0" <?php if($field->recm_type==0) echo 'selected="selected"';?>> 设计资源</option>
+                            <option value="1" <?php if($field->recm_type==1) echo 'selected="selected"';?>> 策划资源</option>
+                        </select>
+                    </td>
+
+                </tr>
+
+                <tr>
                     <th width="120"><i class="require">*</i>选择文章：</th>
                     <td>
                         <select name="" id="recm_choose" onchange="recmChoose()">
@@ -81,6 +92,28 @@
                         arr.push(v);
                         $("#recm_content").val(arr);
                         // alert($("#recm_content").val());
+                    }
+                    function recmTypeChoose()
+                    {
+                        var v = $("#recm_type").val();
+                        var optionsobj = $("#recm_choose");
+                        var optionshtml ='<option>请选择</option>';
+                        $.ajax({
+                            type:'post',
+                            url:'{{url("admin/recm1/ajaxGetArtlist")}}',
+                            dataType:'JSON',
+                            data:'_token={{csrf_token()}}&recm_type='+v,
+                            success:function(r){
+                                if(r.data)
+                                {
+                                    for(art in r.data)
+                                    {
+                                        optionshtml += '<option value='+r.data[art]['art_id']+'> '+r.data[art]['art_title']+'</option>';
+                                    }
+                                }
+                                optionsobj.html(optionshtml);
+                            }
+                        });
                     }
                 </script>
 

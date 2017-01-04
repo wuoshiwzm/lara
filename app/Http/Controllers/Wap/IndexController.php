@@ -20,7 +20,7 @@ class IndexController extends WechatController
 
     public function index()
     {
-
+//    dd($this->checkLocation());
     }
 
     /**
@@ -378,6 +378,7 @@ class IndexController extends WechatController
     public function checkLocation()
     {
 
+
         //根据经纬度获取城市 省份信息
 
         //纬度
@@ -386,6 +387,10 @@ class IndexController extends WechatController
         $longitude = Input::get('longitude');
         //文章id
         $mediaId = Input::get('media_id');
+
+        /*$latitude =34.30101;
+        $longitude = 108.93479;
+        $mediaId = 6;*/
 
         //获取省份 城市
         $res = $this->getLocation($latitude, $longitude);
@@ -399,12 +404,13 @@ class IndexController extends WechatController
         $provinceRequire = $selfMedia->media_province;
         $cityRequire = $selfMedia->media_city;
 
-        $checkProvince = $province == $provinceRequire ? true : false;
-        $checkCity = $city == $cityRequire ? true : false;
+        $checkProvince = ($province == $provinceRequire) ? 'true' : 'false';
+        $checkCity = ($city == $cityRequire) ? 'true' : 'false';
+
 
         if (empty($cityRequire)) {
             if (empty($provinceRequire))
-                return true;
+                return 'true';
             return $checkProvince;
         } else {
             return $checkCity;

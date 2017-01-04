@@ -64,6 +64,12 @@ Route::any('testpay','Pay\WechatPayController@index');
 //register
 Route::resource('register','Home\RegisterController');
 
+//服务条款
+Route::resource('/protocal','Home\IndexController@protocal');
+
+//关于我们
+Route::resource('/about','Home\IndexController@about');
+
 
 //wx pay Route 回调函数
 // Route::get('hongbao','Pay\Wx\Hongbao\HongbaoController@index');
@@ -73,3 +79,6 @@ Route::any('scanpay_callback','Pay\Wx\Scanpay\NotifyController@index');
 
 //上传图片
 Route::any('upload', 'Admin\CommonController@upload');
+
+//ajax获取用户余额
+Route::any('member/ajaxgetbalance','Member\MemberIndexController@ajaxgetbalance');

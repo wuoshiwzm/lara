@@ -68,15 +68,11 @@
                                 '_token': "{{csrf_token()}}",
                                 'media_id':"{{$media_id}}",
                             }, function (data) {
-                                //得到内容的JSON 字符串，解析并显示
-
-                                //解析 json字符串
-
 
                                 //判断是否可以分享此内容 如果不行则返回到主页 如果可以就继续执行
-                                if(!data){
+                                if(data == 'false'){
                                     alert('您的区域无法分享该内容');
-                                    location.href = "/wap/self_media";
+                                    location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx260619ea73a4b130&redirect_uri=http://adbangbang.com/wap/self_media1&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
                                 }
                                 //alert(data);
                             });
@@ -92,7 +88,7 @@
 
             //----分享定制
             var shareData = {
-                title: '这个秘密我只告诉你哦！'+"{{$content->title}}",
+                title: '转发此条消息有红包哦！'+"{{$content->title}}",
                 desc: '无穷大分享 分享抢红包 分享有惊喜！',
                 link: 'http://adbangbang.com/wap/self_media/' + "{{$media_id}}",
                 imgUrl: "{{asset('resources/views/home/images/logo.jpg')}}",

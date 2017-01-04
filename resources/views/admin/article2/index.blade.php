@@ -59,7 +59,7 @@
                         </td>
                         <td>{{$v->art_view}}</td>
                         <td>{{$v->art_editor}}</td>
-                        <td>{{date('Y-m-d',$v->art_time)}}</td>
+                        <td>{{$v->created_at}}</td>
 
                         <td>
                             <a href="{{url('admin/article2/'.$v->art_id.'/edit')}}">修改</a>
@@ -88,7 +88,7 @@ function delCate(cate_id){
 	layer.confirm('是否删除分类？', {
 	  btn: ['确认','取消']
 	},function(){
-			$.post("{{url('admin/article/')}}/"+cate_id,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
+			$.post("{{url('admin/article2/')}}/"+cate_id,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
 				if(data.status==0){
 
 					layer.msg(data.msg, {icon: 1});

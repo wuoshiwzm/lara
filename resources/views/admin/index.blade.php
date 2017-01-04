@@ -134,7 +134,7 @@
 
 	<!--底部 开始-->
 	<div class="bottom_box">
-		CopyRight © 2015. Powered By <a href="http://www.gamerbest.com">http://www.gamerbest.com</a>.
+		CopyRight © 2016-2017. Powered By <a href="http://adbangbang.com">http://adbangbang.com</a>.
 	</div>
 	<!--底部 结束-->
 		@endsection

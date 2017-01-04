@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Model\Category;
 use Illuminate\Support\Facades\Input;
 use App\Http\Model\Article1;
+use App\Http\Model\Article2;
 use App\Http\Model\Recm1;
 
 use App\Http\Model\Company;
@@ -69,8 +70,15 @@ class RecmommendController1 extends CommonController
       // GET|HEAD   编辑文章  | admin/article/{article}/edit
       public function edit($recm_id){
         // dd($recm_id);
-        $articles = Article1::orderBy('art_id','desc')->get();
         $field = Recm1::find($recm_id);
+        if($field->recm_type == 0)
+        {
+          $articles = Article1::orderBy('art_id','desc')->get();
+        }
+        else
+        {
+          $articles = Article2::orderBy('art_id','desc')->get();
+        }
 
         return view('admin.recm1.edit',compact('field','articles'));
       }
@@ -125,6 +133,18 @@ class RecmommendController1 extends CommonController
         return $data;
       }
 
-
+      public function ajaxGetArtlist(){
+        $recm_type = isset($_REQUEST['recm_type']) ? intval($_REQUEST['recm_type']) : 0;
+        if($recm_type == 0)
+        {
+          $articles = Article1::orderBy('art_id','desc')->get();
+        }
+        else
+        {
+          $articles = Article2::orderBy('art_id','desc')->get();
+        }
+        echo json_encode(array('data'=>$articles));
+        exit;
+      }
 
 }

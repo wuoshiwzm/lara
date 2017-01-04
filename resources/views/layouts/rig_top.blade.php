@@ -14,6 +14,8 @@
     </div>
 
     <div class="welocome">欢迎光临无穷大网络平台!</div>
+    <div style="display:inline-block;padding-left:10px;"><a style="color:#fff;" href="{{url('about')}}">关于我们</a></div>
+    <div style="display:inline-block;padding-left:10px;"><a style="color:#fff;" href="#">联系我们</a></div>
     <div class="data">
         {{--<span id="info1">今天是：2016年9月11日</span>--}}
         <script language="javascript" type="text/javascript">

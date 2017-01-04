@@ -36,14 +36,14 @@
 
     <script type="text/javascript" src="{{asset('resources/views/wap/js/jquery.js')}}"></script>
     <script type="text/javascript" src="{{asset('resources/views/wap/js/jqueryui.js')}}"></script>
-    <script type="text/javascript" src="{{asset('resources/views/wap/js/owl.carousel.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('resources/views/wap/js/jquery.swipebox.js')}}"></script>
-    <script type="text/javascript" src="{{asset('resources/views/wap/js/colorbox.js')}}"></script>
-    <script type="text/javascript" src="{{asset('resources/views/wap/js/snap.js')}}"></script>
-    <script type="text/javascript" src="{{asset('resources/views/wap/js/contact.js')}}"></script>
-    <script type="text/javascript" src="{{asset('resources/views/wap/js/custom.js')}}"></script>
-    <script type="text/javascript" src="{{asset('resources/views/wap/js/framework.js')}}"></script>
-    <script type="text/javascript" src="{{asset('resources/views/wap/js/framework.launcher.js')}}"></script>
+    {{--<script type="text/javascript" src="{{asset('resources/views/wap/js/owl.carousel.min.js')}}"></script>--}}
+    {{--<script type="text/javascript" src="{{asset('resources/views/wap/js/jquery.swipebox.js')}}"></script>--}}
+    {{--<script type="text/javascript" src="{{asset('resources/views/wap/js/colorbox.js')}}"></script>--}}
+    {{--<script type="text/javascript" src="{{asset('resources/views/wap/js/snap.js')}}"></script>--}}
+    {{--<script type="text/javascript" src="{{asset('resources/views/wap/js/contact.js')}}"></script>--}}
+    {{--<script type="text/javascript" src="{{asset('resources/views/wap/js/custom.js')}}"></script>--}}
+    {{--<script type="text/javascript" src="{{asset('resources/views/wap/js/framework.js')}}"></script>--}}
+    {{--<script type="text/javascript" src="{{asset('resources/views/wap/js/framework.launcher.js')}}"></script>--}}
     <title>@yield('js')</title>
 
 

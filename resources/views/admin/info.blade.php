@@ -8,6 +8,11 @@
 <ul>
 
 	<li>
+		<h3><i class="fa fa-fw fa-clipboard"></i>目前账户额度：{{$user_info['user_balance']}}</h3>
+
+	</li>
+
+	<li>
 		<h3><i class="fa fa-fw fa-clipboard"></i><a href="{{url('admin/company')}}"  target="main">完善企业信息</a></h3>
 
 	</li>

@@ -81,41 +81,6 @@
 @include('layouts.widget.investment')
 
 
-{{--浏览记录--}}
-{{--<div class="bot">--}}
-{{--<li>--}}
-{{--<span class="fli">张三</span>--}}
-{{--<span>13.20</span>--}}
-{{--<span>浏览了</span>--}}
-{{--<span><a href="">西安步旗文化广告传播公司</a></span>--}}
-{{--<span>求购公司</span>--}}
-{{--</li>--}}
-{{--<li>--}}
-{{--<span class="fli">张三</span>--}}
-{{--<span>13.20</span>--}}
-{{--<span>浏览了</span>--}}
-{{--<span><a href="">西安步旗文化广告传播公司</a></span>--}}
-{{--<span>求购公司</span>--}}
-{{--</li>--}}
-{{--<li>--}}
-{{--<span class="fli">张三</span>--}}
-{{--<span>13.20</span>--}}
-{{--<span>浏览了</span>--}}
-{{--<span><a href="">西安步旗文化广告传播公司</a></span>--}}
-{{--<span>求购公司</span>--}}
-{{--</li>--}}
-{{--</div>--}}
-
-{{--友情链接--}}
-{{--<div class="yl">--}}
-{{--<div class="yl_con">--}}
-{{--<a href="">西安步旗文化广告传播公司</a>--}}
-{{--<a href="">西安步旗文化广告传播公司</a>--}}
-{{--<a href="">西安步旗文化广告传播公司</a>--}}
-{{--<a href="">西安步旗文化广告传播公司</a>--}}
-{{--</div>--}}
-{{--</div>--}}
-
 
 
 @include('layouts.footer')

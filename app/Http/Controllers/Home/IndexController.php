@@ -56,9 +56,16 @@ class IndexController extends CommonController
             $artIdArr = explode(',', $k->recm_content);
             $name = $k->recm_name;
             foreach ($artIdArr as $a) {
-                $cont[] = Article1::find($a);
+                if($k->recm_type == 0)
+                {
+                    $cont[] = Article1::find($a);
+                }
+                else
+                {
+                    $cont[] = Article2::find($a);
+                }
             }
-            $recm1[] = [$name => $cont];
+            $recm1[] = [$name => $cont,'recm_type' => $k->recm_type];
             $cont = [];
         }
 
@@ -332,7 +339,8 @@ class IndexController extends CommonController
     {
 
         $field = Offer::join('category', 'offer.offer_cate_id', '=', 'category.cate_id')
-            ->select('offer.*', 'category.cate_name')
+            ->leftjoin('user','user.user_id','=','offer.user_id')
+            ->select('offer.*', 'category.cate_name', 'user.user_name')
             ->where('offer_id', $offer_id)->first();
 
 
@@ -381,5 +389,13 @@ class IndexController extends CommonController
         return view('home/search', compact('data','keywords','type'));
     }
 
+    public function protocal()
+    {
+        return view('home/protocal');
+    }
 
+    public function about()
+    {
+        return view('home/about');
+    }
 }

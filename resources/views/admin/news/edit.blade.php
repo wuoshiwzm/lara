@@ -61,6 +61,53 @@
                     </td>
                 </tr>
 
+                 <tr>
+                     <th> 缩略图：</th>
+                     <td>
+
+                        <script src="{{asset('resources/org/uploadify/jquery.uploadify.min.js')}}" type="text/javascript"></script>
+                        <link rel="stylesheet" type="text/css" href="{{asset('resources/org/uploadify/uploadify.css')}}">
+                        <script type="text/javascript">
+                            <?php $timestamp = time();?>
+                            $(function() {
+                                $('#file_upload').uploadify({
+                                    'buttonText':'上传图片',
+                                    'formData'     : {
+                                        'timestamp' : '<?php echo $timestamp;?>',
+                                        '_token'     : '{{csrf_token()}}',
+
+                                    },
+                                    'swf'      : "{{asset('resources/org/uploadify/uploadify.swf')}}",
+                                    'uploader' : "{{url('admin/upload')}}",
+                                    'onUploadSuccess':function(file,data,response){
+                                        $('input[name=art_thumb]').val(data);
+                                        $("#art_thumb_img").attr('src','/'+data);
+                                    }
+                                });
+                            });
+                        </script>
+                        <style>
+                        .uploadify{display:inline-block;}
+                        .uploadify-button{border:none; border-radius:5px; margin-top:8px;}
+                        table.add_tab tr td span.uploadify-button-text{color: #FFF; margin:0;}
+                        </style>
+
+
+                    <input type="text" size="50" name="art_thumb" value="{{$news->art_thumb}}">
+                    <input id="file_upload" name="file_upload" type="file" multiple="true">
+
+
+                     </td>
+                </tr>
+                
+                <tr>
+                        <th> </th>
+                        <td>
+                                <img  id="art_thumb_img" style="max-width:350px;max-height:150px"  src="/{{$news->art_thumb}}">
+
+                        </td>
+                </tr>
+
                 <tr>
                     <th>详细内容：</th>
                     <td>
@@ -89,10 +136,10 @@
                                 style="width:860px;height:350px;"></script>
                         <script type="text/javascript">
                             var ue = UE.getEditor('editor');
-                            //  ue.ready(function(){//监听编辑器实例化完成的事件
-                            //
-                            // 	 ue.setContent("{!!$news->news_content!!}");
-                            // })
+                             ue.ready(function(){//监听编辑器实例化完成的事件
+                            
+                            	 ue.setContent("{!!$news->news_content!!}");
+                            })
                         </script>
 
                     </td>

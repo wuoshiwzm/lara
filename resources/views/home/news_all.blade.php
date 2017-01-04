@@ -56,13 +56,13 @@ margin-right: 20%;">
         <h3>{{$news->news_title}}</h3>
 
         <ul>
-            <p>{{$news->news_content}}...</p>
+            <p>{!!$news->news_content!!}...</p>
             <a title="{{$news->news_title}}" href="{{url('news/'.$news->news_id)}}"
                target="_blank" class="readmore">阅读全文>></a>
         </ul>
         <p class="dateview">
             <span>　{{date('Y-m-d',strtotime($news->updated_at))}}</span>
-            <span>作者：{{$news->art_editor}}</span></p>
+            <span>作者：{{$news->news_editor}}</span></p>
         @endforeach
         <div class="page">
             {!!$data->links()!!}

@@ -9,9 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <title></title>
-<!-- <link href="{{asset('resources/views/home/css/base.css')}}" rel="stylesheet">
-<link href="{{asset('resources/views/home/css/index.css')}}" rel="stylesheet"> -->
-<!-- <link href="{{asset('resources/views/home/css/bootstrap.min.css')}}" rel="stylesheet"> -->
+
 <link href="{{asset('resources/views/home/css/style_page.css')}}" rel="stylesheet">
 <link href="{{asset('resources/views/home/css/new.css')}}" rel="stylesheet">
 <link href="{{asset('resources/views/home/css/style.css')}}" rel="stylesheet" >
