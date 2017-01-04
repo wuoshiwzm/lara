@@ -283,10 +283,10 @@
                             }, function (data) {
                                 //得到内容的JSON 字符串，解析并显示
 
-                                //解析 json字符串
-                                var data = $.parseJSON(data);
-                                if(data)
+                                if(data != '[]')
                                 {
+                                    //解析 json字符串
+                                    var data = $.parseJSON(data);
                                     $.each(data, function (n, value) {
 
     //                                    alert(value['content']);
@@ -334,7 +334,6 @@
 
 
     </script>
-    <input type="button" value="get" onclick="location.href='http://www.adbangbang.com/wap/self_media/get_content?latitude=34.247851752062&longitude=108.90309333801&openId=123123'" />
     <div id="article_contents">
 
 
