@@ -356,10 +356,12 @@ class IndexController extends WechatController
         }
 
 
-        $self_medias = array_merge($self_medias_country->toArray(), $self_medias_city->toArray(), $self_medias_province->toArray());*/
+        $self_medias = array_merge($self_medias_country->toArray(), $self_medias_city->toArray(), $self_medias_province->toArray());
         $res = $this->arrSort($self_medias, 'created_at', SORT_DESC, SORT_NATURAL);
 
-        return $res;
+        return $res;*/
+
+        return $self_medias;
 
     }
 
