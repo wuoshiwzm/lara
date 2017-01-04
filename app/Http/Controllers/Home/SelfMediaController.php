@@ -147,7 +147,14 @@ class SelfMediaController extends CommonController
             $self_medias[$k] = array_merge($media, array('shareTimes' => $shareTimes));
         }
 
-        $topShareMedia = $this->arrSort($self_medias, 'shareTimes', SORT_DESC, SORT_NUMERIC);
+        if($self_medias)
+        {
+            $topShareMedia = $this->arrSort($self_medias, 'shareTimes', SORT_DESC, SORT_NUMERIC);
+        }
+        else
+        {
+            $topShareMedia = array();
+        }
 
         if(count($topShareMedia)>8){
             $topShareMedia = array_slice($topShareMedia,0,8);
