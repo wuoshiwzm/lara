@@ -14,7 +14,13 @@ class SelfMediaController extends CommonController
     // 分类列表GET|HEAD        admin/self_media                 | admin.self_media.index
     public function index()
     {
-        $self_medias = SelfMedia::paginate(5);
+        $self_medias = SelfMedia::orderBy('media_id');
+        if(Input::get('search') ){
+            $search = Input::get('search');
+            $self_medias = $self_medias->where('title','like','%'.$search.'%')
+                ->orwhere('content','like','%'.$search.'%');
+        };
+        $self_medias = $self_medias->paginate(5);
         return view('admin.self_media.index')->with('data', $self_medias);
     }
 
