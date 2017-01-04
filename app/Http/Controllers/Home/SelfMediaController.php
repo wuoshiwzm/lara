@@ -102,7 +102,8 @@ class SelfMediaController extends CommonController
                 $query->where('media_min_lat', '<=', $data['latNow'])
                     ->where('media_min_lng', '<=', $data['lngNow'])
                     ->where('media_max_lat', '>=', $data['latNow'])
-                    ->where('media_max_lng', '>=', $data['lngNow']);
+                    ->where('media_max_lng', '>=', $data['lngNow'])
+                    ->where('user_balance', '>', 2);
             })
             ->orwhere(function($query) use($data){
                 $query->where('media_province', '')
@@ -110,7 +111,8 @@ class SelfMediaController extends CommonController
                     ->where('media_min_lat', 0)
                     ->where('media_min_lng', 0)
                     ->where('media_max_lat', 0)
-                    ->where('media_max_lng', 0);
+                    ->where('media_max_lng', 0)
+                    ->where('user_balance', '>', 2);
             })
             ->orwhere(function($query) use($data){
                 $query->where('media_province', 'like', '%' . $data['provinceNow'] . '%')
@@ -118,7 +120,8 @@ class SelfMediaController extends CommonController
                     ->where('media_min_lat', 0)
                     ->where('media_min_lng', 0)
                     ->where('media_max_lat', 0)
-                    ->where('media_max_lng', 0);
+                    ->where('media_max_lng', 0)
+                    ->where('user_balance', '>', 2);
             })
             ->orwhere(function($query) use($data){
                 $query->where('media_province', 'like', '%' . $data['provinceNow'] . '%')
@@ -126,9 +129,9 @@ class SelfMediaController extends CommonController
                     ->where('media_min_lat', 0)
                     ->where('media_min_lng', 0)
                     ->where('media_max_lat', 0)
-                    ->where('media_max_lng', 0);
+                    ->where('media_max_lng', 0)
+                    ->where('user_balance', '>', 2);
             })
-            ->where('user_balance', '>', 2)
             // ->limit(8)
             ->orderby('created_at', 'desc')
             ->select('self_media.*', 'user.user_name')
