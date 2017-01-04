@@ -106,7 +106,7 @@ class IndexController extends WechatController
 
     public function selfMedia1(){
         //share success and send redpack
-
+/*
         //微信获取地址接口
         //获取 access_token
         $access_token = $this->getToken();
@@ -131,9 +131,11 @@ class IndexController extends WechatController
         $url = "$protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
         $string = "jsapi_ticket=$ret->ticket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
-        $signature = sha1($string);
+        $signature = sha1($string);*/
 
-
+$timestamp = time();
+$nonceStr = '';
+$signature = '';
         return view('wap.self_media1')
             ->with('appid', $this->app_id)
             ->with('timestamp', $timestamp)
@@ -145,7 +147,7 @@ class IndexController extends WechatController
 
     public function selfMedia()
     {
-
+/*
         //share success and send redpack
 
         if(!Session::get('openId')){
@@ -193,8 +195,11 @@ class IndexController extends WechatController
         $url = "$protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
         $string = "jsapi_ticket=$ret->ticket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
-        $signature = sha1($string);
-
+        $signature = sha1($string);*/
+$timestamp = time();
+$nonceStr = '';
+$signature = '';
+$openId = '';
         return view('wap.self_media')
             ->with('appid', $this->app_id)
             ->with('timestamp', $timestamp)
@@ -286,7 +291,8 @@ class IndexController extends WechatController
                 $query->where('media_min_lat', '<=', $data['latNow'])
                     ->where('media_min_lng', '<=', $data['lngNow'])
                     ->where('media_max_lat', '>=', $data['latNow'])
-                    ->where('media_max_lng', '>=', $data['lngNow']);
+                    ->where('media_max_lng', '>=', $data['lngNow'])
+                    ->where('user_balance', '>', 2);
             })
             ->orwhere(function($query) use($data){
                 $query->where('media_province', '')
@@ -294,7 +300,8 @@ class IndexController extends WechatController
                     ->where('media_min_lat', 0)
                     ->where('media_min_lng', 0)
                     ->where('media_max_lat', 0)
-                    ->where('media_max_lng', 0);
+                    ->where('media_max_lng', 0)
+                    ->where('user_balance', '>', 2);
             })
             ->orwhere(function($query) use($data){
                 $query->where('media_province', 'like', '%' . $data['provinceNow'] . '%')
@@ -302,7 +309,8 @@ class IndexController extends WechatController
                     ->where('media_min_lat', 0)
                     ->where('media_min_lng', 0)
                     ->where('media_max_lat', 0)
-                    ->where('media_max_lng', 0);
+                    ->where('media_max_lng', 0)
+                    ->where('user_balance', '>', 2);
             })
             ->orwhere(function($query) use($data){
                 $query->where('media_province', 'like', '%' . $data['provinceNow'] . '%')
@@ -310,9 +318,10 @@ class IndexController extends WechatController
                     ->where('media_min_lat', 0)
                     ->where('media_min_lng', 0)
                     ->where('media_max_lat', 0)
-                    ->where('media_max_lng', 0);
+                    ->where('media_max_lng', 0)
+                    ->where('user_balance', '>', 2);
             })
-            ->where('user_balance', '>', 2)
+            // ->where('user_balance', '>', 2)
             // ->limit(8)
             ->orderby('created_at', 'desc')
             ->select('self_media.*', 'user.user_name')
