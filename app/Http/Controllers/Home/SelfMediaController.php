@@ -164,6 +164,7 @@ class SelfMediaController extends CommonController
         // };
 
         //推荐
+        $pushMedia = array();
         foreach ($self_medias as $k => $media) {
             if($media['show'] == 2){
                 $pushMedia[] = $media;
