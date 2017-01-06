@@ -128,6 +128,7 @@
 
         <script>
             $(document).ready(function(){
+                alert(window.wxlocationlat+window.wxlocationlng);
                 $.ajax({
                     type:'post',
                     url:'{{url('wap/self_media/get_content')}}',
