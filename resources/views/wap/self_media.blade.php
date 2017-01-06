@@ -82,8 +82,8 @@
             //--调取地址
             wx.getLocation({
                 success: function (res) {
-                    wxlocationlat = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-                    wxlocationlng = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                    window.wxlocationlat = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                    window.wxlocationlng = res.longitude; // 经度，浮点数，范围为180 ~ -180。
                     // var speed = res.speed; // 速度，以米/每秒计
                     // var accuracy = res.accuracy; // 位置精度
                 },
@@ -132,7 +132,7 @@
                     type:'post',
                     url:'{{url('wap/self_media/get_content')}}',
                     dataType:'JSON',
-                    data:'latitude='+wxlocationlat+'&longitude='+wxlocationlng+'&_token={{csrf_token()}}&openId={{$openId}}',
+                    data:'latitude='+window.wxlocationlat+'&longitude='+window.wxlocationlng+'&_token={{csrf_token()}}&openId={{$openId}}',
                     success: function(data){
                         if(data.length > 0)
                         {
