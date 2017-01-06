@@ -321,6 +321,18 @@ class IndexController extends WechatController
             ->orderby('created_at', 'desc')
             ->select('self_media.*', 'user.user_name')
             ->get();
+
+
+        foreach ($self_medias_data as $k => $media) {
+
+            if ($media->share->where('openid', $openId)->count()) {
+                $self_medias_data->forget($k);
+                continue;
+            }
+            $media->user_name = $media->user->user_name;
+            $media->share_time = $media->share->count();
+        }
+        
         $self_medias = $self_medias_data->toArray();
 
         /*foreach ($self_medias_province as $k => $media) {
