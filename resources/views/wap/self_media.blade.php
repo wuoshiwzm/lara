@@ -78,8 +78,6 @@
         </div>
 
         <script>
-            var wxlocationlat,wxlocationlng;
-
             wx.config({
                 debug: false,
                 appId: 'wx260619ea73a4b130',
@@ -112,11 +110,11 @@
                 //--调取地址
                 wx.getLocation({
                     success: function (res) {
-                        wxlocationlat = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-                        wxlocationlng = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                        var wxlocationlat = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                        var wxlocationlng = res.longitude; // 经度，浮点数，范围为180 ~ -180。
                         // var speed = res.speed; // 速度，以米/每秒计
                         // var accuracy = res.accuracy; // 位置精度
-                        alert(wxlocationlat+wxlocationlng);
+                        getShareList(wxlocationlat, wxlocationlng);
                     },
                     cancel: function (res) {
                         alert('用户拒绝授权获取地理位置');
@@ -127,13 +125,13 @@
             });
         </script>
         <script>
-            $(document).ready(function(){
-                alert(window.wxlocationlat+window.wxlocationlng);
+            function getShareList(lat, lng)
+            {
                 $.ajax({
                     type:'post',
                     url:'{{url('wap/self_media/get_content')}}',
                     dataType:'JSON',
-                    data:'latitude='+window.wxlocationlat+'&longitude='+window.wxlocationlng+'&_token={{csrf_token()}}&openId={{$openId}}',
+                    data:'latitude='+lat+'&longitude='+lng+'&_token={{csrf_token()}}&openId={{$openId}}',
                     success: function(data){
                         if(data.length > 0)
                         {
@@ -169,7 +167,7 @@
                         }
                     }
                 });
-            });
+            }
         </script>
     </body>
 </html>
