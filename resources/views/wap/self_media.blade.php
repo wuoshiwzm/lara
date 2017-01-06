@@ -46,55 +46,6 @@
         <script type="text/javascript" src="{{asset('resources/views/wap/js/swiper-2.1.min.js')}}" ></script>
         <script type="text/javascript" src="{{asset('resources/views/wap/js/media-query.js')}}" ></script>
         <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-
-    <script>
-        var window.wxlocationlat,window.wxlocationlng;
-
-        wx.config({
-            debug: false,
-            appId: 'wx260619ea73a4b130',
-            timestamp: {{$timestamp}},
-            nonceStr: "{{$nonceStr}}",
-            signature: "{{$signature}}",
-            jsApiList: [
-                // 所有要调用的 API 都要加到这个列表中
-                'checkJsApi',
-                'openLocation',
-                'getLocation'
-            ]
-        });
-
-        wx.ready(function () {
-            //--确认微信版本地址
-            wx.checkJsApi({
-                jsApiList: [
-                    'getLocation'
-                ],
-                success: function (res) {
-                    if (res.checkResult.getLocation == false) {
-                        alert('你的微信版本太低，请升级到最新的微信版本！');
-                        return;
-                    }
-                }
-            });
-            //--确认微信版本地址 end
-
-            //--调取地址
-            wx.getLocation({
-                success: function (res) {
-                    window.wxlocationlat = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-                    window.wxlocationlng = res.longitude; // 经度，浮点数，范围为180 ~ -180。
-                    // var speed = res.speed; // 速度，以米/每秒计
-                    // var accuracy = res.accuracy; // 位置精度
-                },
-                cancel: function (res) {
-                    alert('用户拒绝授权获取地理位置');
-                    location.href = "/wap/self_media";
-                }
-            });
-            //--调取地址 end
-        });
-    </script>
     </head>
     <body>
         <div class="box">
@@ -126,6 +77,55 @@
                 </div>
         </div>
 
+        <script>
+            var wxlocationlat,wxlocationlng;
+
+            wx.config({
+                debug: false,
+                appId: 'wx260619ea73a4b130',
+                timestamp: {{$timestamp}},
+                nonceStr: "{{$nonceStr}}",
+                signature: "{{$signature}}",
+                jsApiList: [
+                    // 所有要调用的 API 都要加到这个列表中
+                    'checkJsApi',
+                    'openLocation',
+                    'getLocation'
+                ]
+            });
+
+            wx.ready(function () {
+                //--确认微信版本地址
+                wx.checkJsApi({
+                    jsApiList: [
+                        'getLocation'
+                    ],
+                    success: function (res) {
+                        if (res.checkResult.getLocation == false) {
+                            alert('你的微信版本太低，请升级到最新的微信版本！');
+                            return;
+                        }
+                    }
+                });
+                //--确认微信版本地址 end
+
+                //--调取地址
+                wx.getLocation({
+                    success: function (res) {
+                        wxlocationlat = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                        wxlocationlng = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                        // var speed = res.speed; // 速度，以米/每秒计
+                        // var accuracy = res.accuracy; // 位置精度
+                        alert(wxlocationlat+wxlocationlng);
+                    },
+                    cancel: function (res) {
+                        alert('用户拒绝授权获取地理位置');
+                        location.href = "/wap/self_media";
+                    }
+                });
+                //--调取地址 end
+            });
+        </script>
         <script>
             $(document).ready(function(){
                 alert(window.wxlocationlat+window.wxlocationlng);
