@@ -130,6 +130,7 @@
                 $.ajax({
                     type:'post',
                     url:'{{url('wap/self_media/get_content')}}',
+                    async:false,
                     dataType:'JSON',
                     data:'latitude='+lat+'&longitude='+lng+'&_token={{csrf_token()}}&openId={{$openId}}',
                     success: function(data){
