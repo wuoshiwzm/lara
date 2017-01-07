@@ -134,7 +134,7 @@
                     dataType:'JSON',
                     data:'latitude='+lat+'&longitude='+lng+'&_token={{csrf_token()}}&openId={{$openId}}',
                     success: function(data){
-                        if(data.length > 0)
+                        if(!$.isEmptyObject(data))
                         {
                             for(var value in data)
                             {
