@@ -83,15 +83,16 @@ class IndexController extends WechatController
 
         return $res;
 */
-        $url = 'http://apis.map.qq.com/ws/geocoder/v1/';
-        $data = array(
-            'location' => $latitude.','.$longitude,
-            'key' => 'F2LBZ-3QCKU-BG2VC-4WNDQ-V5KGQ-YWFJF',
-        );
-        $res = json_decode(requestHttp($url, $data, 0), true);
         $expiretime = time() + 10800;
         if(!isset($_COOKIE['nation']) || !isset($_COOKIE['province']) || !isset($_COOKIE['city']))
         {
+            $url = 'http://apis.map.qq.com/ws/geocoder/v1/';
+            $data = array(
+                'location' => $latitude.','.$longitude,
+                'key' => 'F2LBZ-3QCKU-BG2VC-4WNDQ-V5KGQ-YWFJF',
+            );
+            $res = json_decode(requestHttp($url, $data, 0), true);
+
             setcookie('nation', $res['result']['address_component']['nation'], $expiretime);
             setcookie('province', $res['result']['address_component']['province'], $expiretime);
             setcookie('city', $res['result']['address_component']['city'], $expiretime);
@@ -195,6 +196,7 @@ class IndexController extends WechatController
         $string = "jsapi_ticket=$ret->ticket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
         $signature = sha1($string);
 
+
         return view('wap.self_media')
             ->with('appid', $this->app_id)
             ->with('timestamp', $timestamp)
@@ -220,8 +222,9 @@ class IndexController extends WechatController
         $openId = Input::get('openId');
 
         // -- test only
-        // $latitude = 34.301;
-        // $longitude = 108.934784;
+        // $latitude = 34.2417;
+        // $longitude = 108.9282;
+        // $openId = 'oe72Ewr1-K8IkPhuNpPm4fqy-xpg';
         // -- test only
 
         $res = $this->getLocation($latitude, $longitude);
