@@ -17,7 +17,7 @@
             .swiper-wrapper {position: relative;z-index:10;}
             .swiper-slide {position:relative;text-align:center;float:left;}
             .swiper-slide a{position:relative;width:100%;height:100%;display:block;overflow:hidden;}
-            .swiper-slide img{width:100%;height:auto;vertical-align:middle;position:relative;}
+            .swiper-slide img{width:100%;height:100%;vertical-align:middle;position:relative;}
             .pagination{position:absolute;height:1.2rem;width:100%;bottom:0.875rem;z-index:100;}
             .pagination .swiper-pagination-switch{display:inline-block;height:0.5em;width:0.5em;background:#FFF;border-radius:50%;margin-right:1em;}
             .pagination .swiper-active-switch{background:#fe5e52;}
