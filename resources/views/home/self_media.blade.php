@@ -62,14 +62,30 @@
 
                 <div class="fie_con">
                     <div class="face">
-                        <img src="{{asset('resources/views/home/images/50.jpg')}}" alt="{{$v['user_name']}}">
+                        @if($v['headimg'])
+                        <img src="{{$v['headimg']}}" />
+                        @else
+                        <img src="{{asset('resources/views/home/images/50.jpg')}}" />
+                        @endif
                     </div>
                     <div class="fie_right">
-                        <p class="name"><a href="#"><span style="color:#FF6600">{{$v['user_name']}}</span></a></p>
+                        <p class="name">
+                            <a href="#">
+                                @if($v['nickname'])
+                                <span style="color:#FF6600">{{$v['nickname']}}</span>
+                                @else
+                                <span style="color:#FF6600">{{$v['user_name']}}</span>
+                                @endif
+                            </a>
+                        </p>
 
                         <p class="datae">
                             <span> {{$v['created_at']}}</span>
+                            @if($v['nickname'])
+                            <span>来自{{$v['nickname']}}</span>
+                            @else
                             <span>来自{{$v['user_name']}}</span>
+                            @endif
 
 
                         </p>

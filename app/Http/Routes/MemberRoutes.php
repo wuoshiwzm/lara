@@ -33,6 +33,9 @@ Route::resource('company','CompanyController');
 Route::any('upload', 'CommonController@upload');
 
 
+Route::get('myinfo', 'MemberIndexController@myinfo');
+Route::get('editmyinfo', 'MemberIndexController@editmyinfo');
+Route::any('ajaxuploadheader', 'MemberIndexController@ajaxuploadheader');
 
 
 //自媒体

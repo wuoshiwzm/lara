@@ -1,99 +1,91 @@
-@extends('layouts.admin')
+@extends('layouts.member')
 
 @section('content')
 
-	<!--头部 开始-->
-	<div class="top_box">
-		<div class="top_left">
-			<div class="logo">后台管理模板</div>
+	<!--页面头部菜单-->
+	<div class="warp header">
+		<!--logo-->
+		<div class="logo"> 
+			<a href="/"><img src="{{asset('resources/views/member/style/images/logo.jpg')}}" /> </a>
+		</div>
+		<!--顶部菜单-->
+		<div class="nav">
 			<ul>
-				<li><a href="{{url('/')}}" target="_blank" class="active">首页</a></li>
-				<li><a href="{{url('member/info')}}" target="main">管理页</a></li>
+				<li><a href="/">首页</a></li>
+				<li><a href="{{url('cate')}}">广告媒介</a></li>
+				<li><a href="{{url('cate2')}}">策划活动</a></li>
+				<li><a href="{{url('cate1')}}">创意设计</a></li>
+				<li><a href="{{url('self_media')}}">全民推手</a></li>
+				<li><a href="{{url('news_all')}}">行业资讯</a></li>
+				<li><a href="{{url('offer_all')}}">求购</a></li>
 			</ul>
 		</div>
 		<div class="top_right">
-			<ul>
-				<li>欢迎你！{{session('user')->user_name}}</li>
-				<li><a href="{{url('member/pass')}}" target="main">修改密码</a></li>
-				<li><a href="{{url('member/quit')}}">退出</a></li>
-			</ul>
+			<span>欢迎你！{{session('user')->user_name}}</span>
+			<span><a href="{{url('member/pass')}}" target="main">修改密码</a></span>
+			<span><a href="{{url('member/quit')}}">退出</a></span>
 		</div>
 	</div>
-	<!--头部 结束-->
 
-	<!--左侧导航 开始-->
-	<div class="menu_box">
-		<ul>
-
-			<li></li>
-
-
-			<li>
-				<h3><i class="fa fa-fw fa-clipboard"></i>资源管理</h3>
-				<ul class="sub_menu">
-
-					<li><a href="{{url('member/article')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>媒体资源</a></li>
-					<li><a href="{{url('member/article1')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>设计资源</a></li>
-					<li><a href="{{url('member/article2')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>策划资源</a></li>
-					<li><a href="{{url('member/news')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>新闻资源</a></li>
-					<li><a href="{{url('member/offer')}}" target="main"><i class="fa fa-fw fa-list-ul"></i>求购信息</a></li>
-
-				</ul>
-			</li>
-
-
-
-
-
-			<li>
-				<h3><i class="fa fa-fw fa-clipboard"></i>自媒体</h3>
-				<ul class="sub_menu">
-					<li><a href="{{url('member/self_media')}}" target="main"><i class="fa fa-fw fa-list-alt"></i>管理</a></li>
-					<!-- <li><a   target="main"><i class="fa fa-fw fa-list-alt"></i>添加</a></li> -->
-				</ul>
-			</li>
-
-			<li>
-				<h3><i class="fa fa-fw fa-clipboard"></i>百科资料</h3>
-				<ul class="sub_menu">
-					<li><a   target="main"><i class="fa fa-fw fa-list-alt"></i>管理</a></li>
-					<li><a   target="main"><i class="fa fa-fw fa-list-alt"></i>添加</a></li>
-				</ul>
-			</li>
-
-			<li>
-				<h3><i class="fa fa-fw fa-clipboard"></i>招标招商信息</h3>
-				<ul class="sub_menu">
-					<li><a   target="main"><i class="fa fa-fw fa-list-alt"></i>管理</a></li>
-					<li><a   target="main"><i class="fa fa-fw fa-list-alt"></i>添加</a></li>
-				</ul>
-			</li>
-
-
-
-
-
-			<!--member management -->
-			<li>
-				<h3><i class="fa fa-fw fa-clipboard"></i>会员管理</h3>
-				<ul class="sub_menu">
-					<li><a  target="main" href="{{url('scanpay')}}"><i class="fa fa-fw fa-list-alt"></i>账户充值</a></li>
-				</ul>
-			</li>
-
-		</ul>
+	<div class="warp content">
+		<div class="treebox">
+			<ul class="menu">
+				<li class="level1">
+					<a href="javascript:;">我的资源<i></i></a>
+					<ul class="level2">
+						<li><a href="{{url('member/article')}}" target="main">媒体资源</a></li>
+						<li><a href="{{url('member/article1')}}" target="main">设计资源</a></li>
+						<li><a href="{{url('member/article2')}}" target="main">策划资源</a></li>
+						<li><a href="{{url('member/news')}}" target="main">新闻资源</a></li>
+						<li><a href="{{url('member/offer')}}" target="main">求购信息</a></li>
+					</ul>
+				</li>
+				<li class="level1">
+					<a href="javascript:;" target="main">我的自媒体<i></i></a>
+					<ul class="level2">
+						<li><a href="{{url('member/self_media')}}" target="main">自媒体</a></li>
+					</ul>
+				</li>
+	            <li class="level1">
+					<a href="javascript:;">百科资料<i></i></a>
+					<ul class="level2">
+						<li><a href="javascript:alert('敬请期待!');" target="main">百科资料</a></li>
+					</ul>
+				</li>
+				 <li class="level1">
+					<a href="javascript:;">招标和招商<i></i></a>
+					<ul class="level2">
+						<li><a href="javascript:alert('敬请期待!');" target="main">招标和招商</a></li>
+					</ul>
+				</li>
+				<li class="level1">
+					<a href="javascript:;">我的账户<i></i></a>
+					<ul class="level2">
+						<li><a href="{{url('member/myinfo')}}" target="main">个人资料</a></li>
+						<li><a href="{{url('member/info')}}" target="main">管理页</a></li>
+						<li><a target="main" href="{{url('scanpay')}}">账户充值</a></li>
+						<!-- <li><a href="xiaofei.html">账户余额</a></li>
+						<li><a href="javascript:;">累计消费</a></li> -->
+						<li><a href="{{url('member/pass')}}" target="main">修改密码</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="main_right">
+			<iframe src="" frameborder="0" width="100%" height="100%" name="main"></iframe>
+		</div>
 	</div>
-	<!--左侧导航 结束-->
-
-	<!--主体部分 开始-->
-	<div class="main_box">
-		<iframe src="" frameborder="0" width="100%" height="100%" name="main"></iframe>
-	</div>
-	<!--主体部分 结束-->
-
-	<!--底部 开始-->
-	<div class="bottom_box">
-		CopyRight © 2016-2017. Powered By <a href="http://adbangbang.com">http://adbangbang.com</a>.
-	</div>
-	<!--底部 结束-->
-		@endsection
+	<script>
+	//等待dom元素加载完毕.
+		$(function(){
+			$(".treebox .level1>a").click(function(){
+				$(this).addClass('current')   //给当前元素添加"current"样式
+				.find('i').addClass('down')   //小箭头向下样式
+				.parent().next().slideDown('slow','easeOutQuad')  //下一个元素显示
+				.parent().siblings().children('a').removeClass('current')//父元素的兄弟元素的子元素去除"current"样式
+				.find('i').removeClass('down').parent().next().slideUp('slow','easeOutQuad');//隐藏
+				 return false; //阻止默认时间
+			});
+		})
+	</script>
+	@endsection

@@ -138,12 +138,18 @@
                         {
                             for(var value in data)
                             {
-                                $("#article_contents").append('<li>'
+                                var appendhtml = '<li>'
                                     +'  <a href="/wap/self_media/'+ data[value].media_id + '">'
-                                    +'  <div class="list_t">'
-                                    +'      <i><img src="/resources/views/wap/images/touxiang.jpg"/></i>'
-                                    +'      <span class="list_name">'+data[value].user_name+'</span>'
-                                    +'      <span class="fxl">分享数量 ' + data[value].share_time + '</span>'
+                                    +'  <div class="list_t">';
+                                    if(data[value].headimg)
+                                        appendhtml+='      <i><img src="'+data[value].headimg+'"/></i>';
+                                    else
+                                        appendhtml+='      <i><img src="/resources/views/wap/images/touxiang.jpg"/></i>';
+                                    if(data[value].nickname)
+                                        appendhtml+='      <span class="list_name">'+data[value].nickname+'</span>';
+                                    else
+                                        appendhtml+='      <span class="list_name">'+data[value].user_name+'</span>';
+                                    appendhtml+='      <span class="fxl">分享数量 ' + data[value].share_time + '</span>'
                                     +'  </div>'
                                     +'  <div class="list_c">'
                                     +'      <div class="list_txt">'
@@ -155,7 +161,8 @@
                                     +'      <a class="fx" href="/wap/self_media/'+ data[value].media_id + '" >分享</a>'
                                     +'  </div>'
                                     +'  </a>'
-                                    +'</li>');
+                                    +'</li>';
+                                $("#article_contents").append(appendhtml);
                             }
                         }
                         else
