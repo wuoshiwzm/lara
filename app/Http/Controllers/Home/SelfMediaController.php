@@ -134,7 +134,7 @@ class SelfMediaController extends CommonController
             })
             // ->limit(8)
             ->orderby('created_at', 'desc')
-            ->select('self_media.*', 'user.user_name')
+            ->select('self_media.*', 'user.user_name', 'user.nickname', 'user.headimg')
             ->get();
         $self_medias = $self_medias_data->toArray();
 
