@@ -148,7 +148,7 @@ class IndexController extends WechatController
     {
 
         //share success and send redpack
-/*
+
         if(!Session::get('openId')){
             $state = '123';
             $code = '';
@@ -194,12 +194,9 @@ class IndexController extends WechatController
         $url = "$protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
         $string = "jsapi_ticket=$ret->ticket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
-        $signature = sha1($string);*/
+        $signature = sha1($string);
 
-$timestamp = time();
-$nonceStr = time();
-$signature = time();
-$openId = time();
+
         return view('wap.self_media')
             ->with('appid', $this->app_id)
             ->with('timestamp', $timestamp)
