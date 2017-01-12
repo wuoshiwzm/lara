@@ -26,7 +26,7 @@
                       <img src="{{url('admin/code')}}" alt="" onclick="this.src='{{url('admin/code')}}?'+Math.random()" class="valid_code">
 
                       <input type="button" class="denglu" id="login" value="确认登录">
-                      <p class="zhu">还没有注册账号？ <a href="{{url('register')}}" target="_blank">立即注册</a></p>
+                      <p class="zhu">还没有注册账号？ <a href="{{url('register')}}" target="_blank">立即注册</a><a href="{{url('forgotpass')}}" target="_blank" style="float:right;margin-right: 10px;">忘记密码？</a></p>
                     @endif
 
               </div>

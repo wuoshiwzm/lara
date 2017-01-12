@@ -82,3 +82,9 @@ Route::any('upload', 'Admin\CommonController@upload');
 
 //ajax获取用户余额
 Route::any('member/ajaxgetbalance','Member\MemberIndexController@ajaxgetbalance');
+
+//用户验证
+Route::get('/forgotpass','Home\MemberVerifyController@forgotpass');
+Route::get('/verifyuser','Home\MemberVerifyController@verifyuser');
+Route::get('/resetpass/{flagcode}','Home\MemberVerifyController@resetpass');
+Route::any('/ajaxresetpass','Home\MemberVerifyController@ajaxresetpass');

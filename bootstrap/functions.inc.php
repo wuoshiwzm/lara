@@ -23,8 +23,9 @@ function getIp(){
  * @param string $url 请求地址
  * @param array $params 请求参数
  * @param int $ispost 请求方式 1-post 0-get
+ * @param int $isssl 是否https请求 1-是 0-否
 */
-function requestHttp($url, $params=array(), $ispost=1){
+function requestHttp($url, $params=array(), $ispost=1, $isssl=0){
     if(is_array($params))
     {
         $url .= '?'.http_build_query($params);
@@ -41,6 +42,11 @@ function requestHttp($url, $params=array(), $ispost=1){
     {
         curl_setopt($ch, CURLOPT_POST, $ispost);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $paramsstr);
+    }
+    if($isssl)
+    {
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false); 
     }
     $data = curl_exec($ch);
     curl_close($ch);
@@ -85,4 +91,35 @@ function getRange($lat,$lon,$raidus){
         'maxLon' => $maxLng
     );
     return $range;
+}
+
+//生成随机字符串
+function random($length=6, $type='string', $convert=0){
+    $config = array(
+        'number'=>'1234567890',
+        'letter'=>'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        'string'=>'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789',
+        'all'=>'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+    );
+
+    if(!isset($config[$type])) $type = 'string';
+    $string = $config[$type];
+
+    $code = '';
+    $strlen = strlen($string) -1;
+    for($i = 0; $i < $length; $i++){
+        $code .= $string{mt_rand(0, $strlen)};
+    }
+    if(!empty($convert)){
+        $code = ($convert > 0)? strtoupper($code) : strtolower($code);
+    }
+    return $code;
+}
+
+//smtp发送邮件
+function sendEmailToOne($toemail, $subjecttxt, $emailtxt)
+{
+    require_once('AliEmail.class.php');
+    require_once('email.class.php');
+    return AliEmail::sendEmailBySMTP($toemail, $subjecttxt, $emailtxt);
 }
