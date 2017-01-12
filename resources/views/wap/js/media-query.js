@@ -11,7 +11,7 @@ window.onload = function(){
     var mySwiper = new Swiper('.swiper-container',{
         pagination: '.pagination',
         loop:true,
-        autoplay:1000,
+        autoplay:3000,
         paginationClickable: true,
         onSlideChangeStart: function(){
             //回调函数
