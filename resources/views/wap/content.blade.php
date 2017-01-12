@@ -24,11 +24,14 @@
             .b_header {position: relative; height: 4rem; line-height: 4rem; overflow: hidden;}
             .b_header a img {width: 8rem; height: 4rem;}
             .header_r {width: 100%; height: 4rem; overflow: hidden;  position: absolute;  top: 0;  left: 8rem; background: #fff;  text-align: center;}
-            .content {}
-            .content .c_title {background: #fff; font-size: 0.5rem; padding: 0.7rem;}
+            .content {width: 100%;}
+            .content .c_title {width: 100%; background: #fff; font-size: 0.5rem;}
+            .content .c_title p {padding: 0.3rem 1.3333rem;}
+            .content img {width: 100%; height: auto;}
+            /*底部分享*/
             .fenxiang {height: 3rem; padding-top: 1rem;}
             .fenxiang ul li  {float: left; }
-            .fenxiang a {background: url(images/fenxiang.png) no-repeat; display: block; width: 2rem; height: 2rem;}
+            .fenxiang a {background: url(img/fenxiang.png) no-repeat; display: block; width: 2rem; height: 2rem;}
             .fenxiang .weibo {background-position: 3px -54px;}
             .fenxiang .weixin {background-position: -28px -54px;}
             .fenxiang .qqhaoyou {background-position: -59px -54px;}

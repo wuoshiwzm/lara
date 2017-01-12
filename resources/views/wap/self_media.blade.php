@@ -24,6 +24,8 @@
             .pagination{position:absolute;height:1.2rem;width:100%;bottom:0.875rem;z-index:100;}
             .pagination .swiper-pagination-switch{display:inline-block;height:0.5em;width:0.5em;background:#FFF;border-radius:50%;margin-right:1em;}
             .pagination .swiper-active-switch{background:#fe5e52;}
+            .hide{position: fixed; top: 0;left: 0;right:0;bottom:0; width: 100%; z-index: 999999;background-color:rgba(0,0,0,0.1); }
+            .hide .bgImg{position:absolute;top:50%;left:50%;width: 4rem;}
             /*内容部分  */
             .content {position: relative; }
             .list li {margin-top: 0.2222rem; padding: 0 0.7rem; background: #fff;}
@@ -52,7 +54,7 @@
             <div class="b_header">
                 <a href="#"><img src="{{asset('resources/views/wap/images/logo.jpg')}}"/> </a>
                 <div class="header_r"><p>无穷大网络信息服务平台正式上线了！...无穷大网络信息服务</p></div>
-            </div>  
+            </div>
             <div class="swiper-container">
                     <div class="swiper-wrapper" id="swiper-wrapper">
                         <div class="swiper-slide"><a href="#"><img src="{{asset('resources/views/wap/images/qmts.jpg')}}" alt=""></a></div>
@@ -61,6 +63,7 @@
                     </div>
                     <div class="pagination"></div>
              </div>
+            <div class="hide"><img src="{{asset('resources/views/wap/images/loading.gif')}}" class="bgImg" /></div>
             <div class="content">
                 <ul class="list" id="article_contents">
                 </ul>
@@ -76,6 +79,14 @@
                     <p>关注微信公众号 查看更多分享推广哦</p>
                 </div>
         </div>
+
+        <script>
+            var height =  window.screen.height;
+            $(".hide").css("height",height);
+            var dWidth = $(".bgImg").width();
+            var dHeight = $(".bgImg").height();
+            $(".bgImg").attr("style","margin-top:-"+ (dHeight/2) +"px;margin-left:-"+(dWidth/2)+"px;");
+        </script>
 
         <script>
             wx.config({
@@ -173,6 +184,7 @@
                                 +'</div>'
                             );
                         }
+                        $(".hide").hide();
                     }
                 });
             }
