@@ -185,14 +185,14 @@ p{
 }
 .search .hangye{
 	width: 79px;
-    height: 28px;
-    background: #efeeee;
+    height: 26px;
+    /*background: #efeeee;*/
     color: #494848;
     font-size: 13px;
     text-align: center;
-    line-height: 29px;
+    line-height: 26px;
     position: absolute;
-    top: 1px;
+    top: 2px;
     left: 2px;
     border: 0px;
     border-right: 1px solid #d8d8d8;
@@ -520,6 +520,7 @@ border: 0px;
 }
 .box3 .box3_title .title_right .hover{
 	background-color: #e70517;
+	color: #fff; border-radius: 5px 5px 0  0;
 }
 .box3 .box3_title .title_right .hover a{
 	color: #fff;
