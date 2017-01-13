@@ -25,7 +25,7 @@
             .pagination .swiper-pagination-switch{display:inline-block;height:0.5em;width:0.5em;background:#FFF;border-radius:50%;margin-right:1em;}
             .pagination .swiper-active-switch{background:#fe5e52;}
             .hide{position: fixed; top: 0;left: 0;right:0;bottom:0; width: 100%; z-index: 999999;background-color:rgba(0,0,0,0.1); }
-            .hide .bgImg{position:absolute;top:50%;left:50%;width: 4rem;}
+            .hide .bgImg{position:absolute;top:50%;left:50%;}
             /*内容部分  */
             .content {position: relative; }
             .list li {margin-top: 0.2222rem; padding: 0 0.7rem; background: #fff;}
