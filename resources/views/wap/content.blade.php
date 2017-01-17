@@ -24,9 +24,11 @@
             .b_header {position: relative; height: 4rem; line-height: 4rem; overflow: hidden;}
             .b_header a img {width: 8rem; height: 4rem;}
             .header_r {width: 100%; height: 4rem; overflow: hidden;  position: absolute;  top: 0;  left: 8rem; background: #fff;  text-align: center;}
-            .content {width: 100%;}
+			/*内容区*/
+			.content {width: 100%;}
             .content .c_title {width: 100%; background: #fff; font-size: 0.5rem;}
             .content .c_title p {padding: 0.3rem 1.3333rem;}
+			.content .c_box {margin-left: 2rem; margin-right: 2rem;}
             .content img {width: 100%; height: auto;}
             /*底部分享*/
             .fenxiang {height: 3rem; padding-top: 1rem;}
@@ -54,7 +56,6 @@
 
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
-
         wx.config({
             debug: false,
             appId: 'wx260619ea73a4b130',     // 必填，公众号的唯一标识
@@ -64,9 +65,7 @@
             jsApiList: ['onMenuShareTimeline'],
             openId:1
         });
-
         wx.ready(function () {
-
             //--确认微信版本地址
             wx.checkJsApi({
                 jsApiList: [
@@ -76,7 +75,6 @@
                     //alert(JSON.stringify(res));
                     //alert(JSON.stringify(res.checkResult.getLocation));
                     if (res.checkResult.getLocation == false) {
-
                         alert('你的微信版本太低，请升级到最新的微信版本！');
                         location.href = "/wap/self_media";
                         return;
@@ -84,7 +82,6 @@
                 }
             });
             //--确认微信版本地址 end
-
             //--调取地址
             wx.getLocation({
                 success: function (res) {
@@ -92,10 +89,7 @@
                     var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
                     var speed = res.speed; // 速度，以米/每秒计
                     var accuracy = res.accuracy; // 位置精度
-
-
                     //ajax 获取信息 并显示页面
-
                     $.post("{{url('wap/self_media/check_location')}}",
                             {
                                 'latitude': latitude,
@@ -104,7 +98,6 @@
                                 '_token': "{{csrf_token()}}",
                                 'media_id':"{{$media_id}}",
                             }, function (data) {
-
                                 //判断是否可以分享此内容 如果不行则返回到主页 如果可以就继续执行
                                 if(data == 'false'){
                                     alert('您的区域无法分享该内容');
@@ -112,7 +105,6 @@
                                 }
                                 //alert(data);
                             });
-
                 },
                 cancel: function (res) {
                     alert('用户拒绝授权获取地理位置');
@@ -120,8 +112,6 @@
                 }
             });
             //--调取地址 end
-
-
             //----分享定制
             var shareData = {
                 title: '这个秘密我只告诉你哦！'+"{{$content->title}}",
@@ -138,14 +128,10 @@
                     // 用户取消分享后执行的回调函数
                 }
             };
-
             wx.onMenuShareAppMessage(shareData);
             wx.onMenuShareTimeline(shareData);
             // ----分享定制
-
-
         });
-
         wx.error(function (res) {
             alert(res.errMsg);
         });
@@ -171,9 +157,11 @@
 
             <div class="content">
                 <div class="c_title"> <p>发布时间 {{$content->created_at}}</p>  </div>
+				<div class="c_box">
                 @if($content)
                 <p>{!! $content->content !!}</p>
                 @endif
+				</div>
             </div>
 
             <div class="footer">
