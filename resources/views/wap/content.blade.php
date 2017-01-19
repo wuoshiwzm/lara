@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <style>
             *{margin: 0; padding: 0;}
-            body {font-size: 1rem; font-family: "微软雅黑"; background:#f2f4f8;}
+            html {height:100%;}
+            body {height:100%;font-size: 1rem; font-family: "微软雅黑"; background:#f2f4f8;}
             a {text-decoration: none; color: #000;}
             ul li {list-style: none;}
             .content p {font-size: 0.855rem; line-height: 1.5rem; letter-spacing:0.15rem;}
@@ -141,6 +142,9 @@
 
 
     {{--菜单--}}
+        @if($content->contenttype == '1')
+        <iframe src="{{urldecode($content->cjurl)}}" style="width:100%;height:100%;border:none;"></iframe>
+        @else
         <div class="box">
             <div class="b_header">
                 <a href="#"><img src="{{asset('resources/views/wap/images/logo.jpg')}}"/> </a>
@@ -176,5 +180,6 @@
                 </div>
             </div>
         </div>
+        @endif
     </body>
 </html>

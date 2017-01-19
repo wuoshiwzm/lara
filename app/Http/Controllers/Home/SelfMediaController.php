@@ -171,10 +171,19 @@ class SelfMediaController extends CommonController
             }
         }
 
+        //用户是否已登录
+        $userstatus = 0;
+        $user = session('user');
+        if($user)
+        {
+            $userstatus = 1;
+        }
+
         return view('home.self_media')
             ->with('self_medias', $self_medias)
             ->with('topShareMedia',$topShareMedia)
-            ->with('pushMedia',$pushMedia);
+            ->with('pushMedia',$pushMedia)
+            ->with('userstatus',$userstatus);
     }
 
     /**
@@ -231,6 +240,18 @@ class SelfMediaController extends CommonController
                 $res['media_province'] = $input['media_province'];
                 $res['media_city'] = $input['media_city'];
             }
+
+            $res['contenttype'] = $input['contenttype'];
+            if($res['contenttype'] == '1' && empty($input['catecjurl']))
+            {
+                $data = [
+                    'status' => 1,
+                    'msg' => '场景地址不能为空'
+                ];
+                return $data;
+            }
+            $res['cjurl'] = urlencode($input['catecjurl']);
+
             $data = [
                 'status' => 4,
                 'msg' => '已经成功发送，奇迹即将发生！'
