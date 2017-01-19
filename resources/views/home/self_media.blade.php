@@ -1,4 +1,17 @@
 @include('layouts.header')
+<style>
+    .new_row {width: 807px; height: 130px;  border-bottom: 2px solid #eee; padding: 5px 0; position: relative;}
+    .new_row .new_img {float: left;}
+    .new_row a img {width: 120px; height: 120px;}
+    .new_row .news_title {float: left; width: 480px; height: 70px; line-height: 30px; overflow: hidden;}
+    .new_row .news_title h3 { min-height: 40px; font-size: 20px; padding: 10px 20px;}
+    .new_row .news_time {position: absolute; left: 140px; bottom: 14px;}
+    .new_row .news_time span {font-size: 14px; color: ;}
+    .new_row .news_time a {margin-left: 12px;}
+    .new_row .news_btn {position: absolute; right: 20px; bottom: 14px;}
+    .new_row .news_btn img {width: 196px; height: 66px;}
+</style>
+
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" charset="utf-8"></script>
 <link href="{{asset('resources/views/home/css/pack.css')}}" rel="stylesheet">
 
@@ -58,51 +71,30 @@
 
 
             @foreach($self_medias as $v)
-
-
-                <div class="fie_con">
-                    <div class="face">
+                <div class="new_row">
+                    <a class="new_img" href="">
                         @if($v['headimg'])
                         <img src="{{$v['headimg']}}" />
                         @else
                         <img src="{{asset('resources/views/home/images/50.jpg')}}" />
                         @endif
-                    </div>
-                    <div class="fie_right">
-                        <p class="name">
-                            <a href="#">
-                                @if($v['nickname'])
-                                <span style="color:#FF6600">{{$v['nickname']}}</span>
-                                @else
-                                <span style="color:#FF6600">{{$v['user_name']}}</span>
-                                @endif
-                            </a>
-                        </p>
-
-                        <p class="datae">
-                            <span> {{$v['created_at']}}</span>
+                    </a>
+                    <div>
+                        <div class="news_title">
+                            <h3><a href="javascript:jumpFrame({{$v['media_id']}});" target="_blank">{{$v['title']}}</a></h3>
+                        </div>
+                        <div class="news_time">
+                            <span> {{$v['created_at']}}</span>&nbsp;&nbsp;
                             @if($v['nickname'])
                             <span>来自{{$v['nickname']}}</span>
                             @else
                             <span>来自{{$v['user_name']}}</span>
                             @endif
-
-
-                        </p>
-
-                        <p class="nei">
-                          <span>
-
-                            {!!$v['content']!!}
-                          </span>
-                            <a onclick="jumpFrame({{$v['media_id']}})"><img class="pack"
+                            <a href="javascript:jumpFrame({{$v['media_id']}});" target="_blank">阅读全文</a>
+                        </div>
+                        <div class="news_btn"> <a onclick="jumpFrame({{$v['media_id']}})"><img class="pack"
                                                                             src="{{asset('resources/views/home/images/pack.jpg')}}">
-                            </a>
-                        </p>
-
-                    </div>
-                    <div class="clear"></div>
-                    <div class="fie_bottom">
+                            </a></div>
                     </div>
                 </div>
             @endforeach
